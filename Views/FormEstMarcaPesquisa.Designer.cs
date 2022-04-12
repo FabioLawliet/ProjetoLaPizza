@@ -59,7 +59,8 @@
             // 
             // txtPesquisa
             // 
-            this.txtPesquisa.Size = new System.Drawing.Size(434, 20);
+            this.txtPesquisa.Size = new System.Drawing.Size(438, 20);
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // FormEstMarcaPesquisa
             // 

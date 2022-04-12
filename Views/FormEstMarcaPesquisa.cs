@@ -49,5 +49,18 @@ namespace LaPizza.Views
         {
             Close();
         }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dbGridPesquisa.DataSource = null;
+            Context db = new Context();
+            MarcaController mControle = new MarcaController();
+            List<MarcaModel> ListMarca = mControle.GetListMarcaWhere(txtPesquisa.Text);
+            dbGridPesquisa.DataSource = ListMarca;
+            dbGridPesquisa.Columns[0].Width = 50;
+            dbGridPesquisa.Columns[1].Width = 320;
+            dbGridPesquisa.Columns[2].Width = 50;
+            dbGridPesquisa.Refresh();
+        }
     }
 }

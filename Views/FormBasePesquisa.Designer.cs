@@ -185,7 +185,7 @@
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlPesquisa);
             this.Name = "FormBasePesquisa";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormBasePesquisa";
             this.pnlPesquisa.ResumeLayout(false);
             this.pnlPesquisa.PerformLayout();

@@ -63,6 +63,21 @@ namespace LaPizza.Controllers
             return new List<MarcaModel>(ListMarca);
         }
 
+        public List<MarcaModel> GetListMarcaWhere(string descricao)
+        {
+            Context db = new Context();
+            List<MarcaModel> ListMarca = (from m in db.marca
+                                          orderby m.id
+                                          select new MarcaModel
+                                          {
+                                              id = m.id,
+                                              descricao = m.descricao,
+                                              ativa = m.ativa
+                                          }).ToList();
+
+            return new List<MarcaModel>(ListMarca.Where(p => p.descricao.Contains(descricao)));
+        }
+
         public void SalvaEdicaoMarca(MarcaDto Marca)
         {
             Context db = new Context();
