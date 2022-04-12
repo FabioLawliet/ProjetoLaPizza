@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlAcoesRodape = new System.Windows.Forms.Panel();
-            this.btnConfirmar = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -47,6 +46,7 @@
             this.splitter4 = new System.Windows.Forms.Splitter();
             this.btnAcaoExcluir = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.pnlAcoesRodape.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesMenu.SuspendLayout();
@@ -66,23 +66,6 @@
             this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(5);
             this.pnlAcoesRodape.Size = new System.Drawing.Size(484, 40);
             this.pnlAcoesRodape.TabIndex = 0;
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnConfirmar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnConfirmar.FlatAppearance.BorderSize = 0;
-            this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
-            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnConfirmar.Location = new System.Drawing.Point(259, 5);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(70, 30);
-            this.btnConfirmar.TabIndex = 0;
-            this.btnConfirmar.Text = "&Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = false;
             // 
             // splitter2
             // 
@@ -110,6 +93,7 @@
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // splitter1
             // 
@@ -126,8 +110,8 @@
             this.btnSair.BackColor = System.Drawing.Color.IndianRed;
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSair.FlatAppearance.BorderSize = 0;
-            this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.Transparent;
@@ -207,8 +191,9 @@
             this.btnAcaoAdicionar.Name = "btnAcaoAdicionar";
             this.btnAcaoAdicionar.Size = new System.Drawing.Size(30, 30);
             this.btnAcaoAdicionar.TabIndex = 8;
+            this.btnAcaoAdicionar.TabStop = false;
             this.btnAcaoAdicionar.UseVisualStyleBackColor = false;
-            this.btnAcaoAdicionar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAcaoAdicionar_MouseDown);
+            this.btnAcaoAdicionar.Click += new System.EventHandler(this.btnAcaoAdicionar_Click);
             this.btnAcaoAdicionar.MouseEnter += new System.EventHandler(this.btnAcaoAdicionar_MouseEnter);
             this.btnAcaoAdicionar.MouseLeave += new System.EventHandler(this.btnAcaoAdicionar_MouseLeave);
             // 
@@ -239,8 +224,9 @@
             this.btnAcaoEditar.Name = "btnAcaoEditar";
             this.btnAcaoEditar.Size = new System.Drawing.Size(30, 30);
             this.btnAcaoEditar.TabIndex = 6;
+            this.btnAcaoEditar.TabStop = false;
             this.btnAcaoEditar.UseVisualStyleBackColor = false;
-            this.btnAcaoEditar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAcaoEditar_MouseDown);
+            this.btnAcaoEditar.Click += new System.EventHandler(this.btnAcaoEditar_Click);
             this.btnAcaoEditar.MouseEnter += new System.EventHandler(this.btnAcaoEditar_MouseEnter);
             this.btnAcaoEditar.MouseLeave += new System.EventHandler(this.btnAcaoEditar_MouseLeave);
             // 
@@ -271,8 +257,9 @@
             this.btnAcaoConsultar.Name = "btnAcaoConsultar";
             this.btnAcaoConsultar.Size = new System.Drawing.Size(30, 30);
             this.btnAcaoConsultar.TabIndex = 4;
+            this.btnAcaoConsultar.TabStop = false;
             this.btnAcaoConsultar.UseVisualStyleBackColor = false;
-            this.btnAcaoConsultar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAcaoConsultar_MouseDown);
+            this.btnAcaoConsultar.Click += new System.EventHandler(this.btnAcaoConsultar_Click);
             this.btnAcaoConsultar.MouseEnter += new System.EventHandler(this.btnAcaoConsultar_MouseEnter);
             this.btnAcaoConsultar.MouseLeave += new System.EventHandler(this.btnAcaoConsultar_MouseLeave);
             // 
@@ -303,8 +290,9 @@
             this.btnAcaoExcluir.Name = "btnAcaoExcluir";
             this.btnAcaoExcluir.Size = new System.Drawing.Size(30, 30);
             this.btnAcaoExcluir.TabIndex = 0;
+            this.btnAcaoExcluir.TabStop = false;
             this.btnAcaoExcluir.UseVisualStyleBackColor = false;
-            this.btnAcaoExcluir.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAcaoExcluir_MouseDown);
+            this.btnAcaoExcluir.Click += new System.EventHandler(this.btnAcaoExcluir_Click);
             this.btnAcaoExcluir.MouseEnter += new System.EventHandler(this.btnAcaoExcluir_MouseEnter);
             this.btnAcaoExcluir.MouseLeave += new System.EventHandler(this.btnAcaoExcluir_MouseLeave);
             // 
@@ -312,6 +300,24 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnConfirmar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnConfirmar.FlatAppearance.BorderSize = 0;
+            this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmar.Location = new System.Drawing.Point(259, 5);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(70, 30);
+            this.btnConfirmar.TabIndex = 0;
+            this.btnConfirmar.Text = "&Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // FormBaseCadastros
             // 
@@ -343,7 +349,6 @@
         public System.Windows.Forms.Button btnAcaoConsultar;
         public System.Windows.Forms.Label lbNomeRotina;
         public System.Windows.Forms.Panel pnlAcoesRodape;
-        public System.Windows.Forms.Button btnConfirmar;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnAcaoExcluir;
@@ -351,5 +356,6 @@
         private System.Windows.Forms.Splitter splitter5;
         private System.Windows.Forms.Splitter splitter4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        public System.Windows.Forms.Button btnConfirmar;
     }
 }

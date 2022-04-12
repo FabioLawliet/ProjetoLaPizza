@@ -16,10 +16,10 @@ namespace LaPizza.Views
         public FormEstMarca()
         {
             InitializeComponent();
-            HabilitaComponentesPnlPrincipal(false);
+            HabilitarComponentesPnlPrincipal(false);
         }
 
-        private void HabilitaComponentesPnlPrincipal(bool Ativa)
+        private void HabilitarComponentesPnlPrincipal(bool Ativa)
         {
             if (Ativa)
             {
@@ -36,21 +36,12 @@ namespace LaPizza.Views
                 txtDescricao.Enabled = false;
                 cbAtiva.Enabled = false;
             }
-
         }
 
         private void btnAcaoAdicionar_Click(object sender, EventArgs e)
         {
-            HabilitaAcao(TipoAcao.Adicionar, false);
-            HabilitaAcao(TipoAcao.Editar, false);
-            HabilitaAcao(TipoAcao.Consultar, false);
-            HabilitaAcao(TipoAcao.Excluir, false);
-            HabilitaAcao(TipoAcao.Confirmar, false);
-            HabilitaAcao(TipoAcao.Cancelar, false);
-            HabilitaAcao(TipoAcao.Sair, true);
-            HabilitaComponentesPnlPrincipal(true);
-            LimpaComponentes();
-            btnAcaoAdicionar.BackgroundImage = Properties.Resources.AcaoAdicionarHover;
+            HabilitarComponentesPnlPrincipal(true);
+
             MarcaController MControle = new MarcaController();
             txtId.Text = (MControle.GetProximoId()+1).ToString();
 
@@ -60,65 +51,44 @@ namespace LaPizza.Views
 
         private void btnAcaoEditar_Click(object sender, EventArgs e)
         {
-            HabilitaAcao(TipoAcao.Adicionar, false);
-            HabilitaAcao(TipoAcao.Editar, false);
-            HabilitaAcao(TipoAcao.Consultar, false);
-            HabilitaAcao(TipoAcao.Excluir, false);
-            HabilitaAcao(TipoAcao.Confirmar, false);
-            HabilitaAcao(TipoAcao.Cancelar, false);
-            HabilitaAcao(TipoAcao.Sair, true);
-            
-            HabilitaComponentesPnlPrincipal(true);
+            HabilitarComponentesPnlPrincipal(true);
+
             FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
             pesquisaMarca.ShowDialog();
-            btnAcaoEditar.BackgroundImage = Properties.Resources.AcaoEditarHover;
-            if (txtId.Text == String.Empty)
-            {
-                cancelaOperacao();
-            }
 
+            if (txtId.Text == String.Empty)
+                cancelaOperacao();
+
+            if (txtDescricao.CanFocus)
+                txtDescricao.Focus();
         }
 
         private void btnAcaoConsultar_Click(object sender, EventArgs e)
         {
-            HabilitaAcao(TipoAcao.Adicionar, false);
-            HabilitaAcao(TipoAcao.Editar, false);
-            HabilitaAcao(TipoAcao.Consultar, false);
-            HabilitaAcao(TipoAcao.Excluir, false);
-            HabilitaAcao(TipoAcao.Confirmar, false);
-            HabilitaAcao(TipoAcao.Cancelar, true);
-            HabilitaAcao(TipoAcao.Sair, true);
+            HabilitarComponentesPnlPrincipal(false);
 
-            HabilitaComponentesPnlPrincipal(false);
             FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
             pesquisaMarca.ShowDialog();
-            btnAcaoConsultar.BackgroundImage = Properties.Resources.AcaoConsultarHover;
-            if (txtId.Text == String.Empty)
-            {
-                cancelaOperacao();
-            }
 
+            if (txtId.Text == String.Empty)
+                cancelaOperacao();
+
+            if (btnCancelar.CanFocus)
+                btnCancelar.Focus();
         }
 
         private void btnAcaoExcluir_Click(object sender, EventArgs e)
         {
-            HabilitaAcao(TipoAcao.Adicionar, false);
-            HabilitaAcao(TipoAcao.Editar, false);
-            HabilitaAcao(TipoAcao.Consultar, false);
-            HabilitaAcao(TipoAcao.Excluir, false);
-            HabilitaAcao(TipoAcao.Confirmar, true);
-            HabilitaAcao(TipoAcao.Cancelar, true);
-            HabilitaAcao(TipoAcao.Sair, true);
+            HabilitarComponentesPnlPrincipal(false);
 
-            HabilitaComponentesPnlPrincipal(false);
             FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
             pesquisaMarca.ShowDialog();
-            //btnAcaoConsultar.BackgroundImage = Properties.Resources.AcaoConsultarHover;
-            if (txtId.Text == String.Empty)
-            {
-                cancelaOperacao();
-            }
 
+            if (txtId.Text == String.Empty)
+                cancelaOperacao();
+
+            if (btnConfirmar.CanFocus)
+                btnConfirmar.Focus();
         }
 
         private void LimpaComponentes()
@@ -132,7 +102,7 @@ namespace LaPizza.Views
         {
             if(txtDescricao.Text == string.Empty)
             {
-                MessageBox.Show("Informe uma descrição");
+                MessageBox.Show("É necessário informar uma descrição");
                 txtDescricao.Focus();
             }
             else
@@ -144,27 +114,16 @@ namespace LaPizza.Views
                 Marca.descricao = txtDescricao.Text;
                 Marca.ativa = cbAtiva.Checked;
 
-                if (Mcontrole.ExisteMarca(Int32.Parse(txtId.Text)))
+                if (MenuStatus == MStatus.Adicionando)
                     Mcontrole.AdicionarMarca(Marca);
-                else
-                {
+                else if (MenuStatus == MStatus.Editando)
                     Mcontrole.SalvaEdicaoMarca(Marca);
-                }
+                else if (MenuStatus == MStatus.Excluindo)
+                    MessageBox.Show("excluindo");
             }
 
             LimpaComponentes();
-            HabilitaComponentesPnlPrincipal(false);
-            HabilitaAcao(TipoAcao.Adicionar, true);
-            HabilitaAcao(TipoAcao.Editar, true);
-            HabilitaAcao(TipoAcao.Consultar, true);
-            HabilitaAcao(TipoAcao.Excluir, true);
-            HabilitaAcao(TipoAcao.Confirmar, false);
-            HabilitaAcao(TipoAcao.Cancelar, false);
-            HabilitaAcao(TipoAcao.Sair, true);
-        }
-
-        private void txtDescricao_KeyPress(object sender, KeyPressEventArgs e)
-        {
+            HabilitarComponentesPnlPrincipal(false);
 
         }
 
@@ -181,28 +140,17 @@ namespace LaPizza.Views
         private void cancelaOperacao()
         {
             LimpaComponentes();
-            HabilitaComponentesPnlPrincipal(false);
-            HabilitaAcao(TipoAcao.Adicionar, true);
-            HabilitaAcao(TipoAcao.Editar, true);
-            HabilitaAcao(TipoAcao.Consultar, true);
-            HabilitaAcao(TipoAcao.Excluir, true);
-            HabilitaAcao(TipoAcao.Confirmar, false);
-            HabilitaAcao(TipoAcao.Cancelar, false);
-            HabilitaAcao(TipoAcao.Sair, true);
+            HabilitarComponentesPnlPrincipal(false);
+            HabilitarAcoesIniciais();
         }
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)
         {
             if (txtDescricao.Text != String.Empty && txtDescricao.Enabled == true)
-            {
                 HabilitaAcao(TipoAcao.Confirmar, true);
-                HabilitaAcao(TipoAcao.Cancelar, true);
-            }
             else
-            {
                 HabilitaAcao(TipoAcao.Confirmar, false);
-                HabilitaAcao(TipoAcao.Cancelar, false);
-            }
         }
+
     }
 }

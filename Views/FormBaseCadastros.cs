@@ -13,16 +13,19 @@ namespace LaPizza.Views
 {
     public partial class FormBaseCadastros : Form
     {
+        public MStatus? MenuStatus;
         public FormBaseCadastros()
         {
             InitializeComponent();
-            HabilitaAcao(TipoAcao.Adicionar, true);
-            HabilitaAcao(TipoAcao.Editar, true);
-            HabilitaAcao(TipoAcao.Consultar, true);
-            HabilitaAcao(TipoAcao.Excluir, true);
-            HabilitaAcao(TipoAcao.Confirmar, false);
-            HabilitaAcao(TipoAcao.Cancelar, false);
-            HabilitaAcao(TipoAcao.Sair, true);
+            HabilitarAcoesIniciais();
+        }
+
+        public enum MStatus
+        {
+            Adicionando,
+            Editando,
+            Consultando,
+            Excluindo
         }
 
         public enum TipoAcao
@@ -36,28 +39,90 @@ namespace LaPizza.Views
             Sair
         }
 
-        //
-        // EVENTOS BOTÃO ADICIONAR
-        //
-
-        private void btnAcaoAdicionar_MouseEnter(object sender, EventArgs e)
+        public void HabilitarAcoesIniciais()
         {
-            btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionarHover;
-        }
-        private void btnAcaoAdicionar_MouseLeave(object sender, EventArgs e)
-        {
-            btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionar;
-        }
-        private void btnAcaoAdicionar_MouseDown(object sender, MouseEventArgs e)
-        {
-            btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionarClick;
+            HabilitaAcao(TipoAcao.Adicionar, true);
+            HabilitaAcao(TipoAcao.Editar, true);
+            HabilitaAcao(TipoAcao.Consultar, true);
+            HabilitaAcao(TipoAcao.Excluir, true);
+            HabilitaAcao(TipoAcao.Confirmar, false);
+            HabilitaAcao(TipoAcao.Cancelar, false);
+            HabilitaAcao(TipoAcao.Sair, true);
+            MenuStatus = null;
         }
 
-        private void btnAcaoAdicionar_MouseUp(object sender, MouseEventArgs e)
+        public void HabilitaAcaoMenu(bool HabilitaTodos)
         {
-            btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionarHover;
+            if (HabilitaTodos)
+            {
+                btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionar;
+                btnAcaoAdicionar.Enabled = true;
+                btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditar;
+                btnAcaoEditar.Enabled = true;
+                btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultar;
+                btnAcaoConsultar.Enabled = true;
+                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluir;
+                btnAcaoExcluir.Enabled = true;
+            }
+            else
+            {
+                btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionarDisable;
+                btnAcaoAdicionar.Enabled = false;
+                btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditarDisable;
+                btnAcaoEditar.Enabled = false;
+                btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultarDisable;
+                btnAcaoConsultar.Enabled = false;
+                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirDisable;
+                btnAcaoExcluir.Enabled = false;
+            }
         }
+        public void HabilitaAcaoMenu(bool HabAdicionar, bool HabEditar, bool HabConsultar, bool HabExcluir)
+        {
+            if (HabAdicionar)
+            {
+                btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionar;
+                btnAcaoAdicionar.Enabled = true;
+            }
+            else
+            {
+                btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionarDisable;
+                btnAcaoAdicionar.Enabled = false;
+            }
 
+            if (HabEditar)
+            {
+                btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditar;
+                btnAcaoEditar.Enabled = true;
+            }
+            else
+            {
+                btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditarDisable;
+                btnAcaoEditar.Enabled = false;
+            }
+
+            if (HabConsultar)
+            {
+                btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultar;
+                btnAcaoConsultar.Enabled = true;
+            }
+            else
+            {
+                btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultarDisable;
+                btnAcaoConsultar.Enabled = false;
+            }
+
+            if (HabExcluir)
+            {
+                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluir;
+                btnAcaoExcluir.Enabled = true;
+            }
+            else
+            {
+                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirDisable;
+                btnAcaoExcluir.Enabled = false;
+            }
+
+        }
         public void HabilitaAcao(TipoAcao Tipo, bool HabilitaAcao)
         {
             switch ((int)Tipo)
@@ -161,7 +226,23 @@ namespace LaPizza.Views
                         break;
                     }
             }
+        }
 
+        //
+        // EVENTOS BOTÃO ADICIONAR
+        //
+
+        private void btnAcaoAdicionar_MouseEnter(object sender, EventArgs e)
+        {
+            if (btnAcaoAdicionar.Enabled)
+                btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionarHover;
+        }
+        private void btnAcaoAdicionar_MouseLeave(object sender, EventArgs e)
+        {
+            if (btnAcaoAdicionar.Enabled)
+                btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionar;
+            else
+                btnAcaoAdicionar.BackgroundImage = LaPizza.Properties.Resources.AcaoAdicionarHover;
         }
 
         //
@@ -169,23 +250,17 @@ namespace LaPizza.Views
         //
         private void btnAcaoEditar_MouseEnter(object sender, EventArgs e)
         {
-            btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditarHover;
+            if (btnAcaoEditar.Enabled)
+                btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditarHover;
         }
 
         private void btnAcaoEditar_MouseLeave(object sender, EventArgs e)
         {
-            btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditar;
+            if (btnAcaoEditar.Enabled)
+                btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditar;
+            else
+                btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditarHover;
         }
-        private void btnAcaoEditar_MouseDown(object sender, MouseEventArgs e)
-        {
-            btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditarClick;
-        }
-
-        private void btnAcaoEditar_MouseUp(object sender, MouseEventArgs e)
-        {
-            btnAcaoEditar.BackgroundImage = LaPizza.Properties.Resources.AcaoEditarHover;
-        }
-
 
         //
         // EVENTOS BOTÃO CONSULTAR
@@ -193,21 +268,16 @@ namespace LaPizza.Views
 
         private void btnAcaoConsultar_MouseEnter(object sender, EventArgs e)
         {
-            btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultarHover;
+            if (btnAcaoConsultar.Enabled)
+                btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultarHover;
         }
 
         private void btnAcaoConsultar_MouseLeave(object sender, EventArgs e)
         {
-            btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultar;
-        }
-        private void btnAcaoConsultar_MouseDown(object sender, MouseEventArgs e)
-        {
-            btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultarClick;
-        }
-
-        private void btnAcaoConsultar_MouseUp(object sender, MouseEventArgs e)
-        {
-            btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultarHover;
+            if (btnAcaoConsultar.Enabled)
+                btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultar;
+            else
+                btnAcaoConsultar.BackgroundImage = LaPizza.Properties.Resources.AcaoConsultarHover;
         }
 
         //
@@ -215,36 +285,66 @@ namespace LaPizza.Views
         //
         private void btnAcaoExcluir_MouseEnter(object sender, EventArgs e)
         {
-            if (btnAcaoExcluir.Enabled == true)
+            if (btnAcaoExcluir.Enabled)
                 btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirHover;
-            else
-                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirDisable;
         }
 
         private void btnAcaoExcluir_MouseLeave(object sender, EventArgs e)
         {
-            if (btnAcaoExcluir.Enabled == true)
+            if (btnAcaoExcluir.Enabled)
                 btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluir;
             else
-                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirDisable;
+                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirHover;
         }
 
-        private void btnAcaoExcluir_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (btnAcaoExcluir.Enabled == true)
-                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirClick;
-            else
-                btnAcaoExcluir.BackgroundImage = LaPizza.Properties.Resources.AcaoExcluirDisable;
-        }
-
-        private void btnAcaoExcluir_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            MenuStatus = null;
+            HabilitaAcaoMenu(true);
+            HabilitaAcao(TipoAcao.Cancelar, !btnCancelar.Enabled);
+            HabilitaAcao(TipoAcao.Confirmar, btnCancelar.Enabled);
+
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            HabilitaAcaoMenu(true);
+            HabilitaAcao(TipoAcao.Confirmar, !btnConfirmar.Enabled);
+            HabilitaAcao(TipoAcao.Cancelar, btnConfirmar.Enabled);
+        }
+
+        private void btnAcaoAdicionar_Click(object sender, EventArgs e)
+        {
+            MenuStatus = MStatus.Adicionando;
+            HabilitaAcaoMenu(false);
+            HabilitaAcao(TipoAcao.Cancelar, true);
+        }
+
+        private void btnAcaoEditar_Click(object sender, EventArgs e)
+        {
+            MenuStatus = MStatus.Editando;
+            HabilitaAcaoMenu(false);
+            HabilitaAcao(TipoAcao.Cancelar, true);
+        }
+
+        private void btnAcaoConsultar_Click(object sender, EventArgs e)
+        {
+            MenuStatus = MStatus.Consultando;
+            HabilitaAcaoMenu(false);
+            HabilitaAcao(TipoAcao.Cancelar, true);
+        }
+
+        private void btnAcaoExcluir_Click(object sender, EventArgs e)
+        {
+            MenuStatus = MStatus.Excluindo;
+            HabilitaAcaoMenu(false);
+            HabilitaAcao(TipoAcao.Cancelar, true);
         }
     }
 }
