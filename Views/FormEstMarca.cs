@@ -56,7 +56,7 @@ namespace LaPizza.Views
             FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
             pesquisaMarca.ShowDialog();
 
-            if (txtId.Text == String.Empty)
+            if (MenuStatus == null)
                 cancelaOperacao();
 
             if (txtDescricao.CanFocus)
@@ -70,7 +70,7 @@ namespace LaPizza.Views
             FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
             pesquisaMarca.ShowDialog();
 
-            if (txtId.Text == String.Empty)
+            if (MenuStatus == null)
                 cancelaOperacao();
 
             if (btnCancelar.CanFocus)
@@ -84,11 +84,14 @@ namespace LaPizza.Views
             FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
             pesquisaMarca.ShowDialog();
 
-            if (txtId.Text == String.Empty)
+            if (MenuStatus == null)
                 cancelaOperacao();
+            else
+                HabilitaAcao(TipoAcao.Confirmar, true);
 
             if (btnConfirmar.CanFocus)
                 btnConfirmar.Focus();
+            HabilitaAcao(TipoAcao.Confirmar, true);
         }
 
         private void LimpaComponentes()
@@ -119,7 +122,7 @@ namespace LaPizza.Views
                 else if (MenuStatus == MStatus.Editando)
                     Mcontrole.SalvaEdicaoMarca(Marca);
                 else if (MenuStatus == MStatus.Excluindo)
-                    MessageBox.Show("excluindo");
+                    Mcontrole.ExcluirMarca(Marca.id);
             }
 
             LimpaComponentes();

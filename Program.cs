@@ -18,8 +18,9 @@ namespace LaPizza
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormPrincipal());
-            Application.Run(new FormEstMarca());
+            //Application.Run(new FormEstMarca());
             //Application.Run(new FormBaseCadastros());
+            Application.Run(new FormEstProduto());
         }
     }
 }

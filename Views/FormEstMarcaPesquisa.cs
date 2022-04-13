@@ -42,6 +42,7 @@ namespace LaPizza.Views
             FMarca.txtId.Text = marca.id.ToString();
             FMarca.txtDescricao.Text = marca.descricao;
             FMarca.cbAtiva.Checked = marca.ativa;
+            FMarca.btnConfirmar.Enabled = true;
             Close();            
         }
 

@@ -98,7 +98,7 @@ namespace LaPizza.Controllers
                 return false;
         }
 
-        public void DeletarMarca(int Id)
+        public void ExcluirMarca(int Id)
         {
             Context db = new Context();
             MarcaDto marca = db.marca.FirstOrDefault(m => m.id == Id);

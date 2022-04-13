@@ -75,6 +75,13 @@
             // 
             this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 148);
             // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.FlatAppearance.BorderSize = 0;
+            this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
@@ -95,14 +102,6 @@
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.Click += new System.EventHandler(this.btnAcaoExcluir_Click);
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.FlatAppearance.BorderSize = 0;
-            this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
-            this.btnConfirmar.Text = "&Confirmar";
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // lbId
             // 

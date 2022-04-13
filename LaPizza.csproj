@@ -125,6 +125,12 @@
     <Compile Include="Models\MarcaModel.cs" />
     <Compile Include="Models\MarcaDto.cs" />
     <Compile Include="Controllers\Utils.cs" />
+    <Compile Include="Views\FormEstProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormEstProduto.Designer.cs">
+      <DependentUpon>FormEstProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormBaseCadastros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\FormEstProduto.resx">
+      <DependentUpon>FormEstProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormBaseCadastros.resx">
       <DependentUpon>FormBaseCadastros.cs</DependentUpon>
     </EmbeddedResource>
