@@ -14,6 +14,5 @@ namespace LaPizza.Views
         {
             InitializeComponent();
         }
-
     }
 }
