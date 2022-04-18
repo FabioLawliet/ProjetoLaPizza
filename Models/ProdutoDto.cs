@@ -15,19 +15,19 @@ namespace LaPizza.Models
         public int id { get; set; }
         public string descricao { get; set; }
 
-        public DateTime dataCadastro;
+        public DateTime datacadastro;
         public int grupo { get; set; }
         public int subgrupo { get; set; }
         public int marca { get; set; }
-        public string codFabricante { get; set; }
-        public string infAdicionais { get; set; }
-        public decimal SaldoEstoque { get; set; }
-        public string unidadeMedida { get; set; }
-        public decimal qtdeEstMin { get; set; }
-        public decimal qtdeEstIdeal { get; set; }
-        public decimal qtdeEstMax { get; set; }
-        public decimal precoAnterior { get; set; }
-        public decimal precoAtual { get; set; }
+        public string codfabricante { get; set; }
+        public string infadicionais { get; set; }
+        public decimal saldoestoque { get; set; }
+        public string unidademedida { get; set; }
+        public decimal qtdeestmin { get; set; }
+        public decimal qtdeestideal { get; set; }
+        public decimal qtdeestmax { get; set; }
+        public decimal precoanterior { get; set; }
+        public decimal precoatual { get; set; }
         public bool ativo { get; set; }
     }
 }

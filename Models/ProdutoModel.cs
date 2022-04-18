@@ -9,11 +9,14 @@ namespace LaPizza.Models
 
         public DateTime dataCadastro;
         public int grupo { get; set; }
+        public string grupoDescricao { get; set; }
         public int subgrupo { get; set; }
+        public string subGrupoDescricao { get; set; }
         public int marca { get; set; }
+        public string marcaDescricao { get; set; }
         public string codFabricante { get; set; }
         public string infAdicionais { get; set; }
-        public decimal SaldoEstoque { get; set; }
+        public decimal saldoEstoque { get; set; }
         public string unidadeMedida { get; set; }
         public decimal qtdeEstMin { get; set; }
         public decimal qtdeEstIdeal { get; set; }

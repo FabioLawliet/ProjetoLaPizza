@@ -18,10 +18,44 @@ namespace LaPizza.Controllers
             db.SaveChanges();
         }
 
-        public MarcaDto GetMarca(int Id)
+        public void EditarMarca(MarcaDto Marca)
         {
             Context db = new Context();
-            return db.marca.Where(m => m.id == Id).FirstOrDefault();
+            MarcaDto mar = db.marca.FirstOrDefault(m => m.id == Marca.id);
+            mar.descricao = Marca.descricao;
+            mar.ativa = Marca.ativa;
+            db.SaveChanges();
+        }
+
+        public void ExcluirMarca(int Id)
+        {
+            Context db = new Context();
+            MarcaDto marca = db.marca.FirstOrDefault(m => m.id == Id);
+            try
+            {
+                db.marca.Remove(marca);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.SaveChanges();
+            }
+        }
+
+        public MarcaModel GetMarca(int Id)
+        {
+            Context db = new Context();
+            MarcaDto marcaDto = db.marca.Where(m => m.id == Id).FirstOrDefault();
+
+            MarcaModel marcaModel = new MarcaModel();
+            marcaModel.id = marcaDto.id;
+            marcaModel.descricao = marcaDto.descricao;
+            marcaModel.ativa = marcaDto.ativa;
+
+            return marcaModel;
         }
 
         public int GetProximoId()
@@ -42,10 +76,6 @@ namespace LaPizza.Controllers
                  return 0;
         }
 
-        private void FirstOrDefault()
-        {
-            throw new NotImplementedException();
-        }
 
         public List<MarcaModel> GetListMarca()
         {
@@ -63,7 +93,7 @@ namespace LaPizza.Controllers
             return new List<MarcaModel>(ListMarca);
         }
 
-        public List<MarcaModel> GetListMarcaWhere(string descricao)
+        public List<MarcaModel> GetListMarcaPesquisa(string descricao)
         {
             Context db = new Context();
             List<MarcaModel> ListMarca = (from m in db.marca
@@ -78,42 +108,16 @@ namespace LaPizza.Controllers
             return new List<MarcaModel>(ListMarca.Where(p => p.descricao.Contains(descricao)));
         }
 
-        public void SalvaEdicaoMarca(MarcaDto Marca)
-        {
-            Context db = new Context();
-            MarcaDto mar = db.marca.FirstOrDefault(m => m.id == Marca.id);
-            mar.descricao = Marca.descricao;
-            mar.ativa = Marca.ativa;
-            db.SaveChanges();
-        }
-
         public bool ExisteMarca(int Id)
         {
             Context db = new Context();
             var marca = db.marca.Where(m => m.id == Id).FirstOrDefault();
 
             if (marca is null)
-                return true;
-            else
                 return false;
-        }
-
-        public void ExcluirMarca(int Id)
-        {
-            Context db = new Context();
-            MarcaDto marca = db.marca.FirstOrDefault(m => m.id == Id);
-            try
-            {
-                db.marca.Remove(marca);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                db.SaveChanges();
-            }
+            else
+                return true;
+            
         }
     }
 }

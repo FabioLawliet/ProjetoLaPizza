@@ -16,10 +16,21 @@ namespace LaPizza.Controllers
             db.SaveChanges();
         }
 
-        public ProdutoDto GetProduto(int Id)
-        {
+        public ProdutoModel GetProduto(int Id)
+        {/*
             Context db = new Context();
-            return db.produto.Where(p => p.id == Id).FirstOrDefault();
+            ProdutoModel produto = (from p in db.produto
+                                    join m in db.marca on p.marca equals m.id
+                                    where p.id == Id
+                                    select new ProdutoModel { });
+
+            ProdutoModel produto = new ProdutoModel();
+            produto.id = produtoDto.id;
+            produto.descricao = produtoDto.descricao;
+            produto.dataCadastro = produtoDto.
+            produto.ativo = produtoDto.ativo;
+
+            return produto;*/
         }
 
         public int GetProximoId()
@@ -44,6 +55,7 @@ namespace LaPizza.Controllers
         {
             Context db = new Context();
             List<ProdutoModel> ListProduto = (from p in db.produto
+                                          join m in db.marca on p.marca equals m.id
                                           where p.id > 0
                                           orderby p.id
                                           select new ProdutoModel
@@ -53,8 +65,9 @@ namespace LaPizza.Controllers
                                               grupo = p.grupo,
                                               subgrupo = p.subgrupo,
                                               marca = p.marca,
-                                              codFabricante = p.codFabricante,
-                                              precoAtual = p.precoAtual,
+                                              marcaDescricao = m.descricao,
+                                              codFabricante = p.codfabricante,
+                                              precoAtual = p.precoatual,
                                               ativo = p.ativo
                                           }).ToList();
 
@@ -112,6 +125,27 @@ namespace LaPizza.Controllers
             {
                 db.SaveChanges();
             }
+        }
+
+        public List<ProdutoModel> GetListProdutoGrid()
+        {
+            Context db = new Context();
+            List<ProdutoModel> ListProduto = (from p in db.produto
+                                              where p.id > 0
+                                              orderby p.id
+                                              select new ProdutoModel
+                                              {
+                                                  id = p.id,
+                                                  descricao = p.descricao,
+                                                  grupo = p.grupo,
+                                                  subgrupo = p.subgrupo,
+                                                  marca = p.marca,
+                                                  codFabricante = p.codfabricante,
+                                                  precoAtual = p.precoatual,
+                                                  ativo = p.ativo
+                                              }).ToList();
+
+            return new List<ProdutoModel>(ListProduto);
         }
     }
 }

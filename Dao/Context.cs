@@ -9,5 +9,6 @@ namespace LaPizza.DAO
         {
         }
         public DbSet<MarcaDto> marca { get; set; }
+        public DbSet<ProdutoDto> produto { get; set; }    
     }
 }

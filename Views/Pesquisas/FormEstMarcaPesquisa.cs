@@ -4,16 +4,32 @@ using System.Collections.Generic;
 using System;
 
 using LaPizza.DAO;
+using System.Windows.Forms;
 
 namespace LaPizza.Views
 {
     public partial class FormEstMarcaPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        FormEstMarca FMarca = null;
-        public FormEstMarcaPesquisa(FormEstMarca Marca)
+        public TextBox FMarcaId;
+        public TextBox FMarcaDesc;
+        public FormEstMarca FMarca;
+
+        public FormEstMarcaPesquisa(TextBox id, TextBox descricao)
         {
+            FMarcaId = id;
+            FMarcaDesc = descricao;
+
             InitializeComponent();
-            FMarca = Marca;
+
+            CarregarListaGrid();
+            txtPesquisa.Focus();
+        }
+
+        public FormEstMarcaPesquisa(FormEstMarca FormMarca)
+        {
+            FMarca = FormMarca;
+
+            InitializeComponent();
 
             CarregarListaGrid();
             txtPesquisa.Focus();
@@ -24,6 +40,7 @@ namespace LaPizza.Views
             Context db = new Context();
             MarcaController mControle = new MarcaController();
             List<MarcaModel> ListMarca = mControle.GetListMarca();
+
             dbGridPesquisa.DataSource = ListMarca;
             dbGridPesquisa.Columns[0].Width = 50;
             dbGridPesquisa.Columns[1].Width = 320;
@@ -35,14 +52,23 @@ namespace LaPizza.Views
         {
             Context db = new Context();
             MarcaController mControle = new MarcaController();
-            MarcaDto marca = new MarcaDto();
+            MarcaModel marca = new MarcaModel();
 
             int id = (Int32)dbGridPesquisa.CurrentRow.Cells[0].Value;
             marca = mControle.GetMarca(id);
-            FMarca.txtId.Text = marca.id.ToString();
-            FMarca.txtDescricao.Text = marca.descricao;
-            FMarca.cbAtiva.Checked = marca.ativa;
-            FMarca.btnConfirmar.Enabled = true;
+
+            if (FMarca == null)
+            {
+                FMarcaId.Text = marca.id.ToString();
+                FMarcaDesc.Text = marca.descricao;
+            }
+            else
+            {
+                FMarca.txtId.Text = marca.id.ToString();
+                FMarca.txtDescricao.Text = marca.descricao;
+                FMarca.cbAtiva.Enabled = marca.ativa;
+            }
+
             Close();            
         }
 
@@ -56,7 +82,7 @@ namespace LaPizza.Views
             dbGridPesquisa.DataSource = null;
             Context db = new Context();
             MarcaController mControle = new MarcaController();
-            List<MarcaModel> ListMarca = mControle.GetListMarcaWhere(txtPesquisa.Text);
+            List<MarcaModel> ListMarca = mControle.GetListMarcaPesquisa(txtPesquisa.Text);
             dbGridPesquisa.DataSource = ListMarca;
             dbGridPesquisa.Columns[0].Width = 50;
             dbGridPesquisa.Columns[1].Width = 320;

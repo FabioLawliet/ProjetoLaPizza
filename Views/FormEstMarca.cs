@@ -12,6 +12,7 @@ namespace LaPizza.Views
 {
     public partial class FormEstMarca : LaPizza.Views.FormBaseCadastros
     {
+        public MarcaModel MarcaPesquisa;
         
         public FormEstMarca()
         {
@@ -91,7 +92,6 @@ namespace LaPizza.Views
 
             if (btnConfirmar.CanFocus)
                 btnConfirmar.Focus();
-            HabilitaAcao(TipoAcao.Confirmar, true);
         }
 
         private void LimpaComponentes()
@@ -103,7 +103,7 @@ namespace LaPizza.Views
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if(txtDescricao.Text == string.Empty)
+            if(txtDescricao.Text == string.Empty )
             {
                 MessageBox.Show("É necessário informar uma descrição");
                 txtDescricao.Focus();
@@ -120,7 +120,7 @@ namespace LaPizza.Views
                 if (MenuStatus == MStatus.Adicionando)
                     Mcontrole.AdicionarMarca(Marca);
                 else if (MenuStatus == MStatus.Editando)
-                    Mcontrole.SalvaEdicaoMarca(Marca);
+                    Mcontrole.EditarMarca(Marca);
                 else if (MenuStatus == MStatus.Excluindo)
                     Mcontrole.ExcluirMarca(Marca.id);
             }
@@ -149,7 +149,7 @@ namespace LaPizza.Views
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)
         {
-            if (txtDescricao.Text != String.Empty && txtDescricao.Enabled == true)
+            if (this.Text != String.Empty && txtDescricao.Enabled == true)
                 HabilitaAcao(TipoAcao.Confirmar, true);
             else
                 HabilitaAcao(TipoAcao.Confirmar, false);
