@@ -13,26 +13,11 @@ namespace LaPizza.Views.Pesquisas
 {
     public partial class FormEstProdutoPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public TextBox FProdId;
-        public TextBox FProdDesc;
-        public FormEstProduto FProduto;
-        public FormEstProdutoPesquisa(TextBox id, TextBox descricao)
+        public ProdutoModel PProduto;
+
+        public FormEstProdutoPesquisa()
         {
             InitializeComponent();
-
-            FProdId = id;
-            FProdDesc = descricao;
-
-            CarregarListaGrid();
-            txtPesquisa.Focus();
-        }
-
-        public FormEstProdutoPesquisa(FormEstProduto FormProduto)
-        {
-            InitializeComponent();
-
-            FProduto = FormProduto;
-
             CarregarListaGrid();
             txtPesquisa.Focus();
         }
@@ -40,14 +25,41 @@ namespace LaPizza.Views.Pesquisas
         public void CarregarListaGrid()
         {
             Context db = new Context();
-            ProdutoController pControle = new ProdutoController();
-            List<ProdutoModel> ListProduto = pControle.GetListProduto();
+            ProdutoController Pcontrole = new ProdutoController();
+            List<ProdutoModel> ListProduto = Pcontrole.GetProdutoLista();
 
             dbGridPesquisa.DataSource = ListProduto;
+
+            dbGridPesquisa.Columns[0].HeaderText = "Id";
             dbGridPesquisa.Columns[0].Width = 50;
-            dbGridPesquisa.Columns[1].Width = 320;
-            dbGridPesquisa.Columns[2].Width = 50;
-            dbGridPesquisa.Columns[3].Width = 50;
+
+            dbGridPesquisa.Columns[1].HeaderText = "Descrição";
+            dbGridPesquisa.Columns[1].Width = 250;
+
+            dbGridPesquisa.Columns[2].Visible = false;
+            dbGridPesquisa.Columns[3].Visible = false;
+            dbGridPesquisa.Columns[4].Visible = false;
+            dbGridPesquisa.Columns[5].Visible = false;
+            dbGridPesquisa.Columns[6].Visible = false;
+            dbGridPesquisa.Columns[7].Visible = false;
+            dbGridPesquisa.Columns[8].Visible = false;
+            dbGridPesquisa.Columns[9].Visible = false;
+            dbGridPesquisa.Columns[10].Visible = false;
+
+            dbGridPesquisa.Columns[11].HeaderText = "Saldo Estoque";
+            dbGridPesquisa.Columns[11].Width = 100;
+
+            dbGridPesquisa.Columns[12].Visible = false;
+            dbGridPesquisa.Columns[13].Visible = false;
+            dbGridPesquisa.Columns[14].Visible = false;
+            dbGridPesquisa.Columns[15].Visible = false;
+
+            dbGridPesquisa.Columns[16].HeaderText = "Preço";
+            dbGridPesquisa.Columns[16].Width = 100;
+
+            dbGridPesquisa.Columns[17].Visible = false;
+
+            this.Width = 555;
             dbGridPesquisa.Refresh();
         }
 
@@ -58,38 +70,7 @@ namespace LaPizza.Views.Pesquisas
             ProdutoModel produto = new ProdutoModel();
 
             int id = (Int32)dbGridPesquisa.CurrentRow.Cells[0].Value;
-            produto = pControle.GetProduto(id);
-
-            if (FProduto == null)
-            {
-                FProdId.Text = produto.id.ToString();
-                FProdDesc.Text = produto.descricao;
-            }
-            else
-            {
-                FProduto.txtProdutoId.Text = produto.id.ToString();
-                FProduto.txtProdutoDescricao.Text = produto.descricao;
-                FProduto.txtDataCadastro.Text = produto.dataCadastro.ToString();
-                FProduto.cbAtivo.Enabled = produto.ativo;
-                FProduto.txtGrupoId.Text = produto.grupo.ToString();
-                FProduto.txtGrupoDescricao.Text = produto.grupoDescricao;
-                FProduto.txtSubGrupoId.Text = produto.subgrupo.ToString();
-                FProduto.txtSubGrupoDescricao.Text = produto.subGrupoDescricao;
-                FProduto.txtMarcaId.Text = produto.marca.ToString();
-                FProduto.txtMarcaDescricao.Text = produto.marcaDescricao;
-                FProduto.txtInfAdicionais.Text = produto.infAdicionais;
-                FProduto.txtCodFabricante.Text = produto.codFabricante;
-                FProduto.txtSaldoEstoque.Text = produto.saldoEstoque.ToString();
-                FProduto.txtUnidadeMedida.Text = produto.unidadeMedida;
-                FProduto.txtQtdeEstMin.Text = produto.qtdeEstMin.ToString();
-                FProduto.txtQtdeEstIdeal.Text = produto.qtdeEstIdeal.ToString();
-                FProduto.txtQtdeEstMax.Text = produto.qtdeEstMax.ToString();
-                FProduto.txtPrecoAnterior.Text = produto.precoAnterior.ToString();
-                FProduto.txtPrecoAtual.Text = produto.precoAtual.ToString();
-
-            }
-
-            Close();
+            PProduto = pControle.GetProduto(id);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -101,13 +82,39 @@ namespace LaPizza.Views.Pesquisas
         {
             dbGridPesquisa.DataSource = null;
             Context db = new Context();
-            MarcaController mControle = new MarcaController();
-            List<MarcaModel> ListMarca = mControle.GetListMarcaPesquisa(txtPesquisa.Text);
-            dbGridPesquisa.DataSource = ListMarca;
+            ProdutoController pControle = new ProdutoController();
+            List<ProdutoModel> ListProduto = pControle.GetProdutoPesquisa(txtPesquisa.Text);
+            dbGridPesquisa.DataSource = ListProduto;
+            dbGridPesquisa.Columns[0].HeaderText = "Id";
             dbGridPesquisa.Columns[0].Width = 50;
-            dbGridPesquisa.Columns[1].Width = 320;
-            dbGridPesquisa.Columns[2].Width = 50;
-            dbGridPesquisa.Columns[3].Width = 50;
+
+            dbGridPesquisa.Columns[1].HeaderText = "Descrição";
+            dbGridPesquisa.Columns[1].Width = 250;
+
+            dbGridPesquisa.Columns[2].Visible = false;
+            dbGridPesquisa.Columns[3].Visible = false;
+            dbGridPesquisa.Columns[4].Visible = false;
+            dbGridPesquisa.Columns[5].Visible = false;
+            dbGridPesquisa.Columns[6].Visible = false;
+            dbGridPesquisa.Columns[7].Visible = false;
+            dbGridPesquisa.Columns[8].Visible = false;
+            dbGridPesquisa.Columns[9].Visible = false;
+            dbGridPesquisa.Columns[10].Visible = false;
+
+            dbGridPesquisa.Columns[11].HeaderText = "Saldo Estoque";
+            dbGridPesquisa.Columns[11].Width = 100;
+
+            dbGridPesquisa.Columns[12].Visible = false;
+            dbGridPesquisa.Columns[13].Visible = false;
+            dbGridPesquisa.Columns[14].Visible = false;
+            dbGridPesquisa.Columns[15].Visible = false;
+
+            dbGridPesquisa.Columns[16].HeaderText = "Preço";
+            dbGridPesquisa.Columns[16].Width = 100;
+
+            dbGridPesquisa.Columns[17].Visible = false;
+
+            this.Width = 555;
             dbGridPesquisa.Refresh();
         }
     }

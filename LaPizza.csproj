@@ -119,15 +119,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\InteracaoMenu.cs" />
+    <Compile Include="Controllers\LpText.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Dao\Context.cs" />
+    <Compile Include="Models\GrupoDto.cs" />
+    <Compile Include="Models\GrupoModel.cs" />
     <Compile Include="Models\MarcaModel.cs" />
     <Compile Include="Models\MarcaDto.cs" />
     <Compile Include="Controllers\Utils.cs" />
     <Compile Include="Models\ProdutoDto.cs" />
     <Compile Include="Models\ProdutoModel.cs" />
+    <Compile Include="Views\FormEstGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormEstGrupo.Designer.cs">
+      <DependentUpon>FormEstGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormEstProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +164,12 @@
     <Compile Include="Views\FormEstMarca.Designer.cs">
       <DependentUpon>FormEstMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\FormEstGrupoPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormEstGrupoPesquisa.Designer.cs">
+      <DependentUpon>FormEstGrupoPesquisa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\FormEstMarcaPesquisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +190,9 @@
     <Compile Include="Views\Pesquisas\FormEstProdutoPesquisa.Designer.cs">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FormEstGrupo.resx">
+      <DependentUpon>FormEstGrupo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormEstProduto.resx">
       <DependentUpon>FormEstProduto.cs</DependentUpon>
     </EmbeddedResource>

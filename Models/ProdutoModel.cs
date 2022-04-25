@@ -11,10 +11,10 @@ namespace LaPizza.Models
         public int grupo { get; set; }
         public string grupoDescricao { get; set; }
         public int subgrupo { get; set; }
-        public string subGrupoDescricao { get; set; }
+        public string subgrupoDescricao { get; set; }
         public int marca { get; set; }
         public string marcaDescricao { get; set; }
-        public string codFabricante { get; set; }
+        public string codigoFabricante { get; set; }
         public string infAdicionais { get; set; }
         public decimal saldoEstoque { get; set; }
         public string unidadeMedida { get; set; }

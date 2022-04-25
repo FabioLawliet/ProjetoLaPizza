@@ -10,31 +10,12 @@ namespace LaPizza.Views
 {
     public partial class FormEstMarcaPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public TextBox FMarcaId;
-        public TextBox FMarcaDesc;
-        public FormEstMarca FMarca;
-
-        public FormEstMarcaPesquisa(TextBox id, TextBox descricao)
+        public MarcaModel PMarca;
+        public FormEstMarcaPesquisa()
         {
-            FMarcaId = id;
-            FMarcaDesc = descricao;
-
             InitializeComponent();
-
             CarregarListaGrid();
-            txtPesquisa.Focus();
         }
-
-        public FormEstMarcaPesquisa(FormEstMarca FormMarca)
-        {
-            FMarca = FormMarca;
-
-            InitializeComponent();
-
-            CarregarListaGrid();
-            txtPesquisa.Focus();
-        }
-
         public void CarregarListaGrid()
         {
             Context db = new Context();
@@ -54,20 +35,8 @@ namespace LaPizza.Views
             MarcaController mControle = new MarcaController();
             MarcaModel marca = new MarcaModel();
 
-            int id = (Int32)dbGridPesquisa.CurrentRow.Cells[0].Value;
-            marca = mControle.GetMarca(id);
-
-            if (FMarca == null)
-            {
-                FMarcaId.Text = marca.id.ToString();
-                FMarcaDesc.Text = marca.descricao;
-            }
-            else
-            {
-                FMarca.txtId.Text = marca.id.ToString();
-                FMarca.txtDescricao.Text = marca.descricao;
-                FMarca.cbAtiva.Enabled = marca.ativa;
-            }
+            int Id = (Int32)dbGridPesquisa.CurrentRow.Cells[0].Value;
+            PMarca = mControle.GetMarca(Id);
 
             Close();            
         }

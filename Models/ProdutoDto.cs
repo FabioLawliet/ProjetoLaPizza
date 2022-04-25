@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaPizza.Models
 {
@@ -19,7 +15,7 @@ namespace LaPizza.Models
         public int grupo { get; set; }
         public int subgrupo { get; set; }
         public int marca { get; set; }
-        public string codfabricante { get; set; }
+        public string codigofabricante { get; set; }
         public string infadicionais { get; set; }
         public decimal saldoestoque { get; set; }
         public string unidademedida { get; set; }

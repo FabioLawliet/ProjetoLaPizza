@@ -116,6 +116,7 @@
             this.btnConfirmar.TabIndex = 0;
             this.btnConfirmar.Text = "&Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // splitter2
             // 

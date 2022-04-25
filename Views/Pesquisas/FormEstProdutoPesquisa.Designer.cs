@@ -53,8 +53,11 @@
             // FormEstProdutoPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(454, 491);
             this.Name = "FormEstProdutoPesquisa";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "FormEstProdutoPesquisa";
             this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlPesquisa.ResumeLayout(false);

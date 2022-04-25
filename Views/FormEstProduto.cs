@@ -13,107 +13,50 @@ namespace LaPizza.Views
 {
     public partial class FormEstProduto : LaPizza.Views.FormBaseCadastros
     {
-        public ProdutoModel ProdutoPesquisa;
-        //public GrupoModel GrupoPesquisa;
-        //public SubGrupoModel SubGrupoPesquisa;
-        public MarcaModel MarcaPesquisa;
         public FormEstProduto()
         {
             InitializeComponent();
             HabilitarComponentesPnlPrincipal(false);
+
         }
 
         private void HabilitarComponentesPnlPrincipal(bool Ativa)
-        { 
-
+        {
             if (Ativa)
             {
-                txtProdutoDescricao.BackColor = Color.White;
                 txtProdutoDescricao.Enabled = true;
-
-                cbAtivo.BackColor = Color.White;
                 cbAtivo.Enabled = true;
-
-                txtGrupoId.BackColor = Color.White;
                 txtGrupoId.Enabled = true;
-
-                txtSubGrupoId.BackColor = Color.White;
-                txtSubGrupoId.Enabled = true;
-
-                txtMarcaId.BackColor = Color.White;
+                txtSubgrupoId.Enabled = true;
                 txtMarcaId.Enabled = true;
-
-                txtCodFabricante.BackColor = Color.White;
-                txtCodFabricante.Enabled = true;
-
-                txtInfAdicionais.BackColor = Color.White;
+                txtCodigoFabricante.Enabled = true;
                 txtInfAdicionais.Enabled = true;
-
-                txtQtdeEstMin.BackColor = Color.White;
+                txtUnidadeMedida.Enabled = true;
                 txtQtdeEstMin.Enabled = true;
-
-                txtQtdeEstIdeal.BackColor = Color.White;
                 txtQtdeEstIdeal.Enabled = true;
-
-                txtQtdeEstMax.BackColor = Color.White;
                 txtQtdeEstMax.Enabled = true;
-
-                txtPrecoAtual.BackColor = Color.White;
                 txtPrecoAtual.Enabled = true;
             }
             else
             {
-                txtProdutoId.BackColor = Color.LightGray;
                 txtProdutoId.Enabled = false;
-
-                txtProdutoDescricao.BackColor = Color.LightGray;
                 txtProdutoDescricao.Enabled = false;
-
-                txtDataCadastro.BackColor = Color.LightGray;
                 txtDataCadastro.Enabled = false;
-
-                cbAtivo.BackColor = Color.LightGray;
                 cbAtivo.Enabled = false;
-
-                txtGrupoId.BackColor = Color.LightGray;
                 txtGrupoId.Enabled = false;
-                txtGrupoDescricao.BackColor = Color.LightGray;
                 txtGrupoDescricao.Enabled = false;
-
-                txtSubGrupoId.BackColor = Color.LightGray;
-                txtSubGrupoId.Enabled = false;
-                txtSubGrupoDescricao.BackColor = Color.LightGray;
-                txtSubGrupoDescricao.Enabled = false;
-
-                txtMarcaId.BackColor = Color.LightGray;
+                txtSubgrupoId.Enabled = false;
+                txtSubgrupoDescricao.Enabled = false;
                 txtMarcaId.Enabled = false;
-                txtMarcaDescricao.BackColor = Color.LightGray;
                 txtMarcaDescricao.Enabled = false;
-
-                txtCodFabricante.BackColor = Color.LightGray;
-                txtCodFabricante.Enabled = false;
-
-                txtInfAdicionais.BackColor = Color.LightGray;
+                txtCodigoFabricante.Enabled = false;
                 txtInfAdicionais.Enabled = false;
-
-                txtSaldoEstoque.BackColor = Color.LightGray;
                 txtSaldoEstoque.Enabled = false;
-
-                txtUnidadeMedida.BackColor = Color.LightGray;
                 txtUnidadeMedida.Enabled = false;
-
-                txtQtdeEstMin.BackColor = Color.LightGray;
                 txtQtdeEstMin.Enabled = false;
-
-                txtQtdeEstIdeal.BackColor = Color.LightGray;
                 txtQtdeEstIdeal.Enabled = false;
-
-                txtQtdeEstMax.BackColor = Color.LightGray;
                 txtQtdeEstMax.Enabled = false;
-
-                txtPrecoAnterior.BackColor = Color.LightGray;
                 txtPrecoAnterior.Enabled = false;
-                txtPrecoAtual.BackColor = Color.LightGray;
                 txtPrecoAtual.Enabled = false;
             }
         }
@@ -123,32 +66,142 @@ namespace LaPizza.Views
             HabilitarComponentesPnlPrincipal(true);
 
             ProdutoController PControle = new ProdutoController();
-            txtProdutoId.Text = (PControle.GetProximoId() + 1).ToString();
+            txtProdutoId.Text = PControle.GetProximoId().ToString();
 
             if (txtProdutoDescricao.CanFocus)
+            {
                 txtProdutoDescricao.Focus();
-
+                txtMarcaDescricao.Select(txtMarcaDescricao.Text.Length, 0);
+            }
         }
 
         private void btnAcaoEditar_Click(object sender, EventArgs e)
         {
-            HabilitarComponentesPnlPrincipal(true);
+            FormEstProdutoPesquisa Pesq = new FormEstProdutoPesquisa();
+            var Result = Pesq.ShowDialog();
 
-            FormEstProdutoPesquisa pesquisaProduto = new FormEstProdutoPesquisa(this);
-            pesquisaProduto.ShowDialog();
+            if (Result == DialogResult.OK)
+            {
+                txtProdutoId.Text = Pesq.PProduto.id.ToString();
+                txtProdutoDescricao.Text = Pesq.PProduto.descricao;
+                txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
+                cbAtivo.Checked = Pesq.PProduto.ativo;
+                txtGrupoId.Text = Pesq.PProduto.grupo.ToString();
+                txtGrupoDescricao.Text = "";//Pesq.PProduto.grupoDescricao;
+                txtSubgrupoId.Text = Pesq.PProduto.subgrupo.ToString();
+                txtSubgrupoDescricao.Text = "";//Pesq.PProduto.subGrupoDescricao;
+                txtMarcaId.Text = Pesq.PProduto.marca.ToString();
+                txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
+                txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
+                txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
+                txtSaldoEstoque.Text = Pesq.PProduto.saldoEstoque.ToString();
+                txtUnidadeMedida.Text = Pesq.PProduto.unidadeMedida;
+                txtQtdeEstMin.Text = Pesq.PProduto.qtdeEstMin.ToString();
+                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeEstIdeal.ToString();
+                txtQtdeEstMax.Text = Pesq.PProduto.qtdeEstMax.ToString();
+                txtPrecoAnterior.Text = Pesq.PProduto.precoAnterior.ToString();
+                txtPrecoAtual.Text = Pesq.PProduto.precoAtual.ToString();
 
-            if (MenuStatus == null)
+                HabilitarComponentesPnlPrincipal(true);
+                HabilitaAcao(TipoAcao.Confirmar, true);
+            }
+            else
+            {
                 cancelaOperacao();
+                return;
+            }
+
+            if (txtProdutoDescricao.CanFocus)
+            {
+                txtProdutoDescricao.Focus();
+                txtProdutoDescricao.Select(txtMarcaDescricao.Text.Length, 0);
+            }
+
+
 
         }
 
         private void btnAcaoConsultar_Click(object sender, EventArgs e)
         {
 
+            FormEstProdutoPesquisa Pesq = new FormEstProdutoPesquisa();
+            var Result = Pesq.ShowDialog();
+
+            if (Result == DialogResult.OK)
+            {
+                txtProdutoId.Text = Pesq.PProduto.id.ToString();
+                txtProdutoDescricao.Text = Pesq.PProduto.descricao;
+                txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
+                cbAtivo.Checked = Pesq.PProduto.ativo;
+                txtGrupoId.Text = Pesq.PProduto.grupo.ToString();
+                txtGrupoDescricao.Text = ""; //Pesq.PProduto.grupoDescricao;
+                txtSubgrupoId.Text = Pesq.PProduto.subgrupo.ToString();
+                txtSubgrupoDescricao.Text = ""; //Pesq.PProduto.subgrupoDescricao;
+                txtMarcaId.Text = Pesq.PProduto.marca.ToString();
+                txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
+                txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
+                txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
+                txtSaldoEstoque.Text = Pesq.PProduto.saldoEstoque.ToString();
+                txtUnidadeMedida.Text = Pesq.PProduto.unidadeMedida;
+                txtQtdeEstMin.Text = Pesq.PProduto.qtdeEstMin.ToString();
+                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeEstIdeal.ToString();
+                txtQtdeEstMax.Text = Pesq.PProduto.qtdeEstMax.ToString();
+                txtPrecoAnterior.Text = Pesq.PProduto.precoAnterior.ToString();
+                txtPrecoAtual.Text = Pesq.PProduto.precoAtual.ToString();
+
+                HabilitarComponentesPnlPrincipal(false);
+            }
+            else
+            {
+                cancelaOperacao();
+                return;
+            }
+
+            if (btnCancelar.CanFocus)
+                btnCancelar.Focus();
+
+
         }
 
         private void btnAcaoExcluir_Click(object sender, EventArgs e)
         {
+            FormEstProdutoPesquisa Pesq = new FormEstProdutoPesquisa();
+            var Result = Pesq.ShowDialog();
+
+            if (Result == DialogResult.OK)
+            {
+                txtProdutoId.Text = Pesq.PProduto.id.ToString();
+                txtProdutoDescricao.Text = Pesq.PProduto.descricao;
+                txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
+                cbAtivo.Checked = Pesq.PProduto.ativo;
+                txtGrupoId.Text = Pesq.PProduto.grupo.ToString();
+                txtGrupoDescricao.Text = Pesq.PProduto.grupoDescricao;
+                txtSubgrupoId.Text = Pesq.PProduto.subgrupo.ToString();
+                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupoDescricao;
+                txtMarcaId.Text = Pesq.PProduto.marca.ToString();
+                txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
+                txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
+                txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
+                txtSaldoEstoque.Text = Pesq.PProduto.saldoEstoque.ToString();
+                txtUnidadeMedida.Text = Pesq.PProduto.unidadeMedida;
+                txtQtdeEstMin.Text = Pesq.PProduto.qtdeEstMin.ToString();
+                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeEstIdeal.ToString();
+                txtQtdeEstMax.Text = Pesq.PProduto.qtdeEstMax.ToString();
+                txtPrecoAnterior.Text = Pesq.PProduto.precoAnterior.ToString();
+                txtPrecoAtual.Text = Pesq.PProduto.precoAtual.ToString();
+
+                HabilitarComponentesPnlPrincipal(false);
+                HabilitaAcao(TipoAcao.Confirmar, true);
+            }
+            else
+            {
+                cancelaOperacao();
+                return;
+            }
+
+            if (btnConfirmar.CanFocus)
+                btnConfirmar.Focus();
+
 
         }
 
@@ -160,11 +213,11 @@ namespace LaPizza.Views
             cbAtivo.Checked = true;
             txtGrupoId.Text = string.Empty;
             txtGrupoDescricao.Text = string.Empty;
-            txtSubGrupoId.Text = string.Empty;
-            txtSubGrupoDescricao.Text = string.Empty;
+            txtSubgrupoId.Text = string.Empty;
+            txtSubgrupoDescricao.Text = string.Empty;
             txtMarcaId.Text = string.Empty;
             txtMarcaDescricao.Text = string.Empty;
-            txtCodFabricante.Text = string.Empty;
+            txtCodigoFabricante.Text = string.Empty;
             txtInfAdicionais.Text = string.Empty;
             txtSaldoEstoque.Text = string.Empty;
             txtUnidadeMedida.Text = string.Empty;
@@ -177,6 +230,44 @@ namespace LaPizza.Views
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            if (txtProdutoDescricao.Text == string.Empty)
+            {
+                MessageBox.Show("É necessário informar uma descrição");
+                txtProdutoDescricao.Focus();
+            }
+            else
+            {
+                ProdutoController Pcontrole = new ProdutoController();
+                ProdutoDto Produto = new ProdutoDto();
+
+                Produto.id = Int32.Parse(txtProdutoId.Text);
+                Produto.descricao = txtProdutoDescricao.Text;
+                Produto.datacadastro = DateTime.Now;
+                Produto.ativo = cbAtivo.Checked;
+                Produto.grupo = Int32.Parse(txtGrupoId.Text);
+                Produto.subgrupo = Int32.Parse(txtSubgrupoId.Text);
+                Produto.marca = Int32.Parse(txtMarcaId.Text);
+                Produto.codigofabricante = txtCodigoFabricante.Text;
+                Produto.infadicionais = txtInfAdicionais.Text;
+                Produto.saldoestoque = 0;
+                Produto.unidademedida = txtUnidadeMedida.Text;
+                Produto.qtdeestmin = Convert.ToDecimal(txtQtdeEstMin.Text);
+                Produto.qtdeestideal = Convert.ToDecimal(txtQtdeEstIdeal.Text);
+                Produto.qtdeestmax = Convert.ToDecimal(txtQtdeEstMax.Text);
+                Produto.precoatual = Convert.ToDecimal(txtPrecoAtual.Text);
+                Produto.precoanterior = Produto.precoatual;
+
+                if (MenuStatus == MStatus.Adicionando)
+                    Pcontrole.Adicionar(Produto);
+                else if (MenuStatus == MStatus.Editando)
+                    Pcontrole.Editar(Produto);
+                else if (MenuStatus == MStatus.Excluindo)
+                    Pcontrole.Excluir(Produto.id);
+            }
+
+            LimpaComponentes();
+            HabilitarComponentesPnlPrincipal(false);
+            HabilitarAcoesIniciais();
 
         }
 
@@ -187,7 +278,7 @@ namespace LaPizza.Views
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void cancelaOperacao()
@@ -195,6 +286,46 @@ namespace LaPizza.Views
             LimpaComponentes();
             HabilitarComponentesPnlPrincipal(false);
             HabilitarAcoesIniciais();
+        }
+
+        private void txtProdutoDescricao_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProdutoDescricao.Text != String.Empty && txtProdutoDescricao.Enabled == true)
+                HabilitaAcao(TipoAcao.Confirmar, true);
+            else
+                HabilitaAcao(TipoAcao.Confirmar, false);
+        }
+
+        private void txtMarcaId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormEstMarcaPesquisa Pesq = new FormEstMarcaPesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtMarcaId.Text = Pesq.PMarca.id.ToString();
+                    txtMarcaDescricao.Text = Pesq.PMarca.descricao;
+                }
+            }
+        }
+
+        private void txtMarcaId_TextChanged(object sender, EventArgs e)
+        {
+            MarcaController mControle = new MarcaController();
+            MarcaModel Marca = new MarcaModel();
+
+            if (txtMarcaId.Text != String.Empty && mControle.ExisteMarca(Int32.Parse(txtMarcaId.Text)))
+            {
+                Marca = mControle.GetMarca(Int32.Parse(txtMarcaId.Text));
+                txtMarcaDescricao.Text = Marca.descricao;
+            }
+            else
+            {
+                txtMarcaDescricao.Text = String.Empty;
+            }
+
         }
     }
 }

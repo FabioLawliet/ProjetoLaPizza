@@ -8,7 +8,8 @@ namespace LaPizza.DAO
         public Context() : base("BD")
         {
         }
+        public DbSet<ProdutoDto> produto { get; set; }
+        public DbSet<GrupoDto> grupo { get; set; }
         public DbSet<MarcaDto> marca { get; set; }
-        public DbSet<ProdutoDto> produto { get; set; }    
     }
 }

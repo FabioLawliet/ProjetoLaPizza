@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using LaPizza.Controllers;
+using LaPizza.DAO;
 using LaPizza.Models;
 
 namespace LaPizza.Views
 {
     public partial class FormEstMarca : LaPizza.Views.FormBaseCadastros
     {
-        public MarcaModel MarcaPesquisa;
-        
+
         public FormEstMarca()
         {
             InitializeComponent();
@@ -24,17 +19,15 @@ namespace LaPizza.Views
         {
             if (Ativa)
             {
-                txtDescricao.BackColor = Color.White;
-                txtDescricao.Enabled = true;
-                cbAtiva.BackColor = Color.White;
+                txtMarcaDescricao.Enabled = true;
+                cbAtiva.Checked = true;
                 cbAtiva.Enabled = true;
             }
             else
             {
-                txtId.BackColor = Color.Silver;
-                txtId.Enabled = false;
-                txtDescricao.BackColor = Color.Silver;
-                txtDescricao.Enabled = false;
+                txtMarcaId.Enabled = false;
+                txtMarcaDescricao.Enabled = false;
+                cbAtiva.Checked = true;
                 cbAtiva.Enabled = false;
             }
         }
@@ -44,35 +37,53 @@ namespace LaPizza.Views
             HabilitarComponentesPnlPrincipal(true);
 
             MarcaController MControle = new MarcaController();
-            txtId.Text = (MControle.GetProximoId()+1).ToString();
+            txtMarcaId.Text = (MControle.GetProximoId() + 1).ToString();
 
-            if (txtDescricao.CanFocus)
-                txtDescricao.Focus();
+            if (txtMarcaDescricao.CanFocus)
+                txtMarcaDescricao.Focus();
         }
 
         private void btnAcaoEditar_Click(object sender, EventArgs e)
         {
             HabilitarComponentesPnlPrincipal(true);
 
-            FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
-            pesquisaMarca.ShowDialog();
+            FormEstMarcaPesquisa Pesq = new FormEstMarcaPesquisa();
+            var Result = Pesq.ShowDialog();
 
-            if (MenuStatus == null)
+            if (Result == DialogResult.OK)
+            {
+                txtMarcaId.Text = Pesq.PMarca.id.ToString();
+                txtMarcaDescricao.Text = Pesq.PMarca.descricao;
+                cbAtiva.Enabled = Pesq.PMarca.ativa;
+            }
+            else
+            {
                 cancelaOperacao();
+                return;
+            }
 
-            if (txtDescricao.CanFocus)
-                txtDescricao.Focus();
+            if (txtMarcaDescricao.CanFocus)
+                txtMarcaDescricao.Focus();
         }
 
         private void btnAcaoConsultar_Click(object sender, EventArgs e)
         {
             HabilitarComponentesPnlPrincipal(false);
 
-            FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
-            pesquisaMarca.ShowDialog();
+            FormEstMarcaPesquisa Pesq = new FormEstMarcaPesquisa();
+            var Result = Pesq.ShowDialog();
 
-            if (MenuStatus == null)
+            if (Result == DialogResult.OK)
+            {
+                txtMarcaId.Text = Pesq.PMarca.id.ToString();
+                txtMarcaDescricao.Text = Pesq.PMarca.descricao;
+                cbAtiva.Enabled = Pesq.PMarca.ativa;
+            }
+            else
+            {
                 cancelaOperacao();
+                return;
+            }
 
             if (btnCancelar.CanFocus)
                 btnCancelar.Focus();
@@ -82,13 +93,22 @@ namespace LaPizza.Views
         {
             HabilitarComponentesPnlPrincipal(false);
 
-            FormEstMarcaPesquisa pesquisaMarca = new FormEstMarcaPesquisa(this);
-            pesquisaMarca.ShowDialog();
+            FormEstMarcaPesquisa Pesq = new FormEstMarcaPesquisa();
+            var Result = Pesq.ShowDialog();
 
-            if (MenuStatus == null)
-                cancelaOperacao();
+            if (Result == DialogResult.OK)
+            {
+                txtMarcaId.Text = Pesq.PMarca.id.ToString();
+                txtMarcaDescricao.Text = Pesq.PMarca.descricao;
+                cbAtiva.Enabled = Pesq.PMarca.ativa;
+
+                btnConfirmar.Enabled = true;
+            }
             else
-                HabilitaAcao(TipoAcao.Confirmar, true);
+            {
+                cancelaOperacao();
+                return;
+            }
 
             if (btnConfirmar.CanFocus)
                 btnConfirmar.Focus();
@@ -96,25 +116,25 @@ namespace LaPizza.Views
 
         private void LimpaComponentes()
         {
-            txtId.Text = string.Empty;
-            txtDescricao.Text = string.Empty;
+            txtMarcaId.Text = string.Empty;
+            txtMarcaDescricao.Text = string.Empty;
             cbAtiva.Checked = true;
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if(txtDescricao.Text == string.Empty )
+            if (txtMarcaDescricao.Text == string.Empty)
             {
                 MessageBox.Show("É necessário informar uma descrição");
-                txtDescricao.Focus();
+                txtMarcaDescricao.Focus();
             }
             else
             {
                 MarcaController Mcontrole = new MarcaController();
                 MarcaDto Marca = new MarcaDto();
 
-                Marca.id = Int32.Parse(txtId.Text);
-                Marca.descricao = txtDescricao.Text;
+                Marca.id = Int32.Parse(txtMarcaId.Text);
+                Marca.descricao = txtMarcaDescricao.Text;
                 Marca.ativa = cbAtiva.Checked;
 
                 if (MenuStatus == MStatus.Adicionando)
@@ -127,6 +147,7 @@ namespace LaPizza.Views
 
             LimpaComponentes();
             HabilitarComponentesPnlPrincipal(false);
+            HabilitarAcoesIniciais();
 
         }
 
@@ -147,13 +168,12 @@ namespace LaPizza.Views
             HabilitarAcoesIniciais();
         }
 
-        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        private void txtMarcaDescricao_TextChanged(object sender, EventArgs e)
         {
-            if (this.Text != String.Empty && txtDescricao.Enabled == true)
+            if (txtMarcaDescricao.Text != String.Empty && txtMarcaDescricao.Enabled == true)
                 HabilitaAcao(TipoAcao.Confirmar, true);
             else
                 HabilitaAcao(TipoAcao.Confirmar, false);
         }
-
     }
 }

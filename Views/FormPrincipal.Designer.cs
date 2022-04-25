@@ -56,8 +56,8 @@
             this.pnlSubMenuCliente = new System.Windows.Forms.Panel();
             this.btnCliCadastro = new System.Windows.Forms.Button();
             this.btnMenuCliente = new System.Windows.Forms.Button();
-            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.pnlLogo = new System.Windows.Forms.Panel();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.pnlLateral.SuspendLayout();
             this.pnlMenuLateral.SuspendLayout();
             this.pnlSubMenuGeral.SuspendLayout();
@@ -395,6 +395,7 @@
             this.btnEstGrupo.Text = "Cadastro de Grupo";
             this.btnEstGrupo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstGrupo.UseVisualStyleBackColor = false;
+            this.btnEstGrupo.Click += new System.EventHandler(this.btnEstGrupo_Click);
             // 
             // btnEstMarca
             // 
@@ -436,6 +437,7 @@
             this.btnEstProduto.Text = "Cadastro de Produto";
             this.btnEstProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstProduto.UseVisualStyleBackColor = false;
+            this.btnEstProduto.Click += new System.EventHandler(this.btnEstProduto_Click);
             // 
             // btnMenuEstoque
             // 
@@ -583,17 +585,6 @@
             this.btnMenuCliente.UseVisualStyleBackColor = false;
             this.btnMenuCliente.Click += new System.EventHandler(this.btnMenuCliente_Click);
             // 
-            // pnlPrincipal
-            // 
-            this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.pnlPrincipal.BackgroundImage = global::LaPizza.Properties.Resources.Logo15_;
-            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(250, 0);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(1114, 773);
-            this.pnlPrincipal.TabIndex = 0;
-            // 
             // pnlLogo
             // 
             this.pnlLogo.BackColor = System.Drawing.Color.Brown;
@@ -605,6 +596,17 @@
             this.pnlLogo.Size = new System.Drawing.Size(250, 100);
             this.pnlLogo.TabIndex = 4;
             // 
+            // pnlPrincipal
+            // 
+            this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.pnlPrincipal.BackgroundImage = global::LaPizza.Properties.Resources.Logo15_;
+            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(250, 0);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(1114, 773);
+            this.pnlPrincipal.TabIndex = 0;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,8 +614,12 @@
             this.ClientSize = new System.Drawing.Size(1364, 773);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlLateral);
+            this.MaximizeBox = false;
             this.Name = "FormPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.FormPrincipal_Resize);
             this.pnlLateral.ResumeLayout(false);
             this.pnlMenuLateral.ResumeLayout(false);
             this.pnlMenuLateral.PerformLayout();
@@ -628,8 +634,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.Panel pnlLateral;
         private System.Windows.Forms.Panel pnlMenuLateral;
         private System.Windows.Forms.Panel pnlSubMenuGeral;
@@ -659,6 +663,7 @@
         private System.Windows.Forms.Button btnCliCadastro;
         private System.Windows.Forms.Button btnMenuCliente;
         private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.Panel pnlPrincipal;
     }
 }
 

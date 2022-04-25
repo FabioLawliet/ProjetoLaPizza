@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.lbId = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lbDescricao = new System.Windows.Forms.Label();
+            this.txtMarcaId = new LaPizza.Controllers.LpText();
+            this.txtMarcaDescricao = new LaPizza.Controllers.LpText();
             this.cbAtiva = new System.Windows.Forms.CheckBox();
-            this.lbAtiva = new System.Windows.Forms.Label();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesMenu.SuspendLayout();
@@ -42,11 +41,10 @@
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.Controls.Add(this.lbAtiva);
             this.pnlPrincipal.Controls.Add(this.cbAtiva);
-            this.pnlPrincipal.Controls.Add(this.txtDescricao);
+            this.pnlPrincipal.Controls.Add(this.txtMarcaDescricao);
+            this.pnlPrincipal.Controls.Add(this.txtMarcaId);
             this.pnlPrincipal.Controls.Add(this.lbDescricao);
-            this.pnlPrincipal.Controls.Add(this.txtId);
             this.pnlPrincipal.Controls.Add(this.lbId);
             this.pnlPrincipal.Size = new System.Drawing.Size(484, 69);
             // 
@@ -112,26 +110,6 @@
             this.lbId.TabIndex = 0;
             this.lbId.Text = "Id";
             // 
-            // txtId
-            // 
-            this.txtId.BackColor = System.Drawing.Color.White;
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtId.Location = new System.Drawing.Point(14, 31);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(60, 20);
-            this.txtId.TabIndex = 1;
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.BackColor = System.Drawing.Color.White;
-            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDescricao.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtDescricao.Location = new System.Drawing.Point(80, 31);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(349, 20);
-            this.txtDescricao.TabIndex = 3;
-            this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
-            // 
             // lbDescricao
             // 
             this.lbDescricao.AutoSize = true;
@@ -141,30 +119,43 @@
             this.lbDescricao.TabIndex = 2;
             this.lbDescricao.Text = "Descrição";
             // 
+            // txtMarcaId
+            // 
+            this.txtMarcaId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMarcaId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarcaId.ForeColor = System.Drawing.Color.Black;
+            this.txtMarcaId.Location = new System.Drawing.Point(12, 31);
+            this.txtMarcaId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMarcaId.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
+            this.txtMarcaId.Name = "txtMarcaId";
+            this.txtMarcaId.Size = new System.Drawing.Size(62, 20);
+            this.txtMarcaId.TabIndex = 4;
+            // 
+            // txtMarcaDescricao
+            // 
+            this.txtMarcaDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMarcaDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarcaDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtMarcaDescricao.Location = new System.Drawing.Point(81, 31);
+            this.txtMarcaDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMarcaDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMarcaDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtMarcaDescricao.Name = "txtMarcaDescricao";
+            this.txtMarcaDescricao.Size = new System.Drawing.Size(336, 20);
+            this.txtMarcaDescricao.TabIndex = 6;
+            this.txtMarcaDescricao.TextChanged += new System.EventHandler(this.txtMarcaDescricao_TextChanged);
+            // 
             // cbAtiva
             // 
-            this.cbAtiva.BackColor = System.Drawing.Color.Transparent;
-            this.cbAtiva.Checked = true;
-            this.cbAtiva.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAtiva.FlatAppearance.BorderSize = 0;
-            this.cbAtiva.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbAtiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.cbAtiva.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbAtiva.Location = new System.Drawing.Point(435, 34);
+            this.cbAtiva.AutoSize = true;
+            this.cbAtiva.Location = new System.Drawing.Point(423, 31);
             this.cbAtiva.Name = "cbAtiva";
-            this.cbAtiva.Size = new System.Drawing.Size(14, 14);
-            this.cbAtiva.TabIndex = 4;
-            this.cbAtiva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbAtiva.UseVisualStyleBackColor = false;
-            // 
-            // lbAtiva
-            // 
-            this.lbAtiva.AutoSize = true;
-            this.lbAtiva.Location = new System.Drawing.Point(435, 15);
-            this.lbAtiva.Name = "lbAtiva";
-            this.lbAtiva.Size = new System.Drawing.Size(37, 13);
-            this.lbAtiva.TabIndex = 5;
-            this.lbAtiva.Text = "Ativa?";
+            this.cbAtiva.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.cbAtiva.Size = new System.Drawing.Size(56, 19);
+            this.cbAtiva.TabIndex = 19;
+            this.cbAtiva.Text = "Ativa?";
+            this.cbAtiva.UseVisualStyleBackColor = true;
             // 
             // FormEstMarca
             // 
@@ -187,9 +178,8 @@
         #endregion
         private System.Windows.Forms.Label lbDescricao;
         private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Label lbAtiva;
+        private Controllers.LpText txtMarcaDescricao;
+        private Controllers.LpText txtMarcaId;
         public System.Windows.Forms.CheckBox cbAtiva;
-        public System.Windows.Forms.TextBox txtDescricao;
-        public System.Windows.Forms.TextBox txtId;
     }
 }
