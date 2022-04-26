@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace LaPizza.Views
 {
-    public partial class FormEstSubgrupo : LaPizza.Views.FormBaseCadastros
+    public partial class FormEstControleEstoque : LaPizza.Views.FormBaseCadastros
     {
-        public FormEstSubgrupo()
+        public FormEstControleEstoque()
         {
             InitializeComponent();
         }

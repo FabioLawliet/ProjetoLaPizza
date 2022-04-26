@@ -1,6 +1,6 @@
 ﻿namespace LaPizza.Views
 {
-    partial class FormEstSubGrupo
+    partial class FormEstSubgrupo
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -223,11 +223,11 @@
             this.lbSubgrupoId.TabIndex = 30;
             this.lbSubgrupoId.Text = "SubGrupo";
             // 
-            // FormEstSubGrupo
+            // FormEstSubgrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(485, 226);
-            this.Name = "FormEstSubGrupo";
+            this.Name = "FormEstSubgrupo";
             this.ShowIcon = false;
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();

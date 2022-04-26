@@ -137,6 +137,12 @@
     <Compile Include="Models\ProdutoModel.cs" />
     <Compile Include="Models\SubgrupoDto.cs" />
     <Compile Include="Models\SubgrupoModel.cs" />
+    <Compile Include="Views\FormEstControleEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormEstControleEstoque.Designer.cs">
+      <DependentUpon>FormEstControleEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormEstGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     <Compile Include="Views\Pesquisas\FormEstProdutoPesquisa.Designer.cs">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FormEstControleEstoque.resx">
+      <DependentUpon>FormEstControleEstoque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormEstGrupo.resx">
       <DependentUpon>FormEstGrupo.cs</DependentUpon>
     </EmbeddedResource>
