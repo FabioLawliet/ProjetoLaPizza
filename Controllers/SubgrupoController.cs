@@ -7,32 +7,32 @@ using System.Windows.Forms;
 
 namespace LaPizza.Controllers
 {
-    public class GrupoController
+    public class SubgrupoController
     {
-        public void Adicionar(GrupoDto Grupo)
+        public void Adicionar(SubgrupoDto Subgrupo)
         {
             Context db = new Context();
-            db.grupo.Add(Grupo);
+            db.subgrupo.Add(Subgrupo);
             db.SaveChanges();
         }
 
-        public void Editar(GrupoDto Grupo)
+        public void Editar(SubgrupoDto Subgrupo)
         {
             Context db = new Context();
-            GrupoDto gru = db.grupo.FirstOrDefault(g => g.id == Grupo.id);
-            gru.id = Grupo.id;
-            gru.descricao = gru.descricao;
-            gru.ativo = Grupo.ativo;
+            SubgrupoDto sub = db.subgrupo.FirstOrDefault(s => s.id == Subgrupo.id);
+            sub.id = Subgrupo.id;
+            sub.descricao = sub.descricao;
+            sub.ativo = Subgrupo.ativo;
             db.SaveChanges();
         }
 
         public void Excluir(int Id)
         {
             Context db = new Context();
-            GrupoDto gru = db.grupo.FirstOrDefault(g => g.id == Id);
+            SubgrupoDto sub = db.subgrupo.FirstOrDefault(s => s.id == Id);
             try
             {
-                db.grupo.Remove(gru);
+                db.subgrupo.Remove(sub);
             }
             catch (Exception ex)
             {
@@ -47,49 +47,49 @@ namespace LaPizza.Controllers
         public bool ExisteGrupoId(int Id)
         {
             Context db = new Context();
-            GrupoDto gru = db.grupo.Where(g => g.id == Id).FirstOrDefault();
+            SubgrupoDto sub = db.subgrupo.Where(g => g.id == Id).FirstOrDefault();
 
-            if (gru is null)
-                return true;
-            else
+            if (sub is null)
                 return false;
+            else
+                return true;
         }
 
         public int GetProximoId()
         {
             Context db = new Context();
-            var gru = db.grupo.FirstOrDefault();
+            var sub = db.subgrupo.FirstOrDefault();
 
-            if (gru is null)
+            if (sub is null)
                 return 1;
             else
-                return db.grupo.Max(g => g.id) + 1;
+                return db.subgrupo.Max(s => s.id) + 1;
         }
 
-        public GrupoModel GetGrupo(int Id)
+        public SubgrupoModel GetGrupo(int Id)
         {
             Context db = new Context();
-            GrupoModel Lista = (from gru in db.grupo
+            SubgrupoModel Subgrupo = (from gru in db.subgrupo
                                 where gru.id == Id
-                                select new GrupoModel
-                                { 
+                                select new SubgrupoModel
+                                {
                                     id = gru.id,
                                     descricao = gru.descricao,
                                     ativo = gru.ativo
                                 }).FirstOrDefault();
 
-            return Grupo;
+            return Subgrupo;
         }
 
-        public List<GrupoModel> GetGrupoLista()
+        public List<SubgrupoModel> GetGrupoLista()
         {
             Context db = new Context();
-            List<GrupoModel> Lista = (from gru in db.grupo
-                                      select new GrupoModel
+            List<SubgrupoModel> Lista = (from sub in db.subgrupo
+                                      select new SubgrupoModel
                                       {
-                                          id = gru.id,
-                                          descricao = gru.descricao,
-                                          ativo = gru.ativo
+                                          id = sub.id,
+                                          descricao = sub.descricao,
+                                          ativo = sub.ativo
                                       }).ToList();
             return Lista;
         }
@@ -108,4 +108,5 @@ namespace LaPizza.Controllers
             return new List<GrupoModel>(Lista.Where(p => p.descricao.Contains(Descricao)));
         }
     }
+}
 }

@@ -124,7 +124,6 @@ namespace LaPizza.Views
             if (btnConfirmar.CanFocus)
                 btnConfirmar.Focus();
 
-
         }
 
         private void LimpaComponentes()
@@ -181,7 +180,7 @@ namespace LaPizza.Views
             HabilitarAcoesIniciais();
         }
 
-        private void txtProdutoDescricao_TextChanged(object sender, EventArgs e)
+        private void txtGrupoDescricao_TextChanged(object sender, EventArgs e)
         {
             if (txtGrupoDescricao.Text != String.Empty && txtGrupoDescricao.Enabled == true)
                 HabilitaAcao(TipoAcao.Confirmar, true);

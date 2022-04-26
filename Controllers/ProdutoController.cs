@@ -107,7 +107,7 @@ namespace LaPizza.Controllers
                                                     precoAtual = pro.precoatual
                                                 }).ToList();
 
-            return ListaProduto.FirstOrDefault(); ;
+            return ListaProduto.FirstOrDefault();
         }
         public List<ProdutoModel> GetProdutoLista()
         {
@@ -119,7 +119,7 @@ namespace LaPizza.Controllers
                                               {
                                                   id = pro.id,
                                                   descricao = pro.descricao,
-                                                  dataCadastro = pro.datacadastro,
+                                                  //dataCadastro = pro.datacadastro,
                                                   ativo = pro.ativo,
                                                   grupo = pro.grupo,
                                                   //grupoDescricao = gru.descricao,
@@ -142,6 +142,8 @@ namespace LaPizza.Controllers
 
         public List<ProdutoModel> GetProdutoPesquisa(string Descricao)
         {
+            Descricao = Descricao.ToUpper() ;
+
             Context db = new Context();
             List<ProdutoModel> ProdutoLista = (from pro in db.produto
                                                join mar in db.marca on pro.marca equals mar.id

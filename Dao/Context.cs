@@ -10,6 +10,7 @@ namespace LaPizza.DAO
         }
         public DbSet<ProdutoDto> produto { get; set; }
         public DbSet<GrupoDto> grupo { get; set; }
+        public DbSet<SubgrupoDto> subgrupo { get; set; }
         public DbSet<MarcaDto> marca { get; set; }
     }
 }

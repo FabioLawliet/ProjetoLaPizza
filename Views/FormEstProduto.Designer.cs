@@ -386,6 +386,8 @@
             this.txtGrupoId.Name = "txtGrupoId";
             this.txtGrupoId.Size = new System.Drawing.Size(55, 20);
             this.txtGrupoId.TabIndex = 19;
+            this.txtGrupoId.TextChanged += new System.EventHandler(this.txtGrupoId_TextChanged);
+            this.txtGrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGrupoId_KeyUp);
             // 
             // cbAtivo
             // 

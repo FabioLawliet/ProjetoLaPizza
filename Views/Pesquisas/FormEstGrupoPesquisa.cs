@@ -31,8 +31,8 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.Columns[1].HeaderText = "Descrição";
             dbGridPesquisa.Columns[1].Width = 250;
 
-            dbGridPesquisa.Columns[3].HeaderText = "Ativo?";
-            dbGridPesquisa.Columns[3].Width = 100;
+            dbGridPesquisa.Columns[2].HeaderText = "Ativo?";
+            dbGridPesquisa.Columns[2].Width = 100;
 
             this.Width = 450;
             dbGridPesquisa.Refresh();
@@ -68,8 +68,8 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.Columns[1].HeaderText = "Descrição";
             dbGridPesquisa.Columns[1].Width = 250;
 
-            dbGridPesquisa.Columns[3].HeaderText = "Ativo?";
-            dbGridPesquisa.Columns[3].Width = 100;
+            dbGridPesquisa.Columns[2].HeaderText = "Ativo?";
+            dbGridPesquisa.Columns[2].Width = 100;
 
             this.Width = 450;
             dbGridPesquisa.Refresh();

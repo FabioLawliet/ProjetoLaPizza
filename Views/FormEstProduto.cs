@@ -322,10 +322,37 @@ namespace LaPizza.Views
                 txtMarcaDescricao.Text = Marca.descricao;
             }
             else
-            {
                 txtMarcaDescricao.Text = String.Empty;
-            }
 
+        }
+
+        private void txtGrupoId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormEstGrupoPesquisa Pesq = new FormEstGrupoPesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtGrupoId.Text = Pesq.PGrupo.id.ToString();
+                    txtGrupoDescricao.Text = Pesq.PGrupo.descricao;
+                }
+            }
+        }
+
+        private void txtGrupoId_TextChanged(object sender, EventArgs e)
+        {
+            GrupoController gControle = new GrupoController();
+            GrupoModel Grupo = new GrupoModel();
+
+            if (txtGrupoId.Text != String.Empty && gControle.ExisteGrupoId(Int32.Parse(txtGrupoId.Text)))
+            {
+                Grupo = gControle.GetGrupo(Int32.Parse(txtGrupoId.Text));
+                txtGrupoDescricao.Text = Grupo.descricao;
+            }
+            else
+                txtGrupoDescricao.Text = String.Empty;
         }
     }
 }
