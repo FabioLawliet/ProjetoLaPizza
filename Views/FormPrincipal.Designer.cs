@@ -335,6 +335,7 @@
             this.btnEstControle.Text = "Controle de Estoque";
             this.btnEstControle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstControle.UseVisualStyleBackColor = false;
+            this.btnEstControle.Click += new System.EventHandler(this.btnEstControle_Click);
             // 
             // btnEstEntradaMerc
             // 

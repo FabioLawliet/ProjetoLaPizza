@@ -47,12 +47,13 @@ namespace LaPizza.Controllers
         public bool ExisteGrupoId(int Id)
         {
             Context db = new Context();
-            GrupoDto gru = db.grupo.Where(g => g.id == Id).FirstOrDefault();
+            GrupoDto grupo = db.grupo.Where(g => g.id == Id).FirstOrDefault();
 
-            if (gru is null)
+            if (grupo != null && grupo.id == Id)
                 return true;
             else
                 return false;
+
         }
 
         public int GetProximoId()
@@ -78,7 +79,7 @@ namespace LaPizza.Controllers
                                     ativo = gru.ativo
                                 }).FirstOrDefault();
 
-            return Grupo;
+            return Lista;
         }
 
         public List<GrupoModel> GetGrupoLista()

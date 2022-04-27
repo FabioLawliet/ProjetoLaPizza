@@ -168,11 +168,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dbGridPesquisa.DefaultCellStyle = dataGridViewCellStyle2;
             this.dbGridPesquisa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dbGridPesquisa.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dbGridPesquisa.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dbGridPesquisa.Location = new System.Drawing.Point(0, 0);
             this.dbGridPesquisa.MultiSelect = false;
             this.dbGridPesquisa.Name = "dbGridPesquisa";
             this.dbGridPesquisa.ReadOnly = true;
+            this.dbGridPesquisa.RowHeadersVisible = false;
             this.dbGridPesquisa.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dbGridPesquisa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dbGridPesquisa.Size = new System.Drawing.Size(454, 431);

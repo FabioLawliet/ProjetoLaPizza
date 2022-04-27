@@ -84,13 +84,13 @@ namespace LaPizza.Views
             {
                 txtProdutoId.Text = Pesq.PProduto.id.ToString();
                 txtProdutoDescricao.Text = Pesq.PProduto.descricao;
-                txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
+                //txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
                 cbAtivo.Checked = Pesq.PProduto.ativo;
-                txtGrupoId.Text = Pesq.PProduto.grupo.ToString();
-                txtGrupoDescricao.Text = "";//Pesq.PProduto.grupoDescricao;
-                txtSubgrupoId.Text = Pesq.PProduto.subgrupo.ToString();
-                txtSubgrupoDescricao.Text = "";//Pesq.PProduto.subGrupoDescricao;
-                txtMarcaId.Text = Pesq.PProduto.marca.ToString();
+                txtGrupoId.Text = Pesq.PProduto.idgrupo.ToString();
+                txtGrupoDescricao.Text = Pesq.PProduto.grupoDescricao;
+                txtSubgrupoId.Text = Pesq.PProduto.idsubgrupo.ToString();
+                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupoDescricao;
+                txtMarcaId.Text = Pesq.PProduto.idmarca.ToString();
                 txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
                 txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
                 txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
@@ -131,13 +131,13 @@ namespace LaPizza.Views
             {
                 txtProdutoId.Text = Pesq.PProduto.id.ToString();
                 txtProdutoDescricao.Text = Pesq.PProduto.descricao;
-                txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
+                //txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
                 cbAtivo.Checked = Pesq.PProduto.ativo;
-                txtGrupoId.Text = Pesq.PProduto.grupo.ToString();
-                txtGrupoDescricao.Text = ""; //Pesq.PProduto.grupoDescricao;
-                txtSubgrupoId.Text = Pesq.PProduto.subgrupo.ToString();
-                txtSubgrupoDescricao.Text = ""; //Pesq.PProduto.subgrupoDescricao;
-                txtMarcaId.Text = Pesq.PProduto.marca.ToString();
+                txtGrupoId.Text = Pesq.PProduto.idgrupo.ToString();
+                txtGrupoDescricao.Text = Pesq.PProduto.grupoDescricao;
+                txtSubgrupoId.Text = Pesq.PProduto.idsubgrupo.ToString();
+                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupoDescricao;
+                txtMarcaId.Text = Pesq.PProduto.idmarca.ToString();
                 txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
                 txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
                 txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
@@ -172,13 +172,13 @@ namespace LaPizza.Views
             {
                 txtProdutoId.Text = Pesq.PProduto.id.ToString();
                 txtProdutoDescricao.Text = Pesq.PProduto.descricao;
-                txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
+                //txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
                 cbAtivo.Checked = Pesq.PProduto.ativo;
-                txtGrupoId.Text = Pesq.PProduto.grupo.ToString();
+                txtGrupoId.Text = Pesq.PProduto.idgrupo.ToString();
                 txtGrupoDescricao.Text = Pesq.PProduto.grupoDescricao;
-                txtSubgrupoId.Text = Pesq.PProduto.subgrupo.ToString();
+                txtSubgrupoId.Text = Pesq.PProduto.idsubgrupo.ToString();
                 txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupoDescricao;
-                txtMarcaId.Text = Pesq.PProduto.marca.ToString();
+                txtMarcaId.Text = Pesq.PProduto.idmarca.ToString();
                 txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
                 txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
                 txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
@@ -242,11 +242,11 @@ namespace LaPizza.Views
 
                 Produto.id = Int32.Parse(txtProdutoId.Text);
                 Produto.descricao = txtProdutoDescricao.Text;
-                Produto.datacadastro = DateTime.Now;
+                Produto.datacadastro = DateTime.Today.ToString();
                 Produto.ativo = cbAtivo.Checked;
-                Produto.grupo = Int32.Parse(txtGrupoId.Text);
-                Produto.subgrupo = Int32.Parse(txtSubgrupoId.Text);
-                Produto.marca = Int32.Parse(txtMarcaId.Text);
+                Produto.idgrupo = Int32.Parse(txtGrupoId.Text);
+                Produto.idsubgrupo = Int32.Parse(txtSubgrupoId.Text);
+                Produto.idmarca = Int32.Parse(txtMarcaId.Text);
                 Produto.codigofabricante = txtCodigoFabricante.Text;
                 Produto.infadicionais = txtInfAdicionais.Text;
                 Produto.saldoestoque = 0;
@@ -313,13 +313,20 @@ namespace LaPizza.Views
 
         private void txtMarcaId_TextChanged(object sender, EventArgs e)
         {
-            MarcaController mControle = new MarcaController();
-            MarcaModel Marca = new MarcaModel();
-
-            if (txtMarcaId.Text != String.Empty && mControle.ExisteMarca(Int32.Parse(txtMarcaId.Text)))
+            if (txtMarcaId.Text != "")
             {
-                Marca = mControle.GetMarca(Int32.Parse(txtMarcaId.Text));
-                txtMarcaDescricao.Text = Marca.descricao;
+                MarcaController Controle = new MarcaController();
+                MarcaModel Marca = new MarcaModel();
+
+                var id = Int32.Parse(txtMarcaId.Text);
+
+                if (Controle.ExisteMarca(id))
+                {
+                    Marca = Controle.GetMarca(id);
+                    txtMarcaDescricao.Text = Marca.descricao;
+                }
+                else
+                    txtMarcaDescricao.Text = String.Empty;
             }
             else
                 txtMarcaDescricao.Text = String.Empty;
@@ -343,16 +350,24 @@ namespace LaPizza.Views
 
         private void txtGrupoId_TextChanged(object sender, EventArgs e)
         {
-            GrupoController gControle = new GrupoController();
-            GrupoModel Grupo = new GrupoModel();
-
-            if (txtGrupoId.Text != String.Empty && gControle.ExisteGrupoId(Int32.Parse(txtGrupoId.Text)))
+            if (txtGrupoId.Text != "")
             {
-                Grupo = gControle.GetGrupo(Int32.Parse(txtGrupoId.Text));
-                txtGrupoDescricao.Text = Grupo.descricao;
+                GrupoController Controle = new GrupoController();
+                GrupoModel Grupo = new GrupoModel();
+
+                var id = Int32.Parse(txtGrupoId.Text);
+
+                if (Controle.ExisteGrupoId(id))
+                {
+                    Grupo = Controle.GetGrupo(id);
+                    txtGrupoDescricao.Text = Grupo.descricao;
+                }
+                else
+                    txtGrupoDescricao.Text = String.Empty;
             }
             else
                 txtGrupoDescricao.Text = String.Empty;
+
         }
     }
 }

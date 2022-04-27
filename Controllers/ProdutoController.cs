@@ -22,11 +22,11 @@ namespace LaPizza.Controllers
             ProdutoDto pro = db.produto.FirstOrDefault(p => p.id == Produto.id);
             pro.id = Produto.id;
             pro.descricao = Produto.descricao;
-            pro.datacadastro = Produto.datacadastro;
+            pro.datacadastro = Produto.datacadastro.ToString();
             pro.ativo = Produto.ativo;
-            pro.grupo = Produto.grupo;
-            pro.subgrupo = Produto.subgrupo;
-            pro.marca = Produto.marca;
+            pro.idgrupo = Produto.idgrupo;
+            pro.idsubgrupo = Produto.idsubgrupo;
+            pro.idmarca = Produto.idmarca;
             pro.codigofabricante = Produto.codigofabricante;
             pro.infadicionais = Produto.infadicionais;
             pro.saldoestoque = Produto.saldoestoque;
@@ -62,9 +62,9 @@ namespace LaPizza.Controllers
             var pro = db.produto.Where(p => p.id == Id).FirstOrDefault();
 
             if (pro is null)
-                return true;
-            else
                 return false;
+            else
+                return true;
         }
 
         public int GetProximoId()
@@ -81,63 +81,67 @@ namespace LaPizza.Controllers
         public ProdutoModel GetProduto(int Id)
         {
             Context db = new Context();
-            List<ProdutoModel> ListaProduto = (from pro in db.produto
-                                                join mar in db.marca on pro.marca equals mar.id
-                                                where pro.id == Id
-                                                select new ProdutoModel
-                                                {
-                                                    id = pro.id,
-                                                    descricao = pro.descricao,
-                                                    //dataCadastro = pro.datacadastro,
-                                                    ativo = pro.ativo,
-                                                    grupo = pro.grupo,
-                                                    //grupoDescricao = pro.grupo.ToString(),
-                                                    subgrupo = pro.subgrupo,
-                                                    //subgrupoDescricao = pro.subgrupo.ToString(),
-                                                    marca = pro.marca,
-                                                    marcaDescricao = mar.descricao,
-                                                    codigoFabricante = pro.codigofabricante,
-                                                    infAdicionais = pro.infadicionais,
-                                                    saldoEstoque = pro.saldoestoque,
-                                                    unidadeMedida = pro.unidademedida,
-                                                    qtdeEstMin = pro.qtdeestmin,
-                                                    qtdeEstIdeal = pro.qtdeestideal,
-                                                    qtdeEstMax = pro.qtdeestmax,
-                                                    precoAnterior = pro.precoanterior,
-                                                    precoAtual = pro.precoatual
-                                                }).ToList();
+            List<ProdutoModel> Lista = (from produto in db.produto
+                                        join marca in db.marca on produto.idmarca equals marca.id
+                                        join grupo in db.grupo on produto.idgrupo equals grupo.id
+                                        join subgrupo in db.subgrupo on produto.idsubgrupo equals subgrupo.id
+                                        where produto.id == Id
+                                        select new ProdutoModel
+                                        {
+                                            id = produto.id,
+                                            descricao = produto.descricao,
+                                            //dataCadastro = produto.datacadastro.ToString(),
+                                            ativo = produto.ativo,
+                                            idgrupo = produto.idgrupo,
+                                            grupoDescricao = grupo.descricao.ToString(),
+                                            idsubgrupo = produto.idsubgrupo,
+                                            subgrupoDescricao = subgrupo.descricao.ToString(),
+                                            idmarca = produto.idmarca,
+                                            marcaDescricao = marca.descricao,
+                                            codigoFabricante = produto.codigofabricante,
+                                            infAdicionais = produto.infadicionais,
+                                            saldoEstoque = produto.saldoestoque,
+                                            unidadeMedida = produto.unidademedida,
+                                            qtdeEstMin = produto.qtdeestmin,
+                                            qtdeEstIdeal = produto.qtdeestideal,
+                                            qtdeEstMax = produto.qtdeestmax,
+                                            precoAnterior = produto.precoanterior,
+                                            precoAtual = produto.precoatual
+                                        }).ToList();
 
-            return ListaProduto.FirstOrDefault();
+            return Lista.FirstOrDefault();
         }
         public List<ProdutoModel> GetProdutoLista()
         {
             Context db = new Context();
-            List<ProdutoModel> ProdutoLista = (from pro in db.produto
-                                              join mar in db.marca on pro.marca equals mar.id
-                                              orderby pro.id
-                                              select new ProdutoModel
-                                              {
-                                                  id = pro.id,
-                                                  descricao = pro.descricao,
-                                                  //dataCadastro = pro.datacadastro,
-                                                  ativo = pro.ativo,
-                                                  grupo = pro.grupo,
-                                                  //grupoDescricao = gru.descricao,
-                                                  subgrupo = pro.subgrupo,
-                                                  //subGrupoDescricao = sub.descricao,
-                                                  marca = pro.marca,
-                                                  marcaDescricao = mar.descricao,
-                                                  codigoFabricante = pro.codigofabricante,
-                                                  infAdicionais = pro.infadicionais,
-                                                  saldoEstoque = pro.saldoestoque,
-                                                  unidadeMedida = pro.unidademedida,
-                                                  qtdeEstMin = pro.qtdeestmin,
-                                                  qtdeEstIdeal = pro.qtdeestideal,
-                                                  qtdeEstMax = pro.qtdeestmax,
-                                                  precoAnterior = pro.precoanterior,
-                                                  precoAtual = pro.precoatual
-                                              }).ToList();
-            return ProdutoLista;
+            List<ProdutoModel> Lista = (from produto in db.produto
+                                        join marca in db.marca on produto.idmarca equals marca.id
+                                        join grupo in db.grupo on produto.idgrupo equals grupo.id
+                                        join subgrupo in db.subgrupo on produto.idsubgrupo equals subgrupo.id
+                                        orderby produto.id
+                                        select new ProdutoModel
+                                        {
+                                            id = produto.id,
+                                            descricao = produto.descricao,
+                                            //dataCadastro = produto.datacadastro.ToString(),
+                                            ativo = produto.ativo,
+                                            idgrupo = produto.idgrupo,
+                                            grupoDescricao = grupo.descricao.ToString(),
+                                            idsubgrupo = produto.idsubgrupo,
+                                            subgrupoDescricao = subgrupo.descricao.ToString(),
+                                            idmarca = produto.idmarca,
+                                            marcaDescricao = marca.descricao,
+                                            codigoFabricante = produto.codigofabricante,
+                                            infAdicionais = produto.infadicionais,
+                                            saldoEstoque = produto.saldoestoque,
+                                            unidadeMedida = produto.unidademedida,
+                                            qtdeEstMin = produto.qtdeestmin,
+                                            qtdeEstIdeal = produto.qtdeestideal,
+                                            qtdeEstMax = produto.qtdeestmax,
+                                            precoAnterior = produto.precoanterior,
+                                            precoAtual = produto.precoatual
+                                        }).ToList();
+            return Lista;
         }
 
         public List<ProdutoModel> GetProdutoPesquisa(string Descricao)
@@ -145,33 +149,35 @@ namespace LaPizza.Controllers
             Descricao = Descricao.ToUpper() ;
 
             Context db = new Context();
-            List<ProdutoModel> ProdutoLista = (from pro in db.produto
-                                               join mar in db.marca on pro.marca equals mar.id
-                                               orderby pro.id
+            List<ProdutoModel> Lista = (from produto in db.produto
+                                               join marca in db.marca on produto.idmarca equals marca.id
+                                               join grupo in db.grupo on produto.idgrupo equals grupo.id
+                                               join subgrupo in db.subgrupo on produto.idsubgrupo equals subgrupo.id
+                                               orderby produto.id
                                                select new ProdutoModel
                                                {
-                                                   id = pro.id,
-                                                   descricao = pro.descricao,
-                                                   //dataCadastro = pro.datacadastro,
-                                                   ativo = pro.ativo,
-                                                   grupo = pro.grupo,
-                                                   //grupoDescricao = gru.descricao,
-                                                   subgrupo = pro.subgrupo,
-                                                   //subGrupoDescricao = sub.descricao,
-                                                   marca = pro.marca,
-                                                   marcaDescricao = mar.descricao,
-                                                   codigoFabricante = pro.codigofabricante,
-                                                   infAdicionais = pro.infadicionais,
-                                                   saldoEstoque = pro.saldoestoque,
-                                                   unidadeMedida = pro.unidademedida,
-                                                   qtdeEstMin = pro.qtdeestmin,
-                                                   qtdeEstIdeal = pro.qtdeestideal,
-                                                   qtdeEstMax = pro.qtdeestmax,
-                                                   precoAnterior = pro.precoanterior,
-                                                   precoAtual = pro.precoatual
+                                                   id = produto.id,
+                                                   descricao = produto.descricao,
+                                                   //dataCadastro = produto.datacadastro.ToString(),
+                                                   ativo = produto.ativo,
+                                                   idgrupo = produto.idgrupo,
+                                                   grupoDescricao = grupo.descricao.ToString(),
+                                                   idsubgrupo = produto.idsubgrupo,
+                                                   subgrupoDescricao = subgrupo.descricao.ToString(),
+                                                   idmarca = produto.idmarca,
+                                                   marcaDescricao = marca.descricao,
+                                                   codigoFabricante = produto.codigofabricante,
+                                                   infAdicionais = produto.infadicionais,
+                                                   saldoEstoque = produto.saldoestoque,
+                                                   unidadeMedida = produto.unidademedida,
+                                                   qtdeEstMin = produto.qtdeestmin,
+                                                   qtdeEstIdeal = produto.qtdeestideal,
+                                                   qtdeEstMax = produto.qtdeestmax,
+                                                   precoAnterior = produto.precoanterior,
+                                                   precoAtual = produto.precoatual
                                                }).ToList();
 
-            return new List<ProdutoModel>(ProdutoLista.Where(p => p.descricao.Contains(Descricao)));
+            return new List<ProdutoModel>(Lista.Where(p => p.descricao.Contains(Descricao)));
         }
 
         public List<ProdutoModel> GetProdutoPesquisaGrid(string Descricao)

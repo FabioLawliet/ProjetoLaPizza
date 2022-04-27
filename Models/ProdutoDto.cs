@@ -10,11 +10,10 @@ namespace LaPizza.Models
         [Key]
         public int id { get; set; }
         public string descricao { get; set; }
-
-        public DateTime datacadastro;
-        public int grupo { get; set; }
-        public int subgrupo { get; set; }
-        public int marca { get; set; }
+        public string datacadastro { get; set; }
+        public int idgrupo { get; set; }
+        public int idsubgrupo { get; set; }
+        public int idmarca { get; set; }
         public string codigofabricante { get; set; }
         public string infadicionais { get; set; }
         public decimal saldoestoque { get; set; }

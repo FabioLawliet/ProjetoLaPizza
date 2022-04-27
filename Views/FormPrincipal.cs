@@ -11,21 +11,23 @@ namespace LaPizza
     public partial class FormPrincipal : Form
     {
 
-        InteracaoMenu Menu;
+        InteracaoMenu IntMenu;
         FormEstProduto FProduto;
         FormEstMarca FMarca;
         FormEstGrupo FGrupo;
+        FormEstControleEstoque FControleEstoque;
         public FormPrincipal()
         {
             InitializeComponent();
-            Menu = new InteracaoMenu();
-            Menu.EscondeTodos(pnlMenuLateral.Controls);
+            IntMenu = new InteracaoMenu();
+            IntMenu.EscondeTodos(pnlMenuLateral.Controls);
   
             //Essa parte abaixo não faz sentido algum.
             //Por algum motivo, a primeira conexão com o banco de dados deixa o projeto lento.
             //Estou fazendo aqui para não ficar lento ao executar alguma ação de uma rotina.
             Context db = new Context();
-            MarcaDto marcaDto = db.marca.Where(m => m.id == 0).FirstOrDefault();
+            //MarcaController controle = new MarcaController();
+            //controle.ExisteMarca(1);
         }
 
         // ------------------------------------------------------------
@@ -33,32 +35,32 @@ namespace LaPizza
         //-------------------------------------------------------------
         private void btnMenuCliente_Click(object sender, EventArgs e)
         {
-            Menu.MostraOuEsconde(pnlSubMenuCliente);
+            IntMenu.MostraOuEsconde(pnlSubMenuCliente);
         }
 
         private void btnMenuVenda_Click(object sender, EventArgs e)
         {
-            Menu.MostraOuEsconde(pnlSubMenuVenda);
+            IntMenu.MostraOuEsconde(pnlSubMenuVenda);
         }
 
         private void btnMenuEstoque_Click(object sender, EventArgs e)
         {
-            Menu.MostraOuEsconde(pnlSubMenuEstoque);
+            IntMenu.MostraOuEsconde(pnlSubMenuEstoque);
         }
 
         private void btnMenuFornecedor_Click(object sender, EventArgs e)
         {
-            Menu.MostraOuEsconde(pnlSubMenuFornecedor);
+            IntMenu.MostraOuEsconde(pnlSubMenuFornecedor);
         }
 
         private void btnMenuUsuario_Click(object sender, EventArgs e)
         {
-            Menu.MostraOuEsconde(pnlSubMenuUsuario);
+            IntMenu.MostraOuEsconde(pnlSubMenuUsuario);
         }
 
         private void btnMenuGeral_Click(object sender, EventArgs e)
         {
-            Menu.MostraOuEsconde(pnlSubMenuGeral);
+            IntMenu.MostraOuEsconde(pnlSubMenuGeral);
         }
         // ------------------------------------------------------------
         // SUB MENU
@@ -133,7 +135,30 @@ namespace LaPizza
             }
             else
             {
-                FProduto.BringToFront();
+                FGrupo.BringToFront();
+            }
+
+        }
+
+        private void btnEstControle_Click(object sender, EventArgs e)
+        {
+            if (FControleEstoque == null || FControleEstoque.IsDisposed)
+            {
+                FControleEstoque = new FormEstControleEstoque();
+                FControleEstoque.Text = btnEstControle.Text;
+                FControleEstoque.lbNomeRotina.Text = btnEstControle.Text;
+                FControleEstoque.Visible = false;
+                FControleEstoque.TopLevel = false;
+                pnlPrincipal.Controls.Add(FControleEstoque);
+                FControleEstoque.Left = (pnlPrincipal.Width - FControleEstoque.Width) / 2;
+                FControleEstoque.Top = (pnlPrincipal.Height - FControleEstoque.Height) / 2;
+                FControleEstoque.FormBorderStyle = FormBorderStyle.Sizable;
+                FControleEstoque.Visible = true;
+                FControleEstoque.BringToFront();
+            }
+            else
+            {
+                FControleEstoque.BringToFront();
             }
 
         }

@@ -119,6 +119,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ControleEstoqueController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\InteracaoMenu.cs" />
     <Compile Include="Controllers\LpText.cs">
@@ -128,6 +129,10 @@
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\SubgrupoController.cs" />
     <Compile Include="Dao\Context.cs" />
+    <Compile Include="Models\ControleEstoqueDto.cs" />
+    <Compile Include="Models\ControleEstoqueItensDto.cs" />
+    <Compile Include="Models\ControleEstoqueItensModel.cs" />
+    <Compile Include="Models\ControleEstoqueModel.cs" />
     <Compile Include="Models\GrupoDto.cs" />
     <Compile Include="Models\GrupoModel.cs" />
     <Compile Include="Models\MarcaModel.cs" />
@@ -199,6 +204,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Pesquisas\FormEstMovimentacaoSimplificada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormEstMovimentacaoSimplificada.Designer.cs">
+      <DependentUpon>FormEstMovimentacaoSimplificada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\FormEstProdutoPesquisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +256,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Pesquisas\FormEstMovimentacaoSimplificada.resx">
+      <DependentUpon>FormEstMovimentacaoSimplificada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormEstProdutoPesquisa.resx">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>
     </EmbeddedResource>
