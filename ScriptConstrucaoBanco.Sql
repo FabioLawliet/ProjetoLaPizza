@@ -57,13 +57,13 @@ idmarca int,
     NOT VALID,
 codigoFabricante varchar(20),
 infAdicionais varchar(100),
-saldoEstoque numeric(10,4),
+saldoEstoque decimal(10,2),
 unidadeMedida varchar(3),
-qtdeEstMin numeric(10,4),
-qtdeEstIdeal numeric(10,4),
-qtdeEstMax numeric(10,4),
-precoAnterior numeric(10,4),
-precoAtual numeric(10,4),
+qtdeEstMin decimal(10,2),
+qtdeEstIdeal decimal(10,2),
+qtdeEstMax decimal(10,2),
+precoAnterior decimal(10,2),
+precoAtual decimal(10,2),
 ativo boolean);
 
 create table ControleEstoque(
@@ -77,22 +77,16 @@ usuariomovimentacao varchar(50)
 create table ControleEstoqueItens(
 id serial,
 	CONSTRAINT pk_idControleEstoqueItens PRIMARY KEY (id),
-idControleEstoque int,
-	CONSTRAINT "fk_idControleEstoque" FOREIGN KEY (idControleEstoque)
-	REFERENCES public.controleestoque (id) MATCH SIMPLE
-	ON UPDATE NO ACTION
-    ON DELETE RESTRICT
-    NOT VALID,
+idControleEstoque serial,
 idproduto int,
 	CONSTRAINT "fk_idproduto" FOREIGN KEY (idproduto)
 	REFERENCES public.produto (id) MATCH SIMPLE
 	ON UPDATE NO ACTION
-    ON DELETE RESTRICT
-    NOT VALID,
-saldoestoqueanterior numeric(10,2),
-tipomovimento char,
-qtdemovimento numeric(10,2),
-saldoestoquenovo numeric(10,2));
+    ON DELETE RESTRICT,
+saldoestoqueanterior decimal(10,2),
+tipomovimento varchar(1),
+qtdemovimento decimal(10,2),
+saldoestoquenovo decimal(10,2));
 
 
 -- Insert dos registros
@@ -117,5 +111,12 @@ insert into subgrupo values
 (3,'SUBGRUPO03', 1, true),
 (4,'SUBGRUPO04', 1, true),
 (5,'SUBGRUPO05', 1, true);
+
+insert into produto values
+(1,'PRODUTO01',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 10,'UN',0,0,0,0,10.00,true),
+(2,'PRODUTO02',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 15,'UN',0,0,0,0,10.00,true),
+(3,'PRODUTO03',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 20,'UN',0,0,0,0,10.00,true),
+(4,'PRODUTO04',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 25,'UN',0,0,0,0,10.00,true),
+(5,'PRODUTO05',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 30,'UN',0,0,0,0,10.00,true);
 
 
