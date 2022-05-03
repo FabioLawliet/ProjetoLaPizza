@@ -126,6 +126,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controllers\MarcaController.cs" />
+    <Compile Include="Controllers\MovimentoEstoqueController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\SubgrupoController.cs" />
     <Compile Include="Dao\Context.cs" />
@@ -138,15 +139,20 @@
     <Compile Include="Models\MarcaModel.cs" />
     <Compile Include="Models\MarcaDto.cs" />
     <Compile Include="Controllers\Utils.cs" />
+    <Compile Include="Models\MovimentoEstoqueDto.cs" />
+    <Compile Include="Models\MovimentoEstoqueItensDto.cs" />
+    <Compile Include="Models\MovimentoEstoqueItensModel.cs" />
+    <Compile Include="Models\MovimentoEstoqueModel.cs" />
     <Compile Include="Models\ProdutoDto.cs" />
     <Compile Include="Models\ProdutoModel.cs" />
     <Compile Include="Models\SubgrupoDto.cs" />
     <Compile Include="Models\SubgrupoModel.cs" />
-    <Compile Include="Views\FormEstControleEstoque.cs">
+    <Compile Include="Models\TesteDto.cs" />
+    <Compile Include="Views\FormEstMovimentacaoSimplificada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FormEstControleEstoque.Designer.cs">
-      <DependentUpon>FormEstControleEstoque.cs</DependentUpon>
+    <Compile Include="Views\FormEstMovimentacaoSimplificada.Designer.cs">
+      <DependentUpon>FormEstMovimentacaoSimplificada.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormEstGrupo.cs">
       <SubType>Form</SubType>
@@ -184,6 +190,12 @@
     <Compile Include="Views\FormEstSubGrupo.Designer.cs">
       <DependentUpon>FormEstSubGrupo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\FormEstSubgrupoPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormEstSubgrupoPesquisa.Designer.cs">
+      <DependentUpon>FormEstSubgrupoPesquisa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\FormEstGrupoPesquisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,8 +228,8 @@
     <Compile Include="Views\Pesquisas\FormEstProdutoPesquisa.Designer.cs">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\FormEstControleEstoque.resx">
-      <DependentUpon>FormEstControleEstoque.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormEstMovimentacaoSimplificada.resx">
+      <DependentUpon>FormEstMovimentacaoSimplificada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormEstGrupo.resx">
       <DependentUpon>FormEstGrupo.cs</DependentUpon>
@@ -261,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormEstProdutoPesquisa.resx">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\FormEstSubgrupoPesquisa.resx">
+      <DependentUpon>FormEstSubgrupoPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

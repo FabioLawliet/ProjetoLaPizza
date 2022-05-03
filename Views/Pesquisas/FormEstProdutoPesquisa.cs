@@ -83,7 +83,7 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.DataSource = null;
             Context db = new Context();
             ProdutoController pControle = new ProdutoController();
-            List<ProdutoModel> ListProduto = pControle.GetProdutoPesquisa(txtPesquisa.Text);
+            List<ProdutoModel> ListProduto = pControle.GetProdutoPesquisaGrid(txtPesquisa.Text);
             dbGridPesquisa.DataSource = ListProduto;
             dbGridPesquisa.Columns[0].HeaderText = "Id";
             dbGridPesquisa.Columns[0].Width = 50;

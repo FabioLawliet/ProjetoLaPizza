@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.lbPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
@@ -158,15 +159,26 @@
             this.dbGridPesquisa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dbGridPesquisa.BackgroundColor = System.Drawing.Color.White;
             this.dbGridPesquisa.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dbGridPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dbGridPesquisa.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dbGridPesquisa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dbGridPesquisa.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Salmon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbGridPesquisa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dbGridPesquisa.ColumnHeadersHeight = 25;
+            this.dbGridPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dbGridPesquisa.DefaultCellStyle = dataGridViewCellStyle3;
             this.dbGridPesquisa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dbGridPesquisa.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dbGridPesquisa.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -174,6 +186,7 @@
             this.dbGridPesquisa.MultiSelect = false;
             this.dbGridPesquisa.Name = "dbGridPesquisa";
             this.dbGridPesquisa.ReadOnly = true;
+            this.dbGridPesquisa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dbGridPesquisa.RowHeadersVisible = false;
             this.dbGridPesquisa.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dbGridPesquisa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -188,6 +201,7 @@
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlPesquisa);
             this.Name = "FormBasePesquisa";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormBasePesquisa";
             this.pnlPesquisa.ResumeLayout(false);
@@ -201,13 +215,13 @@
 
         #endregion
         private System.Windows.Forms.Panel pnlPrincipal;
-        private System.Windows.Forms.Label lbPesquisa;
         public System.Windows.Forms.Panel pnlAcoesRodape;
-        public System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Splitter splitter2;
-        public System.Windows.Forms.Button btnCancelar;
-        public System.Windows.Forms.DataGridView dbGridPesquisa;
         public System.Windows.Forms.Panel pnlPesquisa;
-        public System.Windows.Forms.TextBox txtPesquisa;
+        protected System.Windows.Forms.Label lbPesquisa;
+        protected System.Windows.Forms.Button btnConfirmar;
+        protected System.Windows.Forms.Button btnCancelar;
+        protected System.Windows.Forms.DataGridView dbGridPesquisa;
+        protected System.Windows.Forms.TextBox txtPesquisa;
     }
 }

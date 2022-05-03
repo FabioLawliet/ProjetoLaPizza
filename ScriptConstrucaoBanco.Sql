@@ -16,20 +16,18 @@ Id serial
 Descricao varchar(40),
 Ativo boolean);
 
-drop table subgrupo;
-
 CREATE TABLE public.subgrupo
 (
 	id serial,
-    descricao character varying(40) COLLATE pg_catalog."default",
+	idsubgrupo integer,
+    descricao varchar(40),
     idgrupo integer,
     ativo boolean,
-    CONSTRAINT pk_idsubgrupo PRIMARY KEY (id),
+    CONSTRAINT pk_id PRIMARY KEY (id),
     CONSTRAINT "fk_idGrupo" FOREIGN KEY (idgrupo)
         REFERENCES public.grupo (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE RESTRICT
-        NOT VALID
 );
 
 create table public.produto(
@@ -41,20 +39,17 @@ idgrupo int,
 	CONSTRAINT "fk_idGrupo" FOREIGN KEY (idgrupo)
 	REFERENCES public.grupo (id) MATCH SIMPLE
 	ON UPDATE NO ACTION
-    ON DELETE RESTRICT
-    NOT VALID,
+    ON DELETE RESTRICT,
 idsubgrupo int,
 	CONSTRAINT "fk_idSubgrupo" FOREIGN KEY (idsubgrupo)
 	REFERENCES public.subgrupo (id) MATCH SIMPLE
 	ON UPDATE NO ACTION
-    ON DELETE RESTRICT
-    NOT VALID,
+    ON DELETE RESTRICT,
 idmarca int,
 	CONSTRAINT "fk_idmarca" FOREIGN KEY (idmarca)
 	REFERENCES public.marca (id) MATCH SIMPLE
 	ON UPDATE NO ACTION
-    ON DELETE RESTRICT
-    NOT VALID,
+    ON DELETE RESTRICT,
 codigoFabricante varchar(20),
 infAdicionais varchar(100),
 saldoEstoque decimal(10,2),
@@ -66,23 +61,27 @@ precoAnterior decimal(10,2),
 precoAtual decimal(10,2),
 ativo boolean);
 
-create table ControleEstoque(
-id serial,
-	CONSTRAINT pk_idControleEstoque PRIMARY KEY (id),
+create table MovimentoEstoque(
+idMovimento serial,
+	CONSTRAINT pk_idMovimento PRIMARY KEY (idMovimento),
 descricao varchar(50),
-datamovimentacao date,
-usuariomovimentacao varchar(50)
+dataMovimento date,
+usuarioMovimento varchar(50)
 );
 
-create table ControleEstoqueItens(
-id serial,
-	CONSTRAINT pk_idControleEstoqueItens PRIMARY KEY (id),
-idControleEstoque serial,
-idproduto int,
+create table MovimentoEstoqueItens(
+id serial primary key,
+idMovimento int,
+	CONSTRAINT "fk_idMovimento" FOREIGN KEY (idMovimento)
+	REFERENCES public.controleestoque (idMovimento) MATCH SIMPLE
+	ON UPDATE NO ACTION
+    ON DELETE RESTRICT,
+idProduto int,
 	CONSTRAINT "fk_idproduto" FOREIGN KEY (idproduto)
 	REFERENCES public.produto (id) MATCH SIMPLE
 	ON UPDATE NO ACTION
     ON DELETE RESTRICT,
+-- CONSTRAINT pk_ControleEstoqueItens PRIMARY KEY (idControleEstoque, idProduto),	
 saldoestoqueanterior decimal(10,2),
 tipomovimento varchar(1),
 qtdemovimento decimal(10,2),
@@ -92,31 +91,39 @@ saldoestoquenovo decimal(10,2));
 -- Insert dos registros
 
 insert into marca values
-(1,'MARCA01',true),
-(2,'MARCA02',true),
-(3,'MARCA03',true),
-(4,'MARCA04',true),
-(5,'MARCA05',true);
+(1,'MARCA 01',true),
+(2,'MARCA 02',true),
+(3,'MARCA 03',true),
+(4,'MARCA 04',true),
+(5,'MARCA 05',true);
 
 insert into grupo values
-(1,'GRUPO01',true),
-(2,'GRUPO02',true),
-(3,'GRUPO03',true),
-(4,'GRUPO04',true),
-(5,'GRUPO05',true);
+(1,'GRUPO 01',true),
+(2,'GRUPO 02',true),
+(3,'GRUPO 03',true),
+(4,'GRUPO 04',true),
+(5,'GRUPO 05',true);
 
 insert into subgrupo values
-(1,'SUBGRUPO01', 1, true),
-(2,'SUBGRUPO02', 1, true),
-(3,'SUBGRUPO03', 1, true),
-(4,'SUBGRUPO04', 1, true),
-(5,'SUBGRUPO05', 1, true);
+(1, 1,'SUBGRUPO 01', 1, true),
+(1, 2,'SUBGRUPO 02', 1, true),
+(2, 1,'SUBGRUPO 01', 2, true),
+(2, 2,'SUBGRUPO 02', 2, true),
+(3, 1,'SUBGRUPO 01', 3, true),
+(3, 2,'SUBGRUPO 02', 3, true),
+(4, 1,'SUBGRUPO 01', 4, true),
+(4, 2,'SUBGRUPO 02', 4, true),
+(5, 1,'SUBGRUPO 01', 5, true);
+(5, 1,'SUBGRUPO 02', 5, true);
 
 insert into produto values
-(1,'PRODUTO01',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 10,'UN',0,0,0,0,10.00,true),
-(2,'PRODUTO02',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 15,'UN',0,0,0,0,10.00,true),
-(3,'PRODUTO03',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 20,'UN',0,0,0,0,10.00,true),
-(4,'PRODUTO04',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 25,'UN',0,0,0,0,10.00,true),
-(5,'PRODUTO05',CURRENT_DATE,1,1,1,'fabricante','inf adicionais', 30,'UN',0,0,0,0,10.00,true);
+(1,'PRODUTO01',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 10,'UN',0,0,0,0,10.00,true),
+(2,'PRODUTO02',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 15,'UN',0,0,0,0,10.00,true),
+(3,'PRODUTO03',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 20,'UN',0,0,0,0,10.00,true),
+(4,'PRODUTO04',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 25,'UN',0,0,0,0,10.00,true),
+(5,'PRODUTO05',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 30,'UN',0,0,0,0,10.00,true);
+
+
+
 
 

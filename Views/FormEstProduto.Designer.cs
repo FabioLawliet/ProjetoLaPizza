@@ -159,6 +159,10 @@
             this.btnConfirmar.Location = new System.Drawing.Point(445, 5);
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
+            // splitter3
+            // 
+            this.splitter3.Location = new System.Drawing.Point(560, 5);
+            // 
             // txtProdutoId
             // 
             this.txtProdutoId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -209,7 +213,7 @@
             // lbInfAdicionais
             // 
             this.lbInfAdicionais.AutoSize = true;
-            this.lbInfAdicionais.Location = new System.Drawing.Point(230, 94);
+            this.lbInfAdicionais.Location = new System.Drawing.Point(227, 94);
             this.lbInfAdicionais.Name = "lbInfAdicionais";
             this.lbInfAdicionais.Size = new System.Drawing.Size(116, 13);
             this.lbInfAdicionais.TabIndex = 34;
@@ -231,7 +235,7 @@
             // lbCodigoFabricante
             // 
             this.lbCodigoFabricante.AutoSize = true;
-            this.lbCodigoFabricante.Location = new System.Drawing.Point(6, 94);
+            this.lbCodigoFabricante.Location = new System.Drawing.Point(3, 94);
             this.lbCodigoFabricante.Name = "lbCodigoFabricante";
             this.lbCodigoFabricante.Size = new System.Drawing.Size(82, 13);
             this.lbCodigoFabricante.TabIndex = 32;
@@ -253,7 +257,7 @@
             // lbMarcaDescricao
             // 
             this.lbMarcaDescricao.AutoSize = true;
-            this.lbMarcaDescricao.Location = new System.Drawing.Point(501, 55);
+            this.lbMarcaDescricao.Location = new System.Drawing.Point(498, 55);
             this.lbMarcaDescricao.Name = "lbMarcaDescricao";
             this.lbMarcaDescricao.Size = new System.Drawing.Size(55, 13);
             this.lbMarcaDescricao.TabIndex = 30;
@@ -262,7 +266,7 @@
             // lbSubgrupoDescricao
             // 
             this.lbSubgrupoDescricao.AutoSize = true;
-            this.lbSubgrupoDescricao.Location = new System.Drawing.Point(281, 55);
+            this.lbSubgrupoDescricao.Location = new System.Drawing.Point(294, 55);
             this.lbSubgrupoDescricao.Name = "lbSubgrupoDescricao";
             this.lbSubgrupoDescricao.Size = new System.Drawing.Size(55, 13);
             this.lbSubgrupoDescricao.TabIndex = 26;
@@ -274,12 +278,12 @@
             this.txtSubgrupoDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSubgrupoDescricao.Enabled = false;
             this.txtSubgrupoDescricao.ForeColor = System.Drawing.Color.Black;
-            this.txtSubgrupoDescricao.Location = new System.Drawing.Point(281, 71);
+            this.txtSubgrupoDescricao.Location = new System.Drawing.Point(297, 71);
             this.txtSubgrupoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtSubgrupoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtSubgrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtSubgrupoDescricao.Name = "txtSubgrupoDescricao";
-            this.txtSubgrupoDescricao.Size = new System.Drawing.Size(160, 20);
+            this.txtSubgrupoDescricao.Size = new System.Drawing.Size(144, 20);
             this.txtSubgrupoDescricao.TabIndex = 25;
             // 
             // txtMarcaDescricao
@@ -299,20 +303,21 @@
             // lbSubgrupo
             // 
             this.lbSubgrupo.AutoSize = true;
-            this.lbSubgrupo.Location = new System.Drawing.Point(227, 55);
+            this.lbSubgrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubgrupo.Location = new System.Drawing.Point(224, 55);
             this.lbSubgrupo.Name = "lbSubgrupo";
-            this.lbSubgrupo.Size = new System.Drawing.Size(53, 13);
+            this.lbSubgrupo.Size = new System.Drawing.Size(71, 13);
             this.lbSubgrupo.TabIndex = 24;
-            this.lbSubgrupo.Text = "Subgrupo";
+            this.lbSubgrupo.Text = "Subgrupo(F2)";
             // 
             // lbMarcaId
             // 
             this.lbMarcaId.AutoSize = true;
-            this.lbMarcaId.Location = new System.Drawing.Point(447, 55);
+            this.lbMarcaId.Location = new System.Drawing.Point(444, 55);
             this.lbMarcaId.Name = "lbMarcaId";
-            this.lbMarcaId.Size = new System.Drawing.Size(37, 13);
+            this.lbMarcaId.Size = new System.Drawing.Size(55, 13);
             this.lbMarcaId.TabIndex = 28;
-            this.lbMarcaId.Text = "Marca";
+            this.lbMarcaId.Text = "Marca(F2)";
             // 
             // txtSubgrupoId
             // 
@@ -324,8 +329,10 @@
             this.txtSubgrupoId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtSubgrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtSubgrupoId.Name = "txtSubgrupoId";
-            this.txtSubgrupoId.Size = new System.Drawing.Size(55, 20);
+            this.txtSubgrupoId.Size = new System.Drawing.Size(71, 20);
             this.txtSubgrupoId.TabIndex = 23;
+            this.txtSubgrupoId.TextChanged += new System.EventHandler(this.txtSubgrupoId_TextChanged);
+            this.txtSubgrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSubgrupoId_KeyUp);
             // 
             // txtMarcaId
             // 
@@ -345,7 +352,7 @@
             // lbGrupoDescricao
             // 
             this.lbGrupoDescricao.AutoSize = true;
-            this.lbGrupoDescricao.Location = new System.Drawing.Point(61, 55);
+            this.lbGrupoDescricao.Location = new System.Drawing.Point(58, 55);
             this.lbGrupoDescricao.Name = "lbGrupoDescricao";
             this.lbGrupoDescricao.Size = new System.Drawing.Size(55, 13);
             this.lbGrupoDescricao.TabIndex = 22;
@@ -364,15 +371,16 @@
             this.txtGrupoDescricao.Name = "txtGrupoDescricao";
             this.txtGrupoDescricao.Size = new System.Drawing.Size(160, 20);
             this.txtGrupoDescricao.TabIndex = 21;
+            this.txtGrupoDescricao.TextChanged += new System.EventHandler(this.txtGrupoDescricao_TextChanged);
             // 
             // lbGrupo
             // 
             this.lbGrupo.AutoSize = true;
-            this.lbGrupo.Location = new System.Drawing.Point(7, 55);
+            this.lbGrupo.Location = new System.Drawing.Point(4, 55);
             this.lbGrupo.Name = "lbGrupo";
-            this.lbGrupo.Size = new System.Drawing.Size(36, 13);
+            this.lbGrupo.Size = new System.Drawing.Size(54, 13);
             this.lbGrupo.TabIndex = 20;
-            this.lbGrupo.Text = "Grupo";
+            this.lbGrupo.Text = "Grupo(F2)";
             // 
             // txtGrupoId
             // 
@@ -403,7 +411,7 @@
             // lbDataCadastro
             // 
             this.lbDataCadastro.AutoSize = true;
-            this.lbDataCadastro.Location = new System.Drawing.Point(502, 16);
+            this.lbDataCadastro.Location = new System.Drawing.Point(498, 16);
             this.lbDataCadastro.Name = "lbDataCadastro";
             this.lbDataCadastro.Size = new System.Drawing.Size(75, 13);
             this.lbDataCadastro.TabIndex = 17;
@@ -426,7 +434,7 @@
             // lbProdutoDescricao
             // 
             this.lbProdutoDescricao.AutoSize = true;
-            this.lbProdutoDescricao.Location = new System.Drawing.Point(84, 16);
+            this.lbProdutoDescricao.Location = new System.Drawing.Point(81, 16);
             this.lbProdutoDescricao.Name = "lbProdutoDescricao";
             this.lbProdutoDescricao.Size = new System.Drawing.Size(55, 13);
             this.lbProdutoDescricao.TabIndex = 15;
@@ -449,7 +457,7 @@
             // lbProdutoId
             // 
             this.lbProdutoId.AutoSize = true;
-            this.lbProdutoId.Location = new System.Drawing.Point(7, 16);
+            this.lbProdutoId.Location = new System.Drawing.Point(3, 16);
             this.lbProdutoId.Name = "lbProdutoId";
             this.lbProdutoId.Size = new System.Drawing.Size(16, 13);
             this.lbProdutoId.TabIndex = 13;
@@ -478,7 +486,7 @@
             // lbQtdeEstMax
             // 
             this.lbQtdeEstMax.AutoSize = true;
-            this.lbQtdeEstMax.Location = new System.Drawing.Point(370, 16);
+            this.lbQtdeEstMax.Location = new System.Drawing.Point(367, 16);
             this.lbQtdeEstMax.Name = "lbQtdeEstMax";
             this.lbQtdeEstMax.Size = new System.Drawing.Size(77, 13);
             this.lbQtdeEstMax.TabIndex = 50;
@@ -501,7 +509,7 @@
             // lbQtdeEstIdeal
             // 
             this.lbQtdeEstIdeal.AutoSize = true;
-            this.lbQtdeEstIdeal.Location = new System.Drawing.Point(280, 16);
+            this.lbQtdeEstIdeal.Location = new System.Drawing.Point(277, 16);
             this.lbQtdeEstIdeal.Name = "lbQtdeEstIdeal";
             this.lbQtdeEstIdeal.Size = new System.Drawing.Size(77, 13);
             this.lbQtdeEstIdeal.TabIndex = 48;
@@ -524,7 +532,7 @@
             // lbQtdeEstMin
             // 
             this.lbQtdeEstMin.AutoSize = true;
-            this.lbQtdeEstMin.Location = new System.Drawing.Point(189, 16);
+            this.lbQtdeEstMin.Location = new System.Drawing.Point(186, 16);
             this.lbQtdeEstMin.Name = "lbQtdeEstMin";
             this.lbQtdeEstMin.Size = new System.Drawing.Size(74, 13);
             this.lbQtdeEstMin.TabIndex = 46;
@@ -547,7 +555,7 @@
             // lbUnidadeMedida
             // 
             this.lbUnidadeMedida.AutoSize = true;
-            this.lbUnidadeMedida.Location = new System.Drawing.Point(98, 16);
+            this.lbUnidadeMedida.Location = new System.Drawing.Point(95, 16);
             this.lbUnidadeMedida.Name = "lbUnidadeMedida";
             this.lbUnidadeMedida.Size = new System.Drawing.Size(62, 13);
             this.lbUnidadeMedida.TabIndex = 44;
@@ -570,7 +578,7 @@
             // lbSaldoEstoque
             // 
             this.lbSaldoEstoque.AutoSize = true;
-            this.lbSaldoEstoque.Location = new System.Drawing.Point(7, 16);
+            this.lbSaldoEstoque.Location = new System.Drawing.Point(4, 16);
             this.lbSaldoEstoque.Name = "lbSaldoEstoque";
             this.lbSaldoEstoque.Size = new System.Drawing.Size(76, 13);
             this.lbSaldoEstoque.TabIndex = 42;
@@ -607,7 +615,7 @@
             // lbPrecoAnterior
             // 
             this.lbPrecoAnterior.AutoSize = true;
-            this.lbPrecoAnterior.Location = new System.Drawing.Point(6, 16);
+            this.lbPrecoAnterior.Location = new System.Drawing.Point(3, 16);
             this.lbPrecoAnterior.Name = "lbPrecoAnterior";
             this.lbPrecoAnterior.Size = new System.Drawing.Size(74, 13);
             this.lbPrecoAnterior.TabIndex = 40;
@@ -616,7 +624,7 @@
             // lbPrecoAtual
             // 
             this.lbPrecoAtual.AutoSize = true;
-            this.lbPrecoAtual.Location = new System.Drawing.Point(98, 16);
+            this.lbPrecoAtual.Location = new System.Drawing.Point(95, 16);
             this.lbPrecoAtual.Name = "lbPrecoAtual";
             this.lbPrecoAtual.Size = new System.Drawing.Size(62, 13);
             this.lbPrecoAtual.TabIndex = 38;
@@ -658,6 +666,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "FormEstProduto";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlNomeRotina.ResumeLayout(false);

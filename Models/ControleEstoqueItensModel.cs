@@ -2,7 +2,7 @@
 {
     public class ControleEstoqueItensModel
     {
-        public int idControle { get; set; }
+        public int idcontroleestoque { get; set; }
         public int idProduto { get; set; }
         public string ProdutoDescricao { get; set; }
         public decimal saldoEstoqueAnterior { get; set; }

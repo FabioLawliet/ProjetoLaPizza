@@ -5,12 +5,14 @@ using System.Collections.Generic;
 
 namespace LaPizza.Views.Pesquisas
 {
-    public partial class FormEstGrupoPesquisa : LaPizza.Views.FormBasePesquisa
+    public partial class FormEstSubgrupoPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public GrupoModel PesqGrupo;
-        public FormEstGrupoPesquisa()
+        public SubgrupoModel PesqSubgrupo;
+        public int Grupo;
+        public FormEstSubgrupoPesquisa(int Grupo)
         {
             InitializeComponent();
+            this.Grupo = Grupo;
             CarregarListaGrid();
             this.MaximumSize = new System.Drawing.Size(470, 530);
             this.MaximumSize = new System.Drawing.Size(470, 530);
@@ -20,8 +22,8 @@ namespace LaPizza.Views.Pesquisas
 
         public void CarregarListaGrid()
         {
-            GrupoController controle = new GrupoController();
-            List<GrupoModel> lista = controle.GetGrupoLista();
+            SubgrupoController controle = new SubgrupoController();
+            List<SubgrupoModel> lista = controle.GetSubgrupoLista(Grupo);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();
@@ -30,9 +32,9 @@ namespace LaPizza.Views.Pesquisas
 
         public void AjustaCamposGrid()
         {
-            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["id"].HeaderText = "Id";
-            dbGridPesquisa.Columns["id"].Width = 70;
+            dbGridPesquisa.Columns["idsubgrupo"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idsubgrupo"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idsubgrupo"].Width = 70;
 
             dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
             dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição";
@@ -43,10 +45,20 @@ namespace LaPizza.Views.Pesquisas
 
         private void btnConfirmar_Click(object sender, System.EventArgs e)
         {
-            GrupoController controle = new GrupoController();
+            SubgrupoController controle = new SubgrupoController();
 
-            int id = (int)dbGridPesquisa.CurrentRow.Cells[0].Value;
-            PesqGrupo = controle.GetGrupo(id);
+            if (dbGridPesquisa.Rows.Count > 0)
+            {
+                int idSubgrupo = (int)dbGridPesquisa.CurrentRow.Cells["idsubgrupo"].Value;
+                PesqSubgrupo = controle.GetSubgrupo(Grupo, idSubgrupo);
+            }
+            else
+            {
+                //btnCancelar_Click(sender, e);
+                DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                //return;
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -58,8 +70,8 @@ namespace LaPizza.Views.Pesquisas
         {
             dbGridPesquisa.DataSource = null;
 
-            GrupoController controle = new GrupoController();
-            List<GrupoModel> lista = controle.GetGrupoPesquisaGrid(txtPesquisa.Text);
+            SubgrupoController controle = new SubgrupoController();
+            List<SubgrupoModel> lista = controle.GetSubgrupoPesquisaGrid(Grupo, txtPesquisa.Text);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();

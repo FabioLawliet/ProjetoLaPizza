@@ -7,7 +7,7 @@ namespace LaPizza.Models
     public class ControleEstoqueDto
     {
         [Key]
-        public int id { set; get; }
+        public int id { get; set; }
         public string descricao { set; get; }
         public string datamovimentacao { set; get; }
         public string usuariomovimentacao { set; get; }

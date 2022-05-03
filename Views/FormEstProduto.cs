@@ -17,7 +17,6 @@ namespace LaPizza.Views
         {
             InitializeComponent();
             HabilitarComponentesPnlPrincipal(false);
-
         }
 
         private void HabilitarComponentesPnlPrincipal(bool Ativa)
@@ -26,8 +25,8 @@ namespace LaPizza.Views
             {
                 txtProdutoDescricao.Enabled = true;
                 cbAtivo.Enabled = true;
+                cbAtivo.Checked = true;
                 txtGrupoId.Enabled = true;
-                txtSubgrupoId.Enabled = true;
                 txtMarcaId.Enabled = true;
                 txtCodigoFabricante.Enabled = true;
                 txtInfAdicionais.Enabled = true;
@@ -43,6 +42,7 @@ namespace LaPizza.Views
                 txtProdutoDescricao.Enabled = false;
                 txtDataCadastro.Enabled = false;
                 cbAtivo.Enabled = false;
+                cbAtivo.Checked = true;
                 txtGrupoId.Enabled = false;
                 txtGrupoDescricao.Enabled = false;
                 txtSubgrupoId.Enabled = false;
@@ -116,9 +116,6 @@ namespace LaPizza.Views
                 txtProdutoDescricao.Focus();
                 txtProdutoDescricao.Select(txtMarcaDescricao.Text.Length, 0);
             }
-
-
-
         }
 
         private void btnAcaoConsultar_Click(object sender, EventArgs e)
@@ -159,8 +156,6 @@ namespace LaPizza.Views
 
             if (btnCancelar.CanFocus)
                 btnCancelar.Focus();
-
-
         }
 
         private void btnAcaoExcluir_Click(object sender, EventArgs e)
@@ -201,8 +196,6 @@ namespace LaPizza.Views
 
             if (btnConfirmar.CanFocus)
                 btnConfirmar.Focus();
-
-
         }
 
         private void LimpaComponentes()
@@ -230,12 +223,7 @@ namespace LaPizza.Views
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (txtProdutoDescricao.Text == string.Empty)
-            {
-                MessageBox.Show("É necessário informar uma descrição");
-                txtProdutoDescricao.Focus();
-            }
-            else
+            if (TodosOsCamposPreenchidos())
             {
                 ProdutoController Pcontrole = new ProdutoController();
                 ProdutoDto Produto = new ProdutoDto();
@@ -251,9 +239,22 @@ namespace LaPizza.Views
                 Produto.infadicionais = txtInfAdicionais.Text;
                 Produto.saldoestoque = 0;
                 Produto.unidademedida = txtUnidadeMedida.Text;
-                Produto.qtdeestmin = Convert.ToDecimal(txtQtdeEstMin.Text);
-                Produto.qtdeestideal = Convert.ToDecimal(txtQtdeEstIdeal.Text);
-                Produto.qtdeestmax = Convert.ToDecimal(txtQtdeEstMax.Text);
+
+                if (txtQtdeEstMin.Text == String.Empty)
+                    Produto.qtdeestmin = 0;
+                else
+                    Produto.qtdeestmin = Convert.ToDecimal(txtQtdeEstMin.Text);
+
+                if (txtQtdeEstIdeal.Text == String.Empty)
+                    Produto.qtdeestideal = 0;
+                else
+                    Produto.qtdeestideal = Convert.ToDecimal(txtQtdeEstIdeal.Text);
+
+                if (txtQtdeEstMax.Text == String.Empty)
+                    Produto.qtdeestmax = 0;
+                else
+                    Produto.qtdeestmax = Convert.ToDecimal(txtQtdeEstMax.Text);
+
                 Produto.precoatual = Convert.ToDecimal(txtPrecoAtual.Text);
                 Produto.precoanterior = Produto.precoatual;
 
@@ -263,12 +264,73 @@ namespace LaPizza.Views
                     Pcontrole.Editar(Produto);
                 else if (MenuStatus == MStatus.Excluindo)
                     Pcontrole.Excluir(Produto.id);
+
+                LimpaComponentes();
+                HabilitarComponentesPnlPrincipal(false);
+                HabilitarAcoesIniciais();
+            }
+        }
+
+        private bool TodosOsCamposPreenchidos()
+        {
+            bool todosPreenchidos = true;
+            int idGrupo=0, idSubgrupo=0, idMarca=0;
+            string auxMensagem = string.Empty;
+
+            GrupoController grupoControle = new GrupoController();
+            SubgrupoController subgrupoControle = new SubgrupoController();
+            MarcaController marcaControle = new MarcaController();
+
+            if (txtGrupoId.Text != string.Empty)
+                idGrupo = int.Parse(txtGrupoId.Text);
+
+            if (txtSubgrupoId.Text != string.Empty)
+                idSubgrupo = int.Parse(txtSubgrupoId.Text);
+
+            if (txtMarcaId.Text != string.Empty)
+                idMarca = int.Parse(txtMarcaId.Text);
+
+            if (txtProdutoDescricao.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMensagem += "* O campo descrição não foi preenchido corretamente! \n";
+            }
+                
+            if (!grupoControle.ExisteGrupoId(idGrupo))
+            {
+                todosPreenchidos = false;
+                auxMensagem += "* O campo grupo não foi preenchido corretamente! \n";   
             }
 
-            LimpaComponentes();
-            HabilitarComponentesPnlPrincipal(false);
-            HabilitarAcoesIniciais();
+            if (!subgrupoControle.ExisteSubgrupo(idGrupo, idSubgrupo))
+            {
+                todosPreenchidos = false;
+                auxMensagem += "* O campo subgrupo não foi preenchido corretamente! \n";
+            }
+                
+            if (!marcaControle.ExisteMarca(idMarca))
+            {
+                todosPreenchidos = false;
+                auxMensagem += "* O campo marca não foi preenchido corretamente! \n";
+            }
+                
+            if (txtUnidadeMedida.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMensagem += "* O campo un. medida não foi preenchido corretamente! \n";
+            }
 
+
+            if (txtPrecoAtual.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMensagem += "* O campo preco atual não foi preenchido corretamente! \n";
+            }
+
+            if (auxMensagem != string.Empty)
+                MessageBox.Show(auxMensagem, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            return todosPreenchidos;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -305,8 +367,8 @@ namespace LaPizza.Views
 
                 if (Result == DialogResult.OK)
                 {
-                    txtMarcaId.Text = Pesq.PMarca.id.ToString();
-                    txtMarcaDescricao.Text = Pesq.PMarca.descricao;
+                    txtMarcaId.Text = Pesq.PesqMarca.id.ToString();
+                    txtMarcaDescricao.Text = Pesq.PesqMarca.descricao;
                 }
             }
         }
@@ -342,8 +404,8 @@ namespace LaPizza.Views
 
                 if (Result == DialogResult.OK)
                 {
-                    txtGrupoId.Text = Pesq.PGrupo.id.ToString();
-                    txtGrupoDescricao.Text = Pesq.PGrupo.descricao;
+                    txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                    txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
                 }
             }
         }
@@ -353,21 +415,71 @@ namespace LaPizza.Views
             if (txtGrupoId.Text != "")
             {
                 GrupoController Controle = new GrupoController();
-                GrupoModel Grupo = new GrupoModel();
 
                 var id = Int32.Parse(txtGrupoId.Text);
 
                 if (Controle.ExisteGrupoId(id))
-                {
-                    Grupo = Controle.GetGrupo(id);
-                    txtGrupoDescricao.Text = Grupo.descricao;
-                }
+                    txtGrupoDescricao.Text = Controle.GetGrupo(id).descricao;
                 else
+                {
                     txtGrupoDescricao.Text = String.Empty;
+                    txtSubgrupoId.Text = String.Empty;
+                    txtSubgrupoDescricao.Text = String.Empty;
+                }
             }
             else
+            {
                 txtGrupoDescricao.Text = String.Empty;
+                txtSubgrupoId.Text = String.Empty;
+                txtSubgrupoDescricao.Text = String.Empty;
+            }
 
         }
+
+        private void txtSubgrupoId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSubgrupoId.Text != "")
+            {
+                SubgrupoController controle = new SubgrupoController();
+
+                var idGrupo = Int32.Parse(txtGrupoId.Text);
+                var idSubgrupo = Int32.Parse(txtSubgrupoId.Text);
+
+                if (controle.ExisteSubgrupo(idGrupo, idSubgrupo))
+                {
+                    txtSubgrupoDescricao.Text = controle.GetSubgrupo(idGrupo, idSubgrupo).descricao;
+                }
+                else
+                    txtSubgrupoDescricao.Text = String.Empty;
+            }
+            else
+                txtSubgrupoDescricao.Text = String.Empty;
+        }
+
+        private void txtSubgrupoId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                var idGrupo = Int32.Parse(txtGrupoId.Text);
+
+                FormEstSubgrupoPesquisa Pesq = new FormEstSubgrupoPesquisa(idGrupo);
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtSubgrupoId.Text = Pesq.PesqSubgrupo.idsubgrupo.ToString();
+                    txtSubgrupoDescricao.Text = Pesq.PesqSubgrupo.descricao;
+                }
+            }
+        }
+
+        private void txtGrupoDescricao_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGrupoDescricao.Text != String.Empty)
+                txtSubgrupoId.Enabled = true;
+            else
+                txtSubgrupoId.Enabled = false;
+        }
+
     }
 }

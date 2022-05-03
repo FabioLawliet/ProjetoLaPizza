@@ -3,15 +3,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LaPizza.Models
 {
-    [Table("controleestoqueitens", Schema = "public")]
-    public class ControleEstoqueItensDto
+    [Table("movimentoestoqueitens", Schema = "public")]
+    public class MovimentoEstoqueItensDto
     {
         [Key]
-        //public int idcontroleestoque { get; set; }
+        public int id { get; set; }
+        public int idmovimento { get; set; }
         public int idproduto { get; set; }
         public decimal saldoestoqueanterior { get; set; }
         public string tipomovimento { get; set; }
         public decimal qtdemovimento { get; set; }
         public decimal saldoestoquenovo { get; set; }
+
     }
 }

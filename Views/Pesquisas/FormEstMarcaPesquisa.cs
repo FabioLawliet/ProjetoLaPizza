@@ -10,33 +10,44 @@ namespace LaPizza.Views
 {
     public partial class FormEstMarcaPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public MarcaModel PMarca;
+        public MarcaModel PesqMarca;
         public FormEstMarcaPesquisa()
         {
             InitializeComponent();
-            CarregarListaGrid();
+            CarregaListaGrid();
+            this.MaximumSize = new System.Drawing.Size(470, 530);
+            this.MaximumSize = new System.Drawing.Size(470, 530);
+            txtPesquisa.Focus();
         }
-        public void CarregarListaGrid()
+        public void CarregaListaGrid()
         {
-            Context db = new Context();
-            MarcaController mControle = new MarcaController();
-            List<MarcaModel> ListMarca = mControle.GetListMarca();
+            MarcaController controle = new MarcaController();
+            List<MarcaModel> lista = controle.GetMarcaLista();
 
-            dbGridPesquisa.DataSource = ListMarca;
-            dbGridPesquisa.Columns[0].Width = 50;
-            dbGridPesquisa.Columns[1].Width = 320;
-            dbGridPesquisa.Columns[2].Width = 50;
+            dbGridPesquisa.DataSource = lista;
+            AjustaCamposGrid();
             dbGridPesquisa.Refresh();
+        }
+
+        public void AjustaCamposGrid()
+        {
+            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["id"].HeaderText = "Id";
+            dbGridPesquisa.Columns["id"].Width = 70;
+
+            dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
+            dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição";
+            dbGridPesquisa.Columns["descricao"].Width = 384;
+
+            dbGridPesquisa.Columns["ativa"].Visible = false;
         }
 
         private void btnConfirmar_Click(object sender, System.EventArgs e)
         {
-            Context db = new Context();
-            MarcaController mControle = new MarcaController();
-            MarcaModel marca = new MarcaModel();
+            MarcaController controle = new MarcaController();
 
-            int Id = (Int32)dbGridPesquisa.CurrentRow.Cells[0].Value;
-            PMarca = mControle.GetMarca(Id);
+            int id = (int)dbGridPesquisa.CurrentRow.Cells[0].Value;
+            PesqMarca = controle.GetMarca(id);
 
             Close();            
         }
@@ -49,13 +60,12 @@ namespace LaPizza.Views
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             dbGridPesquisa.DataSource = null;
-            Context db = new Context();
-            MarcaController mControle = new MarcaController();
-            List<MarcaModel> ListMarca = mControle.GetListMarcaPesquisa(txtPesquisa.Text);
-            dbGridPesquisa.DataSource = ListMarca;
-            dbGridPesquisa.Columns[0].Width = 50;
-            dbGridPesquisa.Columns[1].Width = 320;
-            dbGridPesquisa.Columns[2].Width = 50;
+
+            MarcaController controle = new MarcaController();
+            List<MarcaModel> lista = controle.GetMarcaPesquisaGrid(txtPesquisa.Text);
+
+            dbGridPesquisa.DataSource = lista;
+            AjustaCamposGrid();
             dbGridPesquisa.Refresh();
         }
     }

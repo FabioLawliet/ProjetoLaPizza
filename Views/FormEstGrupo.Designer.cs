@@ -153,7 +153,7 @@
             // lbGrupoId
             // 
             this.lbGrupoId.AutoSize = true;
-            this.lbGrupoId.Location = new System.Drawing.Point(12, 15);
+            this.lbGrupoId.Location = new System.Drawing.Point(9, 15);
             this.lbGrupoId.Name = "lbGrupoId";
             this.lbGrupoId.Size = new System.Drawing.Size(16, 13);
             this.lbGrupoId.TabIndex = 20;
@@ -164,6 +164,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(484, 188);
             this.Name = "FormEstGrupo";
+            this.ShowIcon = false;
             this.Text = "FormEstGrupo";
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();

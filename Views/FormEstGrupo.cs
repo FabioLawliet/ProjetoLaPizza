@@ -23,14 +23,16 @@ namespace LaPizza.Views
         {
             if (Ativa)
             {
-                cbAtivo.Enabled = true;
                 txtGrupoDescricao.Enabled = true;
+                cbAtivo.Enabled = true;
+                cbAtivo.Checked = true;
             }
             else
             {
                 txtGrupoId.Enabled = false;
-                cbAtivo.Enabled = false;
                 txtGrupoDescricao.Enabled = false;
+                cbAtivo.Enabled = false;
+                cbAtivo.Checked = true;
             }
         }
 
@@ -38,8 +40,8 @@ namespace LaPizza.Views
         {
             HabilitarComponentesPnlPrincipal(true);
 
-            GrupoController gControle = new GrupoController();
-            txtGrupoId.Text = gControle.GetProximoId().ToString();
+            GrupoController controle = new GrupoController();
+            txtGrupoId.Text = controle.GetProximoId().ToString();
 
             if (txtGrupoDescricao.CanFocus)
             {
@@ -55,10 +57,9 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-
-                txtGrupoId.Text = Pesq.PGrupo.id.ToString();
-                txtGrupoDescricao.Text = Pesq.PGrupo.descricao;
-                cbAtivo.Checked = Pesq.PGrupo.ativo;
+                txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
+                cbAtivo.Checked = Pesq.PesqGrupo.ativo;
 
                 HabilitarComponentesPnlPrincipal(true);
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -84,9 +85,9 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PGrupo.id.ToString();
-                txtGrupoDescricao.Text = Pesq.PGrupo.descricao;
-                cbAtivo.Checked = Pesq.PGrupo.ativo;
+                txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
+                cbAtivo.Checked = Pesq.PesqGrupo.ativo;
 
                 HabilitarComponentesPnlPrincipal(false);
             }
@@ -98,7 +99,6 @@ namespace LaPizza.Views
 
             if (btnCancelar.CanFocus)
                 btnCancelar.Focus();
-
         }
 
         private void btnAcaoExcluir_Click(object sender, EventArgs e)
@@ -108,9 +108,9 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PGrupo.id.ToString();
-                txtGrupoDescricao.Text = Pesq.PGrupo.descricao;
-                cbAtivo.Checked = Pesq.PGrupo.ativo;
+                txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
+                cbAtivo.Checked = Pesq.PesqGrupo.ativo;
 
                 HabilitarComponentesPnlPrincipal(false);
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -187,5 +187,6 @@ namespace LaPizza.Views
             else
                 HabilitaAcao(TipoAcao.Confirmar, false);
         }
+
     }
 }

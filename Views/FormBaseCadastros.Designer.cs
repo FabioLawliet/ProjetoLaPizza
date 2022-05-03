@@ -329,6 +329,7 @@
             this.Controls.Add(this.pnlNomeRotina);
             this.Controls.Add(this.pnlAcoesRodape);
             this.Name = "FormBaseCadastros";
+            this.ShowIcon = false;
             this.Text = "Form1";
             this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlNomeRotina.ResumeLayout(false);
@@ -352,10 +353,10 @@
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnAcaoExcluir;
-        private System.Windows.Forms.Splitter splitter3;
         private System.Windows.Forms.Splitter splitter5;
         private System.Windows.Forms.Splitter splitter4;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         public System.Windows.Forms.Button btnConfirmar;
+        public System.Windows.Forms.Splitter splitter3;
     }
 }

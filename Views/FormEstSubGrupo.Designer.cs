@@ -70,6 +70,7 @@
             this.btnAcaoAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.Location = new System.Drawing.Point(345, 5);
+            this.btnAcaoAdicionar.Click += new System.EventHandler(this.btnAcaoAdicionar_Click);
             // 
             // btnAcaoEditar
             // 
@@ -77,6 +78,7 @@
             this.btnAcaoEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.Location = new System.Drawing.Point(380, 5);
+            this.btnAcaoEditar.Click += new System.EventHandler(this.btnAcaoEditar_Click);
             // 
             // btnAcaoConsultar
             // 
@@ -84,6 +86,7 @@
             this.btnAcaoConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.Location = new System.Drawing.Point(415, 5);
+            this.btnAcaoConsultar.Click += new System.EventHandler(this.btnAcaoConsultar_Click);
             // 
             // lbNomeRotina
             // 
@@ -100,6 +103,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.Location = new System.Drawing.Point(335, 5);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -107,6 +111,7 @@
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.btnSair.Location = new System.Drawing.Point(410, 5);
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAcaoExcluir
             // 
@@ -114,6 +119,7 @@
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.Location = new System.Drawing.Point(450, 5);
+            this.btnAcaoExcluir.Click += new System.EventHandler(this.btnAcaoExcluir_Click);
             // 
             // btnConfirmar
             // 
@@ -121,6 +127,11 @@
             this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
             this.btnConfirmar.Location = new System.Drawing.Point(260, 5);
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // splitter3
+            // 
+            this.splitter3.Location = new System.Drawing.Point(375, 5);
             // 
             // cbAtivo
             // 
@@ -131,7 +142,7 @@
             this.cbAtivo.Name = "cbAtivo";
             this.cbAtivo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.cbAtivo.Size = new System.Drawing.Size(56, 19);
-            this.cbAtivo.TabIndex = 29;
+            this.cbAtivo.TabIndex = 3;
             this.cbAtivo.Text = "Ativo?";
             this.cbAtivo.UseVisualStyleBackColor = true;
             // 
@@ -159,7 +170,9 @@
             this.txtGrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtGrupoId.Name = "txtGrupoId";
             this.txtGrupoId.Size = new System.Drawing.Size(62, 20);
-            this.txtGrupoId.TabIndex = 27;
+            this.txtGrupoId.TabIndex = 0;
+            this.txtGrupoId.TextChanged += new System.EventHandler(this.txtGrupoId_TextChanged);
+            this.txtGrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGrupoId_KeyUp);
             // 
             // lbGrupoDescricao
             // 
@@ -173,7 +186,7 @@
             // lbGrupoId
             // 
             this.lbGrupoId.AutoSize = true;
-            this.lbGrupoId.Location = new System.Drawing.Point(12, 15);
+            this.lbGrupoId.Location = new System.Drawing.Point(9, 15);
             this.lbGrupoId.Name = "lbGrupoId";
             this.lbGrupoId.Size = new System.Drawing.Size(36, 13);
             this.lbGrupoId.TabIndex = 25;
@@ -190,7 +203,8 @@
             this.txtSubgrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtSubgrupoDescricao.Name = "txtSubgrupoDescricao";
             this.txtSubgrupoDescricao.Size = new System.Drawing.Size(344, 20);
-            this.txtSubgrupoDescricao.TabIndex = 33;
+            this.txtSubgrupoDescricao.TabIndex = 2;
+            this.txtSubgrupoDescricao.TextChanged += new System.EventHandler(this.txtSubgrupoDescricao_TextChanged);
             // 
             // txtSubgrupoId
             // 
@@ -203,7 +217,9 @@
             this.txtSubgrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtSubgrupoId.Name = "txtSubgrupoId";
             this.txtSubgrupoId.Size = new System.Drawing.Size(62, 20);
-            this.txtSubgrupoId.TabIndex = 32;
+            this.txtSubgrupoId.TabIndex = 1;
+            this.txtSubgrupoId.TextChanged += new System.EventHandler(this.txtSubgrupoId_TextChanged);
+            this.txtSubgrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSubgrupoId_KeyUp);
             // 
             // lbSubgrupoDescricao
             // 
@@ -217,7 +233,7 @@
             // lbSubgrupoId
             // 
             this.lbSubgrupoId.AutoSize = true;
-            this.lbSubgrupoId.Location = new System.Drawing.Point(12, 54);
+            this.lbSubgrupoId.Location = new System.Drawing.Point(9, 54);
             this.lbSubgrupoId.Name = "lbSubgrupoId";
             this.lbSubgrupoId.Size = new System.Drawing.Size(55, 13);
             this.lbSubgrupoId.TabIndex = 30;

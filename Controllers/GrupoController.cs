@@ -19,94 +19,93 @@ namespace LaPizza.Controllers
         public void Editar(GrupoDto Grupo)
         {
             Context db = new Context();
-            GrupoDto gru = db.grupo.FirstOrDefault(g => g.id == Grupo.id);
-            gru.id = Grupo.id;
-            gru.descricao = gru.descricao;
-            gru.ativo = Grupo.ativo;
-            db.SaveChanges();
+
+            GrupoDto grupo = db.grupo.FirstOrDefault(p => p.id == Grupo.id);
+            if (grupo != null)
+            {
+                grupo.id = Grupo.id;
+                grupo.descricao = Grupo.descricao;
+                grupo.ativo = Grupo.ativo;
+                db.SaveChanges();
+            }            
         }
 
         public void Excluir(int Id)
         {
             Context db = new Context();
-            GrupoDto gru = db.grupo.FirstOrDefault(g => g.id == Id);
-            try
+            GrupoDto grupo = db.grupo.FirstOrDefault(p => p.id == Id);
+
+            if (grupo != null)
             {
-                db.grupo.Remove(gru);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
+                db.grupo.Remove(grupo);
                 db.SaveChanges();
             }
         }
-
         public bool ExisteGrupoId(int Id)
         {
             Context db = new Context();
-            GrupoDto grupo = db.grupo.Where(g => g.id == Id).FirstOrDefault();
+            GrupoDto grupo = db.grupo.Where(p => p.id == Id).FirstOrDefault();
 
             if (grupo != null && grupo.id == Id)
                 return true;
             else
                 return false;
-
         }
-
-        public int GetProximoId()
-        {
-            Context db = new Context();
-            var gru = db.grupo.FirstOrDefault();
-
-            if (gru is null)
-                return 1;
-            else
-                return db.grupo.Max(g => g.id) + 1;
-        }
-
         public GrupoModel GetGrupo(int Id)
         {
             Context db = new Context();
-            GrupoModel Lista = (from gru in db.grupo
-                                where gru.id == Id
-                                select new GrupoModel
-                                { 
-                                    id = gru.id,
-                                    descricao = gru.descricao,
-                                    ativo = gru.ativo
-                                }).FirstOrDefault();
+            GrupoDto grupo = db.grupo.Where(p => p.id == Id).FirstOrDefault();
+            GrupoModel grupoModel = new GrupoModel();
 
-            return Lista;
+            if (grupo != null && grupo.id == Id)
+            {
+                grupoModel.id = grupo.id;
+                grupoModel.descricao = grupo.descricao;
+                grupoModel.ativo = grupo.ativo;
+
+                return grupoModel;
+            }
+            else
+                return null;          
         }
 
         public List<GrupoModel> GetGrupoLista()
         {
             Context db = new Context();
-            List<GrupoModel> Lista = (from gru in db.grupo
+            List<GrupoModel> lista = (from grupo in db.grupo
+                                      orderby grupo.id
                                       select new GrupoModel
                                       {
-                                          id = gru.id,
-                                          descricao = gru.descricao,
-                                          ativo = gru.ativo
+                                          id = grupo.id,
+                                          descricao = grupo.descricao,
+                                          ativo = grupo.ativo
                                       }).ToList();
-            return Lista;
+            return lista;
         }
 
-        public List<GrupoModel> GetGrupoPesquisaGrid(string Descricao)
+        public int GetProximoId()
         {
             Context db = new Context();
-            List<GrupoModel> Lista = (from gru in db.grupo
+            var grupo = db.grupo.FirstOrDefault();
+
+            if (grupo != null)
+                return db.grupo.Max(p => p.id) + 1;
+            else
+                return 1;
+        }
+        public List<GrupoModel> GetGrupoPesquisaGrid(string TextoPesquisa)
+        {
+            Context db = new Context();
+            List<GrupoModel> lista = (from grupo in db.grupo
+                                      orderby grupo.id
                                       select new GrupoModel
                                       {
-                                          id = gru.id,
-                                          descricao = gru.descricao,
-                                          ativo = gru.ativo
+                                          id = grupo.id,
+                                          descricao = grupo.descricao,
+                                          ativo = grupo.ativo
                                       }).ToList();
 
-            return new List<GrupoModel>(Lista.Where(p => p.descricao.Contains(Descricao)));
+            return new List<GrupoModel>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
         }
     }
 }

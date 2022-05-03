@@ -1,6 +1,6 @@
 ﻿namespace LaPizza.Views
 {
-    partial class FormEstControleEstoque
+    partial class FormEstMovimentacaoSimplificada
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -30,17 +30,17 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtEntradaId = new LaPizza.Controllers.LpText();
+            this.txtMovimentoId = new LaPizza.Controllers.LpText();
             this.lbEntradaId = new System.Windows.Forms.Label();
             this.lbEntradaDescricao = new System.Windows.Forms.Label();
-            this.txtEntradaDescricao = new LaPizza.Controllers.LpText();
+            this.txtMovimentoDescricao = new LaPizza.Controllers.LpText();
             this.boxFiltro = new System.Windows.Forms.GroupBox();
             this.btnInserirItem = new System.Windows.Forms.Button();
-            this.rbMovimentaSaida = new System.Windows.Forms.RadioButton();
-            this.rbMovimentaEntrada = new System.Windows.Forms.RadioButton();
+            this.rbMovimentoSaida = new System.Windows.Forms.RadioButton();
+            this.rbMovimentoEntrada = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.lbEntradaQtde = new System.Windows.Forms.Label();
-            this.txtQtdeMovimentada = new LaPizza.Controllers.LpText();
+            this.txtQtdeMovimento = new LaPizza.Controllers.LpText();
             this.lbSaldoEstoque = new System.Windows.Forms.Label();
             this.txtSaldoEstoque = new LaPizza.Controllers.LpText();
             this.lbEmbalagem = new System.Windows.Forms.Label();
@@ -49,23 +49,23 @@
             this.txtProdutoDescricao = new LaPizza.Controllers.LpText();
             this.lbProdutoId = new System.Windows.Forms.Label();
             this.txtProdutoId = new LaPizza.Controllers.LpText();
-            this.gridItens = new System.Windows.Forms.DataGridView();
+            this.gridMovimentos = new System.Windows.Forms.DataGridView();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesMenu.SuspendLayout();
             this.pnlAcoesRodape.SuspendLayout();
             this.boxFiltro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridItens)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMovimentos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.Controls.Add(this.gridItens);
+            this.pnlPrincipal.Controls.Add(this.gridMovimentos);
             this.pnlPrincipal.Controls.Add(this.boxFiltro);
             this.pnlPrincipal.Controls.Add(this.lbEntradaDescricao);
-            this.pnlPrincipal.Controls.Add(this.txtEntradaDescricao);
+            this.pnlPrincipal.Controls.Add(this.txtMovimentoDescricao);
             this.pnlPrincipal.Controls.Add(this.lbEntradaId);
-            this.pnlPrincipal.Controls.Add(this.txtEntradaId);
+            this.pnlPrincipal.Controls.Add(this.txtMovimentoId);
             this.pnlPrincipal.Size = new System.Drawing.Size(584, 397);
             // 
             // pnlNomeRotina
@@ -141,18 +141,23 @@
             this.btnConfirmar.Location = new System.Drawing.Point(359, 5);
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // txtEntradaId
+            // splitter3
             // 
-            this.txtEntradaId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEntradaId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEntradaId.ForeColor = System.Drawing.Color.Black;
-            this.txtEntradaId.Location = new System.Drawing.Point(22, 31);
-            this.txtEntradaId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtEntradaId.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtEntradaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
-            this.txtEntradaId.Name = "txtEntradaId";
-            this.txtEntradaId.Size = new System.Drawing.Size(62, 20);
-            this.txtEntradaId.TabIndex = 0;
+            this.splitter3.Location = new System.Drawing.Point(474, 5);
+            this.splitter3.Visible = false;
+            // 
+            // txtMovimentoId
+            // 
+            this.txtMovimentoId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMovimentoId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMovimentoId.ForeColor = System.Drawing.Color.Black;
+            this.txtMovimentoId.Location = new System.Drawing.Point(22, 31);
+            this.txtMovimentoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMovimentoId.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMovimentoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
+            this.txtMovimentoId.Name = "txtMovimentoId";
+            this.txtMovimentoId.Size = new System.Drawing.Size(62, 20);
+            this.txtMovimentoId.TabIndex = 0;
             // 
             // lbEntradaId
             // 
@@ -168,31 +173,31 @@
             this.lbEntradaDescricao.AutoSize = true;
             this.lbEntradaDescricao.Location = new System.Drawing.Point(87, 15);
             this.lbEntradaDescricao.Name = "lbEntradaDescricao";
-            this.lbEntradaDescricao.Size = new System.Drawing.Size(142, 13);
+            this.lbEntradaDescricao.Size = new System.Drawing.Size(124, 13);
             this.lbEntradaDescricao.TabIndex = 3;
-            this.lbEntradaDescricao.Text = "Descrição da movimentação";
+            this.lbEntradaDescricao.Text = "Descrição do movimento";
             // 
-            // txtEntradaDescricao
+            // txtMovimentoDescricao
             // 
-            this.txtEntradaDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEntradaDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEntradaDescricao.ForeColor = System.Drawing.Color.Black;
-            this.txtEntradaDescricao.Location = new System.Drawing.Point(90, 31);
-            this.txtEntradaDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtEntradaDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtEntradaDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtEntradaDescricao.Name = "txtEntradaDescricao";
-            this.txtEntradaDescricao.Size = new System.Drawing.Size(472, 20);
-            this.txtEntradaDescricao.TabIndex = 2;
+            this.txtMovimentoDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMovimentoDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMovimentoDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtMovimentoDescricao.Location = new System.Drawing.Point(90, 31);
+            this.txtMovimentoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMovimentoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMovimentoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtMovimentoDescricao.Name = "txtMovimentoDescricao";
+            this.txtMovimentoDescricao.Size = new System.Drawing.Size(472, 20);
+            this.txtMovimentoDescricao.TabIndex = 1;
             // 
             // boxFiltro
             // 
             this.boxFiltro.Controls.Add(this.btnInserirItem);
-            this.boxFiltro.Controls.Add(this.rbMovimentaSaida);
-            this.boxFiltro.Controls.Add(this.rbMovimentaEntrada);
+            this.boxFiltro.Controls.Add(this.rbMovimentoSaida);
+            this.boxFiltro.Controls.Add(this.rbMovimentoEntrada);
             this.boxFiltro.Controls.Add(this.label1);
             this.boxFiltro.Controls.Add(this.lbEntradaQtde);
-            this.boxFiltro.Controls.Add(this.txtQtdeMovimentada);
+            this.boxFiltro.Controls.Add(this.txtQtdeMovimento);
             this.boxFiltro.Controls.Add(this.lbSaldoEstoque);
             this.boxFiltro.Controls.Add(this.txtSaldoEstoque);
             this.boxFiltro.Controls.Add(this.lbEmbalagem);
@@ -211,67 +216,65 @@
             // 
             // btnInserirItem
             // 
-            this.btnInserirItem.Location = new System.Drawing.Point(464, 69);
+            this.btnInserirItem.Location = new System.Drawing.Point(375, 69);
             this.btnInserirItem.Name = "btnInserirItem";
-            this.btnInserirItem.Size = new System.Drawing.Size(87, 23);
-            this.btnInserirItem.TabIndex = 19;
-            this.btnInserirItem.Text = "Inserir Item";
+            this.btnInserirItem.Size = new System.Drawing.Size(176, 23);
+            this.btnInserirItem.TabIndex = 4;
+            this.btnInserirItem.Text = "Inserir movimento";
             this.btnInserirItem.UseVisualStyleBackColor = true;
             this.btnInserirItem.Click += new System.EventHandler(this.btnInserirItem_Click);
             // 
-            // rbMovimentaSaida
+            // rbMovimentoSaida
             // 
-            this.rbMovimentaSaida.AutoSize = true;
-            this.rbMovimentaSaida.Location = new System.Drawing.Point(182, 75);
-            this.rbMovimentaSaida.Name = "rbMovimentaSaida";
-            this.rbMovimentaSaida.Size = new System.Drawing.Size(54, 17);
-            this.rbMovimentaSaida.TabIndex = 18;
-            this.rbMovimentaSaida.TabStop = true;
-            this.rbMovimentaSaida.Text = "Saída";
-            this.rbMovimentaSaida.UseVisualStyleBackColor = true;
+            this.rbMovimentoSaida.AutoSize = true;
+            this.rbMovimentoSaida.Location = new System.Drawing.Point(80, 75);
+            this.rbMovimentoSaida.Name = "rbMovimentoSaida";
+            this.rbMovimentoSaida.Size = new System.Drawing.Size(54, 17);
+            this.rbMovimentoSaida.TabIndex = 4;
+            this.rbMovimentoSaida.Text = "Saída";
+            this.rbMovimentoSaida.UseVisualStyleBackColor = true;
             // 
-            // rbMovimentaEntrada
+            // rbMovimentoEntrada
             // 
-            this.rbMovimentaEntrada.AutoSize = true;
-            this.rbMovimentaEntrada.Location = new System.Drawing.Point(114, 75);
-            this.rbMovimentaEntrada.Name = "rbMovimentaEntrada";
-            this.rbMovimentaEntrada.Size = new System.Drawing.Size(62, 17);
-            this.rbMovimentaEntrada.TabIndex = 17;
-            this.rbMovimentaEntrada.TabStop = true;
-            this.rbMovimentaEntrada.Text = "Entrada";
-            this.rbMovimentaEntrada.UseVisualStyleBackColor = true;
+            this.rbMovimentoEntrada.AutoSize = true;
+            this.rbMovimentoEntrada.Location = new System.Drawing.Point(12, 75);
+            this.rbMovimentoEntrada.Name = "rbMovimentoEntrada";
+            this.rbMovimentoEntrada.Size = new System.Drawing.Size(62, 17);
+            this.rbMovimentoEntrada.TabIndex = 3;
+            this.rbMovimentoEntrada.Text = "Entrada";
+            this.rbMovimentoEntrada.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 57);
+            this.label1.Location = new System.Drawing.Point(8, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 13);
+            this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Tipo de movimentação";
+            this.label1.Text = "Tipo de movimento";
             // 
             // lbEntradaQtde
             // 
             this.lbEntradaQtde.AutoSize = true;
-            this.lbEntradaQtde.Location = new System.Drawing.Point(8, 57);
+            this.lbEntradaQtde.Location = new System.Drawing.Point(140, 57);
             this.lbEntradaQtde.Name = "lbEntradaQtde";
             this.lbEntradaQtde.Size = new System.Drawing.Size(96, 13);
             this.lbEntradaQtde.TabIndex = 14;
             this.lbEntradaQtde.Text = "Qtde movimentada";
             // 
-            // txtQtdeMovimentada
+            // txtQtdeMovimento
             // 
-            this.txtQtdeMovimentada.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQtdeMovimentada.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtQtdeMovimentada.ForeColor = System.Drawing.Color.Black;
-            this.txtQtdeMovimentada.Location = new System.Drawing.Point(11, 73);
-            this.txtQtdeMovimentada.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtQtdeMovimentada.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtQtdeMovimentada.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtQtdeMovimentada.Name = "txtQtdeMovimentada";
-            this.txtQtdeMovimentada.Size = new System.Drawing.Size(97, 20);
-            this.txtQtdeMovimentada.TabIndex = 13;
-            this.txtQtdeMovimentada.Leave += new System.EventHandler(this.txtQtdeMovimentada_Leave);
+            this.txtQtdeMovimento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQtdeMovimento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtQtdeMovimento.ForeColor = System.Drawing.Color.Black;
+            this.txtQtdeMovimento.Location = new System.Drawing.Point(143, 73);
+            this.txtQtdeMovimento.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtQtdeMovimento.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtQtdeMovimento.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
+            this.txtQtdeMovimento.Name = "txtQtdeMovimento";
+            this.txtQtdeMovimento.Size = new System.Drawing.Size(97, 20);
+            this.txtQtdeMovimento.TabIndex = 3;
+            this.txtQtdeMovimento.Leave += new System.EventHandler(this.txtQtdeMovimentada_Leave);
             // 
             // lbSaldoEstoque
             // 
@@ -345,9 +348,9 @@
             this.lbProdutoId.AutoSize = true;
             this.lbProdutoId.Location = new System.Drawing.Point(8, 18);
             this.lbProdutoId.Name = "lbProdutoId";
-            this.lbProdutoId.Size = new System.Drawing.Size(50, 13);
+            this.lbProdutoId.Size = new System.Drawing.Size(62, 13);
             this.lbProdutoId.TabIndex = 6;
-            this.lbProdutoId.Text = "Produto+";
+            this.lbProdutoId.Text = "Produto(F2)";
             // 
             // txtProdutoId
             // 
@@ -360,17 +363,17 @@
             this.txtProdutoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtProdutoId.Name = "txtProdutoId";
             this.txtProdutoId.Size = new System.Drawing.Size(62, 20);
-            this.txtProdutoId.TabIndex = 5;
+            this.txtProdutoId.TabIndex = 2;
             this.txtProdutoId.TextChanged += new System.EventHandler(this.txtProdutoId_TextChanged);
             this.txtProdutoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtProdutoId_KeyUp);
             // 
-            // gridItens
+            // gridMovimentos
             // 
-            this.gridItens.AllowUserToAddRows = false;
-            this.gridItens.AllowUserToResizeColumns = false;
-            this.gridItens.AllowUserToResizeRows = false;
-            this.gridItens.BackgroundColor = System.Drawing.Color.White;
-            this.gridItens.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridMovimentos.AllowUserToAddRows = false;
+            this.gridMovimentos.AllowUserToResizeColumns = false;
+            this.gridMovimentos.AllowUserToResizeRows = false;
+            this.gridMovimentos.BackgroundColor = System.Drawing.Color.White;
+            this.gridMovimentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -378,12 +381,12 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.IndianRed;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridItens.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridItens.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.gridItens.Location = new System.Drawing.Point(11, 166);
-            this.gridItens.Name = "gridItens";
-            this.gridItens.ReadOnly = true;
+            this.gridMovimentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridMovimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridMovimentos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.gridMovimentos.Location = new System.Drawing.Point(11, 166);
+            this.gridMovimentos.Name = "gridMovimentos";
+            this.gridMovimentos.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -391,19 +394,20 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridItens.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridItens.RowHeadersVisible = false;
-            this.gridItens.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridItens.Size = new System.Drawing.Size(560, 219);
-            this.gridItens.TabIndex = 5;
+            this.gridMovimentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gridMovimentos.RowHeadersVisible = false;
+            this.gridMovimentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridMovimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridMovimentos.Size = new System.Drawing.Size(560, 219);
+            this.gridMovimentos.TabIndex = 5;
             // 
-            // FormEstControleEstoque
+            // FormEstMovimentacaoSimplificada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(584, 516);
             this.KeyPreview = true;
-            this.Name = "FormEstControleEstoque";
+            this.Name = "FormEstMovimentacaoSimplificada";
+            this.ShowIcon = false;
             this.Text = "FormEstControleEstoque";
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
@@ -413,25 +417,25 @@
             this.pnlAcoesRodape.ResumeLayout(false);
             this.boxFiltro.ResumeLayout(false);
             this.boxFiltro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridItens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMovimentos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Controllers.LpText txtEntradaId;
+        private Controllers.LpText txtMovimentoId;
         private System.Windows.Forms.Label lbEntradaId;
         private System.Windows.Forms.Label lbEntradaDescricao;
-        private Controllers.LpText txtEntradaDescricao;
-        private System.Windows.Forms.DataGridView gridItens;
+        private Controllers.LpText txtMovimentoDescricao;
+        private System.Windows.Forms.DataGridView gridMovimentos;
         private System.Windows.Forms.GroupBox boxFiltro;
         private System.Windows.Forms.Button btnInserirItem;
-        private System.Windows.Forms.RadioButton rbMovimentaSaida;
-        private System.Windows.Forms.RadioButton rbMovimentaEntrada;
+        private System.Windows.Forms.RadioButton rbMovimentoSaida;
+        private System.Windows.Forms.RadioButton rbMovimentoEntrada;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbEntradaQtde;
-        private Controllers.LpText txtQtdeMovimentada;
+        private Controllers.LpText txtQtdeMovimento;
         private System.Windows.Forms.Label lbSaldoEstoque;
         private Controllers.LpText txtSaldoEstoque;
         private System.Windows.Forms.Label lbEmbalagem;

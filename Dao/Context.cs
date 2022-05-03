@@ -1,19 +1,18 @@
-﻿using System.Data.Entity; 
+﻿using System.Data.Entity;
 using LaPizza.Models;
 
-namespace LaPizza.DAO 
+namespace LaPizza.DAO
 {
-    public class Context: DbContext
+    public class Context : DbContext
     {
-        public Context() : base("BD1")
+        public Context() : base("DB")
         {
         }
         public DbSet<ProdutoDto> produto { get; set; }
         public DbSet<GrupoDto> grupo { get; set; }
         public DbSet<SubgrupoDto> subgrupo { get; set; }
         public DbSet<MarcaDto> marca { get; set; }
-        public DbSet<ControleEstoqueDto> controleestoque { get; set; }
-        public DbSet<ControleEstoqueItensDto> controleestoqueitens { get; set; }
-
+        public DbSet<MovimentoEstoqueDto> movimentoestoque { get; set; }
+        public DbSet<MovimentoEstoqueItensDto> movimentoestoqueitens { get; set; }
     }
 }

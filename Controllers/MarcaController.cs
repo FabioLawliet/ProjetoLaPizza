@@ -11,113 +11,105 @@ namespace LaPizza.Controllers
     public class MarcaController
     {
 
-        public void AdicionarMarca(MarcaDto Marca)
+        public void Adicionar(MarcaDto Marca)
         {
             Context db = new Context();
             db.marca.Add(Marca);
             db.SaveChanges();
         }
 
-        public void EditarMarca(MarcaDto Marca)
+        public void Editar(MarcaDto Marca)
         {
             Context db = new Context();
-            MarcaDto mar = db.marca.FirstOrDefault(m => m.id == Marca.id);
-            mar.descricao = Marca.descricao;
-            mar.ativa = Marca.ativa;
-            db.SaveChanges();
+
+            MarcaDto marca = db.marca.FirstOrDefault(p => p.id == Marca.id);
+
+            if (marca != null)
+            {
+                marca.descricao = Marca.descricao;
+                marca.ativa = Marca.ativa;
+                db.SaveChanges();
+            }            
         }
 
-        public void ExcluirMarca(int Id)
+        public void Excluir(int Id)
         {
             Context db = new Context();
-            MarcaDto marca = db.marca.FirstOrDefault(m => m.id == Id);
-            try
+            MarcaDto marca = db.marca.FirstOrDefault(p => p.id == Id);
+
+            if (marca != null)
             {
                 db.marca.Remove(marca);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
                 db.SaveChanges();
             }
-        }
-
-        public MarcaModel GetMarca(int Id)
-        {
-            Context db = new Context();
-            MarcaDto marcaDto = db.marca.Where(m => m.id == Id).FirstOrDefault();
-
-            MarcaModel marcaModel = new MarcaModel();
-            marcaModel.id = marcaDto.id;
-            marcaModel.descricao = marcaDto.descricao;
-            marcaModel.ativa = marcaDto.ativa;
-
-            return marcaModel;
-        }
-
-        public int GetProximoId()
-        {
-            Context db = new Context();
-            List<MarcaModel> ListMarca = (from m in db.marca
-                                           where m.id > 0
-                                           select new MarcaModel
-                                           {
-                                               id = m.id,
-                                               descricao = m.descricao,
-                                               ativa = m.ativa
-                                           }).ToList();
-
-             if (ListMarca.Count() > 0)
-                 return (int)db.marca.Max(m => m.id);
-             else
-                 return 0;
-        }
-
-
-        public List<MarcaModel> GetListMarca()
-        {
-            Context db = new Context();
-            List<MarcaModel> ListMarca = (from m in db.marca
-                                          where m.id > 0
-                                          orderby m.id
-                                          select new MarcaModel
-                                          {
-                                              id = m.id,
-                                              descricao = m.descricao,
-                                              ativa = m.ativa
-                                          }).ToList();
-
-            return new List<MarcaModel>(ListMarca);
-        }
-
-        public List<MarcaModel> GetListMarcaPesquisa(string descricao)
-        {
-            Context db = new Context();
-            List<MarcaModel> ListMarca = (from m in db.marca
-                                          orderby m.id
-                                          select new MarcaModel
-                                          {
-                                              id = m.id,
-                                              descricao = m.descricao,
-                                              ativa = m.ativa
-                                          }).ToList();
-
-            return new List<MarcaModel>(ListMarca.Where(p => p.descricao.Contains(descricao)));
         }
 
         public bool ExisteMarca(int Id)
         {
             Context db = new Context();
-            var marca = db.marca.Where(m => m.id == Id).FirstOrDefault();
+            var marca = db.marca.Where(p => p.id == Id).FirstOrDefault();
 
-            if (marca is null)
-                return false;
-            else
+            if (marca != null && marca.id == Id)
                 return true;
-            
+            else
+                return false;
+        }
+
+        public MarcaModel GetMarca(int Id)
+        {
+            Context db = new Context();
+            MarcaDto marca = db.marca.Where(p => p.id == Id).FirstOrDefault();
+            MarcaModel marcaModel = new MarcaModel();
+
+            if (marca != null)
+            {
+                marcaModel.id = marca.id;
+                marcaModel.descricao = marca.descricao;
+                marcaModel.ativa = marca.ativa;
+
+                return marcaModel;
+            }
+            else
+                return null;            
+        }
+
+        public List<MarcaModel> GetMarcaLista()
+        {
+            Context db = new Context();
+            List<MarcaModel> lista = (from marca in db.marca
+                                      orderby marca.id
+                                      select new MarcaModel
+                                      {
+                                          id = marca.id,
+                                          descricao = marca.descricao,
+                                          ativa = marca.ativa
+                                      }).ToList();
+            return lista;
+        }
+
+        public int GetProximoId()
+        {
+            Context db = new Context();
+             var marca = db.marca.FirstOrDefault();
+
+            if (marca != null)
+                return db.marca.Max(p => p.id) + 1;
+            else
+                return 1;
+        }
+        public List<MarcaModel> GetMarcaPesquisaGrid(string TextoPesquisa)
+        {
+            Context db = new Context();
+            List<MarcaModel> lista = (from marca in db.marca
+                                      orderby marca.id
+                                      select new MarcaModel
+                                      {
+                                          id = marca.id,
+                                          descricao = marca.descricao,
+                                          ativa = marca.ativa
+                                      }).ToList();
+
+            return new List<MarcaModel>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
         }
     }
 }

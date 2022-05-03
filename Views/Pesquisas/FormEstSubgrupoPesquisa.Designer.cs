@@ -1,6 +1,6 @@
-﻿namespace LaPizza.Views
+﻿namespace LaPizza.Views.Pesquisas
 {
-    partial class FormEstMarcaPesquisa
+    partial class FormEstSubgrupoPesquisa
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -50,13 +50,11 @@
             // 
             this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
-            // FormEstMarcaPesquisa
+            // FormEstSubgrupoPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(454, 491);
-            this.MaximumSize = new System.Drawing.Size(470, 530);
-            this.Name = "FormEstMarcaPesquisa";
-            this.Text = "Pesquisa de Marca";
+            this.Name = "FormEstSubgrupoPesquisa";
             this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlPesquisa.ResumeLayout(false);
             this.pnlPesquisa.PerformLayout();

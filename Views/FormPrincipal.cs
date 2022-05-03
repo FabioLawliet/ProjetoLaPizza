@@ -15,7 +15,8 @@ namespace LaPizza
         FormEstProduto FProduto;
         FormEstMarca FMarca;
         FormEstGrupo FGrupo;
-        FormEstControleEstoque FControleEstoque;
+        FormEstMovimentacaoSimplificada FControleEstoque;
+        FormEstSubgrupo FSubgrupo;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace LaPizza
             //Essa parte abaixo não faz sentido algum.
             //Por algum motivo, a primeira conexão com o banco de dados deixa o projeto lento.
             //Estou fazendo aqui para não ficar lento ao executar alguma ação de uma rotina.
-            Context db = new Context();
+
             //MarcaController controle = new MarcaController();
             //controle.ExisteMarca(1);
         }
@@ -67,7 +68,7 @@ namespace LaPizza
         //-------------------------------------------------------------
         private void btnEstMarca_Click(object sender, EventArgs e)
         {
-            
+
             if (FMarca == null || FMarca.IsDisposed)
             {
                 FMarca = new FormEstMarca();
@@ -144,9 +145,9 @@ namespace LaPizza
         {
             if (FControleEstoque == null || FControleEstoque.IsDisposed)
             {
-                FControleEstoque = new FormEstControleEstoque();
-                FControleEstoque.Text = btnEstControle.Text;
-                FControleEstoque.lbNomeRotina.Text = btnEstControle.Text;
+                FControleEstoque = new FormEstMovimentacaoSimplificada();
+                FControleEstoque.Text = btnEstMovimentacaoSimplificada.Text;
+                FControleEstoque.lbNomeRotina.Text = btnEstMovimentacaoSimplificada.Text;
                 FControleEstoque.Visible = false;
                 FControleEstoque.TopLevel = false;
                 pnlPrincipal.Controls.Add(FControleEstoque);
@@ -161,6 +162,33 @@ namespace LaPizza
                 FControleEstoque.BringToFront();
             }
 
+        }
+
+        private void btnEstSubGrupo_Click(object sender, EventArgs e)
+        {
+            if (FSubgrupo == null || FSubgrupo.IsDisposed)
+            {
+                FSubgrupo = new FormEstSubgrupo();
+                FSubgrupo.Text = btnEstSubGrupo.Text;
+                FSubgrupo.lbNomeRotina.Text = btnEstSubGrupo.Text;
+                FSubgrupo.Visible = false;
+                FSubgrupo.TopLevel = false;
+                pnlPrincipal.Controls.Add(FSubgrupo);
+                FSubgrupo.Left = (pnlPrincipal.Width - FSubgrupo.Width) / 2;
+                FSubgrupo.Top = (pnlPrincipal.Height - FSubgrupo.Height) / 2;
+                FSubgrupo.FormBorderStyle = FormBorderStyle.Sizable;
+                FSubgrupo.Visible = true;
+                FSubgrupo.BringToFront();
+            }
+            else
+            {
+                FSubgrupo.BringToFront();
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }
