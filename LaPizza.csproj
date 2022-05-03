@@ -119,7 +119,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ControleEstoqueController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\InteracaoMenu.cs" />
     <Compile Include="Controllers\LpText.cs">
@@ -130,10 +129,6 @@
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\SubgrupoController.cs" />
     <Compile Include="Dao\Context.cs" />
-    <Compile Include="Models\ControleEstoqueDto.cs" />
-    <Compile Include="Models\ControleEstoqueItensDto.cs" />
-    <Compile Include="Models\ControleEstoqueItensModel.cs" />
-    <Compile Include="Models\ControleEstoqueModel.cs" />
     <Compile Include="Models\GrupoDto.cs" />
     <Compile Include="Models\GrupoModel.cs" />
     <Compile Include="Models\MarcaModel.cs" />
