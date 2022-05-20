@@ -22,13 +22,17 @@ namespace LaPizza
             InitializeComponent();
             IntMenu = new InteracaoMenu();
             IntMenu.EscondeTodos(pnlMenuLateral.Controls);
-  
-            //Essa parte abaixo não faz sentido algum.
-            //Por algum motivo, a primeira conexão com o banco de dados deixa o projeto lento.
-            //Estou fazendo aqui para não ficar lento ao executar alguma ação de uma rotina.
 
-            //MarcaController controle = new MarcaController();
-            //controle.ExisteMarca(1);
+            try //A primeira conexão com o banco é lenta, então está sendo realizada uma conexão por aqui e o usuário nem sabe que ela acontece.
+            {
+                Context db = new Context();
+                var marca = db.marca.FirstOrDefault();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Houve um problema ao se conectar com o banco de dados! \n\n" + ex.Message,
+                                "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         // ------------------------------------------------------------
@@ -184,11 +188,6 @@ namespace LaPizza
             {
                 FSubgrupo.BringToFront();
             }
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
         }
     }
 }

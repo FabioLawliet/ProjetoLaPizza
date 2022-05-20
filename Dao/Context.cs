@@ -5,7 +5,7 @@ namespace LaPizza.DAO
 {
     public class Context : DbContext
     {
-        public Context() : base("DB")
+        public Context() : base("db")
         {
         }
         public DbSet<ProdutoDto> produto { get; set; }

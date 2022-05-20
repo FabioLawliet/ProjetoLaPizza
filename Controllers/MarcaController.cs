@@ -14,21 +14,36 @@ namespace LaPizza.Controllers
         public void Adicionar(MarcaDto Marca)
         {
             Context db = new Context();
-            db.marca.Add(Marca);
-            db.SaveChanges();
+            try
+            {
+                db.marca.Add(Marca);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Houve um problema ao adicionar a marca, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void Editar(MarcaDto Marca)
         {
             Context db = new Context();
-
             MarcaDto marca = db.marca.FirstOrDefault(p => p.id == Marca.id);
 
             if (marca != null)
             {
-                marca.descricao = Marca.descricao;
-                marca.ativa = Marca.ativa;
-                db.SaveChanges();
+                try
+                {
+                    marca.descricao = Marca.descricao;
+                    marca.ativa = Marca.ativa;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Houve um problema ao editar a marca, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }            
         }
 
@@ -39,8 +54,16 @@ namespace LaPizza.Controllers
 
             if (marca != null)
             {
-                db.marca.Remove(marca);
-                db.SaveChanges();
+                try
+                {
+                    db.marca.Remove(marca);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível excluir a marca, provavelmente existem movimentações no banco de dados para esta marca e ela não poderá ser excluída! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

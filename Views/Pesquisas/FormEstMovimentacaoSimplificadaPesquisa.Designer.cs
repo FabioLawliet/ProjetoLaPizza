@@ -1,6 +1,6 @@
 ﻿namespace LaPizza.Views.Pesquisas
 {
-    partial class FormEstMovimentacaoSimplificada
+    partial class FormEstMovimentacaoSimplificadaPesquisa
     {
         /// <summary>
         /// Variável de designer necessária.

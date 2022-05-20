@@ -666,7 +666,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "FormEstProduto";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlNomeRotina.ResumeLayout(false);

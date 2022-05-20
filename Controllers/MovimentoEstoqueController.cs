@@ -15,29 +15,34 @@ namespace LaPizza.Controllers
             Context db = new Context();
             MovimentoEstoqueDto movimento = new MovimentoEstoqueDto();
 
-            movimento.descricao = Movimento.descricao;
-            movimento.datamovimento = DateTime.Today.ToString(); //Movimento.datamovimento;
-            movimento.usuariomovimento = "Admin"; //Movimento.usuariomovimento;
-            db.movimentoestoque.Add(movimento);
-            db.SaveChanges();
-
-            foreach (var i in Movimento.itens)
+            try
             {
-                MovimentoEstoqueItensDto item = new MovimentoEstoqueItensDto();
-                item.idmovimento = movimento.idmovimento;
-                item.idproduto = i.idproduto;
-                item.saldoestoqueanterior = i.saldoestoqueanterior;
-                item.tipomovimento = i.tipomovimento;
-                item.qtdemovimento = i.qtdemovimento;
-                item.saldoestoquenovo = i.saldoestoquenovo;
-                db.movimentoestoqueitens.Add(item);
+                movimento.descricao = Movimento.descricao;
+                movimento.datamovimento = DateTime.Today.ToString(); //Movimento.datamovimento;
+                movimento.usuariomovimento = "Admin"; //Movimento.usuariomovimento;
+                db.movimentoestoque.Add(movimento);
+                db.SaveChanges();
 
-                ProdutoDto Produto = db.produto.FirstOrDefault(p => p.id == i.idproduto);
-                Produto.saldoestoque = i.saldoestoquenovo;
-                //db.SaveChanges();
+                foreach (var i in Movimento.itens)
+                {
+                    MovimentoEstoqueItensDto item = new MovimentoEstoqueItensDto();
+                    item.idmovimento = movimento.idmovimento;
+                    item.idproduto = i.idproduto;
+                    item.saldoestoqueanterior = i.saldoestoqueanterior;
+                    item.tipomovimento = i.tipomovimento;
+                    item.qtdemovimento = i.qtdemovimento;
+                    item.saldoestoquenovo = i.saldoestoquenovo;
+                    db.movimentoestoqueitens.Add(item);
+
+                    ProdutoDto Produto = db.produto.FirstOrDefault(p => p.id == i.idproduto);
+                    Produto.saldoestoque = i.saldoestoquenovo;
+                }
+                db.SaveChanges();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Houve um problema ao adicionar o movimento, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            db.SaveChanges();
         }
 
         public void Excluir(int Id)
@@ -45,23 +50,29 @@ namespace LaPizza.Controllers
             Context db = new Context();
             List<MovimentoEstoqueItensDto> itens = db.movimentoestoqueitens.Where(p => p.idmovimento == Id).ToList();
 
-            foreach (var i in itens)
+            try
             {
-                ProdutoDto produto = db.produto.FirstOrDefault(p => p.id == i.idproduto);
+                foreach (var i in itens)
+                {
+                    ProdutoDto produto = db.produto.FirstOrDefault(p => p.id == i.idproduto);
 
-                if (i.tipomovimento == "E")
-                    produto.saldoestoque = produto.saldoestoque - i.qtdemovimento;
-                else
-                    produto.saldoestoque = produto.saldoestoque + i.qtdemovimento;
+                    if (i.tipomovimento == "E")
+                        produto.saldoestoque = produto.saldoestoque - i.qtdemovimento;
+                    else
+                        produto.saldoestoque = produto.saldoestoque + i.qtdemovimento;
 
-                db.movimentoestoqueitens.Remove(i);
+                    db.movimentoestoqueitens.Remove(i);
+                    db.SaveChanges();
+                }
+
+                MovimentoEstoqueDto movimento = db.movimentoestoque.FirstOrDefault(p => p.idmovimento == Id);
+                db.movimentoestoque.Remove(movimento);
                 db.SaveChanges();
-            }            
-
-            MovimentoEstoqueDto movimento = db.movimentoestoque.FirstOrDefault(p => p.idmovimento == Id);
-            db.movimentoestoque.Remove(movimento);
-
-            db.SaveChanges();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível excluir o movimento! \n\n" + ex.Message,
+                                "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public int GetProximoId()
@@ -136,7 +147,6 @@ namespace LaPizza.Controllers
                                                               saldoestoquenovo = itens.saldoestoquenovo
                                                           }).ToList();
                 li.itens.AddRange(itemLista);
-
             }
 
             return movimentoLista;

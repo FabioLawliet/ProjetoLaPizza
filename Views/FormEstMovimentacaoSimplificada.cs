@@ -84,7 +84,7 @@ namespace LaPizza.Views
         {
             HabilitarComponentesPnlPrincipal(false);
 
-            Pesquisas.FormEstMovimentacaoSimplificada Pesq = new Pesquisas.FormEstMovimentacaoSimplificada();
+            Pesquisas.FormEstMovimentacaoSimplificadaPesquisa Pesq = new Pesquisas.FormEstMovimentacaoSimplificadaPesquisa();
             var Result = Pesq.ShowDialog();
 
             if (Result == DialogResult.OK)
@@ -115,7 +115,7 @@ namespace LaPizza.Views
         {
             HabilitarComponentesPnlPrincipal(false);
 
-            Pesquisas.FormEstMovimentacaoSimplificada Pesq = new Pesquisas.FormEstMovimentacaoSimplificada();
+            Pesquisas.FormEstMovimentacaoSimplificadaPesquisa Pesq = new Pesquisas.FormEstMovimentacaoSimplificadaPesquisa();
             var Result = Pesq.ShowDialog();
 
             if (Result == DialogResult.OK)

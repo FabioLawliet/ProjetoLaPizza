@@ -12,21 +12,37 @@ namespace LaPizza.Controllers
         public void Adicionar(GrupoDto Grupo)
         {
             Context db = new Context();
-            db.grupo.Add(Grupo);
-            db.SaveChanges();
+            try
+            {
+                db.grupo.Add(Grupo);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Houve um problema ao adicionar o grupo, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void Editar(GrupoDto Grupo)
         {
             Context db = new Context();
-
             GrupoDto grupo = db.grupo.FirstOrDefault(p => p.id == Grupo.id);
+
             if (grupo != null)
             {
-                grupo.id = Grupo.id;
-                grupo.descricao = Grupo.descricao;
-                grupo.ativo = Grupo.ativo;
-                db.SaveChanges();
+                try
+                {
+                    grupo.id = Grupo.id;
+                    grupo.descricao = Grupo.descricao;
+                    grupo.ativo = Grupo.ativo;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Houve um problema ao editar o grupo, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }            
         }
 
@@ -37,8 +53,16 @@ namespace LaPizza.Controllers
 
             if (grupo != null)
             {
-                db.grupo.Remove(grupo);
-                db.SaveChanges();
+                try
+                {
+                    db.grupo.Remove(grupo);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível excluir o grupo, provavelmente existem movimentações no banco de dados para este grupo e ele não poderá ser excluído! \n\n" + ex.Message, 
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
         public bool ExisteGrupoId(int Id)
