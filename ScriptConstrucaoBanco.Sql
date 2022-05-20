@@ -1,15 +1,15 @@
-drop database DB;
+drop database db;
 
-create database DB;
+create database db;
 
-create table Marca(
+create table public.marca(
 Id serial 
 	Constraint pk_IdMarca 
 	Primary Key,
 Descricao varchar(40),
 Ativa boolean);
 
-create table Grupo(
+create table public.grupo(
 Id serial 
 	Constraint pk_IdGrupo
 	Primary Key,
@@ -18,16 +18,16 @@ Ativo boolean);
 
 CREATE TABLE public.subgrupo
 (
-	id serial,
-	idsubgrupo integer,
-    descricao varchar(40),
-    idgrupo integer,
-    ativo boolean,
-    CONSTRAINT pk_id PRIMARY KEY (id),
-    CONSTRAINT "fk_idGrupo" FOREIGN KEY (idgrupo)
-        REFERENCES public.grupo (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE RESTRICT
+id serial,
+idsubgrupo integer,
+descricao varchar(40),
+idgrupo integer,
+ativo boolean,
+CONSTRAINT pk_id PRIMARY KEY (id),
+CONSTRAINT "fk_idGrupo" FOREIGN KEY (idgrupo)
+	REFERENCES public.grupo (id) MATCH SIMPLE
+	ON UPDATE NO ACTION
+	ON DELETE RESTRICT
 );
 
 create table public.produto(
@@ -61,7 +61,7 @@ precoAnterior decimal(10,2),
 precoAtual decimal(10,2),
 ativo boolean);
 
-create table MovimentoEstoque(
+create table public.MovimentoEstoque(
 idMovimento serial,
 	CONSTRAINT pk_idMovimento PRIMARY KEY (idMovimento),
 descricao varchar(50),
@@ -69,26 +69,25 @@ dataMovimento date,
 usuarioMovimento varchar(50)
 );
 
-create table MovimentoEstoqueItens(
+create table public.MovimentoEstoqueItens(
 id serial primary key,
 idMovimento int,
 	CONSTRAINT "fk_idMovimento" FOREIGN KEY (idMovimento)
-	REFERENCES public.controleestoque (idMovimento) MATCH SIMPLE
+	REFERENCES public.movimentoestoque (idMovimento) MATCH SIMPLE
 	ON UPDATE NO ACTION
     ON DELETE RESTRICT,
 idProduto int,
 	CONSTRAINT "fk_idproduto" FOREIGN KEY (idproduto)
 	REFERENCES public.produto (id) MATCH SIMPLE
 	ON UPDATE NO ACTION
-    ON DELETE RESTRICT,
--- CONSTRAINT pk_ControleEstoqueItens PRIMARY KEY (idControleEstoque, idProduto),	
+    ON DELETE RESTRICT,	
 saldoestoqueanterior decimal(10,2),
 tipomovimento varchar(1),
 qtdemovimento decimal(10,2),
 saldoestoquenovo decimal(10,2));
 
 
--- Insert dos registros
+-- Insert de registros genéricos
 
 insert into marca values
 (1,'MARCA 01',true),
@@ -106,24 +105,19 @@ insert into grupo values
 
 insert into subgrupo values
 (1, 1,'SUBGRUPO 01', 1, true),
-(1, 2,'SUBGRUPO 02', 1, true),
-(2, 1,'SUBGRUPO 01', 2, true),
-(2, 2,'SUBGRUPO 02', 2, true),
-(3, 1,'SUBGRUPO 01', 3, true),
-(3, 2,'SUBGRUPO 02', 3, true),
-(4, 1,'SUBGRUPO 01', 4, true),
-(4, 2,'SUBGRUPO 02', 4, true),
-(5, 1,'SUBGRUPO 01', 5, true);
-(5, 1,'SUBGRUPO 02', 5, true);
+(2, 2,'SUBGRUPO 02', 1, true),
+(3, 1,'SUBGRUPO 01', 2, true),
+(4, 2,'SUBGRUPO 02', 2, true),
+(5, 1,'SUBGRUPO 01', 3, true),
+(6, 2,'SUBGRUPO 02', 3, true),
+(7, 1,'SUBGRUPO 01', 4, true),
+(8, 2,'SUBGRUPO 02', 4, true),
+(9, 1,'SUBGRUPO 01', 5, true),
+(10, 2,'SUBGRUPO 02', 5, true);
 
 insert into produto values
-(1,'PRODUTO01',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 10,'UN',0,0,0,0,10.00,true),
-(2,'PRODUTO02',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 15,'UN',0,0,0,0,10.00,true),
-(3,'PRODUTO03',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 20,'UN',0,0,0,0,10.00,true),
-(4,'PRODUTO04',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 25,'UN',0,0,0,0,10.00,true),
-(5,'PRODUTO05',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 30,'UN',0,0,0,0,10.00,true);
-
-
-
-
-
+(1,'PRODUTO 01',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 10,'UN',0,0,0,0,10.00,true),
+(2,'PRODUTO 02',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 15,'UN',0,0,0,0,10.00,true),
+(3,'PRODUTO 03',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 20,'UN',0,0,0,0,10.00,true),
+(4,'PRODUTO 04',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 25,'UN',0,0,0,0,10.00,true),
+(5,'PRODUTO 05',CURRENT_DATE,1,1,1,'FABRICANTE','INF ADICIONAIS', 30,'UN',0,0,0,0,10.00,true);

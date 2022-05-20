@@ -163,7 +163,6 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(484, 188);
             this.Name = "FormEstMarca";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Marca";
             this.pnlPrincipal.ResumeLayout(false);

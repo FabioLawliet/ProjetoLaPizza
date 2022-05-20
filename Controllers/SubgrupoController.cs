@@ -12,22 +12,36 @@ namespace LaPizza.Controllers
         public void Adicionar(SubgrupoDto Subgrupo)
         {
             Context db = new Context();
-            db.subgrupo.Add(Subgrupo);
-            db.SaveChanges();
+            try
+            {
+                db.subgrupo.Add(Subgrupo);
+                db.SaveChanges();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Houve um problema ao adicionar o subgrupo, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void Editar(SubgrupoDto Subgrupo)
         {
             Context db = new Context();
-
             SubgrupoDto subgrupo = db.subgrupo.Where(p => p.idgrupo == Subgrupo.idgrupo).FirstOrDefault(p => p.idsubgrupo == Subgrupo.idsubgrupo);
+
             if (subgrupo != null)
             {
-                subgrupo.idsubgrupo = Subgrupo.idsubgrupo;
-                subgrupo.descricao = Subgrupo.descricao;
-                subgrupo.idgrupo = Subgrupo.idgrupo;
-                subgrupo.ativo = Subgrupo.ativo;
-                db.SaveChanges();
+                try
+                {
+                    subgrupo.idsubgrupo = Subgrupo.idsubgrupo;
+                    subgrupo.descricao = Subgrupo.descricao;
+                    subgrupo.idgrupo = Subgrupo.idgrupo;
+                    subgrupo.ativo = Subgrupo.ativo;
+                    db.SaveChanges();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Houve um problema ao editar o subgrupo, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -38,8 +52,15 @@ namespace LaPizza.Controllers
 
             if (subgrupo != null)
             {
-                db.subgrupo.Remove(subgrupo);
-                db.SaveChanges();
+                try
+                {
+                    db.subgrupo.Remove(subgrupo);
+                    db.SaveChanges();
+                }catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível excluir o subgrupo, provavelmente existem movimentações no banco de dados para este subgrupo e ele não poderá ser excluído! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
         public bool ExisteSubgrupo(int IdGrupo, int IdSubgrupo)
@@ -71,11 +92,11 @@ namespace LaPizza.Controllers
                 return null;
         }
 
-        public List<SubgrupoModel> GetSubgrupoLista(int GrupoId)
+        public List<SubgrupoModel> GetSubgrupoLista(int IdGrupo)
         {
             Context db = new Context();
             List<SubgrupoModel> lista = (from subgrupo in db.subgrupo
-                                         where subgrupo.idgrupo == GrupoId
+                                         where subgrupo.idgrupo == IdGrupo
                                          orderby subgrupo.idsubgrupo
                                          select new SubgrupoModel
                                          {
@@ -87,21 +108,21 @@ namespace LaPizza.Controllers
             return lista;
         }
 
-        public int GetProximoId(int GrupoId)
+        public int GetProximoId(int IdGrupo)
         {
             Context db = new Context();
-                var subgrupo = db.subgrupo.Where(p => p.idgrupo == GrupoId).Max(p => p.idsubgrupo);
+            SubgrupoDto subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault();
 
-            if (subgrupo >= 0)
-                return subgrupo + 1;
-            else
+            if (subgrupo == null)
                 return 1;
+            else
+                return db.subgrupo.Where(p => p.idgrupo == IdGrupo).Max(p => p.idsubgrupo) + 1;
         }
-        public List<SubgrupoModel> GetSubgrupoPesquisaGrid(int GrupoId, string TextoPesquisa)
+        public List<SubgrupoModel> GetSubgrupoPesquisaGrid(int IdGrupo, string TextoPesquisa)
         {
             Context db = new Context();
             List<SubgrupoModel> lista = (from subgrupo in db.subgrupo
-                                         where subgrupo.idgrupo == GrupoId
+                                         where subgrupo.idgrupo == IdGrupo
                                          orderby subgrupo.idsubgrupo
                                          select new SubgrupoModel
                                          {

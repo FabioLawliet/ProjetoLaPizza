@@ -164,7 +164,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(484, 188);
             this.Name = "FormEstGrupo";
-            this.ShowIcon = false;
             this.Text = "FormEstGrupo";
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();

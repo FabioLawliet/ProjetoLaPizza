@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace LaPizza.Views.Pesquisas
 {
-    public partial class FormEstMovimentacaoSimplificada : LaPizza.Views.FormBasePesquisa
+    public partial class FormEstMovimentacaoSimplificadaPesquisa : LaPizza.Views.FormBasePesquisa
     {
         public MovimentoEstoqueModel PMovimentacaoSimplificada;
-        public FormEstMovimentacaoSimplificada()
+        public FormEstMovimentacaoSimplificadaPesquisa()
         {
             InitializeComponent();
             CarregarListaGrid();

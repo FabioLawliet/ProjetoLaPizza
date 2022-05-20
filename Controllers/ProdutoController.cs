@@ -12,30 +12,50 @@ namespace LaPizza.Controllers
         public void Adicionar(ProdutoDto Produto)
         {
             Context db = new Context();
-            db.produto.Add(Produto);
-            db.SaveChanges();
+            try
+            {
+                db.produto.Add(Produto);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Houve um problema ao adicionar o produto, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void Editar(ProdutoDto Produto)
         {
             Context db = new Context();
             ProdutoDto produto = db.produto.FirstOrDefault(p => p.id == Produto.id);
-            produto.id = Produto.id;
-            produto.descricao = Produto.descricao;
-            produto.datacadastro = Produto.datacadastro.ToString();
-            produto.ativo = Produto.ativo;
-            produto.idgrupo = Produto.idgrupo;
-            produto.idsubgrupo = Produto.idsubgrupo;
-            produto.idmarca = Produto.idmarca;
-            produto.codigofabricante = Produto.codigofabricante;
-            produto.infadicionais = Produto.infadicionais;
-            produto.saldoestoque = Produto.saldoestoque;
-            produto.qtdeestideal = Produto.qtdeestideal;
-            produto.qtdeestmin = Produto.qtdeestmin;
-            produto.qtdeestmax = Produto.qtdeestmax;
-            produto.precoanterior = Produto.precoanterior;
-            produto.precoatual = Produto.precoatual;
-            db.SaveChanges();
+
+            if (produto != null)
+            {
+                try
+                {
+                    produto.id = Produto.id;
+                    produto.descricao = Produto.descricao;
+                    produto.datacadastro = Produto.datacadastro.ToString();
+                    produto.ativo = Produto.ativo;
+                    produto.idgrupo = Produto.idgrupo;
+                    produto.idsubgrupo = Produto.idsubgrupo;
+                    produto.idmarca = Produto.idmarca;
+                    produto.codigofabricante = Produto.codigofabricante;
+                    produto.infadicionais = Produto.infadicionais;
+                    produto.saldoestoque = Produto.saldoestoque;
+                    produto.qtdeestideal = Produto.qtdeestideal;
+                    produto.qtdeestmin = Produto.qtdeestmin;
+                    produto.qtdeestmax = Produto.qtdeestmax;
+                    produto.precoanterior = Produto.precoanterior;
+                    produto.precoatual = Produto.precoatual;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Houve um problema ao editar o produto, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         public void Excluir(int Id)
@@ -45,8 +65,16 @@ namespace LaPizza.Controllers
 
             if (produto != null)
             {
-                db.produto.Remove(produto);
-                db.SaveChanges();
+                try
+                {
+                    db.produto.Remove(produto);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível excluir o produto, provavelmente existem movimentações no banco de dados para este produto e ele não poderá ser excluído! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

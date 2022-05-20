@@ -24,53 +24,52 @@ namespace LaPizza.Views.Pesquisas
 
         public void CarregarListaGrid()
         {
-            Context db = new Context();
             ProdutoController Pcontrole = new ProdutoController();
-            List<ProdutoModel> ListProduto = Pcontrole.GetProdutoLista();
+            List<ProdutoModel> Lista = Pcontrole.GetProdutoLista();
 
-            dbGridPesquisa.DataSource = ListProduto;
-
-            dbGridPesquisa.Columns[0].HeaderText = "Id";
-            dbGridPesquisa.Columns[0].Width = 50;
-
-            dbGridPesquisa.Columns[1].HeaderText = "Descrição";
-            dbGridPesquisa.Columns[1].Width = 250;
-
-            dbGridPesquisa.Columns[2].Visible = false;
-            dbGridPesquisa.Columns[3].Visible = false;
-            dbGridPesquisa.Columns[4].Visible = false;
-            dbGridPesquisa.Columns[5].Visible = false;
-            dbGridPesquisa.Columns[6].Visible = false;
-            dbGridPesquisa.Columns[7].Visible = false;
-            dbGridPesquisa.Columns[8].Visible = false;
-            dbGridPesquisa.Columns[9].Visible = false;
-            dbGridPesquisa.Columns[10].Visible = false;
-
-            dbGridPesquisa.Columns[11].HeaderText = "Saldo Estoque";
-            dbGridPesquisa.Columns[11].Width = 100;
-
-            dbGridPesquisa.Columns[12].Visible = false;
-            dbGridPesquisa.Columns[13].Visible = false;
-            dbGridPesquisa.Columns[14].Visible = false;
-            dbGridPesquisa.Columns[15].Visible = false;
-
-            dbGridPesquisa.Columns[16].HeaderText = "Preço";
-            dbGridPesquisa.Columns[16].Width = 100;
-
-            dbGridPesquisa.Columns[17].Visible = false;
-
-            this.Width = 555;
+            dbGridPesquisa.DataSource = Lista;
+            AjustaCampoGrid();
             dbGridPesquisa.Refresh();
+        }
+
+        private void AjustaCampoGrid()
+        {
+            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["id"].HeaderText = "Id";
+            dbGridPesquisa.Columns["id"].Width = 50;
+
+            dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
+            dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição Movimento";
+            dbGridPesquisa.Columns["descricao"].Width = 244;
+
+            dbGridPesquisa.Columns["saldoestoque"].DisplayIndex = 2;
+            dbGridPesquisa.Columns["saldoestoque"].HeaderText = "Saldo Estoque";
+            dbGridPesquisa.Columns["saldoestoque"].Width = 90;
+
+            dbGridPesquisa.Columns["precoatual"].DisplayIndex = 3;
+            dbGridPesquisa.Columns["precoatual"].HeaderText = "Preço Atual";
+            dbGridPesquisa.Columns["precoatual"].Width = 70;
+
+            dbGridPesquisa.Columns["datacadastro"].Visible = false;
+            dbGridPesquisa.Columns["idgrupo"].Visible = false;
+            dbGridPesquisa.Columns["idsubgrupo"].Visible = false;
+            dbGridPesquisa.Columns["idmarca"].Visible = false;
+            dbGridPesquisa.Columns["codigofabricante"].Visible = false;
+            dbGridPesquisa.Columns["infadicionais"].Visible = false;
+            dbGridPesquisa.Columns["unidademedida"].Visible = false;
+            dbGridPesquisa.Columns["qtdeestmin"].Visible = false;
+            dbGridPesquisa.Columns["qtdeestideal"].Visible = false;
+            dbGridPesquisa.Columns["qtdeestmax"].Visible = false;
+            dbGridPesquisa.Columns["precoanterior"].Visible = false;
+            dbGridPesquisa.Columns["ativo"].Visible = false;
         }
 
         private void btnConfirmar_Click(object sender, System.EventArgs e)
         {
-            Context db = new Context();
-            ProdutoController pControle = new ProdutoController();
-            ProdutoModel produto = new ProdutoModel();
+            ProdutoController controle = new ProdutoController();
 
             int id = (Int32)dbGridPesquisa.CurrentRow.Cells[0].Value;
-            PProduto = pControle.GetProduto(id);
+            PProduto = controle.GetProduto(id);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -81,40 +80,11 @@ namespace LaPizza.Views.Pesquisas
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             dbGridPesquisa.DataSource = null;
-            Context db = new Context();
-            ProdutoController pControle = new ProdutoController();
-            List<ProdutoModel> ListProduto = pControle.GetProdutoPesquisaGrid(txtPesquisa.Text);
-            dbGridPesquisa.DataSource = ListProduto;
-            dbGridPesquisa.Columns[0].HeaderText = "Id";
-            dbGridPesquisa.Columns[0].Width = 50;
+            ProdutoController controle = new ProdutoController();
+            List<ProdutoModel> Lista = controle.GetProdutoPesquisaGrid(txtPesquisa.Text);
 
-            dbGridPesquisa.Columns[1].HeaderText = "Descrição";
-            dbGridPesquisa.Columns[1].Width = 250;
-
-            dbGridPesquisa.Columns[2].Visible = false;
-            dbGridPesquisa.Columns[3].Visible = false;
-            dbGridPesquisa.Columns[4].Visible = false;
-            dbGridPesquisa.Columns[5].Visible = false;
-            dbGridPesquisa.Columns[6].Visible = false;
-            dbGridPesquisa.Columns[7].Visible = false;
-            dbGridPesquisa.Columns[8].Visible = false;
-            dbGridPesquisa.Columns[9].Visible = false;
-            dbGridPesquisa.Columns[10].Visible = false;
-
-            dbGridPesquisa.Columns[11].HeaderText = "Saldo Estoque";
-            dbGridPesquisa.Columns[11].Width = 100;
-
-            dbGridPesquisa.Columns[12].Visible = false;
-            dbGridPesquisa.Columns[13].Visible = false;
-            dbGridPesquisa.Columns[14].Visible = false;
-            dbGridPesquisa.Columns[15].Visible = false;
-
-            dbGridPesquisa.Columns[16].HeaderText = "Preço";
-            dbGridPesquisa.Columns[16].Width = 100;
-
-            dbGridPesquisa.Columns[17].Visible = false;
-
-            this.Width = 555;
+            dbGridPesquisa.DataSource = Lista;
+            AjustaCampoGrid();
             dbGridPesquisa.Refresh();
         }
     }
