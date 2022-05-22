@@ -86,6 +86,13 @@ tipomovimento varchar(1),
 qtdemovimento decimal(10,2),
 saldoestoquenovo decimal(10,2));
 
+create table usuario(
+Id SERIAL PRIMARY KEY NOT NULL,
+Nome VARCHAR(50),
+Usuario VARCHAR(30),
+Senha VARCHAR(30),
+Ativo bool	
+);
 
 -- Insert de registros genéricos
 
