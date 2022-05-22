@@ -128,6 +128,7 @@
     <Compile Include="Controllers\MovimentoEstoqueController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\SubgrupoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Dao\Context.cs" />
     <Compile Include="Models\GrupoDto.cs" />
     <Compile Include="Models\GrupoModel.cs" />
@@ -143,6 +144,8 @@
     <Compile Include="Models\SubgrupoDto.cs" />
     <Compile Include="Models\SubgrupoModel.cs" />
     <Compile Include="Models\TesteDto.cs" />
+    <Compile Include="Models\UsuarioDto.cs" />
+    <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Views\FormEstMovimentacaoSimplificada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +187,18 @@
     </Compile>
     <Compile Include="Views\FormEstSubGrupo.Designer.cs">
       <DependentUpon>FormEstSubGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormEstUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormEstUsuario.Designer.cs">
+      <DependentUpon>FormEstUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormEstUsuarioPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormEstUsuarioPesquisa.Designer.cs">
+      <DependentUpon>FormEstUsuarioPesquisa.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pesquisas\FormEstSubgrupoPesquisa.cs">
       <SubType>Form</SubType>
@@ -244,6 +259,9 @@
     <EmbeddedResource Include="Views\FormEstSubGrupo.resx">
       <DependentUpon>FormEstSubGrupo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormEstUsuario.resx">
+      <DependentUpon>FormEstUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormEstGrupoPesquisa.resx">
       <DependentUpon>FormEstGrupoPesquisa.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +283,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Pesquisas\FormEstMovimentacaoSimplificadaPesquisa.resx">
       <DependentUpon>FormEstMovimentacaoSimplificadaPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\FormEstUsuarioPesquisa.resx">
+      <DependentUpon>FormEstUsuarioPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormEstProdutoPesquisa.resx">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>

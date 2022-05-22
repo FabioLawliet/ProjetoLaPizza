@@ -189,5 +189,11 @@ namespace LaPizza
                 FSubgrupo.BringToFront();
             }
         }
+
+        private void btnUsuCadastro_Click(object sender, EventArgs e)
+        {
+            FrmEstUsuario frmEstUsuario = new FrmEstUsuario();
+            frmEstUsuario.ShowDialog();
+        }
     }
 }

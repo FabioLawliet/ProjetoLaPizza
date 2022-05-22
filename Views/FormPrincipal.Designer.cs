@@ -77,7 +77,7 @@
             this.pnlLateral.ForeColor = System.Drawing.Color.Transparent;
             this.pnlLateral.Location = new System.Drawing.Point(0, 0);
             this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(250, 773);
+            this.pnlLateral.Size = new System.Drawing.Size(250, 749);
             this.pnlLateral.TabIndex = 4;
             // 
             // pnlMenuLateral
@@ -99,7 +99,7 @@
             this.pnlMenuLateral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMenuLateral.Location = new System.Drawing.Point(0, 100);
             this.pnlMenuLateral.Name = "pnlMenuLateral";
-            this.pnlMenuLateral.Size = new System.Drawing.Size(250, 673);
+            this.pnlMenuLateral.Size = new System.Drawing.Size(250, 649);
             this.pnlMenuLateral.TabIndex = 5;
             // 
             // pnlSubMenuGeral
@@ -226,6 +226,7 @@
             this.btnUsuCadastro.Text = "Cadastro de Usuário";
             this.btnUsuCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsuCadastro.UseVisualStyleBackColor = false;
+            this.btnUsuCadastro.Click += new System.EventHandler(this.btnUsuCadastro_Click);
             // 
             // btnMenuUsuario
             // 
@@ -606,14 +607,14 @@
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(250, 0);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(1114, 773);
+            this.pnlPrincipal.Size = new System.Drawing.Size(1114, 749);
             this.pnlPrincipal.TabIndex = 0;
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 773);
+            this.ClientSize = new System.Drawing.Size(1364, 749);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlLateral);
             this.MaximizeBox = false;
