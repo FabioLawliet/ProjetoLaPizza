@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LaPizza.Controllers
 {
@@ -59,6 +60,20 @@ namespace LaPizza.Controllers
 
             return new List<UsuarioModel>(lista.Where(p => p.nome.ToUpper().Contains(TextoPesquisa.ToUpper())));
 
+        }
+        public bool UsuarioJaExiste(string Texto)
+        {
+            Context context = new Context();
+            UsuarioDto usuario = context.usuario.FirstOrDefault(x => x.usuario == Texto);
+            if (usuario != null)
+            {
+                MessageBox.Show("Usuário já existe!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public List<UsuarioModel> GetUsuarioLista()
         {

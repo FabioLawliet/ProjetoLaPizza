@@ -144,18 +144,35 @@ namespace LaPizza.Views
                     }
 
                     if (MenuStatus == MStatus.Adicionando)
-                        Controle.AdicionarUsuario(Usuario);
+                    {
+                        if (!Controle.UsuarioJaExiste(lpTextUsuario.Text))
+                        {
+                            Controle.AdicionarUsuario(Usuario);
+                            LimpaComponentes();
+                            HabilitarComponentesPnlPrincipal(false);
+                            HabilitarAcoesIniciais();
+                        }
+                        else
+                        {
+                            HabilitarComponentesPnlPrincipal(true);
+                            lpTextUsuario.Focus();
+                        }  
+                    } 
                     else if (MenuStatus == MStatus.Editando)
                     {
                         Usuario.id = IdAux;
                         Controle.EditarUsuario(Usuario);
+                        LimpaComponentes();
+                        HabilitarComponentesPnlPrincipal(false);
+                        HabilitarAcoesIniciais();
                     }
                     else if (MenuStatus == MStatus.Excluindo)
+                    {
                         Controle.Excluir(IdAux);
-
-                    LimpaComponentes();
-                    HabilitarComponentesPnlPrincipal(false);
-                    HabilitarAcoesIniciais();
+                        LimpaComponentes();
+                        HabilitarComponentesPnlPrincipal(false);
+                        HabilitarAcoesIniciais();
+                    }
                 }
                 else
                 {
