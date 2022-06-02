@@ -130,6 +130,7 @@
     <Compile Include="Controllers\SubgrupoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Dao\Context.cs" />
+    <Compile Include="Models\ClienteDto.cs" />
     <Compile Include="Models\GrupoDto.cs" />
     <Compile Include="Models\GrupoModel.cs" />
     <Compile Include="Models\MarcaModel.cs" />
