@@ -83,18 +83,18 @@
             this.pnlPrincipal.Controls.Add(this.BoxEstoque);
             this.pnlPrincipal.Controls.Add(this.BoxInformacoesGerais);
             this.pnlPrincipal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(5);
             this.pnlPrincipal.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pnlPrincipal.Size = new System.Drawing.Size(893, 265);
             // 
             // pnlNomeRotina
             // 
-            this.pnlNomeRotina.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlNomeRotina.Margin = new System.Windows.Forms.Padding(5);
             this.pnlNomeRotina.Size = new System.Drawing.Size(893, 49);
             // 
             // pnlAcoesMenu
             // 
-            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(5);
             this.pnlAcoesMenu.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.pnlAcoesMenu.Size = new System.Drawing.Size(893, 48);
             // 
@@ -104,7 +104,7 @@
             this.btnAcaoAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.Location = new System.Drawing.Point(651, 7);
-            this.btnAcaoAdicionar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAcaoAdicionar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAcaoAdicionar.MaximumSize = new System.Drawing.Size(71, 60);
             this.btnAcaoAdicionar.MinimumSize = new System.Drawing.Size(53, 46);
             this.btnAcaoAdicionar.Size = new System.Drawing.Size(53, 46);
@@ -116,7 +116,7 @@
             this.btnAcaoEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.Location = new System.Drawing.Point(711, 7);
-            this.btnAcaoEditar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAcaoEditar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAcaoEditar.MaximumSize = new System.Drawing.Size(71, 60);
             this.btnAcaoEditar.MinimumSize = new System.Drawing.Size(53, 46);
             this.btnAcaoEditar.Size = new System.Drawing.Size(53, 46);
@@ -128,7 +128,7 @@
             this.btnAcaoConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.Location = new System.Drawing.Point(771, 7);
-            this.btnAcaoConsultar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAcaoConsultar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAcaoConsultar.MaximumSize = new System.Drawing.Size(71, 60);
             this.btnAcaoConsultar.MinimumSize = new System.Drawing.Size(53, 46);
             this.btnAcaoConsultar.Size = new System.Drawing.Size(53, 46);
@@ -142,7 +142,7 @@
             // pnlAcoesRodape
             // 
             this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 362);
-            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(5);
             this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.pnlAcoesRodape.Size = new System.Drawing.Size(893, 49);
             // 
@@ -152,7 +152,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.Location = new System.Drawing.Point(691, 7);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancelar.Size = new System.Drawing.Size(93, 35);
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -162,7 +162,7 @@
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.btnSair.Location = new System.Drawing.Point(791, 7);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(5);
             this.btnSair.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.btnSair.Size = new System.Drawing.Size(93, 35);
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -173,7 +173,7 @@
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.Location = new System.Drawing.Point(831, 7);
-            this.btnAcaoExcluir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAcaoExcluir.Margin = new System.Windows.Forms.Padding(5);
             this.btnAcaoExcluir.MaximumSize = new System.Drawing.Size(71, 60);
             this.btnAcaoExcluir.MinimumSize = new System.Drawing.Size(53, 46);
             this.btnAcaoExcluir.Size = new System.Drawing.Size(53, 46);
@@ -185,14 +185,14 @@
             this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
             this.btnConfirmar.Location = new System.Drawing.Point(591, 7);
-            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(5);
             this.btnConfirmar.Size = new System.Drawing.Size(93, 35);
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // splitter3
             // 
             this.splitter3.Location = new System.Drawing.Point(704, 7);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.splitter3.Margin = new System.Windows.Forms.Padding(5);
             this.splitter3.Size = new System.Drawing.Size(7, 34);
             // 
             // txtProdutoId
@@ -204,7 +204,7 @@
             this.txtProdutoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtProdutoId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtProdutoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
-            this.txtProdutoId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProdutoId.Margin = new System.Windows.Forms.Padding(4);
             this.txtProdutoId.Name = "txtProdutoId";
             this.txtProdutoId.Size = new System.Drawing.Size(94, 23);
             this.txtProdutoId.TabIndex = 12;
@@ -237,9 +237,9 @@
             this.BoxInformacoesGerais.Dock = System.Windows.Forms.DockStyle.Top;
             this.BoxInformacoesGerais.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BoxInformacoesGerais.Location = new System.Drawing.Point(7, 6);
-            this.BoxInformacoesGerais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoxInformacoesGerais.Margin = new System.Windows.Forms.Padding(4);
             this.BoxInformacoesGerais.Name = "BoxInformacoesGerais";
-            this.BoxInformacoesGerais.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoxInformacoesGerais.Padding = new System.Windows.Forms.Padding(4);
             this.BoxInformacoesGerais.Size = new System.Drawing.Size(879, 170);
             this.BoxInformacoesGerais.TabIndex = 13;
             this.BoxInformacoesGerais.TabStop = false;
@@ -264,7 +264,7 @@
             this.txtInfAdicionais.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtInfAdicionais.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtInfAdicionais.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtInfAdicionais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInfAdicionais.Margin = new System.Windows.Forms.Padding(4);
             this.txtInfAdicionais.Name = "txtInfAdicionais";
             this.txtInfAdicionais.Size = new System.Drawing.Size(563, 23);
             this.txtInfAdicionais.TabIndex = 33;
@@ -288,7 +288,7 @@
             this.txtCodigoFabricante.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtCodigoFabricante.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtCodigoFabricante.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtCodigoFabricante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoFabricante.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoFabricante.Name = "txtCodigoFabricante";
             this.txtCodigoFabricante.Size = new System.Drawing.Size(286, 23);
             this.txtCodigoFabricante.TabIndex = 31;
@@ -323,7 +323,7 @@
             this.txtSubgrupoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtSubgrupoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtSubgrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtSubgrupoDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubgrupoDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubgrupoDescricao.Name = "txtSubgrupoDescricao";
             this.txtSubgrupoDescricao.Size = new System.Drawing.Size(191, 23);
             this.txtSubgrupoDescricao.TabIndex = 25;
@@ -338,7 +338,7 @@
             this.txtMarcaDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtMarcaDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtMarcaDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtMarcaDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMarcaDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtMarcaDescricao.Name = "txtMarcaDescricao";
             this.txtMarcaDescricao.Size = new System.Drawing.Size(202, 23);
             this.txtMarcaDescricao.TabIndex = 29;
@@ -373,7 +373,7 @@
             this.txtSubgrupoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtSubgrupoId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtSubgrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
-            this.txtSubgrupoId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubgrupoId.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubgrupoId.Name = "txtSubgrupoId";
             this.txtSubgrupoId.Size = new System.Drawing.Size(94, 23);
             this.txtSubgrupoId.TabIndex = 23;
@@ -389,7 +389,7 @@
             this.txtMarcaId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtMarcaId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
-            this.txtMarcaId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMarcaId.Margin = new System.Windows.Forms.Padding(4);
             this.txtMarcaId.Name = "txtMarcaId";
             this.txtMarcaId.Size = new System.Drawing.Size(73, 23);
             this.txtMarcaId.TabIndex = 27;
@@ -416,7 +416,7 @@
             this.txtGrupoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtGrupoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtGrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtGrupoDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGrupoDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrupoDescricao.Name = "txtGrupoDescricao";
             this.txtGrupoDescricao.Size = new System.Drawing.Size(213, 23);
             this.txtGrupoDescricao.TabIndex = 21;
@@ -441,7 +441,7 @@
             this.txtGrupoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtGrupoId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtGrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
-            this.txtGrupoId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGrupoId.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrupoId.Name = "txtGrupoId";
             this.txtGrupoId.Size = new System.Drawing.Size(73, 23);
             this.txtGrupoId.TabIndex = 19;
@@ -452,7 +452,7 @@
             // 
             this.cbAtivo.AutoSize = true;
             this.cbAtivo.Location = new System.Drawing.Point(801, 39);
-            this.cbAtivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAtivo.Margin = new System.Windows.Forms.Padding(4);
             this.cbAtivo.Name = "cbAtivo";
             this.cbAtivo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.cbAtivo.Size = new System.Drawing.Size(69, 23);
@@ -479,7 +479,7 @@
             this.txtDataCadastro.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtDataCadastro.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtDataCadastro.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Date;
-            this.txtDataCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDataCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.txtDataCadastro.Name = "txtDataCadastro";
             this.txtDataCadastro.Size = new System.Drawing.Size(123, 23);
             this.txtDataCadastro.TabIndex = 16;
@@ -504,7 +504,7 @@
             this.txtProdutoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtProdutoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtProdutoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtProdutoDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProdutoDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtProdutoDescricao.Name = "txtProdutoDescricao";
             this.txtProdutoDescricao.Size = new System.Drawing.Size(549, 23);
             this.txtProdutoDescricao.TabIndex = 14;
@@ -534,9 +534,9 @@
             this.BoxEstoque.Controls.Add(this.txtSaldoEstoque);
             this.BoxEstoque.Dock = System.Windows.Forms.DockStyle.Left;
             this.BoxEstoque.Location = new System.Drawing.Point(7, 176);
-            this.BoxEstoque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoxEstoque.Margin = new System.Windows.Forms.Padding(4);
             this.BoxEstoque.Name = "BoxEstoque";
-            this.BoxEstoque.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoxEstoque.Padding = new System.Windows.Forms.Padding(4);
             this.BoxEstoque.Size = new System.Drawing.Size(615, 83);
             this.BoxEstoque.TabIndex = 14;
             this.BoxEstoque.TabStop = false;
@@ -561,7 +561,7 @@
             this.txtQtdeEstMax.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtQtdeEstMax.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtQtdeEstMax.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtQtdeEstMax.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQtdeEstMax.Margin = new System.Windows.Forms.Padding(4);
             this.txtQtdeEstMax.Name = "txtQtdeEstMax";
             this.txtQtdeEstMax.Size = new System.Drawing.Size(113, 22);
             this.txtQtdeEstMax.TabIndex = 49;
@@ -586,7 +586,7 @@
             this.txtQtdeEstIdeal.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtQtdeEstIdeal.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtQtdeEstIdeal.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtQtdeEstIdeal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQtdeEstIdeal.Margin = new System.Windows.Forms.Padding(4);
             this.txtQtdeEstIdeal.Name = "txtQtdeEstIdeal";
             this.txtQtdeEstIdeal.Size = new System.Drawing.Size(113, 22);
             this.txtQtdeEstIdeal.TabIndex = 47;
@@ -611,7 +611,7 @@
             this.txtQtdeEstMin.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtQtdeEstMin.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtQtdeEstMin.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtQtdeEstMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQtdeEstMin.Margin = new System.Windows.Forms.Padding(4);
             this.txtQtdeEstMin.Name = "txtQtdeEstMin";
             this.txtQtdeEstMin.Size = new System.Drawing.Size(113, 22);
             this.txtQtdeEstMin.TabIndex = 45;
@@ -636,7 +636,7 @@
             this.txtUnidadeMedida.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtUnidadeMedida.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtUnidadeMedida.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtUnidadeMedida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUnidadeMedida.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnidadeMedida.Name = "txtUnidadeMedida";
             this.txtUnidadeMedida.Size = new System.Drawing.Size(113, 22);
             this.txtUnidadeMedida.TabIndex = 43;
@@ -661,7 +661,7 @@
             this.txtSaldoEstoque.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtSaldoEstoque.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtSaldoEstoque.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtSaldoEstoque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSaldoEstoque.Margin = new System.Windows.Forms.Padding(4);
             this.txtSaldoEstoque.Name = "txtSaldoEstoque";
             this.txtSaldoEstoque.Size = new System.Drawing.Size(113, 22);
             this.txtSaldoEstoque.TabIndex = 41;
@@ -675,9 +675,9 @@
             this.BoxPrecos.Controls.Add(this.txtPrecoAtual);
             this.BoxPrecos.Dock = System.Windows.Forms.DockStyle.Right;
             this.BoxPrecos.Location = new System.Drawing.Point(629, 176);
-            this.BoxPrecos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoxPrecos.Margin = new System.Windows.Forms.Padding(4);
             this.BoxPrecos.Name = "BoxPrecos";
-            this.BoxPrecos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoxPrecos.Padding = new System.Windows.Forms.Padding(4);
             this.BoxPrecos.Size = new System.Drawing.Size(257, 83);
             this.BoxPrecos.TabIndex = 15;
             this.BoxPrecos.TabStop = false;
@@ -713,7 +713,7 @@
             this.txtPrecoAnterior.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtPrecoAnterior.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtPrecoAnterior.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtPrecoAnterior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecoAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecoAnterior.Name = "txtPrecoAnterior";
             this.txtPrecoAnterior.Size = new System.Drawing.Size(115, 22);
             this.txtPrecoAnterior.TabIndex = 39;
@@ -728,7 +728,7 @@
             this.txtPrecoAtual.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtPrecoAtual.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtPrecoAtual.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtPrecoAtual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecoAtual.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecoAtual.Name = "txtPrecoAtual";
             this.txtPrecoAtual.Size = new System.Drawing.Size(115, 22);
             this.txtPrecoAtual.TabIndex = 37;
@@ -740,7 +740,7 @@
             this.ClientSize = new System.Drawing.Size(893, 411);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormEstProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlPrincipal.ResumeLayout(false);

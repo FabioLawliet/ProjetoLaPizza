@@ -195,5 +195,11 @@ namespace LaPizza
             FrmEstUsuario frmEstUsuario = new FrmEstUsuario();
             frmEstUsuario.ShowDialog();
         }
+
+        private void btnCliCadastro_Click(object sender, EventArgs e)
+        {
+            FormRecCliente frmRecCliente = new FormRecCliente();
+            frmRecCliente.Show();
+        }
     }
 }
