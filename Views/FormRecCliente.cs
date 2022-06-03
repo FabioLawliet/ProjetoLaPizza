@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LaPizza.Controllers;
+using LaPizza.Models;
+using LaPizza.Views.Pesquisas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +16,7 @@ namespace LaPizza.Views
         public FormRecCliente()
         {
             InitializeComponent();
+            
         }
     }
 }

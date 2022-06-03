@@ -235,7 +235,7 @@
             // 
             this.cbAtivo.AutoSize = true;
             this.cbAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.cbAtivo.Location = new System.Drawing.Point(391, 164);
+            this.cbAtivo.Location = new System.Drawing.Point(391, 167);
             this.cbAtivo.Name = "cbAtivo";
             this.cbAtivo.Size = new System.Drawing.Size(69, 21);
             this.cbAtivo.TabIndex = 23;
@@ -356,7 +356,7 @@
             // 
             this.CidadeCliente.AutoSize = true;
             this.CidadeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.CidadeCliente.Location = new System.Drawing.Point(7, 144);
+            this.CidadeCliente.Location = new System.Drawing.Point(7, 147);
             this.CidadeCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CidadeCliente.Name = "CidadeCliente";
             this.CidadeCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -366,7 +366,7 @@
             // 
             // txtClienteCidade
             // 
-            this.txtClienteCidade.Location = new System.Drawing.Point(13, 164);
+            this.txtClienteCidade.Location = new System.Drawing.Point(13, 167);
             this.txtClienteCidade.Name = "txtClienteCidade";
             this.txtClienteCidade.Size = new System.Drawing.Size(272, 22);
             this.txtClienteCidade.TabIndex = 36;
@@ -375,7 +375,7 @@
             // 
             this.EstadoCliente.AutoSize = true;
             this.EstadoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.EstadoCliente.Location = new System.Drawing.Point(287, 144);
+            this.EstadoCliente.Location = new System.Drawing.Point(287, 147);
             this.EstadoCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EstadoCliente.Name = "EstadoCliente";
             this.EstadoCliente.Size = new System.Drawing.Size(52, 17);
@@ -384,7 +384,7 @@
             // 
             // txtClienteEstado
             // 
-            this.txtClienteEstado.Location = new System.Drawing.Point(289, 163);
+            this.txtClienteEstado.Location = new System.Drawing.Point(289, 166);
             this.txtClienteEstado.Name = "txtClienteEstado";
             this.txtClienteEstado.Size = new System.Drawing.Size(96, 22);
             this.txtClienteEstado.TabIndex = 38;
@@ -393,6 +393,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(647, 376);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormRecCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
