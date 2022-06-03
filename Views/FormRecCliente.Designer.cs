@@ -48,7 +48,7 @@
             this.NumeroCliente = new System.Windows.Forms.Label();
             this.txtClienteNumero = new System.Windows.Forms.TextBox();
             this.BairroCliente = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtClienteBairro = new System.Windows.Forms.TextBox();
             this.CidadeCliente = new System.Windows.Forms.Label();
             this.txtClienteCidade = new System.Windows.Forms.TextBox();
             this.EstadoCliente = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.pnlPrincipal.Controls.Add(this.CidadeCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteCidade);
             this.pnlPrincipal.Controls.Add(this.BairroCliente);
-            this.pnlPrincipal.Controls.Add(this.textBox1);
+            this.pnlPrincipal.Controls.Add(this.txtClienteBairro);
             this.pnlPrincipal.Controls.Add(this.NumeroCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteNumero);
             this.pnlPrincipal.Controls.Add(this.EnderecoCliente);
@@ -102,6 +102,7 @@
             this.btnAcaoAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.Location = new System.Drawing.Point(459, 6);
+            this.btnAcaoAdicionar.Click += new System.EventHandler(this.btnAcaoAdicionar_Click);
             // 
             // btnAcaoEditar
             // 
@@ -345,12 +346,12 @@
             this.BairroCliente.TabIndex = 35;
             this.BairroCliente.Text = "Bairro";
             // 
-            // textBox1
+            // txtClienteBairro
             // 
-            this.textBox1.Location = new System.Drawing.Point(485, 119);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 22);
-            this.textBox1.TabIndex = 34;
+            this.txtClienteBairro.Location = new System.Drawing.Point(485, 119);
+            this.txtClienteBairro.Name = "txtClienteBairro";
+            this.txtClienteBairro.Size = new System.Drawing.Size(150, 22);
+            this.txtClienteBairro.TabIndex = 34;
             // 
             // CidadeCliente
             // 
@@ -426,7 +427,7 @@
         private System.Windows.Forms.Label TelefoneCliente;
         private System.Windows.Forms.TextBox txtClienteTelefone;
         private System.Windows.Forms.Label BairroCliente;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtClienteBairro;
         private System.Windows.Forms.Label NumeroCliente;
         private System.Windows.Forms.TextBox txtClienteNumero;
         private System.Windows.Forms.Label EnderecoCliente;
