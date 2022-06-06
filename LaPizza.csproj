@@ -119,6 +119,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\InteracaoMenu.cs" />
     <Compile Include="Controllers\LpText.cs">

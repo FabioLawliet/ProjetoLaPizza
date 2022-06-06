@@ -76,7 +76,7 @@
             this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLateral.ForeColor = System.Drawing.Color.Transparent;
             this.pnlLateral.Location = new System.Drawing.Point(0, 0);
-            this.pnlLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLateral.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLateral.Name = "pnlLateral";
             this.pnlLateral.Size = new System.Drawing.Size(333, 922);
             this.pnlLateral.TabIndex = 4;
@@ -99,7 +99,7 @@
             this.pnlMenuLateral.Controls.Add(this.btnMenuCliente);
             this.pnlMenuLateral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMenuLateral.Location = new System.Drawing.Point(0, 123);
-            this.pnlMenuLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMenuLateral.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMenuLateral.Name = "pnlMenuLateral";
             this.pnlMenuLateral.Size = new System.Drawing.Size(333, 799);
             this.pnlMenuLateral.TabIndex = 5;
@@ -110,7 +110,7 @@
             this.pnlSubMenuGeral.Controls.Add(this.button3);
             this.pnlSubMenuGeral.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 661);
-            this.pnlSubMenuGeral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubMenuGeral.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSubMenuGeral.Name = "pnlSubMenuGeral";
             this.pnlSubMenuGeral.Size = new System.Drawing.Size(333, 31);
             this.pnlSubMenuGeral.TabIndex = 11;
@@ -127,7 +127,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.button3.Size = new System.Drawing.Size(333, 31);
@@ -148,7 +148,7 @@
             this.btnMenuGeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuGeral.ForeColor = System.Drawing.Color.White;
             this.btnMenuGeral.Location = new System.Drawing.Point(0, 618);
-            this.btnMenuGeral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuGeral.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuGeral.Name = "btnMenuGeral";
             this.btnMenuGeral.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuGeral.Size = new System.Drawing.Size(333, 43);
@@ -167,7 +167,7 @@
             this.pnlSubMenuUsuario.Controls.Add(this.btnUsuCadastro);
             this.pnlSubMenuUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 525);
-            this.pnlSubMenuUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubMenuUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSubMenuUsuario.Name = "pnlSubMenuUsuario";
             this.pnlSubMenuUsuario.Size = new System.Drawing.Size(333, 93);
             this.pnlSubMenuUsuario.TabIndex = 9;
@@ -184,7 +184,7 @@
             this.btnUsuControleAutonomia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuControleAutonomia.ForeColor = System.Drawing.Color.White;
             this.btnUsuControleAutonomia.Location = new System.Drawing.Point(0, 62);
-            this.btnUsuControleAutonomia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUsuControleAutonomia.Margin = new System.Windows.Forms.Padding(4);
             this.btnUsuControleAutonomia.Name = "btnUsuControleAutonomia";
             this.btnUsuControleAutonomia.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnUsuControleAutonomia.Size = new System.Drawing.Size(333, 31);
@@ -205,7 +205,7 @@
             this.btnUsuControleAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuControleAcesso.ForeColor = System.Drawing.Color.White;
             this.btnUsuControleAcesso.Location = new System.Drawing.Point(0, 31);
-            this.btnUsuControleAcesso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUsuControleAcesso.Margin = new System.Windows.Forms.Padding(4);
             this.btnUsuControleAcesso.Name = "btnUsuControleAcesso";
             this.btnUsuControleAcesso.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnUsuControleAcesso.Size = new System.Drawing.Size(333, 31);
@@ -226,7 +226,7 @@
             this.btnUsuCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuCadastro.ForeColor = System.Drawing.Color.White;
             this.btnUsuCadastro.Location = new System.Drawing.Point(0, 0);
-            this.btnUsuCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUsuCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.btnUsuCadastro.Name = "btnUsuCadastro";
             this.btnUsuCadastro.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnUsuCadastro.Size = new System.Drawing.Size(333, 31);
@@ -248,7 +248,7 @@
             this.btnMenuUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuUsuario.ForeColor = System.Drawing.Color.White;
             this.btnMenuUsuario.Location = new System.Drawing.Point(0, 482);
-            this.btnMenuUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuUsuario.Name = "btnMenuUsuario";
             this.btnMenuUsuario.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuUsuario.Size = new System.Drawing.Size(333, 43);
@@ -265,7 +265,7 @@
             this.pnlSubMenuFornecedor.Controls.Add(this.button6);
             this.pnlSubMenuFornecedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 451);
-            this.pnlSubMenuFornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubMenuFornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSubMenuFornecedor.Name = "pnlSubMenuFornecedor";
             this.pnlSubMenuFornecedor.Size = new System.Drawing.Size(333, 31);
             this.pnlSubMenuFornecedor.TabIndex = 7;
@@ -282,7 +282,7 @@
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.button6.Size = new System.Drawing.Size(333, 31);
@@ -303,7 +303,7 @@
             this.btnMenuFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuFornecedor.ForeColor = System.Drawing.Color.White;
             this.btnMenuFornecedor.Location = new System.Drawing.Point(0, 408);
-            this.btnMenuFornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuFornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuFornecedor.Name = "btnMenuFornecedor";
             this.btnMenuFornecedor.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuFornecedor.Size = new System.Drawing.Size(333, 43);
@@ -325,7 +325,7 @@
             this.pnlSubMenuEstoque.Controls.Add(this.btnEstProduto);
             this.pnlSubMenuEstoque.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuEstoque.Location = new System.Drawing.Point(0, 222);
-            this.pnlSubMenuEstoque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubMenuEstoque.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSubMenuEstoque.Name = "pnlSubMenuEstoque";
             this.pnlSubMenuEstoque.Size = new System.Drawing.Size(333, 186);
             this.pnlSubMenuEstoque.TabIndex = 5;
@@ -342,7 +342,7 @@
             this.btnEstMovimentacaoSimplificada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstMovimentacaoSimplificada.ForeColor = System.Drawing.Color.White;
             this.btnEstMovimentacaoSimplificada.Location = new System.Drawing.Point(0, 155);
-            this.btnEstMovimentacaoSimplificada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEstMovimentacaoSimplificada.Margin = new System.Windows.Forms.Padding(4);
             this.btnEstMovimentacaoSimplificada.Name = "btnEstMovimentacaoSimplificada";
             this.btnEstMovimentacaoSimplificada.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnEstMovimentacaoSimplificada.Size = new System.Drawing.Size(333, 31);
@@ -364,7 +364,7 @@
             this.btnEstEntradaMerc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstEntradaMerc.ForeColor = System.Drawing.Color.White;
             this.btnEstEntradaMerc.Location = new System.Drawing.Point(0, 124);
-            this.btnEstEntradaMerc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEstEntradaMerc.Margin = new System.Windows.Forms.Padding(4);
             this.btnEstEntradaMerc.Name = "btnEstEntradaMerc";
             this.btnEstEntradaMerc.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnEstEntradaMerc.Size = new System.Drawing.Size(333, 31);
@@ -385,7 +385,7 @@
             this.btnEstSubGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstSubGrupo.ForeColor = System.Drawing.Color.White;
             this.btnEstSubGrupo.Location = new System.Drawing.Point(0, 93);
-            this.btnEstSubGrupo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEstSubGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.btnEstSubGrupo.Name = "btnEstSubGrupo";
             this.btnEstSubGrupo.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnEstSubGrupo.Size = new System.Drawing.Size(333, 31);
@@ -407,7 +407,7 @@
             this.btnEstGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstGrupo.ForeColor = System.Drawing.Color.White;
             this.btnEstGrupo.Location = new System.Drawing.Point(0, 62);
-            this.btnEstGrupo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEstGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.btnEstGrupo.Name = "btnEstGrupo";
             this.btnEstGrupo.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnEstGrupo.Size = new System.Drawing.Size(333, 31);
@@ -429,7 +429,7 @@
             this.btnEstMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstMarca.ForeColor = System.Drawing.Color.White;
             this.btnEstMarca.Location = new System.Drawing.Point(0, 31);
-            this.btnEstMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEstMarca.Margin = new System.Windows.Forms.Padding(4);
             this.btnEstMarca.Name = "btnEstMarca";
             this.btnEstMarca.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnEstMarca.Size = new System.Drawing.Size(333, 31);
@@ -451,7 +451,7 @@
             this.btnEstProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstProduto.ForeColor = System.Drawing.Color.White;
             this.btnEstProduto.Location = new System.Drawing.Point(0, 0);
-            this.btnEstProduto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEstProduto.Margin = new System.Windows.Forms.Padding(4);
             this.btnEstProduto.Name = "btnEstProduto";
             this.btnEstProduto.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnEstProduto.Size = new System.Drawing.Size(333, 31);
@@ -473,7 +473,7 @@
             this.btnMenuEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuEstoque.ForeColor = System.Drawing.Color.White;
             this.btnMenuEstoque.Location = new System.Drawing.Point(0, 179);
-            this.btnMenuEstoque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuEstoque.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuEstoque.Name = "btnMenuEstoque";
             this.btnMenuEstoque.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuEstoque.Size = new System.Drawing.Size(333, 43);
@@ -491,7 +491,7 @@
             this.pnlSubMenuVenda.Controls.Add(this.btnVenPedido);
             this.pnlSubMenuVenda.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuVenda.Location = new System.Drawing.Point(0, 117);
-            this.pnlSubMenuVenda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubMenuVenda.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSubMenuVenda.Name = "pnlSubMenuVenda";
             this.pnlSubMenuVenda.Size = new System.Drawing.Size(333, 62);
             this.pnlSubMenuVenda.TabIndex = 3;
@@ -508,7 +508,7 @@
             this.btnVenRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenRegistrar.ForeColor = System.Drawing.Color.White;
             this.btnVenRegistrar.Location = new System.Drawing.Point(0, 31);
-            this.btnVenRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVenRegistrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVenRegistrar.Name = "btnVenRegistrar";
             this.btnVenRegistrar.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnVenRegistrar.Size = new System.Drawing.Size(333, 31);
@@ -529,7 +529,7 @@
             this.btnVenPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenPedido.ForeColor = System.Drawing.Color.White;
             this.btnVenPedido.Location = new System.Drawing.Point(0, 0);
-            this.btnVenPedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVenPedido.Margin = new System.Windows.Forms.Padding(4);
             this.btnVenPedido.Name = "btnVenPedido";
             this.btnVenPedido.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnVenPedido.Size = new System.Drawing.Size(333, 31);
@@ -550,7 +550,7 @@
             this.btnMenuVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuVenda.ForeColor = System.Drawing.Color.White;
             this.btnMenuVenda.Location = new System.Drawing.Point(0, 74);
-            this.btnMenuVenda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuVenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuVenda.Name = "btnMenuVenda";
             this.btnMenuVenda.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuVenda.Size = new System.Drawing.Size(333, 43);
@@ -567,7 +567,7 @@
             this.pnlSubMenuCliente.Controls.Add(this.btnCliCadastro);
             this.pnlSubMenuCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuCliente.Location = new System.Drawing.Point(0, 43);
-            this.pnlSubMenuCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubMenuCliente.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSubMenuCliente.Name = "pnlSubMenuCliente";
             this.pnlSubMenuCliente.Size = new System.Drawing.Size(333, 31);
             this.pnlSubMenuCliente.TabIndex = 0;
@@ -584,7 +584,7 @@
             this.btnCliCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliCadastro.ForeColor = System.Drawing.Color.White;
             this.btnCliCadastro.Location = new System.Drawing.Point(0, 0);
-            this.btnCliCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCliCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.btnCliCadastro.Name = "btnCliCadastro";
             this.btnCliCadastro.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
             this.btnCliCadastro.Size = new System.Drawing.Size(333, 31);
@@ -606,7 +606,7 @@
             this.btnMenuCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuCliente.ForeColor = System.Drawing.Color.White;
             this.btnMenuCliente.Location = new System.Drawing.Point(0, 0);
-            this.btnMenuCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuCliente.Name = "btnMenuCliente";
             this.btnMenuCliente.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuCliente.Size = new System.Drawing.Size(333, 43);
@@ -624,7 +624,7 @@
             this.pnlLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLogo.Name = "pnlLogo";
             this.pnlLogo.Size = new System.Drawing.Size(333, 123);
             this.pnlLogo.TabIndex = 4;
@@ -636,7 +636,7 @@
             this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(333, 0);
-            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(1486, 922);
             this.pnlPrincipal.TabIndex = 0;
@@ -648,7 +648,7 @@
             this.ClientSize = new System.Drawing.Size(1819, 922);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlLateral);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormPrincipal";
             this.ShowIcon = false;

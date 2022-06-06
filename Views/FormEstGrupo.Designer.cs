@@ -46,6 +46,7 @@
             this.pnlPrincipal.Controls.Add(this.txtGrupoId);
             this.pnlPrincipal.Controls.Add(this.lbGrupoDescricao);
             this.pnlPrincipal.Controls.Add(this.lbGrupoId);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlPrincipal.Size = new System.Drawing.Size(484, 69);
             // 
             // btnAcaoAdicionar
@@ -72,12 +73,17 @@
             // pnlAcoesRodape
             // 
             this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 148);
+            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCancelar.Location = new System.Drawing.Point(332, 6);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Size = new System.Drawing.Size(70, 28);
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
@@ -85,6 +91,10 @@
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btnSair.Location = new System.Drawing.Point(407, 6);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSair.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSair.Size = new System.Drawing.Size(70, 28);
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAcaoExcluir
@@ -99,6 +109,9 @@
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
+            this.btnConfirmar.Location = new System.Drawing.Point(257, 6);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConfirmar.Size = new System.Drawing.Size(70, 28);
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // cbAtivo
@@ -163,6 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(484, 188);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormEstGrupo";
             this.Text = "FormEstGrupo";
             this.pnlPrincipal.ResumeLayout(false);
