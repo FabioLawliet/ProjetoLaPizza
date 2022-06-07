@@ -25,7 +25,7 @@ namespace LaPizza.Views
         {
             if (Ativa)
             {
-                txtClienteId.Enabled = true;
+                txtClienteId.Enabled = false;
                 txtClienteNome.Enabled = true;
                 txtClienteSobrenome.Enabled = true;
                 txtClienteCpf.Enabled = true;
@@ -88,29 +88,29 @@ namespace LaPizza.Views
             bool todosPreenchidos = true;
             int idCliente = 0;
             string auxMessage = string.Empty;
-            string cpfCliente = txtClienteCpf.Text;
+
 
             ClienteController clienteControle = new ClienteController();
 
-            if(txtClienteId.Text != string.Empty)
+            if (txtClienteId.Text != string.Empty)
                 idCliente = Convert.ToInt32(txtClienteId.Text);
 
-            if(txtClienteNome.Text == string.Empty)
+            if (txtClienteNome.Text == string.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage += "O Campo Nome não foi preenchido corretamente! \n";
             }
 
-            if(txtClienteSobrenome.Text == string.Empty)
+            if (txtClienteSobrenome.Text == string.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage = "O campo Sobrenome não foi preenchido corretamente! \n";
             }
 
-            if (!clienteControle.ExisteClienteCpf(cpfCliente))
+            if (clienteControle.ExisteClienteCpf(txtClienteCpf.Text))
             {
                 todosPreenchidos = false;
-                auxMessage += "* O Campo CPF não foi preenchido corretamente! \n";
+                auxMessage += "* O Campo CPF já existe! \n";
             }
 
             if (auxMessage != string.Empty)
@@ -121,6 +121,7 @@ namespace LaPizza.Views
 
         private void btnAcaoAdicionar_Click(object sender, EventArgs e)
         {
+            HabilitaAcao(TipoAcao.Confirmar, true);
             HabilitarComponentesPnlCliente(true);
 
             ClienteController CliControle = new ClienteController();
@@ -142,21 +143,60 @@ namespace LaPizza.Views
         {
             if (TodosOsCamposPreenchidos())
             {
-                ProdutoController Ccontrole = new ProdutoController();
+                ClienteController Ccontrole = new ClienteController();
                 ClienteDto Cliente = new ClienteDto();
 
                 Cliente.id = Int32.Parse(txtClienteId.Text);
                 Cliente.nome = txtClienteNome.Text;
                 Cliente.sobrenome = txtClienteSobrenome.Text;
                 Cliente.cpf = txtClienteCpf.Text;
+                Cliente.rg = txtClienteRg.Text;
+                Cliente.email = txtClienteEmail.Text;
+                Cliente.telefone = txtClienteTelefone.Text;
+                Cliente.endereco = txtClienteEndereco.Text;
+                Cliente.numero = txtClienteNumero.Text;
+                Cliente.cidade = txtClienteCidade.Text;
+                Cliente.bairro = txtClienteBairro.Text;
+                Cliente.estado = txtClienteEstado.Text;
+                Cliente.ativo = cbAtivo.Checked;
 
-
+                if (MenuStatus == MStatus.Adicionando)
+                    Ccontrole.Adicionar(Cliente);
+                else if (MenuStatus == MStatus.Editando)
+                    Ccontrole.Editar(Cliente);
+                else if (MenuStatus == MStatus.Excluindo)
+                    Ccontrole.Excluir(Cliente.id);
 
                 LimpaComponentes();
                 HabilitarComponentesPnlCliente(false);
                 HabilitarAcoesIniciais();
             }
+        }
 
+        private void btnAcaoEditar_Click(object sender, EventArgs e)
+        {
+            FormRecClientePesquisa Pesquisa = new FormRecClientePesquisa();
+            var Result = Pesquisa.ShowDialog();
+
+            /* if (Result == DialogResult.OK)
+            {
+                HabilitarComponentesPnlCliente(true);
+
+                txtMarcaId.Text = Pesquisa.PesqMarca.id.ToString();
+                txtMarcaDescricao.Text = Pesquisa.PesqMarca.descricao;
+                cbAtiva.Checked = Pesquisa.PesqMarca.ativa;
+            }
+            else
+            {
+                CancelaOperacao();
+                return;
+            }
+
+            if (txtMarcaDescricao.CanFocus)
+            {
+                txtMarcaDescricao.Focus();
+                txtMarcaDescricao.Select(0, txtMarcaDescricao.Text.Length);
+            }*/
         }
     }
 }

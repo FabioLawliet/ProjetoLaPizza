@@ -122,6 +122,7 @@
             this.btnAcaoEditar.MaximumSize = new System.Drawing.Size(40, 39);
             this.btnAcaoEditar.MinimumSize = new System.Drawing.Size(29, 30);
             this.btnAcaoEditar.Size = new System.Drawing.Size(40, 38);
+            this.btnAcaoEditar.Click += new System.EventHandler(this.btnAcaoEditar_Click);
             // 
             // btnAcaoConsultar
             // 

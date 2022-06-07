@@ -247,6 +247,12 @@
     <Compile Include="Views\Pesquisas\FormEstProdutoPesquisa.Designer.cs">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\FormRecClientePesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormRecClientePesquisa.Designer.cs">
+      <DependentUpon>FormRecClientePesquisa.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FormEstMovimentacaoSimplificada.resx">
       <DependentUpon>FormEstMovimentacaoSimplificada.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormEstSubgrupoPesquisa.resx">
       <DependentUpon>FormEstSubgrupoPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\FormRecClientePesquisa.resx">
+      <DependentUpon>FormRecClientePesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
