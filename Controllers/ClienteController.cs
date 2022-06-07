@@ -37,7 +37,7 @@ namespace LaPizza.Controllers
                 return db.cliente.Max(p => p.id) + 1;
         }
 
-        /*public bool ExisteClienteCpf(string Cpf)
+        public bool ExisteClienteCpf(string Cpf)
         {
             Context db = new Context();
             ClienteDto cliente = db.cliente.Where(p => p.cpf == Cpf).FirstOrDefault();
@@ -46,7 +46,7 @@ namespace LaPizza.Controllers
                 return true;
             else
                 return false;
-        }*/
+        }
 
         public void Editar(ClienteDto Cliente)
         {

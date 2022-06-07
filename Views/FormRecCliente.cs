@@ -209,6 +209,14 @@ namespace LaPizza.Views
                 else if (MenuStatus == MStatus.Excluindo)
                     Ccontrole.Excluir(Cliente.id);
 
+
+
+                string auxMessage = string.Empty;
+                if (Ccontrole.ExisteClienteCpf(txtClienteCpf.Text))
+                {
+                    auxMessage += "* O Campo CPF já existe! \n";
+                }
+
                 LimpaComponentes();
                 HabilitarComponentesPnlCliente(false);
                 HabilitarAcoesIniciais();
