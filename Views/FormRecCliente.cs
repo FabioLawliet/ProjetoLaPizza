@@ -107,6 +107,12 @@ namespace LaPizza.Views
                 auxMessage = "O campo Sobrenome não foi preenchido corretamente! \n";
             }
 
+            if(txtClienteCpf.Text == String.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O campo CPF não foi preenchido corretamente! \n";
+            }
+
             /*if (clienteControle.ExisteClienteCpf(txtClienteCpf.Text))
             {
                 todosPreenchidos = false;
