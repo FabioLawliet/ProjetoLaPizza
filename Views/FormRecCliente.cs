@@ -107,11 +107,11 @@ namespace LaPizza.Views
                 auxMessage = "O campo Sobrenome não foi preenchido corretamente! \n";
             }
 
-            if (clienteControle.ExisteClienteCpf(txtClienteCpf.Text))
+            /*if (clienteControle.ExisteClienteCpf(txtClienteCpf.Text))
             {
                 todosPreenchidos = false;
                 auxMessage += "* O Campo CPF já existe! \n";
-            }
+            }*/
 
             if(txtClienteRg.Text == string.Empty)
             {
@@ -222,6 +222,7 @@ namespace LaPizza.Views
                 txtClienteNome.Text = Pesquisa.PesqCliente.nome;
                 txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
                 txtClienteCpf.Text = Pesquisa.PesqCliente.cpf;
+                txtClienteCpf.Enabled = false;
                 txtClienteRg.Text = Pesquisa.PesqCliente.rg;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
@@ -290,6 +291,16 @@ namespace LaPizza.Views
 
                 txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
                 txtClienteNome.Text = Pesquisa.PesqCliente.nome;
+                txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
+                txtClienteCpf.Text = Pesquisa.PesqCliente.cpf;
+                txtClienteRg.Text = Pesquisa.PesqCliente.rg;
+                txtClienteEmail.Text = Pesquisa.PesqCliente.email;
+                txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
+                txtClienteEndereco.Text = Pesquisa.PesqCliente.endereco;
+                txtClienteNumero.Text = Pesquisa.PesqCliente.numero;
+                txtClienteBairro.Text = Pesquisa.PesqCliente.bairro;
+                txtClienteCidade.Text = Pesquisa.PesqCliente.cidade;
+                txtClienteEstado.Text = Pesquisa.PesqCliente.estado;
                 cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
 
                 HabilitaAcao(TipoAcao.Confirmar, true);

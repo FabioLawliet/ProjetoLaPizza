@@ -46,7 +46,7 @@
             this.pnlPrincipal.Controls.Add(this.txtMarcaId);
             this.pnlPrincipal.Controls.Add(this.lbDescricao);
             this.pnlPrincipal.Controls.Add(this.lbId);
-            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(5);
             this.pnlPrincipal.Size = new System.Drawing.Size(645, 85);
             // 
             // btnAcaoAdicionar
@@ -73,7 +73,7 @@
             // pnlAcoesRodape
             // 
             this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 182);
-            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(5);
             this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
             // 
             // btnCancelar
@@ -139,7 +139,7 @@
             this.txtMarcaId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtMarcaId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
-            this.txtMarcaId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMarcaId.Margin = new System.Windows.Forms.Padding(4);
             this.txtMarcaId.Name = "txtMarcaId";
             this.txtMarcaId.Size = new System.Drawing.Size(82, 22);
             this.txtMarcaId.TabIndex = 4;
@@ -153,7 +153,7 @@
             this.txtMarcaDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtMarcaDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtMarcaDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtMarcaDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMarcaDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtMarcaDescricao.Name = "txtMarcaDescricao";
             this.txtMarcaDescricao.Size = new System.Drawing.Size(447, 22);
             this.txtMarcaDescricao.TabIndex = 6;
@@ -163,7 +163,7 @@
             // 
             this.cbAtiva.AutoSize = true;
             this.cbAtiva.Location = new System.Drawing.Point(564, 38);
-            this.cbAtiva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAtiva.Margin = new System.Windows.Forms.Padding(4);
             this.cbAtiva.Name = "cbAtiva";
             this.cbAtiva.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.cbAtiva.Size = new System.Drawing.Size(66, 22);
@@ -176,7 +176,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(645, 231);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormEstMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Marca";
