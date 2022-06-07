@@ -113,6 +113,43 @@ namespace LaPizza.Views
                 auxMessage += "* O Campo CPF já existe! \n";
             }
 
+            if(txtClienteRg.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo RG não foi preenchido corretamente! \n";
+            }
+            
+            if(txtClienteEmail.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo E-mail não foi preenchido corretamente! \n";
+            }
+
+            if(txtClienteNumero.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo Número não foi preenchido corretamente! \n";
+            }
+
+            if(txtClienteBairro.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo Bairro não foi preenchido corretamente! \n";
+            }
+
+            if(txtClienteCidade.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo Cidade não foi preenchido corretamente! \n";
+            }
+
+            if(txtClienteEstado.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo Estado não foi preenchido corretamente! \n";
+            }
+
+
             if (auxMessage != string.Empty)
                 MessageBox.Show(auxMessage, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -121,11 +158,10 @@ namespace LaPizza.Views
 
         private void btnAcaoAdicionar_Click(object sender, EventArgs e)
         {
-            HabilitaAcao(TipoAcao.Confirmar, true);
-            HabilitarComponentesPnlCliente(true);
-
             ClienteController CliControle = new ClienteController();
             txtClienteId.Text = CliControle.GetProximoId().ToString();
+
+            HabilitarComponentesPnlCliente(true);
 
             if (txtClienteNome.CanFocus)
             {
@@ -266,6 +302,14 @@ namespace LaPizza.Views
 
             if (btnConfirmar.CanFocus)
                 btnConfirmar.Focus();
+        }
+
+        private void txtClienteNome_TextChanged(object sender, EventArgs e)
+        {
+            if (txtClienteNome.Text != String.Empty && txtClienteNome.Enabled)
+                HabilitaAcao(TipoAcao.Confirmar, true);
+            else
+                HabilitaAcao(TipoAcao.Confirmar, false);
         }
     }
 }

@@ -239,6 +239,7 @@
             this.txtClienteNome.Name = "txtClienteNome";
             this.txtClienteNome.Size = new System.Drawing.Size(191, 22);
             this.txtClienteNome.TabIndex = 1;
+            this.txtClienteNome.TextChanged += new System.EventHandler(this.txtClienteNome_TextChanged);
             // 
             // NomeCliente
             // 
