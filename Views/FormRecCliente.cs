@@ -178,25 +178,75 @@ namespace LaPizza.Views
             FormRecClientePesquisa Pesquisa = new FormRecClientePesquisa();
             var Result = Pesquisa.ShowDialog();
 
-            /* if (Result == DialogResult.OK)
+            if (Result == DialogResult.OK)
             {
                 HabilitarComponentesPnlCliente(true);
 
-                txtMarcaId.Text = Pesquisa.PesqMarca.id.ToString();
-                txtMarcaDescricao.Text = Pesquisa.PesqMarca.descricao;
-                cbAtiva.Checked = Pesquisa.PesqMarca.ativa;
+                txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
+                txtClienteNome.Text = Pesquisa.PesqCliente.nome;
+                cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
             }
             else
             {
-                CancelaOperacao();
+                cancelaOperacao();
                 return;
             }
 
-            if (txtMarcaDescricao.CanFocus)
+            if (txtClienteNome.CanFocus)
             {
-                txtMarcaDescricao.Focus();
-                txtMarcaDescricao.Select(0, txtMarcaDescricao.Text.Length);
-            }*/
+                txtClienteNome.Focus();
+                txtClienteNome.Select(0, txtClienteNome.Text.Length);
+            }
+        }
+
+        private void btnAcaoConsultar_Click(object sender, EventArgs e)
+        {
+            FormRecClientePesquisa Pesquisa = new FormRecClientePesquisa();
+            var Result = Pesquisa.ShowDialog();
+
+            if (Result == DialogResult.OK)
+            {
+                HabilitarComponentesPnlCliente(false);
+
+                txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
+                txtClienteNome.Text = Pesquisa.PesqCliente.nome;
+                cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
+
+                HabilitaAcao(TipoAcao.Confirmar, true);
+            }
+            else
+            {
+                cancelaOperacao();
+                return;
+            }
+
+            if (btnConfirmar.CanFocus)
+                btnConfirmar.Focus();
+        }
+
+        private void btnAcaoExcluir_Click(object sender, EventArgs e)
+        {
+            FormRecClientePesquisa Pesquisa = new FormRecClientePesquisa();
+            var Result = Pesquisa.ShowDialog();
+
+            if (Result == DialogResult.OK)
+            {
+                HabilitarComponentesPnlCliente(false);
+
+                txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
+                txtClienteNome.Text = Pesquisa.PesqCliente.nome;
+                cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
+
+                HabilitaAcao(TipoAcao.Confirmar, true);
+            }
+            else
+            {
+                cancelaOperacao();
+                return;
+            }
+
+            if (btnConfirmar.CanFocus)
+                btnConfirmar.Focus();
         }
     }
 }

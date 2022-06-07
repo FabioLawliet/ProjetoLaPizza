@@ -134,6 +134,7 @@
             this.btnAcaoConsultar.MaximumSize = new System.Drawing.Size(40, 39);
             this.btnAcaoConsultar.MinimumSize = new System.Drawing.Size(29, 30);
             this.btnAcaoConsultar.Size = new System.Drawing.Size(40, 38);
+            this.btnAcaoConsultar.Click += new System.EventHandler(this.btnAcaoConsultar_Click);
             // 
             // lbNomeRotina
             // 
@@ -180,6 +181,7 @@
             this.btnAcaoExcluir.MaximumSize = new System.Drawing.Size(40, 39);
             this.btnAcaoExcluir.MinimumSize = new System.Drawing.Size(29, 30);
             this.btnAcaoExcluir.Size = new System.Drawing.Size(40, 38);
+            this.btnAcaoExcluir.Click += new System.EventHandler(this.btnAcaoExcluir_Click);
             // 
             // btnConfirmar
             // 
