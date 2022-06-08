@@ -298,9 +298,9 @@
             this.CpfCliente.Location = new System.Drawing.Point(480, 5);
             this.CpfCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CpfCliente.Name = "CpfCliente";
-            this.CpfCliente.Size = new System.Drawing.Size(34, 17);
+            this.CpfCliente.Size = new System.Drawing.Size(73, 17);
             this.CpfCliente.TabIndex = 22;
-            this.CpfCliente.Text = "CPF";
+            this.CpfCliente.Text = "CPF/CNPJ";
             // 
             // cbAtivo
             // 
