@@ -46,6 +46,10 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged_1);
+            // 
             // FormRecClientePesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

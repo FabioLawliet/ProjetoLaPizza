@@ -83,5 +83,17 @@ namespace LaPizza.Views.Pesquisas
             AjustaCamposGrid();
             dbGridPesquisa.Refresh();
         }
+
+        private void txtPesquisa_TextChanged_1(object sender, EventArgs e)
+        {          
+             dbGridPesquisa.DataSource = null;
+
+             ClienteController controle = new ClienteController();
+             List<ClienteModel> lista = controle.GetClientePesquisaGrid(txtPesquisa.Text);
+
+             dbGridPesquisa.DataSource = lista;
+             AjustaCamposGrid();
+             dbGridPesquisa.Refresh();
+        }
     }
 }
