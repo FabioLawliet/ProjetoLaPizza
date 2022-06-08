@@ -62,7 +62,7 @@
             this.pnlAcoesRodape.Controls.Add(this.btnSair);
             this.pnlAcoesRodape.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 272);
-            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAcoesRodape.Name = "pnlAcoesRodape";
             this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pnlAcoesRodape.Size = new System.Drawing.Size(645, 49);
@@ -79,7 +79,7 @@
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
             this.btnConfirmar.Location = new System.Drawing.Point(345, 6);
-            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(93, 37);
             this.btnConfirmar.TabIndex = 0;
@@ -92,7 +92,7 @@
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter2.Enabled = false;
             this.splitter2.Location = new System.Drawing.Point(438, 6);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(4);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(7, 37);
             this.splitter2.TabIndex = 3;
@@ -109,7 +109,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Transparent;
             this.btnCancelar.Location = new System.Drawing.Point(445, 6);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 37);
             this.btnCancelar.TabIndex = 1;
@@ -122,7 +122,7 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter1.Enabled = false;
             this.splitter1.Location = new System.Drawing.Point(538, 6);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(7, 37);
             this.splitter1.TabIndex = 2;
@@ -139,7 +139,7 @@
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.Transparent;
             this.btnSair.Location = new System.Drawing.Point(545, 6);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(4);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnSair.Size = new System.Drawing.Size(93, 37);
@@ -153,7 +153,7 @@
             this.pnlPrincipal.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 97);
-            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(645, 175);
             this.pnlPrincipal.TabIndex = 1;
@@ -164,7 +164,7 @@
             this.pnlNomeRotina.Controls.Add(this.lbNomeRotina);
             this.pnlNomeRotina.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNomeRotina.Location = new System.Drawing.Point(0, 0);
-            this.pnlNomeRotina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNomeRotina.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNomeRotina.Name = "pnlNomeRotina";
             this.pnlNomeRotina.Size = new System.Drawing.Size(645, 49);
             this.pnlNomeRotina.TabIndex = 2;
@@ -196,7 +196,7 @@
             this.pnlAcoesMenu.Controls.Add(this.btnAcaoExcluir);
             this.pnlAcoesMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAcoesMenu.Location = new System.Drawing.Point(0, 49);
-            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAcoesMenu.Name = "pnlAcoesMenu";
             this.pnlAcoesMenu.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pnlAcoesMenu.Size = new System.Drawing.Size(645, 48);
@@ -214,7 +214,7 @@
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcaoAdicionar.Location = new System.Drawing.Point(457, 6);
-            this.btnAcaoAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAcaoAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAcaoAdicionar.MaximumSize = new System.Drawing.Size(53, 49);
             this.btnAcaoAdicionar.MinimumSize = new System.Drawing.Size(40, 37);
             this.btnAcaoAdicionar.Name = "btnAcaoAdicionar";
@@ -231,7 +231,7 @@
             this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter3.Enabled = false;
             this.splitter3.Location = new System.Drawing.Point(497, 6);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter3.Margin = new System.Windows.Forms.Padding(4);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(7, 36);
             this.splitter3.TabIndex = 9;
@@ -249,7 +249,7 @@
             this.btnAcaoEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcaoEditar.Location = new System.Drawing.Point(504, 6);
-            this.btnAcaoEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAcaoEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAcaoEditar.MaximumSize = new System.Drawing.Size(53, 49);
             this.btnAcaoEditar.MinimumSize = new System.Drawing.Size(40, 37);
             this.btnAcaoEditar.Name = "btnAcaoEditar";
@@ -266,7 +266,7 @@
             this.splitter5.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter5.Enabled = false;
             this.splitter5.Location = new System.Drawing.Point(544, 6);
-            this.splitter5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter5.Margin = new System.Windows.Forms.Padding(4);
             this.splitter5.Name = "splitter5";
             this.splitter5.Size = new System.Drawing.Size(7, 36);
             this.splitter5.TabIndex = 11;
@@ -284,7 +284,7 @@
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcaoConsultar.Location = new System.Drawing.Point(551, 6);
-            this.btnAcaoConsultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAcaoConsultar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAcaoConsultar.MaximumSize = new System.Drawing.Size(53, 49);
             this.btnAcaoConsultar.MinimumSize = new System.Drawing.Size(40, 37);
             this.btnAcaoConsultar.Name = "btnAcaoConsultar";
@@ -301,7 +301,7 @@
             this.splitter4.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter4.Enabled = false;
             this.splitter4.Location = new System.Drawing.Point(591, 6);
-            this.splitter4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter4.Margin = new System.Windows.Forms.Padding(4);
             this.splitter4.Name = "splitter4";
             this.splitter4.Size = new System.Drawing.Size(7, 36);
             this.splitter4.TabIndex = 10;
@@ -319,7 +319,7 @@
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcaoExcluir.Location = new System.Drawing.Point(598, 6);
-            this.btnAcaoExcluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAcaoExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnAcaoExcluir.MaximumSize = new System.Drawing.Size(53, 49);
             this.btnAcaoExcluir.MinimumSize = new System.Drawing.Size(40, 37);
             this.btnAcaoExcluir.Name = "btnAcaoExcluir";
@@ -346,7 +346,7 @@
             this.Controls.Add(this.pnlAcoesMenu);
             this.Controls.Add(this.pnlNomeRotina);
             this.Controls.Add(this.pnlAcoesRodape);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormBaseCadastros";
             this.ShowIcon = false;
             this.Text = "Form1";

@@ -94,6 +94,24 @@ Senha VARCHAR(30),
 Ativo bool	
 );
 
+CREATE TABLE IF NOT EXISTS public.cliente
+(
+    id integer NOT NULL DEFAULT nextval('produto_id_seq'::regclass),
+    nome character varying(50) COLLATE pg_catalog."default",
+    sobrenome character varying(50) COLLATE pg_catalog."default",
+    rg character varying(8) COLLATE pg_catalog."default",
+    cpf character varying(11) COLLATE pg_catalog."default",
+    endereco character varying(200) COLLATE pg_catalog."default",
+    bairro character varying(50) COLLATE pg_catalog."default",
+    cidade character varying(50) COLLATE pg_catalog."default",
+    estado character varying(2) COLLATE pg_catalog."default",
+    telefone character varying(13) COLLATE pg_catalog."default",
+    email character varying(50) COLLATE pg_catalog."default",
+    ativo boolean,
+    numero character varying(5) COLLATE pg_catalog."default",
+    CONSTRAINT cliente_pkey PRIMARY KEY (id)
+);
+
 -- Insert de registros genéricos
 
 insert into marca values
