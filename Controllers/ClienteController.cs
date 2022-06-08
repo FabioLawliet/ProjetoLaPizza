@@ -37,12 +37,12 @@ namespace LaPizza.Controllers
                 return db.cliente.Max(p => p.id) + 1;
         }
 
-        public bool ExisteClienteCpf(string Cpf)
+        public bool ExisteClienteCpf(string Cpfcnpj)
         {
             Context db = new Context();
-            ClienteDto cliente = db.cliente.Where(p => p.cpf == Cpf).FirstOrDefault();
+            ClienteDto cliente = db.cliente.Where(p => p.cpfcnpj == Cpfcnpj).FirstOrDefault();
 
-            if (cliente != null && cliente.cpf == Cpf)
+            if (cliente != null && cliente.cpfcnpj == Cpfcnpj)
                 return true;
             else
                 return false;
@@ -60,7 +60,7 @@ namespace LaPizza.Controllers
                     cliente.id = Cliente.id;
                     cliente.nome = Cliente.nome;
                     cliente.sobrenome = Cliente.sobrenome;
-                    cliente.cpf = Cliente.cpf;
+                    cliente.cpfcnpj = Cliente.cpfcnpj;
                     cliente.rg = Cliente.rg;
                     cliente.email = Cliente.email;
                     cliente.telefone = Cliente.telefone;
@@ -122,7 +122,7 @@ namespace LaPizza.Controllers
                 clienteModel.id = cliente.id;
                 clienteModel.nome = cliente.nome;
                 clienteModel.sobrenome = cliente.sobrenome;
-                clienteModel.cpf = cliente.cpf;
+                clienteModel.cpfcnpj = cliente.cpfcnpj;
                 clienteModel.rg = cliente.rg;
                 clienteModel.email = cliente.email;
                 clienteModel.telefone = cliente.telefone;
@@ -149,7 +149,7 @@ namespace LaPizza.Controllers
                                             id = cliente.id,
                                             nome = cliente.nome,
                                             sobrenome = cliente.sobrenome,
-                                            cpf = cliente.cpf,
+                                            cpfcnpj = cliente.cpfcnpj,
                                             rg = cliente.rg,
                                             email = cliente.email,
                                             telefone = cliente.telefone,
@@ -173,7 +173,7 @@ namespace LaPizza.Controllers
                                             id = cliente.id,
                                             nome = cliente.nome,
                                             sobrenome = cliente.sobrenome,
-                                            cpf = cliente.cpf,
+                                            cpfcnpj = cliente.cpfcnpj,
                                             rg = cliente.rg,
                                             email = cliente.email,
                                             telefone = cliente.telefone,

@@ -46,9 +46,9 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.Columns["sobrenome"].HeaderText = "Sobrenome";
             dbGridPesquisa.Columns["sobrenome"].Width = 100;
 
-            dbGridPesquisa.Columns["cpf"].DisplayIndex = 3;
-            dbGridPesquisa.Columns["cpf"].HeaderText = "CPF/CNPJ";
-            dbGridPesquisa.Columns["cpf"].Width = 100;
+            dbGridPesquisa.Columns["cpfcnpj"].DisplayIndex = 3;
+            dbGridPesquisa.Columns["cpfcnpj"].HeaderText = "CPF/CNPJ";
+            dbGridPesquisa.Columns["cpfcnpj"].Width = 100;
 
             dbGridPesquisa.Columns["telefone"].DisplayIndex = 4;
             dbGridPesquisa.Columns["telefone"].HeaderText = "Telefone";

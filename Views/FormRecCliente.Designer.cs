@@ -34,7 +34,7 @@
             this.NomeCliente = new System.Windows.Forms.Label();
             this.txtClienteSobrenome = new LaPizza.Controllers.LpText();
             this.SobrenomeCliente = new System.Windows.Forms.Label();
-            this.txtClienteCpf = new LaPizza.Controllers.LpText();
+            this.txtClienteCpfCnpj = new LaPizza.Controllers.LpText();
             this.CpfCliente = new System.Windows.Forms.Label();
             this.cbAtivo = new System.Windows.Forms.CheckBox();
             this.txtClienteEmail = new LaPizza.Controllers.LpText();
@@ -79,7 +79,7 @@
             this.pnlPrincipal.Controls.Add(this.txtClienteEmail);
             this.pnlPrincipal.Controls.Add(this.cbAtivo);
             this.pnlPrincipal.Controls.Add(this.CpfCliente);
-            this.pnlPrincipal.Controls.Add(this.txtClienteCpf);
+            this.pnlPrincipal.Controls.Add(this.txtClienteCpfCnpj);
             this.pnlPrincipal.Controls.Add(this.SobrenomeCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteSobrenome);
             this.pnlPrincipal.Controls.Add(this.NomeCliente);
@@ -277,19 +277,19 @@
             this.SobrenomeCliente.TabIndex = 20;
             this.SobrenomeCliente.Text = "Sobrenome";
             // 
-            // txtClienteCpf
+            // txtClienteCpfCnpj
             // 
-            this.txtClienteCpf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClienteCpf.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClienteCpf.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteCpf.Location = new System.Drawing.Point(485, 25);
-            this.txtClienteCpf.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtClienteCpf.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtClienteCpf.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtClienteCpf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtClienteCpf.Name = "txtClienteCpf";
-            this.txtClienteCpf.Size = new System.Drawing.Size(151, 22);
-            this.txtClienteCpf.TabIndex = 3;
+            this.txtClienteCpfCnpj.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClienteCpfCnpj.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClienteCpfCnpj.ForeColor = System.Drawing.Color.Black;
+            this.txtClienteCpfCnpj.Location = new System.Drawing.Point(485, 25);
+            this.txtClienteCpfCnpj.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtClienteCpfCnpj.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtClienteCpfCnpj.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteCpfCnpj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClienteCpfCnpj.Name = "txtClienteCpfCnpj";
+            this.txtClienteCpfCnpj.Size = new System.Drawing.Size(151, 22);
+            this.txtClienteCpfCnpj.TabIndex = 3;
             // 
             // CpfCliente
             // 
@@ -545,7 +545,7 @@
         private Controllers.LpText txtClienteSobrenome;
         private System.Windows.Forms.Label NomeCliente;
         private System.Windows.Forms.Label CpfCliente;
-        private Controllers.LpText txtClienteCpf;
+        private Controllers.LpText txtClienteCpfCnpj;
         private System.Windows.Forms.CheckBox cbAtivo;
         private System.Windows.Forms.Label EmailCliente;
         private Controllers.LpText txtClienteEmail;

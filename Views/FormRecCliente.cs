@@ -28,7 +28,7 @@ namespace LaPizza.Views
                 txtClienteId.Enabled = false;
                 txtClienteNome.Enabled = true;
                 txtClienteSobrenome.Enabled = true;
-                txtClienteCpf.Enabled = true;
+                txtClienteCpfCnpj.Enabled = true;
                 txtClienteRg.Enabled = true;
                 txtClienteEmail.Enabled = true;
                 txtClienteTelefone.Enabled = true;
@@ -45,7 +45,7 @@ namespace LaPizza.Views
                 txtClienteId.Enabled = false;
                 txtClienteNome.Enabled = false;
                 txtClienteSobrenome.Enabled = false;
-                txtClienteCpf.Enabled = false;
+                txtClienteCpfCnpj.Enabled = false;
                 txtClienteRg.Enabled = false;
                 txtClienteEmail.Enabled = false;
                 txtClienteTelefone.Enabled = false;
@@ -64,7 +64,7 @@ namespace LaPizza.Views
             txtClienteId.Text = string.Empty;
             txtClienteNome.Text = string.Empty;
             txtClienteSobrenome.Text = string.Empty;
-            txtClienteCpf.Text = string.Empty;
+            txtClienteCpfCnpj.Text = string.Empty;
             txtClienteRg.Text = string.Empty;
             txtClienteEmail.Text = string.Empty;
             txtClienteTelefone.Text = string.Empty;
@@ -107,7 +107,7 @@ namespace LaPizza.Views
                 auxMessage = "O campo Sobrenome não foi preenchido corretamente! \n";
             }
 
-            if(txtClienteCpf.Text == String.Empty)
+            if(txtClienteCpfCnpj.Text == String.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage = "* O campo CPF não foi preenchido corretamente! \n";
@@ -191,7 +191,7 @@ namespace LaPizza.Views
                 Cliente.id = Int32.Parse(txtClienteId.Text);
                 Cliente.nome = txtClienteNome.Text;
                 Cliente.sobrenome = txtClienteSobrenome.Text;
-                Cliente.cpf = txtClienteCpf.Text;
+                Cliente.cpfcnpj = txtClienteCpfCnpj.Text;
                 Cliente.rg = txtClienteRg.Text;
                 Cliente.email = txtClienteEmail.Text;
                 Cliente.telefone = txtClienteTelefone.Text;
@@ -212,7 +212,7 @@ namespace LaPizza.Views
 
 
                 string auxMessage = string.Empty;
-                if (Ccontrole.ExisteClienteCpf(txtClienteCpf.Text))
+                if (Ccontrole.ExisteClienteCpf(txtClienteCpfCnpj.Text))
                 {
                     auxMessage += "* O Campo CPF já existe! \n";
                 }
@@ -235,8 +235,8 @@ namespace LaPizza.Views
                 txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
                 txtClienteNome.Text = Pesquisa.PesqCliente.nome;
                 txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
-                txtClienteCpf.Text = Pesquisa.PesqCliente.cpf;
-                txtClienteCpf.Enabled = false;
+                txtClienteCpfCnpj.Text = Pesquisa.PesqCliente.cpfcnpj;
+                txtClienteCpfCnpj.Enabled = false;
                 txtClienteRg.Text = Pesquisa.PesqCliente.rg;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
@@ -272,7 +272,7 @@ namespace LaPizza.Views
                 txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
                 txtClienteNome.Text = Pesquisa.PesqCliente.nome;
                 txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
-                txtClienteCpf.Text = Pesquisa.PesqCliente.cpf;
+                txtClienteCpfCnpj.Text = Pesquisa.PesqCliente.cpfcnpj;
                 txtClienteRg.Text = Pesquisa.PesqCliente.rg;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
@@ -306,7 +306,7 @@ namespace LaPizza.Views
                 txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
                 txtClienteNome.Text = Pesquisa.PesqCliente.nome;
                 txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
-                txtClienteCpf.Text = Pesquisa.PesqCliente.cpf;
+                txtClienteCpfCnpj.Text = Pesquisa.PesqCliente.cpfcnpj;
                 txtClienteRg.Text = Pesquisa.PesqCliente.rg;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
