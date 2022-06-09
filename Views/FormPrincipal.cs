@@ -198,12 +198,12 @@ namespace LaPizza
             frmEstUsuario.ShowDialog();
         }
 
-        private void btnCliCadastro_Click(object sender, EventArgs e)
+        private void btnCliCadastro_Click_1(object sender, EventArgs e)
         {
             //FormRecCliente frmRecCliente = new FormRecCliente();
             //frmRecCliente.Show();
-            
-            if(FCliente == null || FCliente.IsDisposed)
+
+            if (FCliente == null || FCliente.IsDisposed)
             {
                 FCliente = new FormRecCliente();
                 FCliente.Text = btnCliCadastro.Text;
@@ -216,11 +216,11 @@ namespace LaPizza
                 FCliente.FormBorderStyle = FormBorderStyle.Sizable;
                 FCliente.Visible = true;
                 FCliente.BringToFront();
-            }else
+            }
+            else
             {
                 FCliente.BringToFront();
             }
-            
         }
     }
 }

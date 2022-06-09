@@ -228,7 +228,6 @@ namespace LaPizza.Views
                 txtClienteNome.Text = Pesquisa.PesqCliente.nome;
                 txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
                 txtClienteCpfCnpj.Text = Pesquisa.PesqCliente.cpfcnpj;
-                txtClienteCpfCnpj.Enabled = false;
                 txtClienteRg.Text = Pesquisa.PesqCliente.rg;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
