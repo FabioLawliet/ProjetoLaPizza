@@ -113,7 +113,7 @@ namespace LaPizza.Views
                 auxMessage = "* O campo CPF não foi preenchido corretamente! \n";
             }
 
-            /*if (clienteControle.ExisteClienteCpf(txtClienteCpf.Text))
+            /*if (clienteControle.ExisteClienteCpf(txtClienteCpfCnpj.Text))
             {
                 todosPreenchidos = false;
                 auxMessage += "* O Campo CPF já existe! \n";
@@ -208,14 +208,6 @@ namespace LaPizza.Views
                     Ccontrole.Editar(Cliente);
                 else if (MenuStatus == MStatus.Excluindo)
                     Ccontrole.Excluir(Cliente.id);
-
-
-
-                string auxMessage = string.Empty;
-                if (Ccontrole.ExisteClienteCpf(txtClienteCpfCnpj.Text))
-                {
-                    auxMessage += "* O Campo CPF já existe! \n";
-                }
 
                 LimpaComponentes();
                 HabilitarComponentesPnlCliente(false);
@@ -335,6 +327,20 @@ namespace LaPizza.Views
                 HabilitaAcao(TipoAcao.Confirmar, true);
             else
                 HabilitaAcao(TipoAcao.Confirmar, false);
+        }
+
+        private void txtClienteCpfCnpj_Leave(object sender, EventArgs e)
+        {
+            ClienteController clienteControle = new ClienteController();
+
+            if (clienteControle.ExisteClienteCpf(txtClienteCpfCnpj.Text))
+            {
+                MessageBox.Show("* Já existe um Cliente com o CPF/CNPJ informado!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtClienteCpfCnpj.CanFocus)
+                {
+                    txtClienteCpfCnpj.Focus();
+                }
+            }
         }
     }
 }

@@ -290,6 +290,7 @@
             this.txtClienteCpfCnpj.Name = "txtClienteCpfCnpj";
             this.txtClienteCpfCnpj.Size = new System.Drawing.Size(151, 22);
             this.txtClienteCpfCnpj.TabIndex = 3;
+            this.txtClienteCpfCnpj.Leave += new System.EventHandler(this.txtClienteCpfCnpj_Leave);
             // 
             // CpfCliente
             // 
