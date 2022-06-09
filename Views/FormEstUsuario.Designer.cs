@@ -58,30 +58,22 @@ namespace LaPizza.Views
             this.pnlPrincipal.Controls.Add(this.lpTextUsuario);
             this.pnlPrincipal.Controls.Add(this.label1);
             this.pnlPrincipal.Controls.Add(this.lpTextNomeComp);
-            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.pnlPrincipal.Size = new System.Drawing.Size(791, 309);
+            this.pnlPrincipal.Size = new System.Drawing.Size(593, 251);
             // 
             // pnlNomeRotina
             // 
-            this.pnlNomeRotina.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.pnlNomeRotina.Size = new System.Drawing.Size(791, 49);
+            this.pnlNomeRotina.Size = new System.Drawing.Size(593, 40);
             // 
             // pnlAcoesMenu
             // 
-            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.pnlAcoesMenu.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(791, 48);
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(593, 39);
             // 
             // btnAcaoAdicionar
             // 
             this.btnAcaoAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAcaoAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoAdicionar.Location = new System.Drawing.Point(549, 7);
-            this.btnAcaoAdicionar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnAcaoAdicionar.MaximumSize = new System.Drawing.Size(71, 60);
-            this.btnAcaoAdicionar.MinimumSize = new System.Drawing.Size(53, 46);
-            this.btnAcaoAdicionar.Size = new System.Drawing.Size(53, 46);
+            this.btnAcaoAdicionar.Location = new System.Drawing.Point(453, 5);
             this.btnAcaoAdicionar.Click += new System.EventHandler(this.btnAcaoAdicionar_Click);
             // 
             // btnAcaoEditar
@@ -89,11 +81,7 @@ namespace LaPizza.Views
             this.btnAcaoEditar.FlatAppearance.BorderSize = 0;
             this.btnAcaoEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoEditar.Location = new System.Drawing.Point(609, 7);
-            this.btnAcaoEditar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnAcaoEditar.MaximumSize = new System.Drawing.Size(71, 60);
-            this.btnAcaoEditar.MinimumSize = new System.Drawing.Size(53, 46);
-            this.btnAcaoEditar.Size = new System.Drawing.Size(53, 46);
+            this.btnAcaoEditar.Location = new System.Drawing.Point(488, 5);
             this.btnAcaoEditar.Click += new System.EventHandler(this.btnAcaoEditar_Click_1);
             // 
             // btnAcaoConsultar
@@ -101,34 +89,25 @@ namespace LaPizza.Views
             this.btnAcaoConsultar.FlatAppearance.BorderSize = 0;
             this.btnAcaoConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoConsultar.Location = new System.Drawing.Point(669, 7);
-            this.btnAcaoConsultar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnAcaoConsultar.MaximumSize = new System.Drawing.Size(71, 60);
-            this.btnAcaoConsultar.MinimumSize = new System.Drawing.Size(53, 46);
-            this.btnAcaoConsultar.Size = new System.Drawing.Size(53, 46);
+            this.btnAcaoConsultar.Location = new System.Drawing.Point(523, 5);
             this.btnAcaoConsultar.Click += new System.EventHandler(this.btnAcaoConsultar_Click_1);
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbNomeRotina.Size = new System.Drawing.Size(791, 49);
+            this.lbNomeRotina.Size = new System.Drawing.Size(593, 40);
             this.lbNomeRotina.Text = "Cadastro de Usuários";
             // 
             // pnlAcoesRodape
             // 
-            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 406);
-            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.pnlAcoesRodape.Size = new System.Drawing.Size(791, 49);
+            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 330);
+            this.pnlAcoesRodape.Size = new System.Drawing.Size(593, 40);
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnCancelar.Location = new System.Drawing.Point(589, 7);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnCancelar.Size = new System.Drawing.Size(93, 35);
+            this.btnCancelar.Location = new System.Drawing.Point(443, 5);
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // btnSair
@@ -136,21 +115,14 @@ namespace LaPizza.Views
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.btnSair.Location = new System.Drawing.Point(689, 7);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnSair.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.btnSair.Size = new System.Drawing.Size(93, 35);
+            this.btnSair.Location = new System.Drawing.Point(518, 5);
             // 
             // btnAcaoExcluir
             // 
             this.btnAcaoExcluir.FlatAppearance.BorderSize = 0;
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoExcluir.Location = new System.Drawing.Point(729, 7);
-            this.btnAcaoExcluir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnAcaoExcluir.MaximumSize = new System.Drawing.Size(71, 60);
-            this.btnAcaoExcluir.MinimumSize = new System.Drawing.Size(53, 46);
-            this.btnAcaoExcluir.Size = new System.Drawing.Size(53, 46);
+            this.btnAcaoExcluir.Location = new System.Drawing.Point(558, 5);
             this.btnAcaoExcluir.Click += new System.EventHandler(this.btnAcaoExcluir_Click_1);
             // 
             // btnConfirmar
@@ -158,26 +130,22 @@ namespace LaPizza.Views
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
-            this.btnConfirmar.Location = new System.Drawing.Point(489, 7);
-            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnConfirmar.Size = new System.Drawing.Size(93, 35);
+            this.btnConfirmar.Location = new System.Drawing.Point(368, 5);
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // splitter3
             // 
-            this.splitter3.Location = new System.Drawing.Point(602, 7);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.splitter3.Size = new System.Drawing.Size(7, 34);
+            this.splitter3.Location = new System.Drawing.Point(483, 5);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbInativo);
             this.groupBox1.Controls.Add(this.rbAtivo);
-            this.groupBox1.Location = new System.Drawing.Point(185, 225);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(139, 183);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(153, 41);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(115, 33);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             // 
@@ -185,10 +153,10 @@ namespace LaPizza.Views
             // 
             this.rbInativo.AutoCheck = false;
             this.rbInativo.AutoSize = true;
-            this.rbInativo.Location = new System.Drawing.Point(73, 15);
-            this.rbInativo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbInativo.Location = new System.Drawing.Point(55, 12);
+            this.rbInativo.Margin = new System.Windows.Forms.Padding(2);
             this.rbInativo.Name = "rbInativo";
-            this.rbInativo.Size = new System.Drawing.Size(67, 20);
+            this.rbInativo.Size = new System.Drawing.Size(57, 17);
             this.rbInativo.TabIndex = 1;
             this.rbInativo.TabStop = true;
             this.rbInativo.Text = "Inativo";
@@ -198,10 +166,10 @@ namespace LaPizza.Views
             // rbAtivo
             // 
             this.rbAtivo.AutoSize = true;
-            this.rbAtivo.Location = new System.Drawing.Point(5, 15);
-            this.rbAtivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbAtivo.Location = new System.Drawing.Point(4, 12);
+            this.rbAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.rbAtivo.Name = "rbAtivo";
-            this.rbAtivo.Size = new System.Drawing.Size(58, 20);
+            this.rbAtivo.Size = new System.Drawing.Size(49, 17);
             this.rbAtivo.TabIndex = 0;
             this.rbAtivo.TabStop = true;
             this.rbAtivo.Text = "Ativo";
@@ -211,10 +179,9 @@ namespace LaPizza.Views
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(183, 178);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(137, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 44;
             this.label4.Text = "Repetir Senha";
             // 
@@ -223,22 +190,21 @@ namespace LaPizza.Views
             this.lpTextRepSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lpTextRepSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lpTextRepSenha.ForeColor = System.Drawing.Color.Black;
-            this.lpTextRepSenha.Location = new System.Drawing.Point(185, 198);
+            this.lpTextRepSenha.Location = new System.Drawing.Point(139, 161);
             this.lpTextRepSenha.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.lpTextRepSenha.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.lpTextRepSenha.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpTextRepSenha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lpTextRepSenha.Margin = new System.Windows.Forms.Padding(2);
             this.lpTextRepSenha.Name = "lpTextRepSenha";
-            this.lpTextRepSenha.Size = new System.Drawing.Size(421, 22);
+            this.lpTextRepSenha.Size = new System.Drawing.Size(316, 20);
             this.lpTextRepSenha.TabIndex = 43;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(183, 134);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(137, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 16);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 42;
             this.label3.Text = "Senha";
             // 
@@ -247,22 +213,21 @@ namespace LaPizza.Views
             this.lpTextSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lpTextSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lpTextSenha.ForeColor = System.Drawing.Color.Black;
-            this.lpTextSenha.Location = new System.Drawing.Point(185, 154);
+            this.lpTextSenha.Location = new System.Drawing.Point(139, 125);
             this.lpTextSenha.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.lpTextSenha.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.lpTextSenha.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpTextSenha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lpTextSenha.Margin = new System.Windows.Forms.Padding(2);
             this.lpTextSenha.Name = "lpTextSenha";
-            this.lpTextSenha.Size = new System.Drawing.Size(421, 22);
+            this.lpTextSenha.Size = new System.Drawing.Size(316, 20);
             this.lpTextSenha.TabIndex = 41;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(183, 90);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(137, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 40;
             this.label2.Text = "Usuário";
             // 
@@ -271,22 +236,21 @@ namespace LaPizza.Views
             this.lpTextUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lpTextUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lpTextUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lpTextUsuario.Location = new System.Drawing.Point(185, 108);
+            this.lpTextUsuario.Location = new System.Drawing.Point(139, 88);
             this.lpTextUsuario.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.lpTextUsuario.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.lpTextUsuario.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpTextUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lpTextUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.lpTextUsuario.Name = "lpTextUsuario";
-            this.lpTextUsuario.Size = new System.Drawing.Size(421, 22);
+            this.lpTextUsuario.Size = new System.Drawing.Size(316, 20);
             this.lpTextUsuario.TabIndex = 39;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(183, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(137, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 16);
+            this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 38;
             this.label1.Text = "Nome Completo";
             // 
@@ -295,20 +259,19 @@ namespace LaPizza.Views
             this.lpTextNomeComp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lpTextNomeComp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lpTextNomeComp.ForeColor = System.Drawing.Color.Black;
-            this.lpTextNomeComp.Location = new System.Drawing.Point(185, 63);
+            this.lpTextNomeComp.Location = new System.Drawing.Point(139, 51);
             this.lpTextNomeComp.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.lpTextNomeComp.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.lpTextNomeComp.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpTextNomeComp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lpTextNomeComp.Margin = new System.Windows.Forms.Padding(2);
             this.lpTextNomeComp.Name = "lpTextNomeComp";
-            this.lpTextNomeComp.Size = new System.Drawing.Size(421, 22);
+            this.lpTextNomeComp.Size = new System.Drawing.Size(316, 20);
             this.lpTextNomeComp.TabIndex = 37;
             // 
             // FrmEstUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(791, 455);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(593, 370);
             this.Name = "FrmEstUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Usuários";
