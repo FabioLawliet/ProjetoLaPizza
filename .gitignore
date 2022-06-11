@@ -9,6 +9,7 @@ bin-release/
 
 # Visual Studio Folders Directorys
 .vs/
+*.suo
 
 # Executables
 *.swf
