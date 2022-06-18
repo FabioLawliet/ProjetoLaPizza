@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.GridProdutos = new System.Windows.Forms.DataGridView();
+            this.check = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbPesquisa = new System.Windows.Forms.Label();
             this.lpText1 = new LaPizza.Controllers.LpText();
@@ -46,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlTotal = new System.Windows.Forms.Panel();
-            this.check = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesMenu.SuspendLayout();
@@ -149,6 +149,13 @@
             this.GridProdutos.Size = new System.Drawing.Size(853, 254);
             this.GridProdutos.TabIndex = 8;
             this.GridProdutos.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProdutos_CellValidated);
+            // 
+            // check
+            // 
+            this.check.HeaderText = "";
+            this.check.Image = global::LaPizza.Properties.Resources.vazio;
+            this.check.Name = "check";
+            this.check.Width = 20;
             // 
             // panel1
             // 
@@ -355,13 +362,6 @@
             this.pnlTotal.Name = "pnlTotal";
             this.pnlTotal.Size = new System.Drawing.Size(853, 50);
             this.pnlTotal.TabIndex = 10;
-            // 
-            // check
-            // 
-            this.check.HeaderText = "";
-            this.check.Image = global::LaPizza.Properties.Resources.vazio;
-            this.check.Name = "check";
-            this.check.Width = 20;
             // 
             // FormVenPedidoVenda
             // 

@@ -121,17 +121,20 @@
   <data name="Logo5%" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\Logo5%.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AcaoEditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\AcaoEditar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AcaoExcluirHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoExcluirHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AcaoConsultar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\AcaoConsultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AcaoAdicionar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoAdicionar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AcaoExcluirClick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoExcluirClick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SenhaOculta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\SenhaOculta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AcaoEditarClick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoEditarClick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +151,14 @@
   <data name="AcaoEditarDisable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoEditarDisable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="olhoAberto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\olhoaberto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AcaoEditarHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoEditarHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckVenda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\CheckVenda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AcaoConsultarClick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoConsultarClick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,25 +175,22 @@
   <data name="AcaoConsultarHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoConsultarHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AcaoConsultar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\AcaoConsultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="olhoFechado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\olhofechado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AcaoAdicionarDisable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\AcaoAdicionarDisable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AcaoEditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\AcaoEditar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AcaoAdicionarHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\AcaoAdicionarHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vazio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\vazio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CheckVenda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Icons\CheckVenda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AcaoAdicionarHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\AcaoAdicionarHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="olhoAberto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\olhoaberto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="olhoFechado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\olhofechado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SenhaVisivel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Icons\SenhaVisivel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

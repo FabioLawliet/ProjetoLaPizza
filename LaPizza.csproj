@@ -157,6 +157,12 @@
     <Compile Include="Models\UnidadeMedidaDTO.cs" />
     <Compile Include="Models\UsuarioDto.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="Views\FormAcesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormAcesso.Designer.cs">
+      <DependentUpon>FormAcesso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormEstUnidadeMedida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     <Compile Include="Views\Pesquisas\FormRecClientePesquisa.Designer.cs">
       <DependentUpon>FormRecClientePesquisa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FormAcesso.resx">
+      <DependentUpon>FormAcesso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormEstMovimentacaoSimplificada.resx">
       <DependentUpon>FormEstMovimentacaoSimplificada.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +459,8 @@
   <ItemGroup>
     <Content Include="Icons\olhoAberto.png" />
     <Content Include="Icons\olhoFechado.png" />
+    <None Include="Icons\SenhaVisivel.png" />
+    <None Include="Icons\SenhaOculta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

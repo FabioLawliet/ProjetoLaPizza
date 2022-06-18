@@ -17,7 +17,10 @@ namespace LaPizza
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+
+            FormAcesso Acesso = new FormAcesso();
+            if (DialogResult.Yes == Acesso.ShowDialog())
+                Application.Run(new FormPrincipal());
         }
     }
 }
