@@ -65,10 +65,6 @@ namespace LaPizza.Views
         private void btnAcaoEditar_Click(object sender, EventArgs e)
         {
             FormEstMarcaPesquisa Pesquisa = new FormEstMarcaPesquisa();
-            Pesquisa.StartPosition = FormStartPosition.Manual;
-            Pesquisa.Left = (pnlPrincipal.Width - Pesquisa.Width) / 2;
-            Pesquisa.Top = (pnlPrincipal.Height - Pesquisa.Height) / 2;
-
             var Result = Pesquisa.ShowDialog();
 
             if (Result == DialogResult.OK)

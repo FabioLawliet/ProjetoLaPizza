@@ -17,6 +17,8 @@ namespace LaPizza.Views
         {
             InitializeComponent();
             HabilitarComponentesPnlPrincipal(false);
+            this.MaximumSize = new System.Drawing.Size(500, 227);
+            this.MinimumSize = new System.Drawing.Size(500, 227);
         }
 
         private void HabilitarComponentesPnlPrincipal(bool Ativa)

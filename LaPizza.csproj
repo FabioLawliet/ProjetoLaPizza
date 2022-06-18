@@ -144,8 +144,8 @@
     <Compile Include="Models\MovimentoEstoqueModel.cs" />
     <Compile Include="Models\ProdutoDto.cs" />
     <Compile Include="Models\ProdutoModel.cs" />
-    <Compile Include="Models\SubgrupoDto.cs" />
-    <Compile Include="Models\SubgrupoModel.cs" />
+    <Compile Include="Models\SubgrupoDB.cs" />
+    <Compile Include="Models\SubgrupoDTO.cs" />
     <Compile Include="Models\TesteDto.cs" />
     <Compile Include="Models\UsuarioDto.cs" />
     <Compile Include="Models\UsuarioModel.cs" />

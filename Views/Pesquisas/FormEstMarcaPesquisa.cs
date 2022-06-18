@@ -3,9 +3,6 @@ using LaPizza.Controllers;
 using System.Collections.Generic;
 using System;
 
-using LaPizza.DAO;
-using System.Windows.Forms;
-
 namespace LaPizza.Views
 {
     public partial class FormEstMarcaPesquisa : LaPizza.Views.FormBasePesquisa

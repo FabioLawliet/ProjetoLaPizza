@@ -11,9 +11,10 @@ namespace LaPizza.Views.Pesquisas
         public FormEstGrupoPesquisa()
         {
             InitializeComponent();
+            this.MaximumSize = new System.Drawing.Size(470, 530);
+            this.MaximumSize = new System.Drawing.Size(470, 530);
+
             CarregarListaGrid();
-            this.MaximumSize = new System.Drawing.Size(470, 530);
-            this.MaximumSize = new System.Drawing.Size(470, 530);
             txtPesquisa.Focus();
         }
 
