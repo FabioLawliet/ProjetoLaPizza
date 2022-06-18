@@ -647,6 +647,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "La Pizza";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.Resize += new System.EventHandler(this.FormPrincipal_Resize);
             this.pnlLateral.ResumeLayout(false);
             this.pnlMenuLateral.ResumeLayout(false);

@@ -118,5 +118,25 @@ namespace LaPizza.Controllers
             else
                 return 1;
         }
+        public int ValidaLogin(string usuario, string senha)
+        {
+            Context context = new Context();
+            UsuarioDto Usuario = context.usuario.FirstOrDefault(x => x.usuario == usuario
+                                                                && x.senha == senha);
+            // 1 - Retorno correto
+            if (Usuario != null)
+                return 1;
+            // 2 - Usuario não preenchido
+            if (usuario == "")
+                return 2;
+            //3 - Senha não preenchida
+            if (senha == "")
+                return 3;
+            // 4 - Usuario ou senha errados
+            else if (Usuario == null)
+                return 4;
+
+            return 1;
+        }
     }
 }
