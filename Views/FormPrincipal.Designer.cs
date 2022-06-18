@@ -537,6 +537,7 @@
             this.btnVenPedido.Text = "Pedido de Venda";
             this.btnVenPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVenPedido.UseVisualStyleBackColor = false;
+            this.btnVenPedido.Click += new System.EventHandler(this.btnVenPedido_Click);
             // 
             // btnMenuVenda
             // 

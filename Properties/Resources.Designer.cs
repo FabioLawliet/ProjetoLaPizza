@@ -223,6 +223,16 @@ namespace LaPizza.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CheckVenda {
+            get {
+                object obj = ResourceManager.GetObject("CheckVenda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo15_ {
             get {
                 object obj = ResourceManager.GetObject("Logo15%", resourceCulture);
@@ -246,6 +256,16 @@ namespace LaPizza.Properties {
         internal static System.Drawing.Bitmap Logo5_ {
             get {
                 object obj = ResourceManager.GetObject("Logo5%", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vazio {
+            get {
+                object obj = ResourceManager.GetObject("vazio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,6 +20,7 @@ namespace LaPizza
         FormEstSubgrupo FSubgrupo;
         FormRecCliente FCliente;
         FrmEstUsuario FUsuario;
+        FormVenPedidoVenda FPedidoVenda;
 
         public FormPrincipal()
         {
@@ -260,6 +261,28 @@ namespace LaPizza
             else
             {
                 FUnidMedida.BringToFront();
+            }
+        }
+
+        private void btnVenPedido_Click(object sender, EventArgs e)
+        {
+            if (FPedidoVenda == null || FPedidoVenda.IsDisposed)
+            {
+                FPedidoVenda = new FormVenPedidoVenda();
+                FPedidoVenda.Text = btnEstUnidadeMedida.Text;
+                FPedidoVenda.lbNomeRotina.Text = btnEstUnidadeMedida.Text;
+                FPedidoVenda.Visible = false;
+                FPedidoVenda.TopLevel = false;
+                pnlPrincipal.Controls.Add(FPedidoVenda);
+                FPedidoVenda.Left = (pnlPrincipal.Width - FPedidoVenda.Width) / 2;
+                FPedidoVenda.Top = (pnlPrincipal.Height - FPedidoVenda.Height) / 2;
+                FPedidoVenda.FormBorderStyle = FormBorderStyle.Sizable;
+                FPedidoVenda.Visible = true;
+                FPedidoVenda.BringToFront();
+            }
+            else
+            {
+                FPedidoVenda.BringToFront();
             }
         }
     }
