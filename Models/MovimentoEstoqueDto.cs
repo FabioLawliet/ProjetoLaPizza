@@ -1,15 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
 
 namespace LaPizza.Models
 {
-    [Table("movimentoestoque", Schema = "public")]
-    public class MovimentoEstoqueDto
+    public class MovimentoEstoqueDTO
     {
-        [Key]
-        public int idmovimento { get; set; }
+        public int idmovimentoestoque { get; set; }
         public string descricao { get; set; }
         public string datamovimento { get; set; }
-        public string usuariomovimento  { get; set; }
+        public string usuariomovimento { get; set; }
+        public List<MovimentoEstoqueItensDTO> itens;
+
+        public MovimentoEstoqueDTO()
+        {
+            itens = new List<MovimentoEstoqueItensDTO>();
+        }
     }
 }
+

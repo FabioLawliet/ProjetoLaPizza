@@ -2,13 +2,18 @@
 using LaPizza.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
 
 namespace LaPizza.Views.Pesquisas
 {
-    public partial class FormEstGrupoPesquisa : LaPizza.Views.FormBasePesquisa
+    public partial class FormEstUnidadeMedidaPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public GrupoDTO PesqGrupo;
-        public FormEstGrupoPesquisa()
+        public UnidadeMedidaDTO PesqUnidadeMedida;
+        public FormEstUnidadeMedidaPesquisa()
         {
             InitializeComponent();
             this.MaximumSize = new System.Drawing.Size(470, 530);
@@ -21,8 +26,8 @@ namespace LaPizza.Views.Pesquisas
 
         public void CarregarListaGrid()
         {
-            GrupoController controle = new GrupoController();
-            List<GrupoDTO> lista = controle.GetGrupoLista();
+            UnidadeMedidaController controle = new UnidadeMedidaController();
+            List<UnidadeMedidaDTO> lista = controle.GetUnidadeMedidaLista();
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();
@@ -31,23 +36,27 @@ namespace LaPizza.Views.Pesquisas
 
         public void AjustaCamposGrid()
         {
-            dbGridPesquisa.Columns["idgrupo"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["idgrupo"].HeaderText = "Id";
-            dbGridPesquisa.Columns["idgrupo"].Width = 70;
+            dbGridPesquisa.Columns["idunidmedida"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idunidmedida"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idunidmedida"].Width = 70;
 
             dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
             dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição";
-            dbGridPesquisa.Columns["descricao"].Width = 384;
+            dbGridPesquisa.Columns["descricao"].Width = 300;
 
-            dbGridPesquisa.Columns["ativo"].Visible = false;
+            dbGridPesquisa.Columns["sigla"].DisplayIndex = 3;
+            dbGridPesquisa.Columns["sigla"].HeaderText = "Sigla";
+            dbGridPesquisa.Columns["sigla"].Width = 84;
+
+            dbGridPesquisa.Columns["ativa"].Visible = false;
         }
 
         private void btnConfirmar_Click(object sender, System.EventArgs e)
         {
-            GrupoController controle = new GrupoController();
+            UnidadeMedidaController controle = new UnidadeMedidaController();
 
             int id = (int)dbGridPesquisa.CurrentRow.Cells[0].Value;
-            PesqGrupo = controle.GetGrupo(id);
+            PesqUnidadeMedida = controle.GetUnidadeMedida(id);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -59,8 +68,8 @@ namespace LaPizza.Views.Pesquisas
         {
             dbGridPesquisa.DataSource = null;
 
-            GrupoController controle = new GrupoController();
-            List<GrupoDTO> lista = controle.GetGrupoPesquisaGrid(txtPesquisa.Text, (string)txtPesquisa.Tag);
+            UnidadeMedidaController controle = new UnidadeMedidaController();
+            List<UnidadeMedidaDTO> lista = controle.GetUnidadeMedidaPesquisaGrid(txtPesquisa.Text, (string)txtPesquisa.Tag);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();

@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace LaPizza.Models
 {
-    public class SubgrupoModel
+    public class UnidadeMedidaDTO
     {
-        public int id { get; set; }
-        public int idsubgrupo { get; set; }
+        public int idunidmedida { get; set; }
         public string descricao { get; set; }
-        public int idgrupo { get; set; }
-        public bool ativo { get; set; }   
-
+        public string sigla { get; set; }
+        public bool ativa { get; set; }
     }
 }

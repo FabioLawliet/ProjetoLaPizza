@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace LaPizza.Views
 {
-    public partial class FormEstGrupo : LaPizza.Views.FormBaseCadastros
+    public partial class FormEstUnidadeMedida : LaPizza.Views.FormBaseCadastros
     {
-        public FormEstGrupo()
+        public FormEstUnidadeMedida()
         {
             InitializeComponent();
             HabilitarComponentesPnlPrincipal(false);
@@ -25,14 +25,17 @@ namespace LaPizza.Views
         {
             if (Ativa)
             {
-                txtGrupoDescricao.Enabled = true;
+                txtUnidadeMedidaDescricao.Enabled = true;
+                txtUnidadeMedidaSigla.Enabled = true;
                 cbAtivo.Enabled = true;
                 cbAtivo.Checked = true;
+                
             }
             else
             {
-                txtGrupoId.Enabled = false;
-                txtGrupoDescricao.Enabled = false;
+                txtUnidadeMedidaId.Enabled = false;
+                txtUnidadeMedidaDescricao.Enabled = false;
+                txtUnidadeMedidaSigla.Enabled = false;
                 cbAtivo.Enabled = false;
                 cbAtivo.Checked = true;
             }
@@ -42,26 +45,27 @@ namespace LaPizza.Views
         {
             HabilitarComponentesPnlPrincipal(true);
 
-            GrupoController controle = new GrupoController();
-            txtGrupoId.Text = controle.GetProximoId().ToString();
+            UnidadeMedidaController controle = new UnidadeMedidaController();
+            txtUnidadeMedidaId.Text = controle.GetProximoId().ToString();
 
-            if (txtGrupoDescricao.CanFocus)
+            if (txtUnidadeMedidaDescricao.CanFocus)
             {
-                txtGrupoDescricao.Focus();
-                txtGrupoDescricao.Select(txtGrupoDescricao.Text.Length, 0);
+                txtUnidadeMedidaDescricao.Focus();
+                txtUnidadeMedidaDescricao.Select(txtUnidadeMedidaDescricao.Text.Length, 0);
             }
         }
 
         private void btnAcaoEditar_Click(object sender, EventArgs e)
         {
-            FormEstGrupoPesquisa Pesq = new FormEstGrupoPesquisa();
+            FormEstUnidadeMedidaPesquisa Pesq = new FormEstUnidadeMedidaPesquisa();
             var Result = Pesq.ShowDialog();
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
-                txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
-                cbAtivo.Checked = Pesq.PesqGrupo.ativo;
+                txtUnidadeMedidaId.Text = Pesq.PesqUnidadeMedida.idunidmedida.ToString();
+                txtUnidadeMedidaDescricao.Text = Pesq.PesqUnidadeMedida.descricao;
+                txtUnidadeMedidaSigla.Text = Pesq.PesqUnidadeMedida.sigla;
+                cbAtivo.Checked = Pesq.PesqUnidadeMedida.ativa;
 
                 HabilitarComponentesPnlPrincipal(true);
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -72,24 +76,25 @@ namespace LaPizza.Views
                 return;
             }
 
-            if (txtGrupoDescricao.CanFocus)
+            if (txtUnidadeMedidaDescricao.CanFocus)
             {
-                txtGrupoDescricao.Focus();
-                txtGrupoDescricao.Select(txtGrupoDescricao.Text.Length, 0);
+                txtUnidadeMedidaDescricao.Focus();
+                txtUnidadeMedidaDescricao.Select(txtUnidadeMedidaDescricao.Text.Length, 0);
             }
         }
 
         private void btnAcaoConsultar_Click(object sender, EventArgs e)
         {
 
-            FormEstGrupoPesquisa Pesq = new FormEstGrupoPesquisa();
+            FormEstUnidadeMedidaPesquisa Pesq = new FormEstUnidadeMedidaPesquisa();
             var Result = Pesq.ShowDialog();
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
-                txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
-                cbAtivo.Checked = Pesq.PesqGrupo.ativo;
+                txtUnidadeMedidaId.Text = Pesq.PesqUnidadeMedida.idunidmedida.ToString();
+                txtUnidadeMedidaDescricao.Text = Pesq.PesqUnidadeMedida.descricao;
+                txtUnidadeMedidaSigla.Text = Pesq.PesqUnidadeMedida.sigla;
+                cbAtivo.Checked = Pesq.PesqUnidadeMedida.ativa;
 
                 HabilitarComponentesPnlPrincipal(false);
             }
@@ -105,14 +110,15 @@ namespace LaPizza.Views
 
         private void btnAcaoExcluir_Click(object sender, EventArgs e)
         {
-            FormEstGrupoPesquisa Pesq = new FormEstGrupoPesquisa();
+            FormEstUnidadeMedidaPesquisa Pesq = new FormEstUnidadeMedidaPesquisa();
             var Result = Pesq.ShowDialog();
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
-                txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
-                cbAtivo.Checked = Pesq.PesqGrupo.ativo;
+                txtUnidadeMedidaId.Text = Pesq.PesqUnidadeMedida.idunidmedida.ToString();
+                txtUnidadeMedidaDescricao.Text = Pesq.PesqUnidadeMedida.descricao;
+                txtUnidadeMedidaSigla.Text = Pesq.PesqUnidadeMedida.sigla;
+                cbAtivo.Checked = Pesq.PesqUnidadeMedida.ativa;
 
                 HabilitarComponentesPnlPrincipal(false);
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -130,33 +136,35 @@ namespace LaPizza.Views
 
         private void LimpaComponentes()
         {
-            txtGrupoId.Text = string.Empty;
-            txtGrupoDescricao.Text = string.Empty;
+            txtUnidadeMedidaId.Text = string.Empty;
+            txtUnidadeMedidaDescricao.Text = string.Empty;
+            txtUnidadeMedidaSigla.Text = string.Empty;
             cbAtivo.Checked = true;
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (txtGrupoDescricao.Text == string.Empty)
+            if (txtUnidadeMedidaDescricao.Text == string.Empty)
             {
                 MessageBox.Show("É necessário informar uma descrição");
-                txtGrupoDescricao.Focus();
+                txtUnidadeMedidaDescricao.Focus();
             }
             else
             {
-                GrupoController Pcontrole = new GrupoController();
-                GrupoDB Grupo = new GrupoDB();
+                UnidadeMedidaController controle = new UnidadeMedidaController();
+                UnidadeMedidaDB unidade = new UnidadeMedidaDB();
 
-                Grupo.idgrupo = Int32.Parse(txtGrupoId.Text);
-                Grupo.descricao = txtGrupoDescricao.Text;
-                Grupo.ativo = cbAtivo.Checked;
+                unidade.idunidmedida = Int32.Parse(txtUnidadeMedidaId.Text);
+                unidade.descricao = txtUnidadeMedidaDescricao.Text;
+                unidade.sigla = txtUnidadeMedidaSigla.Text;
+                unidade.ativa = cbAtivo.Checked;
 
                 if (MenuStatus == MStatus.Adicionando)
-                    Pcontrole.Adicionar(Grupo);
+                    controle.Adicionar(unidade);
                 else if (MenuStatus == MStatus.Editando)
-                    Pcontrole.Editar(Grupo);
+                    controle.Editar(unidade);
                 else if (MenuStatus == MStatus.Excluindo)
-                    Pcontrole.Excluir(Grupo.idgrupo);
+                    controle.Excluir(unidade.idunidmedida);
             }
 
             LimpaComponentes();
@@ -182,13 +190,12 @@ namespace LaPizza.Views
             HabilitarAcoesIniciais();
         }
 
-        private void txtGrupoDescricao_TextChanged(object sender, EventArgs e)
+        private void txtUnidadeMedidaDescricao_TextChanged(object sender, EventArgs e)
         {
-            if (txtGrupoDescricao.Text != String.Empty && txtGrupoDescricao.Enabled == true)
+            if (txtUnidadeMedidaDescricao.Text != String.Empty && txtUnidadeMedidaDescricao.Enabled == true)
                 HabilitaAcao(TipoAcao.Confirmar, true);
             else
                 HabilitaAcao(TipoAcao.Confirmar, false);
         }
-
     }
 }

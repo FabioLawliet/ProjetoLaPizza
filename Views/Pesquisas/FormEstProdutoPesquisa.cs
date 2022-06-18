@@ -13,7 +13,7 @@ namespace LaPizza.Views.Pesquisas
 {
     public partial class FormEstProdutoPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public ProdutoModel PProduto;
+        public ProdutoDTO PProduto;
 
         public FormEstProdutoPesquisa()
         {
@@ -25,7 +25,7 @@ namespace LaPizza.Views.Pesquisas
         public void CarregarListaGrid()
         {
             ProdutoController Pcontrole = new ProdutoController();
-            List<ProdutoModel> Lista = Pcontrole.GetProdutoLista();
+            List<ProdutoDTO> Lista = Pcontrole.GetProdutoLista();
 
             dbGridPesquisa.DataSource = Lista;
             AjustaCampoGrid();
@@ -34,12 +34,12 @@ namespace LaPizza.Views.Pesquisas
 
         private void AjustaCampoGrid()
         {
-            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["id"].HeaderText = "Id";
-            dbGridPesquisa.Columns["id"].Width = 50;
+            dbGridPesquisa.Columns["idproduto"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idproduto"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idproduto"].Width = 50;
 
             dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
-            dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição Movimento";
+            dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição Produto";
             dbGridPesquisa.Columns["descricao"].Width = 244;
 
             dbGridPesquisa.Columns["saldoestoque"].DisplayIndex = 2;
@@ -56,7 +56,7 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.Columns["idmarca"].Visible = false;
             dbGridPesquisa.Columns["codigofabricante"].Visible = false;
             dbGridPesquisa.Columns["infadicionais"].Visible = false;
-            dbGridPesquisa.Columns["unidademedida"].Visible = false;
+            dbGridPesquisa.Columns["idunidmedida"].Visible = false;
             dbGridPesquisa.Columns["qtdeestmin"].Visible = false;
             dbGridPesquisa.Columns["qtdeestideal"].Visible = false;
             dbGridPesquisa.Columns["qtdeestmax"].Visible = false;
@@ -81,7 +81,7 @@ namespace LaPizza.Views.Pesquisas
         {
             dbGridPesquisa.DataSource = null;
             ProdutoController controle = new ProdutoController();
-            List<ProdutoModel> Lista = controle.GetProdutoPesquisaGrid(txtPesquisa.Text);
+            List<ProdutoDTO> Lista = controle.GetProdutoPesquisaGrid(txtPesquisa.Text, (string)txtPesquisa.Tag);
 
             dbGridPesquisa.DataSource = Lista;
             AjustaCampoGrid();

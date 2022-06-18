@@ -53,6 +53,8 @@
             this.txtProdutoDescricao = new LaPizza.Controllers.LpText();
             this.lbProdutoId = new System.Windows.Forms.Label();
             this.BoxEstoque = new System.Windows.Forms.GroupBox();
+            this.lbUnidadeMedidaSigla = new System.Windows.Forms.Label();
+            this.txtUnidadeMedidaSigla = new LaPizza.Controllers.LpText();
             this.lbQtdeEstMax = new System.Windows.Forms.Label();
             this.txtQtdeEstMax = new LaPizza.Controllers.LpText();
             this.lbQtdeEstIdeal = new System.Windows.Forms.Label();
@@ -84,7 +86,7 @@
             this.pnlPrincipal.Controls.Add(this.BoxInformacoesGerais);
             this.pnlPrincipal.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pnlPrincipal.Padding = new System.Windows.Forms.Padding(5);
-            this.pnlPrincipal.Size = new System.Drawing.Size(670, 215);
+            this.pnlPrincipal.Size = new System.Drawing.Size(670, 213);
             // 
             // pnlNomeRotina
             // 
@@ -124,7 +126,7 @@
             // 
             // pnlAcoesRodape
             // 
-            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 294);
+            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 292);
             this.pnlAcoesRodape.Size = new System.Drawing.Size(670, 40);
             // 
             // btnCancelar
@@ -465,6 +467,8 @@
             // 
             // BoxEstoque
             // 
+            this.BoxEstoque.Controls.Add(this.lbUnidadeMedidaSigla);
+            this.BoxEstoque.Controls.Add(this.txtUnidadeMedidaSigla);
             this.BoxEstoque.Controls.Add(this.lbQtdeEstMax);
             this.BoxEstoque.Controls.Add(this.txtQtdeEstMax);
             this.BoxEstoque.Controls.Add(this.lbQtdeEstIdeal);
@@ -478,15 +482,38 @@
             this.BoxEstoque.Dock = System.Windows.Forms.DockStyle.Left;
             this.BoxEstoque.Location = new System.Drawing.Point(5, 143);
             this.BoxEstoque.Name = "BoxEstoque";
-            this.BoxEstoque.Size = new System.Drawing.Size(461, 67);
+            this.BoxEstoque.Size = new System.Drawing.Size(461, 65);
             this.BoxEstoque.TabIndex = 14;
             this.BoxEstoque.TabStop = false;
             this.BoxEstoque.Text = "Estoque";
             // 
+            // lbUnidadeMedidaSigla
+            // 
+            this.lbUnidadeMedidaSigla.AutoSize = true;
+            this.lbUnidadeMedidaSigla.Location = new System.Drawing.Point(138, 16);
+            this.lbUnidadeMedidaSigla.Name = "lbUnidadeMedidaSigla";
+            this.lbUnidadeMedidaSigla.Size = new System.Drawing.Size(73, 13);
+            this.lbUnidadeMedidaSigla.TabIndex = 52;
+            this.lbUnidadeMedidaSigla.Text = "Sigla Unidade";
+            // 
+            // txtUnidadeMedidaSigla
+            // 
+            this.txtUnidadeMedidaSigla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUnidadeMedidaSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtUnidadeMedidaSigla.ForeColor = System.Drawing.Color.Black;
+            this.txtUnidadeMedidaSigla.Location = new System.Drawing.Point(141, 32);
+            this.txtUnidadeMedidaSigla.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtUnidadeMedidaSigla.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtUnidadeMedidaSigla.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtUnidadeMedidaSigla.Name = "txtUnidadeMedidaSigla";
+            this.txtUnidadeMedidaSigla.Size = new System.Drawing.Size(86, 20);
+            this.txtUnidadeMedidaSigla.TabIndex = 51;
+            this.txtUnidadeMedidaSigla.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // lbQtdeEstMax
             // 
             this.lbQtdeEstMax.AutoSize = true;
-            this.lbQtdeEstMax.Location = new System.Drawing.Point(367, 16);
+            this.lbQtdeEstMax.Location = new System.Drawing.Point(384, 16);
             this.lbQtdeEstMax.Name = "lbQtdeEstMax";
             this.lbQtdeEstMax.Size = new System.Drawing.Size(77, 13);
             this.lbQtdeEstMax.TabIndex = 50;
@@ -497,19 +524,19 @@
             this.txtQtdeEstMax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQtdeEstMax.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtdeEstMax.ForeColor = System.Drawing.Color.Black;
-            this.txtQtdeEstMax.Location = new System.Drawing.Point(370, 32);
+            this.txtQtdeEstMax.Location = new System.Drawing.Point(385, 32);
             this.txtQtdeEstMax.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtQtdeEstMax.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtQtdeEstMax.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
             this.txtQtdeEstMax.Name = "txtQtdeEstMax";
-            this.txtQtdeEstMax.Size = new System.Drawing.Size(85, 20);
+            this.txtQtdeEstMax.Size = new System.Drawing.Size(70, 20);
             this.txtQtdeEstMax.TabIndex = 49;
             this.txtQtdeEstMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lbQtdeEstIdeal
             // 
             this.lbQtdeEstIdeal.AutoSize = true;
-            this.lbQtdeEstIdeal.Location = new System.Drawing.Point(277, 16);
+            this.lbQtdeEstIdeal.Location = new System.Drawing.Point(306, 16);
             this.lbQtdeEstIdeal.Name = "lbQtdeEstIdeal";
             this.lbQtdeEstIdeal.Size = new System.Drawing.Size(77, 13);
             this.lbQtdeEstIdeal.TabIndex = 48;
@@ -520,19 +547,19 @@
             this.txtQtdeEstIdeal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQtdeEstIdeal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtdeEstIdeal.ForeColor = System.Drawing.Color.Black;
-            this.txtQtdeEstIdeal.Location = new System.Drawing.Point(280, 32);
+            this.txtQtdeEstIdeal.Location = new System.Drawing.Point(309, 32);
             this.txtQtdeEstIdeal.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtQtdeEstIdeal.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtQtdeEstIdeal.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
             this.txtQtdeEstIdeal.Name = "txtQtdeEstIdeal";
-            this.txtQtdeEstIdeal.Size = new System.Drawing.Size(85, 20);
+            this.txtQtdeEstIdeal.Size = new System.Drawing.Size(70, 20);
             this.txtQtdeEstIdeal.TabIndex = 47;
             this.txtQtdeEstIdeal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lbQtdeEstMin
             // 
             this.lbQtdeEstMin.AutoSize = true;
-            this.lbQtdeEstMin.Location = new System.Drawing.Point(186, 16);
+            this.lbQtdeEstMin.Location = new System.Drawing.Point(230, 16);
             this.lbQtdeEstMin.Name = "lbQtdeEstMin";
             this.lbQtdeEstMin.Size = new System.Drawing.Size(74, 13);
             this.lbQtdeEstMin.TabIndex = 46;
@@ -543,12 +570,12 @@
             this.txtQtdeEstMin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQtdeEstMin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtdeEstMin.ForeColor = System.Drawing.Color.Black;
-            this.txtQtdeEstMin.Location = new System.Drawing.Point(189, 32);
+            this.txtQtdeEstMin.Location = new System.Drawing.Point(233, 32);
             this.txtQtdeEstMin.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtQtdeEstMin.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtQtdeEstMin.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
             this.txtQtdeEstMin.Name = "txtQtdeEstMin";
-            this.txtQtdeEstMin.Size = new System.Drawing.Size(85, 20);
+            this.txtQtdeEstMin.Size = new System.Drawing.Size(70, 20);
             this.txtQtdeEstMin.TabIndex = 45;
             this.txtQtdeEstMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -557,9 +584,9 @@
             this.lbUnidadeMedida.AutoSize = true;
             this.lbUnidadeMedida.Location = new System.Drawing.Point(95, 16);
             this.lbUnidadeMedida.Name = "lbUnidadeMedida";
-            this.lbUnidadeMedida.Size = new System.Drawing.Size(62, 13);
+            this.lbUnidadeMedida.Size = new System.Drawing.Size(44, 13);
             this.lbUnidadeMedida.TabIndex = 44;
-            this.lbUnidadeMedida.Text = "Un. Medida";
+            this.lbUnidadeMedida.Text = "UN.(F2)";
             // 
             // txtUnidadeMedida
             // 
@@ -571,9 +598,10 @@
             this.txtUnidadeMedida.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtUnidadeMedida.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtUnidadeMedida.Name = "txtUnidadeMedida";
-            this.txtUnidadeMedida.Size = new System.Drawing.Size(85, 20);
+            this.txtUnidadeMedida.Size = new System.Drawing.Size(44, 20);
             this.txtUnidadeMedida.TabIndex = 43;
             this.txtUnidadeMedida.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtUnidadeMedida.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUnidadeMedida_KeyUp);
             // 
             // lbSaldoEstoque
             // 
@@ -607,7 +635,7 @@
             this.BoxPrecos.Dock = System.Windows.Forms.DockStyle.Right;
             this.BoxPrecos.Location = new System.Drawing.Point(472, 143);
             this.BoxPrecos.Name = "BoxPrecos";
-            this.BoxPrecos.Size = new System.Drawing.Size(193, 67);
+            this.BoxPrecos.Size = new System.Drawing.Size(193, 65);
             this.BoxPrecos.TabIndex = 15;
             this.BoxPrecos.TabStop = false;
             this.BoxPrecos.Text = "Preços";
@@ -615,7 +643,7 @@
             // lbPrecoAnterior
             // 
             this.lbPrecoAnterior.AutoSize = true;
-            this.lbPrecoAnterior.Location = new System.Drawing.Point(3, 16);
+            this.lbPrecoAnterior.Location = new System.Drawing.Point(6, 16);
             this.lbPrecoAnterior.Name = "lbPrecoAnterior";
             this.lbPrecoAnterior.Size = new System.Drawing.Size(74, 13);
             this.lbPrecoAnterior.TabIndex = 40;
@@ -624,7 +652,7 @@
             // lbPrecoAtual
             // 
             this.lbPrecoAtual.AutoSize = true;
-            this.lbPrecoAtual.Location = new System.Drawing.Point(95, 16);
+            this.lbPrecoAtual.Location = new System.Drawing.Point(96, 16);
             this.lbPrecoAtual.Name = "lbPrecoAtual";
             this.lbPrecoAtual.Size = new System.Drawing.Size(62, 13);
             this.lbPrecoAtual.TabIndex = 38;
@@ -650,7 +678,7 @@
             this.txtPrecoAtual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecoAtual.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPrecoAtual.ForeColor = System.Drawing.Color.Black;
-            this.txtPrecoAtual.Location = new System.Drawing.Point(98, 32);
+            this.txtPrecoAtual.Location = new System.Drawing.Point(99, 32);
             this.txtPrecoAtual.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtPrecoAtual.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtPrecoAtual.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
@@ -662,7 +690,7 @@
             // FormEstProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(670, 334);
+            this.ClientSize = new System.Drawing.Size(670, 332);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "FormEstProduto";
@@ -723,5 +751,7 @@
         public Controllers.LpText txtUnidadeMedida;
         public Controllers.LpText txtSaldoEstoque;
         public System.Windows.Forms.CheckBox cbAtivo;
+        private System.Windows.Forms.Label lbUnidadeMedidaSigla;
+        public Controllers.LpText txtUnidadeMedidaSigla;
     }
 }

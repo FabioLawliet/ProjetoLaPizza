@@ -7,15 +7,16 @@ namespace LaPizza.Views.Pesquisas
 {
     public partial class FormEstSubgrupoPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public SubgrupoModel PesqSubgrupo;
+        public SubgrupoDTO PesqSubgrupo;
         public int Grupo;
         public FormEstSubgrupoPesquisa(int Grupo)
         {
             InitializeComponent();
+            this.MaximumSize = new System.Drawing.Size(470, 530);
+            this.MaximumSize = new System.Drawing.Size(470, 530);
+
             this.Grupo = Grupo;
             CarregarListaGrid();
-            this.MaximumSize = new System.Drawing.Size(470, 530);
-            this.MaximumSize = new System.Drawing.Size(470, 530);
             txtPesquisa.Focus();
         }
 
@@ -23,7 +24,7 @@ namespace LaPizza.Views.Pesquisas
         public void CarregarListaGrid()
         {
             SubgrupoController controle = new SubgrupoController();
-            List<SubgrupoModel> lista = controle.GetSubgrupoLista(Grupo);
+            List<SubgrupoDTO> lista = controle.GetSubgrupoLista(Grupo);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();
@@ -54,9 +55,7 @@ namespace LaPizza.Views.Pesquisas
             }
             else
             {
-                //btnCancelar_Click(sender, e);
                 DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                //return;
             }
 
         }
@@ -71,7 +70,7 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.DataSource = null;
 
             SubgrupoController controle = new SubgrupoController();
-            List<SubgrupoModel> lista = controle.GetSubgrupoPesquisaGrid(Grupo, txtPesquisa.Text);
+            List<SubgrupoDTO> lista = controle.GetSubgrupoPesquisaGrid(Grupo, txtPesquisa.Text, (string)txtPesquisa.Tag);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();

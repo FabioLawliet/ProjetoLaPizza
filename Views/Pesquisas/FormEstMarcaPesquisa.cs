@@ -3,27 +3,24 @@ using LaPizza.Controllers;
 using System.Collections.Generic;
 using System;
 
-using LaPizza.DAO;
-using System.Windows.Forms;
-
 namespace LaPizza.Views
 {
     public partial class FormEstMarcaPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public MarcaModel PesqMarca;
+        public MarcaDTO PesqMarca;
         public FormEstMarcaPesquisa()
         {
             InitializeComponent();
+            this.MaximumSize = new System.Drawing.Size(470, 530);
+            this.MinimumSize = new System.Drawing.Size(470, 530);
+
             CarregaListaGrid();
-            this.MaximumSize = new System.Drawing.Size(470, 530);
-            this.MaximumSize = new System.Drawing.Size(470, 530);
             txtPesquisa.Focus();
         }
         public void CarregaListaGrid()
         {
             MarcaController controle = new MarcaController();
-            List<MarcaModel> lista = controle.GetMarcaLista();
-
+            List<MarcaDTO> lista = controle.GetMarcaLista();
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();
             dbGridPesquisa.Refresh();
@@ -31,9 +28,9 @@ namespace LaPizza.Views
 
         public void AjustaCamposGrid()
         {
-            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["id"].HeaderText = "Id";
-            dbGridPesquisa.Columns["id"].Width = 70;
+            dbGridPesquisa.Columns["idmarca"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idmarca"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idmarca"].Width = 70;
 
             dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
             dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição";
@@ -62,7 +59,7 @@ namespace LaPizza.Views
             dbGridPesquisa.DataSource = null;
 
             MarcaController controle = new MarcaController();
-            List<MarcaModel> lista = controle.GetMarcaPesquisaGrid(txtPesquisa.Text);
+            List<MarcaDTO> lista = controle.GetMarcaPesquisaGrid(txtPesquisa.Text, (string)txtPesquisa.Tag);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();

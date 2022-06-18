@@ -9,7 +9,7 @@ namespace LaPizza.Controllers
 {
     public class GrupoController
     {
-        public void Adicionar(GrupoDto Grupo)
+        public void Adicionar(GrupoDB Grupo)
         {
             Context db = new Context();
             try
@@ -24,16 +24,16 @@ namespace LaPizza.Controllers
             }
         }
 
-        public void Editar(GrupoDto Grupo)
+        public void Editar(GrupoDB Grupo)
         {
             Context db = new Context();
-            GrupoDto grupo = db.grupo.FirstOrDefault(p => p.id == Grupo.id);
+            GrupoDB grupo = db.grupo.FirstOrDefault(p => p.idgrupo == Grupo.idgrupo);
 
             if (grupo != null)
             {
                 try
                 {
-                    grupo.id = Grupo.id;
+                    grupo.idgrupo = Grupo.idgrupo;
                     grupo.descricao = Grupo.descricao;
                     grupo.ativo = Grupo.ativo;
                     db.SaveChanges();
@@ -49,7 +49,7 @@ namespace LaPizza.Controllers
         public void Excluir(int Id)
         {
             Context db = new Context();
-            GrupoDto grupo = db.grupo.FirstOrDefault(p => p.id == Id);
+            GrupoDB grupo = db.grupo.FirstOrDefault(p => p.idgrupo == Id);
 
             if (grupo != null)
             {
@@ -68,22 +68,22 @@ namespace LaPizza.Controllers
         public bool ExisteGrupoId(int Id)
         {
             Context db = new Context();
-            GrupoDto grupo = db.grupo.Where(p => p.id == Id).FirstOrDefault();
+            GrupoDB grupo = db.grupo.Where(p => p.idgrupo == Id).FirstOrDefault();
 
-            if (grupo != null && grupo.id == Id)
+            if (grupo != null && grupo.idgrupo == Id)
                 return true;
             else
                 return false;
         }
-        public GrupoModel GetGrupo(int Id)
+        public GrupoDTO GetGrupo(int Id)
         {
             Context db = new Context();
-            GrupoDto grupo = db.grupo.Where(p => p.id == Id).FirstOrDefault();
-            GrupoModel grupoModel = new GrupoModel();
+            GrupoDB grupo = db.grupo.Where(p => p.idgrupo == Id).FirstOrDefault();
+            GrupoDTO grupoModel = new GrupoDTO();
 
-            if (grupo != null && grupo.id == Id)
+            if (grupo != null && grupo.idgrupo == Id)
             {
-                grupoModel.id = grupo.id;
+                grupoModel.idgrupo = grupo.idgrupo;
                 grupoModel.descricao = grupo.descricao;
                 grupoModel.ativo = grupo.ativo;
 
@@ -93,14 +93,14 @@ namespace LaPizza.Controllers
                 return null;          
         }
 
-        public List<GrupoModel> GetGrupoLista()
+        public List<GrupoDTO> GetGrupoLista()
         {
             Context db = new Context();
-            List<GrupoModel> lista = (from grupo in db.grupo
-                                      orderby grupo.id
-                                      select new GrupoModel
+            List<GrupoDTO> lista = (from grupo in db.grupo
+                                      orderby grupo.idgrupo
+                                      select new GrupoDTO
                                       {
-                                          id = grupo.id,
+                                          idgrupo = grupo.idgrupo,
                                           descricao = grupo.descricao,
                                           ativo = grupo.ativo
                                       }).ToList();
@@ -113,23 +113,31 @@ namespace LaPizza.Controllers
             var grupo = db.grupo.FirstOrDefault();
 
             if (grupo != null)
-                return db.grupo.Max(p => p.id) + 1;
+                return db.grupo.Max(p => p.idgrupo) + 1;
             else
                 return 1;
         }
-        public List<GrupoModel> GetGrupoPesquisaGrid(string TextoPesquisa)
+        public List<GrupoDTO> GetGrupoPesquisaGrid(string TextoPesquisa, string ColunaPesquisa)
         {
             Context db = new Context();
-            List<GrupoModel> lista = (from grupo in db.grupo
-                                      orderby grupo.id
-                                      select new GrupoModel
+            List<GrupoDTO> lista = (from grupo in db.grupo
+                                      orderby grupo.idgrupo
+                                      select new GrupoDTO
                                       {
-                                          id = grupo.id,
+                                          idgrupo = grupo.idgrupo,
                                           descricao = grupo.descricao,
                                           ativo = grupo.ativo
                                       }).ToList();
 
-            return new List<GrupoModel>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
+            switch (ColunaPesquisa)
+            {
+                case "idgrupo":
+                    return new List<GrupoDTO>(lista.Where(p => p.idgrupo.ToString() == TextoPesquisa));
+                case "descricao":
+                    return new List<GrupoDTO>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
+                default:
+                    return lista;
+            }
         }
     }
 }

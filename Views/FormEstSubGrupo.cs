@@ -1,4 +1,5 @@
 ﻿using LaPizza.Controllers;
+using LaPizza.DAO;
 using LaPizza.Models;
 using LaPizza.Views.Pesquisas;
 using System;
@@ -102,7 +103,7 @@ namespace LaPizza.Views
                 try
                 {
                     SubgrupoController controle = new SubgrupoController();
-                    SubgrupoDto subgrupo = new SubgrupoDto();
+                    SubgrupoDB subgrupo = new SubgrupoDB();
 
                     subgrupo.idsubgrupo = Int32.Parse(txtSubgrupoId.Text);
                     subgrupo.descricao = txtSubgrupoDescricao.Text;
@@ -210,7 +211,7 @@ namespace LaPizza.Views
 
                 if (Result == DialogResult.OK)
                 {
-                    txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                    txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
                     txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
                 }
 
@@ -229,6 +230,7 @@ namespace LaPizza.Views
                 {
                     txtSubgrupoId.Text = Pesq.PesqSubgrupo.idsubgrupo.ToString();
                     txtSubgrupoDescricao.Text = Pesq.PesqSubgrupo.descricao;
+                    cbAtivo.Checked = Pesq.PesqSubgrupo.ativo;
 
                     if (txtSubgrupoDescricao.CanFocus)
                         txtSubgrupoDescricao.Focus();
@@ -248,6 +250,7 @@ namespace LaPizza.Views
                 if (controle.ExisteSubgrupo(idGrupo, idSubgrupo))
                 {
                     txtSubgrupoDescricao.Text = controle.GetSubgrupo(idGrupo, idSubgrupo).descricao;
+                    cbAtivo.Checked = controle.GetSubgrupo(idGrupo, idSubgrupo).ativo;
 
                     switch (MenuStatus)
                     {

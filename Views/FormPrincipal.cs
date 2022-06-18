@@ -15,9 +15,11 @@ namespace LaPizza
         FormEstProduto FProduto;
         FormEstMarca FMarca;
         FormEstGrupo FGrupo;
+        FormEstUnidadeMedida FUnidMedida;
         FormEstMovimentacaoSimplificada FControleEstoque;
         FormEstSubgrupo FSubgrupo;
         FormRecCliente FCliente;
+        
 
         public FormPrincipal()
         {
@@ -220,6 +222,28 @@ namespace LaPizza
             else
             {
                 FCliente.BringToFront();
+            }
+        }
+
+        private void btnEstUnidadeMedida_Click(object sender, EventArgs e)
+        {
+            if (FUnidMedida == null || FUnidMedida.IsDisposed)
+            {
+                FUnidMedida = new FormEstUnidadeMedida();
+                FUnidMedida.Text = btnEstUnidadeMedida.Text;
+                FUnidMedida.lbNomeRotina.Text = btnEstUnidadeMedida.Text;
+                FUnidMedida.Visible = false;
+                FUnidMedida.TopLevel = false;
+                pnlPrincipal.Controls.Add(FUnidMedida);
+                FUnidMedida.Left = (pnlPrincipal.Width - FUnidMedida.Width) / 2;
+                FUnidMedida.Top = (pnlPrincipal.Height - FUnidMedida.Height) / 2;
+                FUnidMedida.FormBorderStyle = FormBorderStyle.Sizable;
+                FUnidMedida.Visible = true;
+                FUnidMedida.BringToFront();
+            }
+            else
+            {
+                FUnidMedida.BringToFront();
             }
         }
     }

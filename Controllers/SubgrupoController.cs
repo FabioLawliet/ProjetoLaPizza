@@ -9,7 +9,7 @@ namespace LaPizza.Controllers
 {
     public class SubgrupoController
     {
-        public void Adicionar(SubgrupoDto Subgrupo)
+        public void Adicionar(SubgrupoDB Subgrupo)
         {
             Context db = new Context();
             try
@@ -23,10 +23,10 @@ namespace LaPizza.Controllers
             }
         }
 
-        public void Editar(SubgrupoDto Subgrupo)
+        public void Editar(SubgrupoDB Subgrupo)
         {
             Context db = new Context();
-            SubgrupoDto subgrupo = db.subgrupo.Where(p => p.idgrupo == Subgrupo.idgrupo).FirstOrDefault(p => p.idsubgrupo == Subgrupo.idsubgrupo);
+            SubgrupoDB subgrupo = db.subgrupo.Where(p => p.idgrupo == Subgrupo.idgrupo).FirstOrDefault(p => p.idsubgrupo == Subgrupo.idsubgrupo);
 
             if (subgrupo != null)
             {
@@ -48,7 +48,7 @@ namespace LaPizza.Controllers
         public void Excluir(int IdGrupo, int IdSubgrupo)
         {
             Context db = new Context();
-            SubgrupoDto subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault(p => p.idsubgrupo == IdSubgrupo);
+            SubgrupoDB subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault(p => p.idsubgrupo == IdSubgrupo);
 
             if (subgrupo != null)
             {
@@ -66,18 +66,18 @@ namespace LaPizza.Controllers
         public bool ExisteSubgrupo(int IdGrupo, int IdSubgrupo)
         {
             Context db = new Context();
-            SubgrupoDto subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault(p => p.idsubgrupo == IdSubgrupo);
+            SubgrupoDB subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault(p => p.idsubgrupo == IdSubgrupo);
 
             if (subgrupo != null && subgrupo.idgrupo == IdGrupo && subgrupo.idsubgrupo == IdSubgrupo)
                 return true;
             else
                 return false;
         }
-        public SubgrupoModel GetSubgrupo(int IdGrupo, int IdSubgrupo)
+        public SubgrupoDTO GetSubgrupo(int IdGrupo, int IdSubgrupo)
         {
             Context db = new Context();
-            SubgrupoDto subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault(p => p.idsubgrupo == IdSubgrupo);
-            SubgrupoModel subgrupoModel = new SubgrupoModel();
+            SubgrupoDB subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault(p => p.idsubgrupo == IdSubgrupo);
+            SubgrupoDTO subgrupoModel = new SubgrupoDTO();
 
             if (subgrupo != null && subgrupo.idgrupo == IdGrupo && subgrupo.idsubgrupo == IdSubgrupo)
             {
@@ -92,13 +92,13 @@ namespace LaPizza.Controllers
                 return null;
         }
 
-        public List<SubgrupoModel> GetSubgrupoLista(int IdGrupo)
+        public List<SubgrupoDTO> GetSubgrupoLista(int IdGrupo)
         {
             Context db = new Context();
-            List<SubgrupoModel> lista = (from subgrupo in db.subgrupo
+            List<SubgrupoDTO> lista = (from subgrupo in db.subgrupo
                                          where subgrupo.idgrupo == IdGrupo
                                          orderby subgrupo.idsubgrupo
-                                         select new SubgrupoModel
+                                         select new SubgrupoDTO
                                          {
                                             idsubgrupo = subgrupo.idsubgrupo,
                                             descricao = subgrupo.descricao,
@@ -111,20 +111,20 @@ namespace LaPizza.Controllers
         public int GetProximoId(int IdGrupo)
         {
             Context db = new Context();
-            SubgrupoDto subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault();
+            SubgrupoDB subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault();
 
             if (subgrupo == null)
                 return 1;
             else
                 return db.subgrupo.Where(p => p.idgrupo == IdGrupo).Max(p => p.idsubgrupo) + 1;
         }
-        public List<SubgrupoModel> GetSubgrupoPesquisaGrid(int IdGrupo, string TextoPesquisa)
+        public List<SubgrupoDTO> GetSubgrupoPesquisaGrid(int IdGrupo, string TextoPesquisa, string ColunaPesquisa)
         {
             Context db = new Context();
-            List<SubgrupoModel> lista = (from subgrupo in db.subgrupo
+            List<SubgrupoDTO> lista = (from subgrupo in db.subgrupo
                                          where subgrupo.idgrupo == IdGrupo
                                          orderby subgrupo.idsubgrupo
-                                         select new SubgrupoModel
+                                         select new SubgrupoDTO
                                          {
                                              idsubgrupo = subgrupo.idsubgrupo,
                                              descricao = subgrupo.descricao,
@@ -132,7 +132,15 @@ namespace LaPizza.Controllers
                                              ativo = subgrupo.ativo
                                          }).ToList();
 
-            return new List<SubgrupoModel>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
+            switch (ColunaPesquisa)
+            {
+                case "idsubgrupo":
+                    return new List<SubgrupoDTO>(lista.Where(p => p.idgrupo.ToString() == TextoPesquisa));
+                case "descricao":
+                    return new List<SubgrupoDTO>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
+                default:
+                    return lista;
+            }
         }
     }
 }

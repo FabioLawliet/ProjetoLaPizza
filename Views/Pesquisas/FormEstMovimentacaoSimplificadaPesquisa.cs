@@ -13,7 +13,7 @@ namespace LaPizza.Views.Pesquisas
 {
     public partial class FormEstMovimentacaoSimplificadaPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public MovimentoEstoqueModel PMovimentacaoSimplificada;
+        public MovimentoEstoqueDTO PMovimentacaoSimplificada;
         public FormEstMovimentacaoSimplificadaPesquisa()
         {
             InitializeComponent();
@@ -24,13 +24,13 @@ namespace LaPizza.Views.Pesquisas
         public void CarregarListaGrid()
         {
             MovimentoEstoqueController controle = new MovimentoEstoqueController();
-            List<MovimentoEstoqueModel> Lista = controle.GetMovimentoLista();
+            List<MovimentoEstoqueDTO> Lista = controle.GetMovimentoLista();
 
             dbGridPesquisa.DataSource = Lista;
 
-            dbGridPesquisa.Columns["idmovimento"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["idmovimento"].HeaderText = "Id";
-            dbGridPesquisa.Columns["idmovimento"].Width = 50;
+            dbGridPesquisa.Columns["idmovimentoestoque"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idmovimentoestoque"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idmovimentoestoque"].Width = 50;
 
             dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
             dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição Movimento";

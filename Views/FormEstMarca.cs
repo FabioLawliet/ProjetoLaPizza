@@ -13,6 +13,8 @@ namespace LaPizza.Views
         {
             InitializeComponent();
             HabilitarComponentesPnlPrincipal(false);
+            this.MaximumSize = new System.Drawing.Size(500, 227);
+            this.MinimumSize = new System.Drawing.Size(500, 227);
         }
 
         private void HabilitarComponentesPnlPrincipal(bool Ativa)
@@ -69,7 +71,7 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlPrincipal(true);
 
-                txtMarcaId.Text = Pesquisa.PesqMarca.id.ToString();
+                txtMarcaId.Text = Pesquisa.PesqMarca.idmarca.ToString();
                 txtMarcaDescricao.Text = Pesquisa.PesqMarca.descricao;
                 cbAtiva.Checked = Pesquisa.PesqMarca.ativa;
             }
@@ -95,7 +97,7 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlPrincipal(false);
 
-                txtMarcaId.Text = Pesq.PesqMarca.id.ToString();
+                txtMarcaId.Text = Pesq.PesqMarca.idmarca.ToString();
                 txtMarcaDescricao.Text = Pesq.PesqMarca.descricao;
                 cbAtiva.Checked = Pesq.PesqMarca.ativa;
             }
@@ -118,7 +120,7 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlPrincipal(false);
 
-                txtMarcaId.Text = Pesquisa.PesqMarca.id.ToString();
+                txtMarcaId.Text = Pesquisa.PesqMarca.idmarca.ToString();
                 txtMarcaDescricao.Text = Pesquisa.PesqMarca.descricao;
                 cbAtiva.Checked = Pesquisa.PesqMarca.ativa;
 
@@ -143,11 +145,11 @@ namespace LaPizza.Views
             else
             {
                 MarcaController Controle = new MarcaController();
-                MarcaDto Marca = new MarcaDto();
+                MarcaDB Marca = new MarcaDB();
 
                 try
                 {
-                    Marca.id = Int32.Parse(txtMarcaId.Text);
+                    Marca.idmarca = Int32.Parse(txtMarcaId.Text);
                     Marca.descricao = txtMarcaDescricao.Text;
                     Marca.ativa = cbAtiva.Checked;
 
@@ -156,7 +158,7 @@ namespace LaPizza.Views
                     else if (MenuStatus == MStatus.Editando)
                         Controle.Editar(Marca);
                     else if (MenuStatus == MStatus.Excluindo)
-                        Controle.Excluir(Marca.id);
+                        Controle.Excluir(Marca.idmarca);
                 }
                 catch (Exception ex)
                 {

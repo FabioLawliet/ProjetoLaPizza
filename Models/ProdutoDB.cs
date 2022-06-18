@@ -1,20 +1,21 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LaPizza.Models
 {
-    public class ProdutoDTO
+    [Table("produto", Schema = "public")]
+    public class ProdutoDB
     {
+        [Key]
         public int idproduto { get; set; }
         public string descricao { get; set; }
         public string datacadastro { get; set; }
+        public bool ativo { get; set; }
         public int idgrupo { get; set; }
-        public string grupodescricao { get; set; }
         public int idsubgrupo { get; set; }
-        public string subgrupodescricao { get; set; }
         public int idmarca { get; set; }
-        public string marcadescricao { get; set; }
         public int idunidmedida { get; set; }
-        public string unidmedidasigla { get; set; } 
         public string codigofabricante { get; set; }
         public string infadicionais { get; set; }
         public decimal saldoestoque { get; set; }
@@ -23,6 +24,5 @@ namespace LaPizza.Models
         public decimal qtdeestmax { get; set; }
         public decimal precoanterior { get; set; }
         public decimal precoatual { get; set; }
-        public bool ativo { get; set; }
     }
 }

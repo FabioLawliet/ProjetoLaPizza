@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace LaPizza.Models
 {
-    public class MovimentoEstoqueItensModel
+    [Table("movimentoestoqueitens", Schema = "public")]
+    public class MovimentoEstoqueItensDB
     {
+        [Key]
         public int id { get; set; }
-        public int idmovimento { get; set; }
+        public int idmovimentoestoque { get; set; }
         public int idproduto { get; set; }
-        public string produtodescricao { get; set; }
         public decimal saldoestoqueanterior { get; set; }
         public string tipomovimento { get; set; }
         public decimal qtdemovimento { get; set; }
         public decimal saldoestoquenovo { get; set; }
+
     }
 }
