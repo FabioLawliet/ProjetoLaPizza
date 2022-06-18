@@ -19,7 +19,7 @@ namespace LaPizza
         FormEstMovimentacaoSimplificada FControleEstoque;
         FormEstSubgrupo FSubgrupo;
         FormRecCliente FCliente;
-        
+        FrmEstUsuario FUsuario;
 
         public FormPrincipal()
         {
@@ -196,8 +196,24 @@ namespace LaPizza
 
         private void btnUsuCadastro_Click(object sender, EventArgs e)
         {
-            FrmEstUsuario frmEstUsuario = new FrmEstUsuario();
-            frmEstUsuario.ShowDialog();
+            if (FUsuario == null || FUsuario.IsDisposed)
+            {
+                FUsuario = new FrmEstUsuario();
+                FUsuario.Text = btnCliCadastro.Text;
+                FUsuario.lbNomeRotina.Text = btnCliCadastro.Text;
+                FUsuario.Visible = false;
+                FUsuario.TopLevel = false;
+                pnlPrincipal.Controls.Add(FUsuario);
+                FUsuario.Left = (pnlPrincipal.Width - FUsuario.Width) / 2;
+                FUsuario.Top = (pnlPrincipal.Height - FUsuario.Height) / 2;
+                FUsuario.FormBorderStyle = FormBorderStyle.Sizable;
+                FUsuario.Visible = true;
+                FUsuario.BringToFront();
+            }
+            else
+            {
+                FUsuario.BringToFront();
+            }
         }
 
         private void btnCliCadastro_Click_1(object sender, EventArgs e)

@@ -12,8 +12,7 @@ using System.Windows.Forms;
 namespace LaPizza.Views
 {
     public partial class FrmEstUsuario : LaPizza.Views.FormBaseCadastros
-    {
-        private int IdAux = 0;
+    {        
         public FrmEstUsuario()
         {
             InitializeComponent();
@@ -23,24 +22,22 @@ namespace LaPizza.Views
         {
             if (Ativa)
             {
+                lpTextId.Enabled = true;
                 lpTextNomeComp.Enabled = true;
                 lpTextUsuario.Enabled = true;
                 lpTextSenha.Enabled = true;
                 lpTextRepSenha.Enabled = true;
-                rbAtivo.Enabled = true;
-                rbInativo.Enabled = true;
-                rbInativo.Checked = false;
+                cbAtiva.Enabled = true;                
                 HabilitaAcao(TipoAcao.Confirmar, true);
             }
             else
             {
+                lpTextId.Enabled = false;
                 lpTextNomeComp.Enabled = false;
                 lpTextUsuario.Enabled = false;
                 lpTextSenha.Enabled = false;
                 lpTextRepSenha.Enabled = false;
-                rbAtivo.Enabled = false;
-                rbInativo.Enabled = false;
-                rbInativo.Checked = false;
+                cbAtiva.Enabled = false;            
             }
         }
         private bool ValidaCampos()
@@ -68,13 +65,7 @@ namespace LaPizza.Views
                 MessageBox.Show("Campo repetir senha não preenchido", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lpTextRepSenha.Focus();
                 return false;
-            }
-            if (!rbAtivo.Checked && !rbInativo.Checked)
-            {
-                MessageBox.Show("Selecione Ativo/Inativo", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                rbAtivo.Focus();
-                return false;
-            }
+            }          
             if (lpTextSenha.Text != "" && lpTextRepSenha.Text != ""
                 && lpTextSenha.Text != lpTextRepSenha.Text)
             {
@@ -87,6 +78,7 @@ namespace LaPizza.Views
        
         private void LimpaComponentes()
         {
+            lpTextId.Text = "";
             lpTextNomeComp.Text = "";
             lpTextUsuario.Text = "";
             lpTextSenha.Text = "";
@@ -97,26 +89,16 @@ namespace LaPizza.Views
             LimpaComponentes();
             HabilitarComponentesPnlPrincipal(false);
             HabilitarAcoesIniciais();
-        }
-
-        private void rbAtivo_Click(object sender, EventArgs e)
-        {
-            rbAtivo.Checked = true;
-            rbInativo.Checked = false;
-        }
-
-        private void rbInativo_Click(object sender, EventArgs e)
-        {
-            rbInativo.Checked = true;
-            rbAtivo.Checked = false;
-        }
-
+        }              
         private void btnAcaoAdicionar_Click(object sender, EventArgs e)
         {
             HabilitarComponentesPnlPrincipal(true);
             HabilitaAcao(TipoAcao.Confirmar, true);
+            UsuarioController controle = new UsuarioController();
             if (lpTextNomeComp.CanFocus)
             {
+                lpTextId.Text = controle.GetProximoId().ToString();
+                lpTextId.Enabled = false;
                 lpTextNomeComp.Focus();
                 lpTextNomeComp.Select(0, lpTextNomeComp.Text.Length);
             }
@@ -134,14 +116,10 @@ namespace LaPizza.Views
                     Usuario.nome = lpTextNomeComp.Text;
                     Usuario.usuario = lpTextUsuario.Text;
                     Usuario.senha = lpTextSenha.Text;
-                    if (rbAtivo.Checked)
-                    {
-                        Usuario.ativo = true;
-                    }
-                    else
-                    {
-                        Usuario.ativo = false;
-                    }
+                    if (cbAtiva.Checked)                    
+                        Usuario.ativo = true;                    
+                    else                    
+                        Usuario.ativo = false;                    
 
                     if (MenuStatus == MStatus.Adicionando)
                     {
@@ -160,7 +138,7 @@ namespace LaPizza.Views
                     } 
                     else if (MenuStatus == MStatus.Editando)
                     {
-                        Usuario.id = IdAux;
+                        Usuario.id = Convert.ToInt32(lpTextId.Text);
                         Controle.EditarUsuario(Usuario);
                         LimpaComponentes();
                         HabilitarComponentesPnlPrincipal(false);
@@ -168,7 +146,7 @@ namespace LaPizza.Views
                     }
                     else if (MenuStatus == MStatus.Excluindo)
                     {
-                        Controle.Excluir(IdAux);
+                        Controle.Excluir(Convert.ToInt32(lpTextId.Text));
                         LimpaComponentes();
                         HabilitarComponentesPnlPrincipal(false);
                         HabilitarAcoesIniciais();
@@ -193,13 +171,13 @@ namespace LaPizza.Views
             if (Result == DialogResult.OK)
             {
                 HabilitarComponentesPnlPrincipal(true);
-
-                IdAux = Pesquisa.usuario.id;
+                lpTextId.Enabled = false;
+                lpTextId.Text = Pesquisa.usuario.id.ToString();
                 lpTextNomeComp.Text = Pesquisa.usuario.nome;
                 lpTextUsuario.Text = Pesquisa.usuario.usuario;
                 lpTextSenha.Text = Pesquisa.usuario.senha;
                 lpTextRepSenha.Text = Pesquisa.usuario.senha;
-                rbAtivo.Checked = Pesquisa.usuario.ativo;
+                cbAtiva.Checked = Pesquisa.usuario.ativo;
             }
             else
             {
@@ -228,7 +206,7 @@ namespace LaPizza.Views
                 lpTextUsuario.Text = Pesquisa.usuario.usuario;
                 lpTextSenha.Text = Pesquisa.usuario.senha;
                 lpTextRepSenha.Text = Pesquisa.usuario.senha;
-                rbAtivo.Checked = Pesquisa.usuario.ativo;
+                cbAtiva.Checked = Pesquisa.usuario.ativo;
             }
             else
             {
@@ -252,12 +230,12 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlPrincipal(false);
 
-                IdAux = Pesquisa.usuario.id;
+                lpTextId.Text = Pesquisa.usuario.id.ToString();
                 lpTextNomeComp.Text = Pesquisa.usuario.nome;
                 lpTextUsuario.Text = Pesquisa.usuario.usuario;
                 lpTextSenha.Text = Pesquisa.usuario.senha;
                 lpTextRepSenha.Text = Pesquisa.usuario.senha;
-                rbAtivo.Checked = Pesquisa.usuario.ativo;
+                cbAtiva.Checked = Pesquisa.usuario.ativo;
 
                 HabilitaAcao(TipoAcao.Confirmar, true);
             }

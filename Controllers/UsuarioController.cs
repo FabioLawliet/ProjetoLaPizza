@@ -108,5 +108,15 @@ namespace LaPizza.Controllers
             else
                 return null;
         }
+        public int GetProximoId()
+        {
+            Context db = new Context();
+            var usuario = db.usuario.FirstOrDefault();
+
+            if (usuario != null)
+                return db.usuario.Max(p => p.id) + 1;
+            else
+                return 1;
+        }
     }
 }
