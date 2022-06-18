@@ -47,21 +47,35 @@ namespace LaPizza.Views
                         {
                             btnCancelar.BackColor = Color.Silver;
                             btnCancelar.Enabled = false;
-                        }
+                        }   
                         break;
-                    }
-            }
-        }
-
+                    }       
+            }               
+        }                   
+                            
         private void btnCancelar_Click(object sender, EventArgs e)
-        {
+        {                   
             DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
+            this.Close();   
+        }                   
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+        public void dbGridPesquisa_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+                lbPesquisa.Text = "Pesquisa por(" + dbGridPesquisa.Columns[e.ColumnIndex].HeaderText + ")";
+                txtPesquisa.Tag = dbGridPesquisa.Columns[e.ColumnIndex].Name; 
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            if (dbGridPesquisa.Columns.Count >= 2 && txtPesquisa.Tag == null)
+            {
+                lbPesquisa.Text = "Pesquisa por(" + dbGridPesquisa.Columns[1].HeaderText + ")";
+                txtPesquisa.Tag = dbGridPesquisa.Columns[1].Name.ToString();
+            }
         }
     }
 }

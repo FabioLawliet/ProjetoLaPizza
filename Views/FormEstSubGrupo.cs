@@ -210,7 +210,7 @@ namespace LaPizza.Views
 
                 if (Result == DialogResult.OK)
                 {
-                    txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                    txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
                     txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
                 }
 

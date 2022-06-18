@@ -11,7 +11,7 @@ namespace LaPizza.Controllers
     public class MarcaController
     {
 
-        public void Adicionar(MarcaDto Marca)
+        public void Adicionar(MarcaDB Marca)
         {
             Context db = new Context();
             try
@@ -26,10 +26,10 @@ namespace LaPizza.Controllers
             }
         }
 
-        public void Editar(MarcaDto Marca)
+        public void Editar(MarcaDB Marca)
         {
             Context db = new Context();
-            MarcaDto marca = db.marca.FirstOrDefault(p => p.id == Marca.id);
+            MarcaDB marca = db.marca.FirstOrDefault(p => p.idmarca == Marca.idmarca);
 
             if (marca != null)
             {
@@ -50,7 +50,7 @@ namespace LaPizza.Controllers
         public void Excluir(int Id)
         {
             Context db = new Context();
-            MarcaDto marca = db.marca.FirstOrDefault(p => p.id == Id);
+            MarcaDB marca = db.marca.FirstOrDefault(p => p.idmarca == Id);
 
             if (marca != null)
             {
@@ -70,23 +70,23 @@ namespace LaPizza.Controllers
         public bool ExisteMarca(int Id)
         {
             Context db = new Context();
-            var marca = db.marca.Where(p => p.id == Id).FirstOrDefault();
+            var marca = db.marca.Where(p => p.idmarca == Id).FirstOrDefault();
 
-            if (marca != null && marca.id == Id)
+            if (marca != null && marca.idmarca == Id)
                 return true;
             else
                 return false;
         }
 
-        public MarcaModel GetMarca(int Id)
+        public MarcaDTO GetMarca(int Id)
         {
             Context db = new Context();
-            MarcaDto marca = db.marca.Where(p => p.id == Id).FirstOrDefault();
-            MarcaModel marcaModel = new MarcaModel();
+            MarcaDB marca = db.marca.Where(p => p.idmarca == Id).FirstOrDefault();
+            MarcaDTO marcaModel = new MarcaDTO();
 
             if (marca != null)
             {
-                marcaModel.id = marca.id;
+                marcaModel.idmarca = marca.idmarca;
                 marcaModel.descricao = marca.descricao;
                 marcaModel.ativa = marca.ativa;
 
@@ -96,14 +96,14 @@ namespace LaPizza.Controllers
                 return null;            
         }
 
-        public List<MarcaModel> GetMarcaLista()
+        public List<MarcaDTO> GetMarcaLista()
         {
             Context db = new Context();
-            List<MarcaModel> lista = (from marca in db.marca
-                                      orderby marca.id
-                                      select new MarcaModel
+            List<MarcaDTO> lista = (from marca in db.marca
+                                      orderby marca.idmarca
+                                      select new MarcaDTO
                                       {
-                                          id = marca.id,
+                                          idmarca = marca.idmarca,
                                           descricao = marca.descricao,
                                           ativa = marca.ativa
                                       }).ToList();
@@ -116,23 +116,31 @@ namespace LaPizza.Controllers
              var marca = db.marca.FirstOrDefault();
 
             if (marca != null)
-                return db.marca.Max(p => p.id) + 1;
+                return db.marca.Max(p => p.idmarca) + 1;
             else
                 return 1;
         }
-        public List<MarcaModel> GetMarcaPesquisaGrid(string TextoPesquisa)
+        public List<MarcaDTO> GetMarcaPesquisaGrid(string TextoPesquisa, string ColunaPesquisa)
         {
             Context db = new Context();
-            List<MarcaModel> lista = (from marca in db.marca
-                                      orderby marca.id
-                                      select new MarcaModel
-                                      {
-                                          id = marca.id,
-                                          descricao = marca.descricao,
-                                          ativa = marca.ativa
-                                      }).ToList();
+            List<MarcaDTO> lista = (from marca in db.marca
+                                    orderby marca.idmarca
+                                    select new MarcaDTO
+                                    {
+                                        idmarca = marca.idmarca,
+                                        descricao = marca.descricao,
+                                        ativa = marca.ativa
+                                    }).ToList();
 
-            return new List<MarcaModel>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
+            switch (ColunaPesquisa)
+            {
+                case "idmarca":
+                    return new List<MarcaDTO>(lista.Where(p => p.idmarca.ToString() == TextoPesquisa));
+                case "descricao":
+                    return new List<MarcaDTO>(lista.Where(p => p.descricao.ToUpper().Contains(TextoPesquisa.ToUpper())));
+                default:
+                    return lista;
+            }
         }
     }
 }

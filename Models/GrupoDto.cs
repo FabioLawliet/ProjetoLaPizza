@@ -1,13 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace LaPizza.Models
+﻿namespace LaPizza.Models
 {
-    [Table("grupo", Schema = "public")]
-    public class GrupoDto
+    public class GrupoDTO
     {
-        [Key]
-        public int id { get; set; }
+        public int idgrupo { get; set; }
         public string descricao { get; set; }
         public bool ativo { get; set; }
     }

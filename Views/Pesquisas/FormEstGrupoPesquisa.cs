@@ -7,7 +7,7 @@ namespace LaPizza.Views.Pesquisas
 {
     public partial class FormEstGrupoPesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public GrupoModel PesqGrupo;
+        public GrupoDTO PesqGrupo;
         public FormEstGrupoPesquisa()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace LaPizza.Views.Pesquisas
         public void CarregarListaGrid()
         {
             GrupoController controle = new GrupoController();
-            List<GrupoModel> lista = controle.GetGrupoLista();
+            List<GrupoDTO> lista = controle.GetGrupoLista();
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();
@@ -30,9 +30,9 @@ namespace LaPizza.Views.Pesquisas
 
         public void AjustaCamposGrid()
         {
-            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["id"].HeaderText = "Id";
-            dbGridPesquisa.Columns["id"].Width = 70;
+            dbGridPesquisa.Columns["idgrupo"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idgrupo"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idgrupo"].Width = 70;
 
             dbGridPesquisa.Columns["descricao"].DisplayIndex = 1;
             dbGridPesquisa.Columns["descricao"].HeaderText = "Descrição";
@@ -59,7 +59,7 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.DataSource = null;
 
             GrupoController controle = new GrupoController();
-            List<GrupoModel> lista = controle.GetGrupoPesquisaGrid(txtPesquisa.Text);
+            List<GrupoDTO> lista = controle.GetGrupoPesquisaGrid(txtPesquisa.Text, (string)txtPesquisa.Tag);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();

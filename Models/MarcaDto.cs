@@ -1,13 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿
+using LaPizza.DAO;
 
 namespace LaPizza.Models
 {
-    [Table("marca", Schema = "public")]
-    public class MarcaDto
+    public class MarcaDTO
     {
-        [Key]
-        public int id { get; set; }
+        public int idmarca { get; set; }
         public string descricao { get; set; }
         public bool ativa { get; set; }
     }

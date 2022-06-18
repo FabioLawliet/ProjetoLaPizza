@@ -93,8 +93,8 @@ namespace LaPizza.Controllers
         {
             Context db = new Context();
             List<ProdutoModel> Lista = (from produto in db.produto
-                                        join marca in db.marca on produto.idmarca equals marca.id
-                                        join grupo in db.grupo on produto.idgrupo equals grupo.id
+                                        join marca in db.marca on produto.idmarca equals marca.idmarca
+                                        join grupo in db.grupo on produto.idgrupo equals grupo.idgrupo
                                         join subgrupo in db.subgrupo on new { produto.idsubgrupo, produto.idgrupo }
                                                                  equals new { subgrupo.idsubgrupo, subgrupo.idgrupo }
                                         where produto.id == Id
@@ -128,8 +128,8 @@ namespace LaPizza.Controllers
         {
             Context db = new Context();
             List<ProdutoModel> Lista = (from produto in db.produto
-                                        join marca in db.marca on produto.idmarca equals marca.id
-                                        join grupo in db.grupo on produto.idgrupo equals grupo.id
+                                        join marca in db.marca on produto.idmarca equals marca.idmarca
+                                        join grupo in db.grupo on produto.idgrupo equals grupo.idgrupo
                                         join subgrupo in db.subgrupo on new { produto.idsubgrupo, produto.idgrupo }
                                                                  equals new { subgrupo.idsubgrupo, subgrupo.idgrupo }
                                         orderby produto.id
@@ -173,8 +173,8 @@ namespace LaPizza.Controllers
         {
             Context db = new Context();
             List<ProdutoModel> Lista = (from produto in db.produto
-                                        join marca in db.marca on produto.idmarca equals marca.id
-                                        join grupo in db.grupo on produto.idgrupo equals grupo.id
+                                        join marca in db.marca on produto.idmarca equals marca.idmarca
+                                        join grupo in db.grupo on produto.idgrupo equals grupo.idgrupo
                                         join subgrupo in db.subgrupo on new { produto.idsubgrupo, produto.idgrupo }
                                                                  equals new { subgrupo.idsubgrupo, subgrupo.idgrupo }
                                         orderby produto.id

@@ -133,10 +133,10 @@
     <Compile Include="Dao\Context.cs" />
     <Compile Include="Models\ClienteDto.cs" />
     <Compile Include="Models\ClienteModel.cs" />
-    <Compile Include="Models\GrupoDto.cs" />
-    <Compile Include="Models\GrupoModel.cs" />
-    <Compile Include="Models\MarcaModel.cs" />
-    <Compile Include="Models\MarcaDto.cs" />
+    <Compile Include="Models\GrupoDB.cs" />
+    <Compile Include="Models\GrupoDTO.cs" />
+    <Compile Include="Models\MarcaDTO.cs" />
+    <Compile Include="Models\MarcaDB.cs" />
     <Compile Include="Controllers\Utils.cs" />
     <Compile Include="Models\MovimentoEstoqueDto.cs" />
     <Compile Include="Models\MovimentoEstoqueItensDto.cs" />

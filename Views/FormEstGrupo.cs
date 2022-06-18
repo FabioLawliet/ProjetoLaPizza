@@ -57,7 +57,7 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
                 txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
                 cbAtivo.Checked = Pesq.PesqGrupo.ativo;
 
@@ -85,7 +85,7 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
                 txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
                 cbAtivo.Checked = Pesq.PesqGrupo.ativo;
 
@@ -108,7 +108,7 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
                 txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
                 cbAtivo.Checked = Pesq.PesqGrupo.ativo;
 
@@ -143,9 +143,9 @@ namespace LaPizza.Views
             else
             {
                 GrupoController Pcontrole = new GrupoController();
-                GrupoDto Grupo = new GrupoDto();
+                GrupoDB Grupo = new GrupoDB();
 
-                Grupo.id = Int32.Parse(txtGrupoId.Text);
+                Grupo.idgrupo = Int32.Parse(txtGrupoId.Text);
                 Grupo.descricao = txtGrupoDescricao.Text;
                 Grupo.ativo = cbAtivo.Checked;
 
@@ -154,7 +154,7 @@ namespace LaPizza.Views
                 else if (MenuStatus == MStatus.Editando)
                     Pcontrole.Editar(Grupo);
                 else if (MenuStatus == MStatus.Excluindo)
-                    Pcontrole.Excluir(Grupo.id);
+                    Pcontrole.Excluir(Grupo.idgrupo);
             }
 
             LimpaComponentes();

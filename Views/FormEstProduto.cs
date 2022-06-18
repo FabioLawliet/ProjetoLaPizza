@@ -367,7 +367,7 @@ namespace LaPizza.Views
 
                 if (Result == DialogResult.OK)
                 {
-                    txtMarcaId.Text = Pesq.PesqMarca.id.ToString();
+                    txtMarcaId.Text = Pesq.PesqMarca.idmarca.ToString();
                     txtMarcaDescricao.Text = Pesq.PesqMarca.descricao;
                 }
             }
@@ -378,7 +378,7 @@ namespace LaPizza.Views
             if (txtMarcaId.Text != "")
             {
                 MarcaController Controle = new MarcaController();
-                MarcaModel Marca = new MarcaModel();
+                MarcaDTO Marca = new MarcaDTO();
 
                 var id = Int32.Parse(txtMarcaId.Text);
 
@@ -404,7 +404,7 @@ namespace LaPizza.Views
 
                 if (Result == DialogResult.OK)
                 {
-                    txtGrupoId.Text = Pesq.PesqGrupo.id.ToString();
+                    txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
                     txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
                 }
             }
