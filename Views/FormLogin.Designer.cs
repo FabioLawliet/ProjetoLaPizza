@@ -34,7 +34,7 @@ namespace LaPizza.Views
             this.txtSenha = new LaPizza.Controllers.LpText();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMostrarSenha = new System.Windows.Forms.Button();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesMenu.SuspendLayout();
@@ -45,12 +45,13 @@ namespace LaPizza.Views
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
             this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlPrincipal.Controls.Add(this.button1);
+            this.pnlPrincipal.Controls.Add(this.btnMostrarSenha);
             this.pnlPrincipal.Controls.Add(this.label2);
             this.pnlPrincipal.Controls.Add(this.label1);
             this.pnlPrincipal.Controls.Add(this.txtSenha);
             this.pnlPrincipal.Controls.Add(this.txtUsuario);
-            this.pnlPrincipal.Size = new System.Drawing.Size(333, 145);
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 50);
+            this.pnlPrincipal.Size = new System.Drawing.Size(333, 120);
             // 
             // pnlNomeRotina
             // 
@@ -58,7 +59,7 @@ namespace LaPizza.Views
             // 
             // pnlAcoesMenu
             // 
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(333, 39);
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(333, 10);
             this.pnlAcoesMenu.Visible = false;
             // 
             // btnAcaoAdicionar
@@ -93,7 +94,7 @@ namespace LaPizza.Views
             // 
             // pnlAcoesRodape
             // 
-            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 224);
+            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 170);
             this.pnlAcoesRodape.Size = new System.Drawing.Size(333, 40);
             // 
             // btnCancelar
@@ -131,13 +132,14 @@ namespace LaPizza.Views
             // splitter3
             // 
             this.splitter3.Location = new System.Drawing.Point(223, 5);
+            this.splitter3.Size = new System.Drawing.Size(5, 0);
             // 
             // txtUsuario
             // 
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.ForeColor = System.Drawing.Color.Black;
-            this.txtUsuario.Location = new System.Drawing.Point(5, 32);
+            this.txtUsuario.Location = new System.Drawing.Point(5, 18);
             this.txtUsuario.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtUsuario.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtUsuario.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
@@ -151,7 +153,7 @@ namespace LaPizza.Views
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSenha.ForeColor = System.Drawing.Color.Black;
-            this.txtSenha.Location = new System.Drawing.Point(5, 83);
+            this.txtSenha.Location = new System.Drawing.Point(5, 69);
             this.txtSenha.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtSenha.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtSenha.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
@@ -164,7 +166,7 @@ namespace LaPizza.Views
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(6, 17);
+            this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 49;
@@ -174,26 +176,30 @@ namespace LaPizza.Views
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(6, 68);
+            this.label2.Location = new System.Drawing.Point(3, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 50;
             this.label2.Text = "Senha";
             // 
-            // button1
+            // btnMostrarSenha
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(5, 108);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 24);
-            this.button1.TabIndex = 51;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnMostrarSenha.BackColor = System.Drawing.Color.Transparent;
+            this.btnMostrarSenha.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMostrarSenha.BackgroundImage")));
+            this.btnMostrarSenha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarSenha.FlatAppearance.BorderSize = 0;
+            this.btnMostrarSenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarSenha.Location = new System.Drawing.Point(5, 94);
+            this.btnMostrarSenha.Name = "btnMostrarSenha";
+            this.btnMostrarSenha.Size = new System.Drawing.Size(24, 24);
+            this.btnMostrarSenha.TabIndex = 51;
+            this.btnMostrarSenha.UseVisualStyleBackColor = false;
+            this.btnMostrarSenha.Click += new System.EventHandler(this.btnMostrarSenha_Click);
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(333, 264);
+            this.ClientSize = new System.Drawing.Size(333, 210);
             this.ControlBox = false;
             this.Name = "FormLogin";
             this.pnlPrincipal.ResumeLayout(false);
@@ -212,6 +218,6 @@ namespace LaPizza.Views
         private Controllers.LpText txtSenha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMostrarSenha;
     }
 }

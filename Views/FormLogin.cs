@@ -20,8 +20,9 @@ namespace LaPizza.Views
         {
             Panel = panel;
             HabilitaAcaoMenu(false, false, false, false);
-            HabilitaAcao(TipoAcao.Confirmar, true);
+            HabilitaAcao(TipoAcao.Confirmar, true);            
             InitializeComponent();
+            txtSenha.UseSystemPasswordChar = true;
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
@@ -61,6 +62,20 @@ namespace LaPizza.Views
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnMostrarSenha_Click(object sender, EventArgs e)
+        {
+            if (txtSenha.UseSystemPasswordChar)
+            {
+                txtSenha.UseSystemPasswordChar = false;
+                btnMostrarSenha.BackgroundImage = LaPizza.Properties.Resources.olhoAberto;
+            }
+            else
+            {
+                txtSenha.UseSystemPasswordChar = true;
+                btnMostrarSenha.BackgroundImage = LaPizza.Properties.Resources.olhoFechado;
+            }
         }
     }
 }
