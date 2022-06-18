@@ -42,12 +42,13 @@
             this.button6 = new System.Windows.Forms.Button();
             this.btnMenuFornecedor = new System.Windows.Forms.Button();
             this.pnlSubMenuEstoque = new System.Windows.Forms.Panel();
-            this.btnEstMovimentacaoSimplificada = new System.Windows.Forms.Button();
             this.btnEstEntradaMerc = new System.Windows.Forms.Button();
+            this.btnEstMovimentacaoSimplificada = new System.Windows.Forms.Button();
+            this.btnEstProduto = new System.Windows.Forms.Button();
+            this.btnEstUnidadeMedida = new System.Windows.Forms.Button();
             this.btnEstSubGrupo = new System.Windows.Forms.Button();
             this.btnEstGrupo = new System.Windows.Forms.Button();
             this.btnEstMarca = new System.Windows.Forms.Button();
-            this.btnEstProduto = new System.Windows.Forms.Button();
             this.btnMenuEstoque = new System.Windows.Forms.Button();
             this.pnlSubMenuVenda = new System.Windows.Forms.Panel();
             this.btnVenRegistrar = new System.Windows.Forms.Button();
@@ -107,7 +108,7 @@
             this.pnlSubMenuGeral.AutoSize = true;
             this.pnlSubMenuGeral.Controls.Add(this.button3);
             this.pnlSubMenuGeral.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 535);
+            this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 560);
             this.pnlSubMenuGeral.Name = "pnlSubMenuGeral";
             this.pnlSubMenuGeral.Size = new System.Drawing.Size(250, 25);
             this.pnlSubMenuGeral.TabIndex = 11;
@@ -143,7 +144,7 @@
             this.btnMenuGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuGeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuGeral.ForeColor = System.Drawing.Color.White;
-            this.btnMenuGeral.Location = new System.Drawing.Point(0, 500);
+            this.btnMenuGeral.Location = new System.Drawing.Point(0, 525);
             this.btnMenuGeral.Name = "btnMenuGeral";
             this.btnMenuGeral.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuGeral.Size = new System.Drawing.Size(250, 35);
@@ -161,7 +162,7 @@
             this.pnlSubMenuUsuario.Controls.Add(this.btnUsuControleAcesso);
             this.pnlSubMenuUsuario.Controls.Add(this.btnUsuCadastro);
             this.pnlSubMenuUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 425);
+            this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 450);
             this.pnlSubMenuUsuario.Name = "pnlSubMenuUsuario";
             this.pnlSubMenuUsuario.Size = new System.Drawing.Size(250, 75);
             this.pnlSubMenuUsuario.TabIndex = 9;
@@ -238,7 +239,7 @@
             this.btnMenuUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 390);
+            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 415);
             this.btnMenuUsuario.Name = "btnMenuUsuario";
             this.btnMenuUsuario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuUsuario.Size = new System.Drawing.Size(250, 35);
@@ -254,7 +255,7 @@
             this.pnlSubMenuFornecedor.AutoSize = true;
             this.pnlSubMenuFornecedor.Controls.Add(this.button6);
             this.pnlSubMenuFornecedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 365);
+            this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 390);
             this.pnlSubMenuFornecedor.Name = "pnlSubMenuFornecedor";
             this.pnlSubMenuFornecedor.Size = new System.Drawing.Size(250, 25);
             this.pnlSubMenuFornecedor.TabIndex = 7;
@@ -290,7 +291,7 @@
             this.btnMenuFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuFornecedor.ForeColor = System.Drawing.Color.White;
-            this.btnMenuFornecedor.Location = new System.Drawing.Point(0, 330);
+            this.btnMenuFornecedor.Location = new System.Drawing.Point(0, 355);
             this.btnMenuFornecedor.Name = "btnMenuFornecedor";
             this.btnMenuFornecedor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuFornecedor.Size = new System.Drawing.Size(250, 35);
@@ -304,18 +305,39 @@
             // pnlSubMenuEstoque
             // 
             this.pnlSubMenuEstoque.AutoSize = true;
-            this.pnlSubMenuEstoque.Controls.Add(this.btnEstMovimentacaoSimplificada);
             this.pnlSubMenuEstoque.Controls.Add(this.btnEstEntradaMerc);
+            this.pnlSubMenuEstoque.Controls.Add(this.btnEstMovimentacaoSimplificada);
+            this.pnlSubMenuEstoque.Controls.Add(this.btnEstProduto);
+            this.pnlSubMenuEstoque.Controls.Add(this.btnEstUnidadeMedida);
             this.pnlSubMenuEstoque.Controls.Add(this.btnEstSubGrupo);
             this.pnlSubMenuEstoque.Controls.Add(this.btnEstGrupo);
             this.pnlSubMenuEstoque.Controls.Add(this.btnEstMarca);
-            this.pnlSubMenuEstoque.Controls.Add(this.btnEstProduto);
             this.pnlSubMenuEstoque.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuEstoque.Location = new System.Drawing.Point(0, 180);
             this.pnlSubMenuEstoque.Name = "pnlSubMenuEstoque";
-            this.pnlSubMenuEstoque.Size = new System.Drawing.Size(250, 150);
+            this.pnlSubMenuEstoque.Size = new System.Drawing.Size(250, 175);
             this.pnlSubMenuEstoque.TabIndex = 5;
             this.pnlSubMenuEstoque.Tag = "pnlSubMenu";
+            // 
+            // btnEstEntradaMerc
+            // 
+            this.btnEstEntradaMerc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnEstEntradaMerc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEstEntradaMerc.FlatAppearance.BorderSize = 0;
+            this.btnEstEntradaMerc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEstEntradaMerc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnEstEntradaMerc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstEntradaMerc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstEntradaMerc.ForeColor = System.Drawing.Color.White;
+            this.btnEstEntradaMerc.Location = new System.Drawing.Point(0, 150);
+            this.btnEstEntradaMerc.Name = "btnEstEntradaMerc";
+            this.btnEstEntradaMerc.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnEstEntradaMerc.Size = new System.Drawing.Size(250, 25);
+            this.btnEstEntradaMerc.TabIndex = 17;
+            this.btnEstEntradaMerc.Tag = "btnSubMenu";
+            this.btnEstEntradaMerc.Text = "Entrada de Mercadoria";
+            this.btnEstEntradaMerc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstEntradaMerc.UseVisualStyleBackColor = false;
             // 
             // btnEstMovimentacaoSimplificada
             // 
@@ -331,32 +353,54 @@
             this.btnEstMovimentacaoSimplificada.Name = "btnEstMovimentacaoSimplificada";
             this.btnEstMovimentacaoSimplificada.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnEstMovimentacaoSimplificada.Size = new System.Drawing.Size(250, 25);
-            this.btnEstMovimentacaoSimplificada.TabIndex = 9;
+            this.btnEstMovimentacaoSimplificada.TabIndex = 16;
             this.btnEstMovimentacaoSimplificada.Tag = "btnSubMenu";
             this.btnEstMovimentacaoSimplificada.Text = "Movimentação Simplificada";
             this.btnEstMovimentacaoSimplificada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstMovimentacaoSimplificada.UseVisualStyleBackColor = false;
             this.btnEstMovimentacaoSimplificada.Click += new System.EventHandler(this.btnEstControle_Click);
             // 
-            // btnEstEntradaMerc
+            // btnEstProduto
             // 
-            this.btnEstEntradaMerc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btnEstEntradaMerc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEstEntradaMerc.FlatAppearance.BorderSize = 0;
-            this.btnEstEntradaMerc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnEstEntradaMerc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnEstEntradaMerc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstEntradaMerc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstEntradaMerc.ForeColor = System.Drawing.Color.White;
-            this.btnEstEntradaMerc.Location = new System.Drawing.Point(0, 100);
-            this.btnEstEntradaMerc.Name = "btnEstEntradaMerc";
-            this.btnEstEntradaMerc.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnEstEntradaMerc.Size = new System.Drawing.Size(250, 25);
-            this.btnEstEntradaMerc.TabIndex = 8;
-            this.btnEstEntradaMerc.Tag = "btnSubMenu";
-            this.btnEstEntradaMerc.Text = "Entrada de Mercadoria";
-            this.btnEstEntradaMerc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstEntradaMerc.UseVisualStyleBackColor = false;
+            this.btnEstProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnEstProduto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEstProduto.FlatAppearance.BorderSize = 0;
+            this.btnEstProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEstProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnEstProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstProduto.ForeColor = System.Drawing.Color.White;
+            this.btnEstProduto.Location = new System.Drawing.Point(0, 100);
+            this.btnEstProduto.Name = "btnEstProduto";
+            this.btnEstProduto.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnEstProduto.Size = new System.Drawing.Size(250, 25);
+            this.btnEstProduto.TabIndex = 15;
+            this.btnEstProduto.Tag = "btnSubMenu";
+            this.btnEstProduto.Text = "Cadastro de Produto";
+            this.btnEstProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstProduto.UseVisualStyleBackColor = false;
+            this.btnEstProduto.Click += new System.EventHandler(this.btnEstProduto_Click);
+            // 
+            // btnEstUnidadeMedida
+            // 
+            this.btnEstUnidadeMedida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnEstUnidadeMedida.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEstUnidadeMedida.FlatAppearance.BorderSize = 0;
+            this.btnEstUnidadeMedida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEstUnidadeMedida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnEstUnidadeMedida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstUnidadeMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstUnidadeMedida.ForeColor = System.Drawing.Color.White;
+            this.btnEstUnidadeMedida.Location = new System.Drawing.Point(0, 75);
+            this.btnEstUnidadeMedida.Name = "btnEstUnidadeMedida";
+            this.btnEstUnidadeMedida.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnEstUnidadeMedida.Size = new System.Drawing.Size(250, 25);
+            this.btnEstUnidadeMedida.TabIndex = 14;
+            this.btnEstUnidadeMedida.Tag = "btnSubMenu";
+            this.btnEstUnidadeMedida.Text = "Cadastro de Unidade de Medida";
+            this.btnEstUnidadeMedida.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstUnidadeMedida.UseVisualStyleBackColor = false;
+            this.btnEstUnidadeMedida.Click += new System.EventHandler(this.btnEstUnidadeMedida_Click);
             // 
             // btnEstSubGrupo
             // 
@@ -368,7 +412,7 @@
             this.btnEstSubGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstSubGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstSubGrupo.ForeColor = System.Drawing.Color.White;
-            this.btnEstSubGrupo.Location = new System.Drawing.Point(0, 75);
+            this.btnEstSubGrupo.Location = new System.Drawing.Point(0, 50);
             this.btnEstSubGrupo.Name = "btnEstSubGrupo";
             this.btnEstSubGrupo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnEstSubGrupo.Size = new System.Drawing.Size(250, 25);
@@ -389,7 +433,7 @@
             this.btnEstGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstGrupo.ForeColor = System.Drawing.Color.White;
-            this.btnEstGrupo.Location = new System.Drawing.Point(0, 50);
+            this.btnEstGrupo.Location = new System.Drawing.Point(0, 25);
             this.btnEstGrupo.Name = "btnEstGrupo";
             this.btnEstGrupo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnEstGrupo.Size = new System.Drawing.Size(250, 25);
@@ -410,7 +454,7 @@
             this.btnEstMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstMarca.ForeColor = System.Drawing.Color.White;
-            this.btnEstMarca.Location = new System.Drawing.Point(0, 25);
+            this.btnEstMarca.Location = new System.Drawing.Point(0, 0);
             this.btnEstMarca.Name = "btnEstMarca";
             this.btnEstMarca.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnEstMarca.Size = new System.Drawing.Size(250, 25);
@@ -420,27 +464,6 @@
             this.btnEstMarca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstMarca.UseVisualStyleBackColor = false;
             this.btnEstMarca.Click += new System.EventHandler(this.btnEstMarca_Click);
-            // 
-            // btnEstProduto
-            // 
-            this.btnEstProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btnEstProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEstProduto.FlatAppearance.BorderSize = 0;
-            this.btnEstProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnEstProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnEstProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstProduto.ForeColor = System.Drawing.Color.White;
-            this.btnEstProduto.Location = new System.Drawing.Point(0, 0);
-            this.btnEstProduto.Name = "btnEstProduto";
-            this.btnEstProduto.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnEstProduto.Size = new System.Drawing.Size(250, 25);
-            this.btnEstProduto.TabIndex = 4;
-            this.btnEstProduto.Tag = "btnSubMenu";
-            this.btnEstProduto.Text = "Cadastro de Produto";
-            this.btnEstProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstProduto.UseVisualStyleBackColor = false;
-            this.btnEstProduto.Click += new System.EventHandler(this.btnEstProduto_Click);
             // 
             // btnMenuEstoque
             // 
@@ -651,13 +674,6 @@
         private System.Windows.Forms.Panel pnlSubMenuFornecedor;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnMenuFornecedor;
-        private System.Windows.Forms.Panel pnlSubMenuEstoque;
-        private System.Windows.Forms.Button btnEstMovimentacaoSimplificada;
-        private System.Windows.Forms.Button btnEstEntradaMerc;
-        private System.Windows.Forms.Button btnEstSubGrupo;
-        private System.Windows.Forms.Button btnEstGrupo;
-        private System.Windows.Forms.Button btnEstMarca;
-        private System.Windows.Forms.Button btnEstProduto;
         private System.Windows.Forms.Button btnMenuEstoque;
         private System.Windows.Forms.Panel pnlSubMenuVenda;
         private System.Windows.Forms.Button btnVenRegistrar;
@@ -668,6 +684,14 @@
         private System.Windows.Forms.Button btnMenuCliente;
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel pnlPrincipal;
+        private System.Windows.Forms.Panel pnlSubMenuEstoque;
+        private System.Windows.Forms.Button btnEstEntradaMerc;
+        private System.Windows.Forms.Button btnEstMovimentacaoSimplificada;
+        private System.Windows.Forms.Button btnEstProduto;
+        private System.Windows.Forms.Button btnEstUnidadeMedida;
+        private System.Windows.Forms.Button btnEstSubGrupo;
+        private System.Windows.Forms.Button btnEstGrupo;
+        private System.Windows.Forms.Button btnEstMarca;
     }
 }
 

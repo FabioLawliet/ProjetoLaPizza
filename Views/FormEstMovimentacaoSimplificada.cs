@@ -13,7 +13,7 @@ namespace LaPizza.Views
 {
     public partial class FormEstMovimentacaoSimplificada : LaPizza.Views.FormBaseCadastros
     {
-        public List<MovimentoEstoqueItensModel> ListaItens = new List<MovimentoEstoqueItensModel>();
+        public List<MovimentoEstoqueItensDTO> ListaItens = new List<MovimentoEstoqueItensDTO>();
 
         public FormEstMovimentacaoSimplificada()
         {
@@ -89,7 +89,7 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtMovimentoId.Text = Pesq.PMovimentacaoSimplificada.idmovimento.ToString();
+                txtMovimentoId.Text = Pesq.PMovimentacaoSimplificada.idmovimentoestoque.ToString();
                 txtMovimentoDescricao.Text = Pesq.PMovimentacaoSimplificada.descricao;
 
                 ListaItens.Clear();
@@ -120,7 +120,7 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtMovimentoId.Text = Pesq.PMovimentacaoSimplificada.idmovimento.ToString();
+                txtMovimentoId.Text = Pesq.PMovimentacaoSimplificada.idmovimentoestoque.ToString();
                 txtMovimentoDescricao.Text = Pesq.PMovimentacaoSimplificada.descricao;
 
                 ListaItens.Clear();
@@ -145,10 +145,10 @@ namespace LaPizza.Views
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            MovimentoEstoqueModel movimento = new MovimentoEstoqueModel();
+            MovimentoEstoqueDTO movimento = new MovimentoEstoqueDTO();
             MovimentoEstoqueController controle = new MovimentoEstoqueController();
 
-            movimento.idmovimento = Int32.Parse(txtMovimentoId.Text);
+            movimento.idmovimentoestoque = Int32.Parse(txtMovimentoId.Text);
             movimento.descricao = txtMovimentoDescricao.Text;
             movimento.datamovimento = DateTime.Today.ToString();
             movimento.itens.AddRange(ListaItens);
@@ -162,7 +162,7 @@ namespace LaPizza.Views
             if (MenuStatus == MStatus.Adicionando)
                 controle.Adicionar(movimento);
             else if (MenuStatus == MStatus.Excluindo)
-                controle.Excluir(movimento.idmovimento);
+                controle.Excluir(movimento.idmovimentoestoque);
 
             ListaItens.Clear();
             LimpaComponentes();
@@ -206,9 +206,9 @@ namespace LaPizza.Views
 
             if (!ExisteProdutoGrid(Int32.Parse(txtProdutoId.Text)))
             {
-                MovimentoEstoqueItensModel item = new MovimentoEstoqueItensModel();
+                MovimentoEstoqueItensDTO item = new MovimentoEstoqueItensDTO();
 
-                item.idmovimento = Int32.Parse(txtMovimentoId.Text);
+                item.idmovimentoestoque = Int32.Parse(txtMovimentoId.Text);
                 item.idproduto = Int32.Parse(txtProdutoId.Text);
                 item.produtodescricao = txtProdutoDescricao.Text;
                 item.saldoestoqueanterior = decimal.Parse(txtSaldoEstoque.Text);
@@ -253,14 +253,14 @@ namespace LaPizza.Views
             
         }
 
-        private void insereItemGrid(MovimentoEstoqueItensModel Item)
+        private void insereItemGrid(MovimentoEstoqueItensDTO Item)
         {
             ListaItens.Add(Item);
             gridMovimentos.DataSource = null;
             gridMovimentos.DataSource = ListaItens;
 
             gridMovimentos.Columns["id"].Visible = false;
-            gridMovimentos.Columns["idmovimento"].Visible = false;
+            gridMovimentos.Columns["idmovimentoestoque"].Visible = false;
 
             gridMovimentos.Columns["idproduto"].HeaderText = "Produto";
             gridMovimentos.Columns["idproduto"].Width = 70;
@@ -301,17 +301,17 @@ namespace LaPizza.Views
             if (txtProdutoId.Text != "")
             {
                 ProdutoController Controle = new ProdutoController();
-                ProdutoModel Produto = new ProdutoModel();
+                ProdutoDTO Produto = new ProdutoDTO();
 
                 var id = Int32.Parse(txtProdutoId.Text);
 
                 if (Controle.ExisteProduto(id))
                 {
                     Produto = Controle.GetProduto(id);
-                    txtProdutoId.Text = Produto.id.ToString();
+                    txtProdutoId.Text = Produto.idproduto.ToString();
                     txtProdutoDescricao.Text = Produto.descricao;
-                    txtSaldoEstoque.Text = Produto.saldoEstoque.ToString();
-                    txtUnidadeMedida.Text = Produto.unidadeMedida;
+                    txtSaldoEstoque.Text = Produto.saldoestoque.ToString();
+                    txtUnidadeMedida.Text = Produto.unidmedidasigla.ToString();
                 }
                 else
                     txtProdutoDescricao.Text = String.Empty;
@@ -329,10 +329,10 @@ namespace LaPizza.Views
 
                 if (Result == DialogResult.OK)
                 {
-                    txtProdutoId.Text = Pesq.PProduto.id.ToString();
+                    txtProdutoId.Text = Pesq.PProduto.idproduto.ToString();
                     txtProdutoDescricao.Text = Pesq.PProduto.descricao;
-                    txtSaldoEstoque.Text = Pesq.PProduto.saldoEstoque.ToString();
-                    txtUnidadeMedida.Text = Pesq.PProduto.unidadeMedida;
+                    txtSaldoEstoque.Text = Pesq.PProduto.saldoestoque.ToString();
+                    txtUnidadeMedida.Text = Pesq.PProduto.unidmedidasigla.ToString();
                 }
             }
         }

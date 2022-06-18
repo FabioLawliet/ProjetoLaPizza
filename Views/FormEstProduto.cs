@@ -53,6 +53,7 @@ namespace LaPizza.Views
                 txtInfAdicionais.Enabled = false;
                 txtSaldoEstoque.Enabled = false;
                 txtUnidadeMedida.Enabled = false;
+                txtUnidadeMedidaSigla.Enabled = false;
                 txtQtdeEstMin.Enabled = false;
                 txtQtdeEstIdeal.Enabled = false;
                 txtQtdeEstMax.Enabled = false;
@@ -68,6 +69,13 @@ namespace LaPizza.Views
             ProdutoController PControle = new ProdutoController();
             txtProdutoId.Text = PControle.GetProximoId().ToString();
 
+            txtSaldoEstoque.Text = "0,00";
+            txtQtdeEstMin.Text = "0,00";
+            txtQtdeEstIdeal.Text = "0,00";
+            txtQtdeEstMax.Text = "0,00";
+            txtPrecoAnterior.Text = "0,00";
+            txtPrecoAtual.Text = "0,00";
+
             if (txtProdutoDescricao.CanFocus)
             {
                 txtProdutoDescricao.Focus();
@@ -82,25 +90,26 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtProdutoId.Text = Pesq.PProduto.id.ToString();
+                txtProdutoId.Text = Pesq.PProduto.idproduto.ToString();
                 txtProdutoDescricao.Text = Pesq.PProduto.descricao;
                 //txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
                 cbAtivo.Checked = Pesq.PProduto.ativo;
                 txtGrupoId.Text = Pesq.PProduto.idgrupo.ToString();
-                txtGrupoDescricao.Text = Pesq.PProduto.grupoDescricao;
+                txtGrupoDescricao.Text = Pesq.PProduto.grupodescricao;
                 txtSubgrupoId.Text = Pesq.PProduto.idsubgrupo.ToString();
-                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupoDescricao;
+                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupodescricao;
                 txtMarcaId.Text = Pesq.PProduto.idmarca.ToString();
-                txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
-                txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
-                txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
-                txtSaldoEstoque.Text = Pesq.PProduto.saldoEstoque.ToString();
-                txtUnidadeMedida.Text = Pesq.PProduto.unidadeMedida;
-                txtQtdeEstMin.Text = Pesq.PProduto.qtdeEstMin.ToString();
-                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeEstIdeal.ToString();
-                txtQtdeEstMax.Text = Pesq.PProduto.qtdeEstMax.ToString();
-                txtPrecoAnterior.Text = Pesq.PProduto.precoAnterior.ToString();
-                txtPrecoAtual.Text = Pesq.PProduto.precoAtual.ToString();
+                txtMarcaDescricao.Text = Pesq.PProduto.marcadescricao;
+                txtInfAdicionais.Text = Pesq.PProduto.infadicionais;
+                txtCodigoFabricante.Text = Pesq.PProduto.codigofabricante;
+                txtSaldoEstoque.Text = Pesq.PProduto.saldoestoque.ToString();
+                txtUnidadeMedida.Text = Pesq.PProduto.idunidmedida.ToString();
+                txtUnidadeMedidaSigla.Text = Pesq.PProduto.unidmedidasigla.ToString();
+                txtQtdeEstMin.Text = Pesq.PProduto.qtdeestmin.ToString();
+                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeestideal.ToString();
+                txtQtdeEstMax.Text = Pesq.PProduto.qtdeestmax.ToString();
+                txtPrecoAnterior.Text = Pesq.PProduto.precoanterior.ToString();
+                txtPrecoAtual.Text = Pesq.PProduto.precoatual.ToString();
 
                 HabilitarComponentesPnlPrincipal(true);
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -126,25 +135,26 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtProdutoId.Text = Pesq.PProduto.id.ToString();
+                txtProdutoId.Text = Pesq.PProduto.idproduto.ToString();
                 txtProdutoDescricao.Text = Pesq.PProduto.descricao;
                 //txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
                 cbAtivo.Checked = Pesq.PProduto.ativo;
                 txtGrupoId.Text = Pesq.PProduto.idgrupo.ToString();
-                txtGrupoDescricao.Text = Pesq.PProduto.grupoDescricao;
+                txtGrupoDescricao.Text = Pesq.PProduto.grupodescricao;
                 txtSubgrupoId.Text = Pesq.PProduto.idsubgrupo.ToString();
-                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupoDescricao;
+                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupodescricao;
                 txtMarcaId.Text = Pesq.PProduto.idmarca.ToString();
-                txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
-                txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
-                txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
-                txtSaldoEstoque.Text = Pesq.PProduto.saldoEstoque.ToString();
-                txtUnidadeMedida.Text = Pesq.PProduto.unidadeMedida;
-                txtQtdeEstMin.Text = Pesq.PProduto.qtdeEstMin.ToString();
-                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeEstIdeal.ToString();
-                txtQtdeEstMax.Text = Pesq.PProduto.qtdeEstMax.ToString();
-                txtPrecoAnterior.Text = Pesq.PProduto.precoAnterior.ToString();
-                txtPrecoAtual.Text = Pesq.PProduto.precoAtual.ToString();
+                txtMarcaDescricao.Text = Pesq.PProduto.marcadescricao;
+                txtInfAdicionais.Text = Pesq.PProduto.infadicionais;
+                txtCodigoFabricante.Text = Pesq.PProduto.codigofabricante;
+                txtSaldoEstoque.Text = Pesq.PProduto.saldoestoque.ToString();
+                txtUnidadeMedida.Text = Pesq.PProduto.idunidmedida.ToString();
+                txtUnidadeMedidaSigla.Text = Pesq.PProduto.unidmedidasigla.ToString();
+                txtQtdeEstMin.Text = Pesq.PProduto.qtdeestmin.ToString();
+                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeestideal.ToString();
+                txtQtdeEstMax.Text = Pesq.PProduto.qtdeestmax.ToString();
+                txtPrecoAnterior.Text = Pesq.PProduto.precoanterior.ToString();
+                txtPrecoAtual.Text = Pesq.PProduto.precoatual.ToString();
 
                 HabilitarComponentesPnlPrincipal(false);
             }
@@ -165,25 +175,26 @@ namespace LaPizza.Views
 
             if (Result == DialogResult.OK)
             {
-                txtProdutoId.Text = Pesq.PProduto.id.ToString();
+                txtProdutoId.Text = Pesq.PProduto.idproduto.ToString();
                 txtProdutoDescricao.Text = Pesq.PProduto.descricao;
                 //txtDataCadastro.Text = Pesq.PProduto.dataCadastro.ToString();
                 cbAtivo.Checked = Pesq.PProduto.ativo;
                 txtGrupoId.Text = Pesq.PProduto.idgrupo.ToString();
-                txtGrupoDescricao.Text = Pesq.PProduto.grupoDescricao;
+                txtGrupoDescricao.Text = Pesq.PProduto.grupodescricao;
                 txtSubgrupoId.Text = Pesq.PProduto.idsubgrupo.ToString();
-                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupoDescricao;
+                txtSubgrupoDescricao.Text = Pesq.PProduto.subgrupodescricao;
                 txtMarcaId.Text = Pesq.PProduto.idmarca.ToString();
-                txtMarcaDescricao.Text = Pesq.PProduto.marcaDescricao;
-                txtInfAdicionais.Text = Pesq.PProduto.infAdicionais;
-                txtCodigoFabricante.Text = Pesq.PProduto.codigoFabricante;
-                txtSaldoEstoque.Text = Pesq.PProduto.saldoEstoque.ToString();
-                txtUnidadeMedida.Text = Pesq.PProduto.unidadeMedida;
-                txtQtdeEstMin.Text = Pesq.PProduto.qtdeEstMin.ToString();
-                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeEstIdeal.ToString();
-                txtQtdeEstMax.Text = Pesq.PProduto.qtdeEstMax.ToString();
-                txtPrecoAnterior.Text = Pesq.PProduto.precoAnterior.ToString();
-                txtPrecoAtual.Text = Pesq.PProduto.precoAtual.ToString();
+                txtMarcaDescricao.Text = Pesq.PProduto.marcadescricao;
+                txtInfAdicionais.Text = Pesq.PProduto.infadicionais;
+                txtCodigoFabricante.Text = Pesq.PProduto.codigofabricante;
+                txtSaldoEstoque.Text = Pesq.PProduto.saldoestoque.ToString();
+                txtUnidadeMedida.Text = Pesq.PProduto.idunidmedida.ToString();
+                txtUnidadeMedidaSigla.Text = Pesq.PProduto.unidmedidasigla.ToString();
+                txtQtdeEstMin.Text = Pesq.PProduto.qtdeestmin.ToString();
+                txtQtdeEstIdeal.Text = Pesq.PProduto.qtdeestideal.ToString();
+                txtQtdeEstMax.Text = Pesq.PProduto.qtdeestmax.ToString();
+                txtPrecoAnterior.Text = Pesq.PProduto.precoanterior.ToString();
+                txtPrecoAtual.Text = Pesq.PProduto.precoatual.ToString();
 
                 HabilitarComponentesPnlPrincipal(false);
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -214,6 +225,7 @@ namespace LaPizza.Views
             txtInfAdicionais.Text = string.Empty;
             txtSaldoEstoque.Text = string.Empty;
             txtUnidadeMedida.Text = string.Empty;
+            txtUnidadeMedidaSigla.Text = string.Empty;
             txtQtdeEstMin.Text = string.Empty;
             txtQtdeEstIdeal.Text = string.Empty;
             txtQtdeEstMax.Text = string.Empty;
@@ -226,19 +238,20 @@ namespace LaPizza.Views
             if (TodosOsCamposPreenchidos())
             {
                 ProdutoController Pcontrole = new ProdutoController();
-                ProdutoDto Produto = new ProdutoDto();
+                ProdutoDB Produto = new ProdutoDB();
 
-                Produto.id = Int32.Parse(txtProdutoId.Text);
+                Produto.idproduto = Int32.Parse(txtProdutoId.Text);
                 Produto.descricao = txtProdutoDescricao.Text;
                 Produto.datacadastro = DateTime.Today.ToString();
                 Produto.ativo = cbAtivo.Checked;
                 Produto.idgrupo = Int32.Parse(txtGrupoId.Text);
                 Produto.idsubgrupo = Int32.Parse(txtSubgrupoId.Text);
                 Produto.idmarca = Int32.Parse(txtMarcaId.Text);
+                Produto.idunidmedida = Int32.Parse(txtUnidadeMedida.Text);
                 Produto.codigofabricante = txtCodigoFabricante.Text;
                 Produto.infadicionais = txtInfAdicionais.Text;
-                Produto.saldoestoque = 0;
-                Produto.unidademedida = txtUnidadeMedida.Text;
+                Produto.saldoestoque = Convert.ToDecimal(txtSaldoEstoque.Text);
+
 
                 if (txtQtdeEstMin.Text == String.Empty)
                     Produto.qtdeestmin = 0;
@@ -263,7 +276,7 @@ namespace LaPizza.Views
                 else if (MenuStatus == MStatus.Editando)
                     Pcontrole.Editar(Produto);
                 else if (MenuStatus == MStatus.Excluindo)
-                    Pcontrole.Excluir(Produto.id);
+                    Pcontrole.Excluir(Produto.idproduto);
 
                 LimpaComponentes();
                 HabilitarComponentesPnlPrincipal(false);
@@ -481,5 +494,19 @@ namespace LaPizza.Views
                 txtSubgrupoId.Enabled = false;
         }
 
+        private void txtUnidadeMedida_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormEstUnidadeMedidaPesquisa Pesq = new FormEstUnidadeMedidaPesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtUnidadeMedida.Text = Pesq.PesqUnidadeMedida.idunidmedida.ToString();
+                    txtUnidadeMedidaSigla.Text = Pesq.PesqUnidadeMedida.sigla;
+                }
+            }
+        }
     }
 }

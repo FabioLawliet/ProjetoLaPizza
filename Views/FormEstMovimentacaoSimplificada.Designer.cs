@@ -45,7 +45,7 @@
             this.txtQtdeMovimento = new LaPizza.Controllers.LpText();
             this.lbSaldoEstoque = new System.Windows.Forms.Label();
             this.txtSaldoEstoque = new LaPizza.Controllers.LpText();
-            this.lbEmbalagem = new System.Windows.Forms.Label();
+            this.lbUnidadeMedida = new System.Windows.Forms.Label();
             this.txtUnidadeMedida = new LaPizza.Controllers.LpText();
             this.lbProdutoDescricao = new System.Windows.Forms.Label();
             this.txtProdutoDescricao = new LaPizza.Controllers.LpText();
@@ -202,7 +202,7 @@
             this.boxFiltro.Controls.Add(this.txtQtdeMovimento);
             this.boxFiltro.Controls.Add(this.lbSaldoEstoque);
             this.boxFiltro.Controls.Add(this.txtSaldoEstoque);
-            this.boxFiltro.Controls.Add(this.lbEmbalagem);
+            this.boxFiltro.Controls.Add(this.lbUnidadeMedida);
             this.boxFiltro.Controls.Add(this.txtUnidadeMedida);
             this.boxFiltro.Controls.Add(this.lbProdutoDescricao);
             this.boxFiltro.Controls.Add(this.txtProdutoDescricao);
@@ -300,14 +300,14 @@
             this.txtSaldoEstoque.Size = new System.Drawing.Size(87, 20);
             this.txtSaldoEstoque.TabIndex = 11;
             // 
-            // lbEmbalagem
+            // lbUnidadeMedida
             // 
-            this.lbEmbalagem.AutoSize = true;
-            this.lbEmbalagem.Location = new System.Drawing.Point(372, 18);
-            this.lbEmbalagem.Name = "lbEmbalagem";
-            this.lbEmbalagem.Size = new System.Drawing.Size(62, 13);
-            this.lbEmbalagem.TabIndex = 10;
-            this.lbEmbalagem.Text = "Embalagem";
+            this.lbUnidadeMedida.AutoSize = true;
+            this.lbUnidadeMedida.Location = new System.Drawing.Point(372, 18);
+            this.lbUnidadeMedida.Name = "lbUnidadeMedida";
+            this.lbUnidadeMedida.Size = new System.Drawing.Size(62, 13);
+            this.lbUnidadeMedida.TabIndex = 10;
+            this.lbUnidadeMedida.Text = "Un. Medida";
             // 
             // txtUnidadeMedida
             // 
@@ -452,7 +452,7 @@
         private Controllers.LpText txtQtdeMovimento;
         private System.Windows.Forms.Label lbSaldoEstoque;
         private Controllers.LpText txtSaldoEstoque;
-        private System.Windows.Forms.Label lbEmbalagem;
+        private System.Windows.Forms.Label lbUnidadeMedida;
         private Controllers.LpText txtUnidadeMedida;
         private System.Windows.Forms.Label lbProdutoDescricao;
         private Controllers.LpText txtProdutoDescricao;

@@ -10,10 +10,10 @@ namespace LaPizza.Controllers
 {
     public class MovimentoEstoqueController
     {
-        public void Adicionar(MovimentoEstoqueModel Movimento)
+        public void Adicionar(MovimentoEstoqueDTO Movimento)
         {
             Context db = new Context();
-            MovimentoEstoqueDto movimento = new MovimentoEstoqueDto();
+            MovimentoEstoqueDB movimento = new MovimentoEstoqueDB();
 
             try
             {
@@ -25,8 +25,8 @@ namespace LaPizza.Controllers
 
                 foreach (var i in Movimento.itens)
                 {
-                    MovimentoEstoqueItensDto item = new MovimentoEstoqueItensDto();
-                    item.idmovimento = movimento.idmovimento;
+                    MovimentoEstoqueItensDB item = new MovimentoEstoqueItensDB();
+                    item.idmovimentoestoque = movimento.idmovimentoestoque;
                     item.idproduto = i.idproduto;
                     item.saldoestoqueanterior = i.saldoestoqueanterior;
                     item.tipomovimento = i.tipomovimento;
@@ -34,7 +34,7 @@ namespace LaPizza.Controllers
                     item.saldoestoquenovo = i.saldoestoquenovo;
                     db.movimentoestoqueitens.Add(item);
 
-                    ProdutoDto Produto = db.produto.FirstOrDefault(p => p.id == i.idproduto);
+                    ProdutoDB Produto = db.produto.FirstOrDefault(p => p.idproduto == i.idproduto);
                     Produto.saldoestoque = i.saldoestoquenovo;
                 }
                 db.SaveChanges();
@@ -48,13 +48,13 @@ namespace LaPizza.Controllers
         public void Excluir(int Id)
         {
             Context db = new Context();
-            List<MovimentoEstoqueItensDto> itens = db.movimentoestoqueitens.Where(p => p.idmovimento == Id).ToList();
+            List<MovimentoEstoqueItensDB> itens = db.movimentoestoqueitens.Where(p => p.idmovimentoestoque == Id).ToList();
 
             try
             {
                 foreach (var i in itens)
                 {
-                    ProdutoDto produto = db.produto.FirstOrDefault(p => p.id == i.idproduto);
+                    ProdutoDB produto = db.produto.FirstOrDefault(p => p.idproduto == i.idproduto);
 
                     if (i.tipomovimento == "E")
                         produto.saldoestoque = produto.saldoestoque - i.qtdemovimento;
@@ -65,7 +65,7 @@ namespace LaPizza.Controllers
                     db.SaveChanges();
                 }
 
-                MovimentoEstoqueDto movimento = db.movimentoestoque.FirstOrDefault(p => p.idmovimento == Id);
+                MovimentoEstoqueDB movimento = db.movimentoestoque.FirstOrDefault(p => p.idmovimentoestoque == Id);
                 db.movimentoestoque.Remove(movimento);
                 db.SaveChanges();
             }catch (Exception ex)
@@ -83,28 +83,28 @@ namespace LaPizza.Controllers
             if (Movimento is null)
                 return 1;
             else
-                return db.movimentoestoque.Max(p => p.idmovimento) + 1;
+                return db.movimentoestoque.Max(p => p.idmovimentoestoque) + 1;
         }
 
-        public MovimentoEstoqueModel GetMovimento(int Id)
+        public MovimentoEstoqueDTO GetMovimento(int Id)
         {
             Context db = new Context();
-            List<MovimentoEstoqueModel> Movimento = (from movimento in db.movimentoestoque
-                                                  where movimento.idmovimento == Id
-                                                  select new MovimentoEstoqueModel
+            List<MovimentoEstoqueDTO> Movimento = (from movimento in db.movimentoestoque
+                                                  where movimento.idmovimentoestoque == Id
+                                                  select new MovimentoEstoqueDTO
                                                   {
-                                                      idmovimento = movimento.idmovimento,
+                                                      idmovimentoestoque = movimento.idmovimentoestoque,
                                                       descricao = movimento.descricao,
                                                       datamovimento = movimento.datamovimento,
                                                       usuariomovimento = movimento.usuariomovimento
                                                   }).ToList();
 
-            List<MovimentoEstoqueItensModel> Itens = (from itens in db.movimentoestoqueitens
-                                                      join produto in db.produto on itens.idproduto equals produto.id
-                                                     where itens.idmovimento == Id
-                                                     select new MovimentoEstoqueItensModel
+            List<MovimentoEstoqueItensDTO> Itens = (from itens in db.movimentoestoqueitens
+                                                      join produto in db.produto on itens.idproduto equals produto.idproduto
+                                                      where itens.idmovimentoestoque == Id
+                                                     select new MovimentoEstoqueItensDTO
                                                      {
-                                                         idmovimento = itens.idmovimento,
+                                                         idmovimentoestoque = itens.idmovimentoestoque,
                                                          idproduto = itens.idproduto,
                                                          produtodescricao = produto.descricao,
                                                          saldoestoqueanterior = itens.saldoestoqueanterior,
@@ -118,27 +118,27 @@ namespace LaPizza.Controllers
             return Movimento.FirstOrDefault();
         }
 
-        public List<MovimentoEstoqueModel> GetMovimentoLista()
+        public List<MovimentoEstoqueDTO> GetMovimentoLista()
         {
             Context db = new Context();
-            List<MovimentoEstoqueModel> movimentoLista = (from movimento in db.movimentoestoque
-                                                     orderby movimento.idmovimento
-                                                     select new MovimentoEstoqueModel
+            List<MovimentoEstoqueDTO> movimentoLista = (from movimento in db.movimentoestoque
+                                                     orderby movimento.idmovimentoestoque
+                                                     select new MovimentoEstoqueDTO
                                                      {
-                                                         idmovimento = movimento.idmovimento,
+                                                            idmovimentoestoque = movimento.idmovimentoestoque,
                                                          descricao = movimento.descricao,
                                                          datamovimento = movimento.datamovimento,
                                                          usuariomovimento = movimento.usuariomovimento
                                                      }).ToList();
             foreach (var li in movimentoLista)
             {
-                List<MovimentoEstoqueItensModel> itemLista = (from itens in db.movimentoestoqueitens
-                                                          join produto in db.produto on itens.idproduto equals produto.id
-                                                          where itens.idmovimento == li.idmovimento
-                                                          orderby itens.idmovimento
-                                                          select new MovimentoEstoqueItensModel
+                List<MovimentoEstoqueItensDTO> itemLista = (from itens in db.movimentoestoqueitens
+                                                            join produto in db.produto on itens.idproduto equals produto.idproduto
+                                                            where itens.idmovimentoestoque == li.idmovimentoestoque
+                                                            orderby itens.idmovimentoestoque
+                                                            select new MovimentoEstoqueItensDTO
                                                           {
-                                                              idmovimento = itens.idmovimento,
+                                                              idmovimentoestoque = itens.idmovimentoestoque,
                                                               idproduto = itens.idproduto,
                                                               produtodescricao = produto.descricao,
                                                               saldoestoqueanterior = itens.saldoestoqueanterior,
