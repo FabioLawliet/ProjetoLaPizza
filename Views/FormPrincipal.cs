@@ -285,22 +285,5 @@ namespace LaPizza
                 FPedidoVenda.BringToFront();
             }
         }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-            FormLogin frmlogin = new FormLogin(pnlMenuLateral);
-            frmlogin.Text = "Login";
-            frmlogin.lbNomeRotina.Text = "Login";
-            frmlogin.Visible = false;
-            frmlogin.TopLevel = false;
-            pnlPrincipal.Controls.Add(frmlogin);
-            frmlogin.Left = (pnlPrincipal.Width - frmlogin.Width) / 2;
-            frmlogin.Top = (pnlPrincipal.Height - frmlogin.Height) / 2;
-            frmlogin.FormBorderStyle = FormBorderStyle.Sizable;
-            frmlogin.Visible = true;
-            frmlogin.BringToFront();
-
-            pnlMenuLateral.Visible = false;
-        }
     }
 }
