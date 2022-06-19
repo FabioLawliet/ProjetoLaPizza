@@ -346,5 +346,11 @@ namespace LaPizza.Views
             HabilitaAcaoMenu(false);
             HabilitaAcao(TipoAcao.Cancelar, true);
         }
+
+        private void FormBaseCadastros_Load(object sender, EventArgs e)
+        {
+            lbNomeRotina.Text = this.Text;
+            this.Text = String.Empty;
+        }
     }
 }

@@ -16,10 +16,10 @@ namespace LaPizza
         FormEstMarca FMarca;
         FormEstGrupo FGrupo;
         FormEstUnidadeMedida FUnidMedida;
-        FormEstMovimentacaoSimplificada FControleEstoque;
+        FormEstMovimentacaoSimplificada FMovimentacaoSimp;
         FormEstSubgrupo FSubgrupo;
         FormRecCliente FCliente;
-        FrmEstUsuario FUsuario;
+        FormUsrUsuario FUsuario;
         FormVenPedidoVenda FPedidoVenda;
 
         public FormPrincipal()
@@ -72,59 +72,46 @@ namespace LaPizza
         {
             IntMenu.MostraOuEsconde(pnlSubMenuGeral);
         }
+
+        private void CentralizaTela(Form Formulario, string TextRotina)
+        {
+                Formulario.Text = TextRotina;
+                Formulario.Visible = false;
+                Formulario.TopLevel = false;
+                pnlPrincipal.Controls.Add(Formulario);
+                Formulario.Left = (pnlPrincipal.Width - Formulario.Width) / 2;
+                Formulario.Top = (pnlPrincipal.Height - Formulario.Height) / 2;
+                Formulario.FormBorderStyle = FormBorderStyle.Sizable;
+                Formulario.Visible = true;
+                Formulario.BringToFront();
+
+        }
         // ------------------------------------------------------------
         // SUB MENU
         //-------------------------------------------------------------
         private void btnEstMarca_Click(object sender, EventArgs e)
         {
-
             if (FMarca == null || FMarca.IsDisposed)
             {
                 FMarca = new FormEstMarca();
-                FMarca.Text = btnEstMarca.Text;
-                FMarca.lbNomeRotina.Text = btnEstMarca.Text;
-                FMarca.TopLevel = false;
-                FMarca.Visible = false;
-                pnlPrincipal.Controls.Add(FMarca);
-                FMarca.Left = (pnlPrincipal.Width - FMarca.Width) / 2;
-                FMarca.Top = (pnlPrincipal.Height - FMarca.Height) / 2;
-                FMarca.Visible = true;
-                FMarca.BringToFront();
+                CentralizaTela(FMarca, btnEstMarca.Text);
             }
             else
             {
                 FMarca.BringToFront();
             }
-            
         }
-
-        private void FormPrincipal_Resize(object sender, EventArgs e)
-        {
-            //FMarca.Left = (pnlPrincipal.Width - FMarca.Width) / 2;
-            //FMarca.Top = (pnlPrincipal.Height - FMarca.Height) / 2;
-        }
-
         private void btnEstProduto_Click(object sender, EventArgs e)
         {
-
             if (FProduto == null || FProduto.IsDisposed)
             {
                 FProduto = new FormEstProduto();
-                FProduto.Text = btnEstProduto.Text;
-                FProduto.lbNomeRotina.Text = btnEstProduto.Text;
-                FProduto.Visible = false;
-                FProduto.TopLevel = false;
-                pnlPrincipal.Controls.Add(FProduto);
-                FProduto.Left = (pnlPrincipal.Width - FProduto.Width) / 2;
-                FProduto.Top = (pnlPrincipal.Height - FProduto.Height) / 2;
-                FProduto.FormBorderStyle = FormBorderStyle.Sizable;
-                FProduto.Visible = true;
-                FProduto.BringToFront();
+                CentralizaTela(FProduto, btnEstProduto.Text);
             }
             else
             {
                 FProduto.BringToFront();
-            }
+            }            
         }
 
         private void btnEstGrupo_Click(object sender, EventArgs e)
@@ -132,45 +119,25 @@ namespace LaPizza
             if (FGrupo == null || FGrupo.IsDisposed)
             {
                 FGrupo = new FormEstGrupo();
-                FGrupo.Text = btnEstGrupo.Text;
-                FGrupo.lbNomeRotina.Text = btnEstGrupo.Text;
-                FGrupo.Visible = false;
-                FGrupo.TopLevel = false;
-                pnlPrincipal.Controls.Add(FGrupo);
-                FGrupo.Left = (pnlPrincipal.Width - FGrupo.Width) / 2;
-                FGrupo.Top = (pnlPrincipal.Height - FGrupo.Height) / 2;
-                FGrupo.FormBorderStyle = FormBorderStyle.Sizable;
-                FGrupo.Visible = true;
-                FGrupo.BringToFront();
+                CentralizaTela(FGrupo, btnEstGrupo.Text);
             }
             else
             {
                 FGrupo.BringToFront();
             }
-
         }
 
         private void btnEstControle_Click(object sender, EventArgs e)
         {
-            if (FControleEstoque == null || FControleEstoque.IsDisposed)
+            if (FMovimentacaoSimp == null || FMovimentacaoSimp.IsDisposed)
             {
-                FControleEstoque = new FormEstMovimentacaoSimplificada();
-                FControleEstoque.Text = btnEstMovimentacaoSimplificada.Text;
-                FControleEstoque.lbNomeRotina.Text = btnEstMovimentacaoSimplificada.Text;
-                FControleEstoque.Visible = false;
-                FControleEstoque.TopLevel = false;
-                pnlPrincipal.Controls.Add(FControleEstoque);
-                FControleEstoque.Left = (pnlPrincipal.Width - FControleEstoque.Width) / 2;
-                FControleEstoque.Top = (pnlPrincipal.Height - FControleEstoque.Height) / 2;
-                FControleEstoque.FormBorderStyle = FormBorderStyle.Sizable;
-                FControleEstoque.Visible = true;
-                FControleEstoque.BringToFront();
+                FMovimentacaoSimp = new FormEstMovimentacaoSimplificada();
+                CentralizaTela(FMovimentacaoSimp, btnEstMovimentacaoSimplificada.Text);
             }
             else
             {
-                FControleEstoque.BringToFront();
+                FMovimentacaoSimp.BringToFront();
             }
-
         }
 
         private void btnEstSubGrupo_Click(object sender, EventArgs e)
@@ -178,38 +145,20 @@ namespace LaPizza
             if (FSubgrupo == null || FSubgrupo.IsDisposed)
             {
                 FSubgrupo = new FormEstSubgrupo();
-                FSubgrupo.Text = btnEstSubGrupo.Text;
-                FSubgrupo.lbNomeRotina.Text = btnEstSubGrupo.Text;
-                FSubgrupo.Visible = false;
-                FSubgrupo.TopLevel = false;
-                pnlPrincipal.Controls.Add(FSubgrupo);
-                FSubgrupo.Left = (pnlPrincipal.Width - FSubgrupo.Width) / 2;
-                FSubgrupo.Top = (pnlPrincipal.Height - FSubgrupo.Height) / 2;
-                FSubgrupo.FormBorderStyle = FormBorderStyle.Sizable;
-                FSubgrupo.Visible = true;
-                FSubgrupo.BringToFront();
+                CentralizaTela(FSubgrupo, btnEstSubGrupo.Text);
             }
             else
             {
                 FSubgrupo.BringToFront();
-            }
+            } 
         }
 
         private void btnUsuCadastro_Click(object sender, EventArgs e)
         {
             if (FUsuario == null || FUsuario.IsDisposed)
             {
-                FUsuario = new FrmEstUsuario();
-                FUsuario.Text = btnCliCadastro.Text;
-                FUsuario.lbNomeRotina.Text = btnCliCadastro.Text;
-                FUsuario.Visible = false;
-                FUsuario.TopLevel = false;
-                pnlPrincipal.Controls.Add(FUsuario);
-                FUsuario.Left = (pnlPrincipal.Width - FUsuario.Width) / 2;
-                FUsuario.Top = (pnlPrincipal.Height - FUsuario.Height) / 2;
-                FUsuario.FormBorderStyle = FormBorderStyle.Sizable;
-                FUsuario.Visible = true;
-                FUsuario.BringToFront();
+                FUsuario = new FormUsrUsuario();
+                CentralizaTela(FUsuario, btnUsuCadastro.Text);
             }
             else
             {
@@ -219,22 +168,10 @@ namespace LaPizza
 
         private void btnCliCadastro_Click_1(object sender, EventArgs e)
         {
-            //FormRecCliente frmRecCliente = new FormRecCliente();
-            //frmRecCliente.Show();
-
             if (FCliente == null || FCliente.IsDisposed)
             {
                 FCliente = new FormRecCliente();
-                FCliente.Text = btnCliCadastro.Text;
-                FCliente.lbNomeRotina.Text = btnCliCadastro.Text;
-                FCliente.Visible = false;
-                FCliente.TopLevel = false;
-                pnlPrincipal.Controls.Add(FCliente);
-                FCliente.Left = (pnlPrincipal.Width - FCliente.Width) / 2;
-                FCliente.Top = (pnlPrincipal.Height - FCliente.Height) / 2;
-                FCliente.FormBorderStyle = FormBorderStyle.Sizable;
-                FCliente.Visible = true;
-                FCliente.BringToFront();
+                CentralizaTela(FCliente, btnCliCadastro.Text);
             }
             else
             {
@@ -247,16 +184,7 @@ namespace LaPizza
             if (FUnidMedida == null || FUnidMedida.IsDisposed)
             {
                 FUnidMedida = new FormEstUnidadeMedida();
-                FUnidMedida.Text = btnEstUnidadeMedida.Text;
-                FUnidMedida.lbNomeRotina.Text = btnEstUnidadeMedida.Text;
-                FUnidMedida.Visible = false;
-                FUnidMedida.TopLevel = false;
-                pnlPrincipal.Controls.Add(FUnidMedida);
-                FUnidMedida.Left = (pnlPrincipal.Width - FUnidMedida.Width) / 2;
-                FUnidMedida.Top = (pnlPrincipal.Height - FUnidMedida.Height) / 2;
-                FUnidMedida.FormBorderStyle = FormBorderStyle.Sizable;
-                FUnidMedida.Visible = true;
-                FUnidMedida.BringToFront();
+                CentralizaTela(FUnidMedida, btnEstUnidadeMedida.Text);
             }
             else
             {
@@ -269,16 +197,7 @@ namespace LaPizza
             if (FPedidoVenda == null || FPedidoVenda.IsDisposed)
             {
                 FPedidoVenda = new FormVenPedidoVenda();
-                FPedidoVenda.Text = btnEstUnidadeMedida.Text;
-                FPedidoVenda.lbNomeRotina.Text = btnEstUnidadeMedida.Text;
-                FPedidoVenda.Visible = false;
-                FPedidoVenda.TopLevel = false;
-                pnlPrincipal.Controls.Add(FPedidoVenda);
-                FPedidoVenda.Left = (pnlPrincipal.Width - FPedidoVenda.Width) / 2;
-                FPedidoVenda.Top = (pnlPrincipal.Height - FPedidoVenda.Height) / 2;
-                FPedidoVenda.FormBorderStyle = FormBorderStyle.Sizable;
-                FPedidoVenda.Visible = true;
-                FPedidoVenda.BringToFront();
+                CentralizaTela(FPedidoVenda, btnVenPedido.Text);
             }
             else
             {

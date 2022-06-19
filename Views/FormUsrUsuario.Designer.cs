@@ -1,7 +1,7 @@
 ﻿
 namespace LaPizza.Views
 {
-    partial class FrmEstUsuario
+    partial class FormUsrUsuario
     {
         /// <summary>
         /// Variável de designer necessária.

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace LaPizza.Views
 {
-    public partial class FrmEstUsuario : LaPizza.Views.FormBaseCadastros
+    public partial class FormUsrUsuario : LaPizza.Views.FormBaseCadastros
     {        
-        public FrmEstUsuario()
+        public FormUsrUsuario()
         {
             InitializeComponent();
             HabilitarComponentesPnlPrincipal(false);

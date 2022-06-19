@@ -331,6 +331,7 @@
             this.Name = "FormBaseCadastros";
             this.ShowIcon = false;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormBaseCadastros_Load);
             this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlNomeRotina.ResumeLayout(false);
             this.pnlAcoesMenu.ResumeLayout(false);

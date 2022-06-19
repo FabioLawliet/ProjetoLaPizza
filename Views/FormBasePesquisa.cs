@@ -77,10 +77,5 @@ namespace LaPizza.Views
                 txtPesquisa.Tag = dbGridPesquisa.Columns[1].Name.ToString();
             }
         }
-
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

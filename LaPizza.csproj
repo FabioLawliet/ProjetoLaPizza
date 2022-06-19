@@ -211,11 +211,11 @@
     <Compile Include="Views\FormEstSubGrupo.Designer.cs">
       <DependentUpon>FormEstSubGrupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FormEstUsuario.cs">
+    <Compile Include="Views\FormUsrUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FormEstUsuario.Designer.cs">
-      <DependentUpon>FormEstUsuario.cs</DependentUpon>
+    <Compile Include="Views\FormUsrUsuario.Designer.cs">
+      <DependentUpon>FormUsrUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
@@ -318,8 +318,8 @@
     <EmbeddedResource Include="Views\FormEstUnidadeMedida.resx">
       <DependentUpon>FormEstUnidadeMedida.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FormEstUsuario.resx">
-      <DependentUpon>FormEstUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormUsrUsuario.resx">
+      <DependentUpon>FormUsrUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

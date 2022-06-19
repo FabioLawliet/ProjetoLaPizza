@@ -342,9 +342,3 @@ VlrUnitarioTotal numeric(18,2),
 VlrDesconto numeric(18,2),
 VlrLiquidoTotal numeric(18,2),
 PrecoVenda numeric(18,2));
-
-
-
-
-
-
