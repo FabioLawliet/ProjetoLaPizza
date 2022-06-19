@@ -338,6 +338,7 @@
             this.btnEstEntradaMerc.Text = "Entrada de Mercadoria";
             this.btnEstEntradaMerc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstEntradaMerc.UseVisualStyleBackColor = false;
+            this.btnEstEntradaMerc.Click += new System.EventHandler(this.btnEstEntradaMerc_Click);
             // 
             // btnEstMovimentacaoSimplificada
             // 

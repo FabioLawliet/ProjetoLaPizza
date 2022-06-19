@@ -21,7 +21,7 @@ namespace LaPizza
         FormRecCliente FCliente;
         FormUsrUsuario FUsuario;
         FormVenPedidoVenda FPedidoVenda;
-
+        FormEntMercadoria FEntMercadoria;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -202,6 +202,19 @@ namespace LaPizza
             else
             {
                 FPedidoVenda.BringToFront();
+            }
+        }
+
+        private void btnEstEntradaMerc_Click(object sender, EventArgs e)
+        {
+            if (FEntMercadoria == null || FEntMercadoria.IsDisposed)
+            {
+                FEntMercadoria = new FormEntMercadoria();
+                CentralizaTela(FEntMercadoria, btnEstEntradaMerc.Text);
+            }
+            else
+            {
+                FEntMercadoria.BringToFront();
             }
         }
     }
