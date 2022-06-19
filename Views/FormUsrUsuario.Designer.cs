@@ -264,11 +264,11 @@ namespace LaPizza.Views
             this.lpTextId.Size = new System.Drawing.Size(62, 20);
             this.lpTextId.TabIndex = 46;
             // 
-            // FrmEstUsuario
+            // FormUsrUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(348, 283);
-            this.Name = "FrmEstUsuario";
+            this.Name = "FormUsrUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Usuários";
             this.pnlPrincipal.ResumeLayout(false);

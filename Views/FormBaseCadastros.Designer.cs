@@ -345,7 +345,6 @@
         private System.Windows.Forms.Splitter splitter1;
         public System.Windows.Forms.Panel pnlPrincipal;
         public System.Windows.Forms.Panel pnlNomeRotina;
-        public System.Windows.Forms.Panel pnlAcoesMenu;
         public System.Windows.Forms.Button btnAcaoAdicionar;
         public System.Windows.Forms.Button btnAcaoEditar;
         public System.Windows.Forms.Button btnAcaoConsultar;
@@ -359,5 +358,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         public System.Windows.Forms.Button btnConfirmar;
         public System.Windows.Forms.Splitter splitter3;
+        public System.Windows.Forms.Panel pnlAcoesMenu;
     }
 }
