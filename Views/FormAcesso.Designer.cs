@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlMostrarSenha = new System.Windows.Forms.Panel();
             this.pnlAcoesRodape = new System.Windows.Forms.Panel();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.btnSair = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lpText1 = new LaPizza.Controllers.LpText();
-            this.txtMarcaId = new LaPizza.Controllers.LpText();
+            this.txtSenha = new LaPizza.Controllers.LpText();
+            this.txtUsuario = new LaPizza.Controllers.LpText();
             this.lbId = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pnlLogo = new System.Windows.Forms.Panel();
@@ -51,11 +51,11 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.pnlMostrarSenha);
             this.panel3.Controls.Add(this.pnlAcoesRodape);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.lpText1);
-            this.panel3.Controls.Add(this.txtMarcaId);
+            this.panel3.Controls.Add(this.txtSenha);
+            this.panel3.Controls.Add(this.txtUsuario);
             this.panel3.Controls.Add(this.lbId);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 94);
@@ -63,15 +63,16 @@
             this.panel3.Size = new System.Drawing.Size(280, 161);
             this.panel3.TabIndex = 6;
             // 
-            // panel4
+            // pnlMostrarSenha
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BackgroundImage = global::LaPizza.Properties.Resources.SenhaVisivel;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel4.Location = new System.Drawing.Point(240, 77);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(18, 18);
-            this.panel4.TabIndex = 10;
+            this.pnlMostrarSenha.BackColor = System.Drawing.Color.White;
+            this.pnlMostrarSenha.BackgroundImage = global::LaPizza.Properties.Resources.SenhaVisivel;
+            this.pnlMostrarSenha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlMostrarSenha.Location = new System.Drawing.Point(240, 77);
+            this.pnlMostrarSenha.Name = "pnlMostrarSenha";
+            this.pnlMostrarSenha.Size = new System.Drawing.Size(18, 18);
+            this.pnlMostrarSenha.TabIndex = 10;
+            this.pnlMostrarSenha.Click += new System.EventHandler(this.pnlMostrarSenha_Click);
             // 
             // pnlAcoesRodape
             // 
@@ -142,31 +143,31 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Senha:";
             // 
-            // lpText1
+            // txtSenha
             // 
-            this.lpText1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText1.ForeColor = System.Drawing.Color.Black;
-            this.lpText1.Location = new System.Drawing.Point(15, 76);
-            this.lpText1.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText1.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText1.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText1.Name = "lpText1";
-            this.lpText1.Size = new System.Drawing.Size(248, 20);
-            this.lpText1.TabIndex = 7;
+            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSenha.ForeColor = System.Drawing.Color.Black;
+            this.txtSenha.Location = new System.Drawing.Point(15, 76);
+            this.txtSenha.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtSenha.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtSenha.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(248, 20);
+            this.txtSenha.TabIndex = 7;
             // 
-            // txtMarcaId
+            // txtUsuario
             // 
-            this.txtMarcaId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMarcaId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMarcaId.ForeColor = System.Drawing.Color.Black;
-            this.txtMarcaId.Location = new System.Drawing.Point(16, 31);
-            this.txtMarcaId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtMarcaId.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtMarcaId.Name = "txtMarcaId";
-            this.txtMarcaId.Size = new System.Drawing.Size(248, 20);
-            this.txtMarcaId.TabIndex = 6;
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtUsuario.ForeColor = System.Drawing.Color.Black;
+            this.txtUsuario.Location = new System.Drawing.Point(16, 31);
+            this.txtUsuario.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtUsuario.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtUsuario.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(248, 20);
+            this.txtUsuario.TabIndex = 6;
             // 
             // lbId
             // 
@@ -222,7 +223,7 @@
             this.MinimumSize = new System.Drawing.Size(296, 294);
             this.Name = "FormAcesso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Login";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.pnlAcoesRodape.ResumeLayout(false);
@@ -238,14 +239,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private Controllers.LpText lpText1;
-        private Controllers.LpText txtMarcaId;
+        private Controllers.LpText txtSenha;
+        private Controllers.LpText txtUsuario;
         private System.Windows.Forms.Label lbId;
         public System.Windows.Forms.Panel pnlAcoesRodape;
         public System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Splitter splitter2;
         public System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlMostrarSenha;
         private System.Windows.Forms.ImageList imageList1;
     }
 }
