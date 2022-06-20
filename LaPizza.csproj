@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\EntradaMercadoriaController.cs" />
     <Compile Include="Controllers\PedidoVendaController.cs" />
     <Compile Include="Controllers\UnidadeMedidaController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
@@ -135,6 +136,10 @@
     <Compile Include="Dao\Context.cs" />
     <Compile Include="Models\ClienteDto.cs" />
     <Compile Include="Models\ClienteModel.cs" />
+    <Compile Include="Models\EntradaMercadoriaDB.cs" />
+    <Compile Include="Models\EntradaMercadoriaDTO.cs" />
+    <Compile Include="Models\EntradaMercadoriaItemDB.cs" />
+    <Compile Include="Models\EntradaMercadoriaItemDTO.cs" />
     <Compile Include="Models\GrupoDB.cs" />
     <Compile Include="Models\GrupoDTO.cs" />
     <Compile Include="Models\MarcaDTO.cs" />

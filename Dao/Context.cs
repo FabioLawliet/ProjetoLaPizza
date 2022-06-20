@@ -19,5 +19,7 @@ namespace LaPizza.DAO
         public DbSet<ClienteDto> cliente { get; set; }
         public DbSet<PedidoVendaDB> pedidovenda { get; set; }
         public DbSet<PedidoVendaItemDB> pedidovendaItem { get; set; }
+        public DbSet<EntradaMercadoriaDB> entradamercadoria { get; set; }
+        public DbSet<EntradaMercadoriaItemDB> entradamercadoriaitem { get; set; }
     }
 }
