@@ -12,7 +12,7 @@ namespace LaPizza.Views.Pesquisas
 {
     public partial class FormRecClientePesquisa : LaPizza.Views.FormBasePesquisa
     {
-        public ClienteModel PesqCliente;
+        public ClienteDTO PesqCliente;
         public FormRecClientePesquisa()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace LaPizza.Views.Pesquisas
         public void CarregaListaGrid()
         {
             ClienteController controle = new ClienteController();
-            List<ClienteModel> lista = controle.GetClienteLista();
+            List<ClienteDTO> lista = controle.GetClienteLista();
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();
@@ -34,21 +34,21 @@ namespace LaPizza.Views.Pesquisas
 
         public void AjustaCamposGrid()
         {
-            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["id"].HeaderText = "Id";
-            dbGridPesquisa.Columns["id"].Width = 70;
+            dbGridPesquisa.Columns["idcliente"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idcliente"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idcliente"].Width = 70;
 
-            dbGridPesquisa.Columns["nome"].DisplayIndex = 1;
-            dbGridPesquisa.Columns["nome"].HeaderText = "Nome";
-            dbGridPesquisa.Columns["nome"].Width = 100;//384
+            dbGridPesquisa.Columns["nomerazao"].DisplayIndex = 1;
+            dbGridPesquisa.Columns["nomerazao"].HeaderText = "Nome / Razão";
+            dbGridPesquisa.Columns["nomerazao"].Width = 100;//384
 
-            dbGridPesquisa.Columns["sobrenome"].DisplayIndex = 2;
-            dbGridPesquisa.Columns["sobrenome"].HeaderText = "Sobrenome";
-            dbGridPesquisa.Columns["sobrenome"].Width = 100;
+            dbGridPesquisa.Columns["rgie"].DisplayIndex = 2;
+            dbGridPesquisa.Columns["rgie"].HeaderText = "RG / Insc. Estadual";
+            dbGridPesquisa.Columns["rgie"].Width = 110;
 
             dbGridPesquisa.Columns["cpfcnpj"].DisplayIndex = 3;
             dbGridPesquisa.Columns["cpfcnpj"].HeaderText = "CPF/CNPJ";
-            dbGridPesquisa.Columns["cpfcnpj"].Width = 100;
+            dbGridPesquisa.Columns["cpfcnpj"].Width = 90;
 
             dbGridPesquisa.Columns["telefone"].DisplayIndex = 4;
             dbGridPesquisa.Columns["telefone"].HeaderText = "Telefone";
@@ -77,7 +77,7 @@ namespace LaPizza.Views.Pesquisas
             dbGridPesquisa.DataSource = null;
 
             ClienteController controle = new ClienteController();
-            List<ClienteModel> lista = controle.GetClientePesquisaGrid(txtPesquisa.Text);
+            List<ClienteDTO> lista = controle.GetClientePesquisaGrid(txtPesquisa.Text);
 
             dbGridPesquisa.DataSource = lista;
             AjustaCamposGrid();
@@ -89,7 +89,7 @@ namespace LaPizza.Views.Pesquisas
              dbGridPesquisa.DataSource = null;
 
              ClienteController controle = new ClienteController();
-             List<ClienteModel> lista = controle.GetClientePesquisaGrid(txtPesquisa.Text);
+             List<ClienteDTO> lista = controle.GetClientePesquisaGrid(txtPesquisa.Text);
 
              dbGridPesquisa.DataSource = lista;
              AjustaCamposGrid();

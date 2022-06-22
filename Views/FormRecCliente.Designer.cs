@@ -30,19 +30,17 @@
         {
             this.txtClienteId = new LaPizza.Controllers.LpText();
             this.IdCliente = new System.Windows.Forms.Label();
-            this.txtClienteNome = new LaPizza.Controllers.LpText();
+            this.txtClienteNomeRazao = new LaPizza.Controllers.LpText();
             this.NomeCliente = new System.Windows.Forms.Label();
-            this.txtClienteSobrenome = new LaPizza.Controllers.LpText();
-            this.SobrenomeCliente = new System.Windows.Forms.Label();
             this.txtClienteCpfCnpj = new LaPizza.Controllers.LpText();
             this.CpfCliente = new System.Windows.Forms.Label();
             this.cbAtivo = new System.Windows.Forms.CheckBox();
             this.txtClienteEmail = new LaPizza.Controllers.LpText();
             this.EmailCliente = new System.Windows.Forms.Label();
-            this.txtClienteRg = new LaPizza.Controllers.LpText();
+            this.txtClienteRgIe = new LaPizza.Controllers.LpText();
             this.RgCliente = new System.Windows.Forms.Label();
             this.TelefoneCliente = new System.Windows.Forms.Label();
-            this.txtClienteTelefone = new LaPizza.Controllers.LpText();
+            this.txtClienteCelular = new LaPizza.Controllers.LpText();
             this.EnderecoCliente = new System.Windows.Forms.Label();
             this.txtClienteEndereco = new LaPizza.Controllers.LpText();
             this.NumeroCliente = new System.Windows.Forms.Label();
@@ -51,8 +49,16 @@
             this.txtClienteBairro = new LaPizza.Controllers.LpText();
             this.CidadeCliente = new System.Windows.Forms.Label();
             this.txtClienteCidade = new LaPizza.Controllers.LpText();
-            this.EstadoCliente = new System.Windows.Forms.Label();
             this.txtClienteEstado = new LaPizza.Controllers.LpText();
+            this.EstadoCliente = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIdCidade = new LaPizza.Controllers.LpText();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtClienteCep = new LaPizza.Controllers.LpText();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtClienteComplemento = new LaPizza.Controllers.LpText();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtClienteTelefone = new LaPizza.Controllers.LpText();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesMenu.SuspendLayout();
@@ -61,6 +67,14 @@
             // 
             // pnlPrincipal
             // 
+            this.pnlPrincipal.Controls.Add(this.label4);
+            this.pnlPrincipal.Controls.Add(this.txtClienteTelefone);
+            this.pnlPrincipal.Controls.Add(this.label3);
+            this.pnlPrincipal.Controls.Add(this.txtClienteComplemento);
+            this.pnlPrincipal.Controls.Add(this.label2);
+            this.pnlPrincipal.Controls.Add(this.txtClienteCep);
+            this.pnlPrincipal.Controls.Add(this.label1);
+            this.pnlPrincipal.Controls.Add(this.txtIdCidade);
             this.pnlPrincipal.Controls.Add(this.EstadoCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteEstado);
             this.pnlPrincipal.Controls.Add(this.CidadeCliente);
@@ -72,22 +86,20 @@
             this.pnlPrincipal.Controls.Add(this.EnderecoCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteEndereco);
             this.pnlPrincipal.Controls.Add(this.TelefoneCliente);
-            this.pnlPrincipal.Controls.Add(this.txtClienteTelefone);
+            this.pnlPrincipal.Controls.Add(this.txtClienteCelular);
             this.pnlPrincipal.Controls.Add(this.RgCliente);
-            this.pnlPrincipal.Controls.Add(this.txtClienteRg);
+            this.pnlPrincipal.Controls.Add(this.txtClienteRgIe);
             this.pnlPrincipal.Controls.Add(this.EmailCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteEmail);
             this.pnlPrincipal.Controls.Add(this.cbAtivo);
             this.pnlPrincipal.Controls.Add(this.CpfCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteCpfCnpj);
-            this.pnlPrincipal.Controls.Add(this.SobrenomeCliente);
-            this.pnlPrincipal.Controls.Add(this.txtClienteSobrenome);
             this.pnlPrincipal.Controls.Add(this.NomeCliente);
-            this.pnlPrincipal.Controls.Add(this.txtClienteNome);
+            this.pnlPrincipal.Controls.Add(this.txtClienteNomeRazao);
             this.pnlPrincipal.Controls.Add(this.IdCliente);
             this.pnlPrincipal.Controls.Add(this.txtClienteId);
             this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlPrincipal.Size = new System.Drawing.Size(647, 231);
+            this.pnlPrincipal.Size = new System.Drawing.Size(647, 290);
             // 
             // pnlNomeRotina
             // 
@@ -144,7 +156,7 @@
             // 
             // pnlAcoesRodape
             // 
-            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 328);
+            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 387);
             this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(5);
             this.pnlAcoesRodape.Size = new System.Drawing.Size(647, 49);
@@ -219,76 +231,51 @@
             // 
             this.IdCliente.AutoSize = true;
             this.IdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.IdCliente.Location = new System.Drawing.Point(11, 6);
+            this.IdCliente.Location = new System.Drawing.Point(13, 6);
             this.IdCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IdCliente.Name = "IdCliente";
             this.IdCliente.Size = new System.Drawing.Size(19, 17);
             this.IdCliente.TabIndex = 16;
             this.IdCliente.Text = "Id";
             // 
-            // txtClienteNome
+            // txtClienteNomeRazao
             // 
-            this.txtClienteNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClienteNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClienteNome.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteNome.Location = new System.Drawing.Point(95, 25);
-            this.txtClienteNome.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtClienteNome.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtClienteNome.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtClienteNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtClienteNome.Name = "txtClienteNome";
-            this.txtClienteNome.Size = new System.Drawing.Size(191, 22);
-            this.txtClienteNome.TabIndex = 1;
-            this.txtClienteNome.TextChanged += new System.EventHandler(this.txtClienteNome_TextChanged);
+            this.txtClienteNomeRazao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClienteNomeRazao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClienteNomeRazao.ForeColor = System.Drawing.Color.Black;
+            this.txtClienteNomeRazao.Location = new System.Drawing.Point(95, 25);
+            this.txtClienteNomeRazao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtClienteNomeRazao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtClienteNomeRazao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteNomeRazao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClienteNomeRazao.Name = "txtClienteNomeRazao";
+            this.txtClienteNomeRazao.Size = new System.Drawing.Size(472, 22);
+            this.txtClienteNomeRazao.TabIndex = 1;
+            this.txtClienteNomeRazao.TextChanged += new System.EventHandler(this.txtClienteNome_TextChanged);
             // 
             // NomeCliente
             // 
             this.NomeCliente.AutoSize = true;
             this.NomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.NomeCliente.Location = new System.Drawing.Point(91, 6);
+            this.NomeCliente.Location = new System.Drawing.Point(94, 6);
             this.NomeCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NomeCliente.Name = "NomeCliente";
-            this.NomeCliente.Size = new System.Drawing.Size(45, 17);
+            this.NomeCliente.Size = new System.Drawing.Size(98, 17);
             this.NomeCliente.TabIndex = 18;
-            this.NomeCliente.Text = "Nome";
-            // 
-            // txtClienteSobrenome
-            // 
-            this.txtClienteSobrenome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClienteSobrenome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClienteSobrenome.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteSobrenome.Location = new System.Drawing.Point(289, 25);
-            this.txtClienteSobrenome.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtClienteSobrenome.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtClienteSobrenome.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtClienteSobrenome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtClienteSobrenome.Name = "txtClienteSobrenome";
-            this.txtClienteSobrenome.Size = new System.Drawing.Size(191, 22);
-            this.txtClienteSobrenome.TabIndex = 2;
-            // 
-            // SobrenomeCliente
-            // 
-            this.SobrenomeCliente.AutoSize = true;
-            this.SobrenomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.SobrenomeCliente.Location = new System.Drawing.Point(285, 6);
-            this.SobrenomeCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.SobrenomeCliente.Name = "SobrenomeCliente";
-            this.SobrenomeCliente.Size = new System.Drawing.Size(81, 17);
-            this.SobrenomeCliente.TabIndex = 20;
-            this.SobrenomeCliente.Text = "Sobrenome";
+            this.NomeCliente.Text = "Nome / Razão";
             // 
             // txtClienteCpfCnpj
             // 
             this.txtClienteCpfCnpj.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteCpfCnpj.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteCpfCnpj.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteCpfCnpj.Location = new System.Drawing.Point(485, 25);
+            this.txtClienteCpfCnpj.Location = new System.Drawing.Point(12, 68);
             this.txtClienteCpfCnpj.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteCpfCnpj.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteCpfCnpj.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteCpfCnpj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteCpfCnpj.Name = "txtClienteCpfCnpj";
-            this.txtClienteCpfCnpj.Size = new System.Drawing.Size(151, 22);
+            this.txtClienteCpfCnpj.Size = new System.Drawing.Size(175, 22);
             this.txtClienteCpfCnpj.TabIndex = 3;
             this.txtClienteCpfCnpj.Leave += new System.EventHandler(this.txtClienteCpfCnpj_Leave);
             // 
@@ -296,7 +283,7 @@
             // 
             this.CpfCliente.AutoSize = true;
             this.CpfCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.CpfCliente.Location = new System.Drawing.Point(480, 5);
+            this.CpfCliente.Location = new System.Drawing.Point(13, 49);
             this.CpfCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CpfCliente.Name = "CpfCliente";
             this.CpfCliente.Size = new System.Drawing.Size(73, 17);
@@ -307,11 +294,11 @@
             // 
             this.cbAtivo.AutoSize = true;
             this.cbAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.cbAtivo.Location = new System.Drawing.Point(391, 167);
+            this.cbAtivo.Location = new System.Drawing.Point(573, 26);
             this.cbAtivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbAtivo.Name = "cbAtivo";
             this.cbAtivo.Size = new System.Drawing.Size(69, 21);
-            this.cbAtivo.TabIndex = 12;
+            this.cbAtivo.TabIndex = 2;
             this.cbAtivo.Text = "Ativo?";
             this.cbAtivo.UseVisualStyleBackColor = true;
             // 
@@ -320,82 +307,82 @@
             this.txtClienteEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteEmail.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteEmail.Location = new System.Drawing.Point(209, 71);
+            this.txtClienteEmail.Location = new System.Drawing.Point(407, 68);
             this.txtClienteEmail.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteEmail.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteEmail.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteEmail.Name = "txtClienteEmail";
-            this.txtClienteEmail.Size = new System.Drawing.Size(271, 22);
+            this.txtClienteEmail.Size = new System.Drawing.Size(228, 22);
             this.txtClienteEmail.TabIndex = 5;
             // 
             // EmailCliente
             // 
             this.EmailCliente.AutoSize = true;
             this.EmailCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.EmailCliente.Location = new System.Drawing.Point(205, 50);
+            this.EmailCliente.Location = new System.Drawing.Point(406, 49);
             this.EmailCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EmailCliente.Name = "EmailCliente";
             this.EmailCliente.Size = new System.Drawing.Size(47, 17);
             this.EmailCliente.TabIndex = 25;
             this.EmailCliente.Text = "E-mail";
             // 
-            // txtClienteRg
+            // txtClienteRgIe
             // 
-            this.txtClienteRg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClienteRg.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClienteRg.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteRg.Location = new System.Drawing.Point(13, 71);
-            this.txtClienteRg.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtClienteRg.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtClienteRg.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtClienteRg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtClienteRg.Name = "txtClienteRg";
-            this.txtClienteRg.Size = new System.Drawing.Size(191, 22);
-            this.txtClienteRg.TabIndex = 4;
+            this.txtClienteRgIe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClienteRgIe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClienteRgIe.ForeColor = System.Drawing.Color.Black;
+            this.txtClienteRgIe.Location = new System.Drawing.Point(193, 68);
+            this.txtClienteRgIe.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtClienteRgIe.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtClienteRgIe.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteRgIe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClienteRgIe.Name = "txtClienteRgIe";
+            this.txtClienteRgIe.Size = new System.Drawing.Size(208, 22);
+            this.txtClienteRgIe.TabIndex = 4;
             // 
             // RgCliente
             // 
             this.RgCliente.AutoSize = true;
             this.RgCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.RgCliente.Location = new System.Drawing.Point(7, 50);
+            this.RgCliente.Location = new System.Drawing.Point(192, 50);
             this.RgCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RgCliente.Name = "RgCliente";
             this.RgCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RgCliente.Size = new System.Drawing.Size(29, 17);
+            this.RgCliente.Size = new System.Drawing.Size(129, 17);
             this.RgCliente.TabIndex = 27;
-            this.RgCliente.Text = "RG";
+            this.RgCliente.Text = "RG / Insc. Estadual";
             // 
             // TelefoneCliente
             // 
             this.TelefoneCliente.AutoSize = true;
             this.TelefoneCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TelefoneCliente.Location = new System.Drawing.Point(480, 52);
+            this.TelefoneCliente.Location = new System.Drawing.Point(141, 234);
             this.TelefoneCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TelefoneCliente.Name = "TelefoneCliente";
-            this.TelefoneCliente.Size = new System.Drawing.Size(112, 17);
+            this.TelefoneCliente.Size = new System.Drawing.Size(52, 17);
             this.TelefoneCliente.TabIndex = 29;
-            this.TelefoneCliente.Text = "Telefone/Celular";
+            this.TelefoneCliente.Text = "Celular";
             // 
-            // txtClienteTelefone
+            // txtClienteCelular
             // 
-            this.txtClienteTelefone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClienteTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtClienteTelefone.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteTelefone.Location = new System.Drawing.Point(485, 71);
-            this.txtClienteTelefone.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtClienteTelefone.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtClienteTelefone.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.txtClienteTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtClienteTelefone.Name = "txtClienteTelefone";
-            this.txtClienteTelefone.Size = new System.Drawing.Size(151, 22);
-            this.txtClienteTelefone.TabIndex = 6;
+            this.txtClienteCelular.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClienteCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClienteCelular.ForeColor = System.Drawing.Color.Black;
+            this.txtClienteCelular.Location = new System.Drawing.Point(142, 253);
+            this.txtClienteCelular.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtClienteCelular.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtClienteCelular.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteCelular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClienteCelular.Name = "txtClienteCelular";
+            this.txtClienteCelular.Size = new System.Drawing.Size(123, 22);
+            this.txtClienteCelular.TabIndex = 15;
             // 
             // EnderecoCliente
             // 
             this.EnderecoCliente.AutoSize = true;
             this.EnderecoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.EnderecoCliente.Location = new System.Drawing.Point(7, 98);
+            this.EnderecoCliente.Location = new System.Drawing.Point(13, 93);
             this.EnderecoCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EnderecoCliente.Name = "EnderecoCliente";
             this.EnderecoCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -408,20 +395,20 @@
             this.txtClienteEndereco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteEndereco.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteEndereco.Location = new System.Drawing.Point(13, 119);
+            this.txtClienteEndereco.Location = new System.Drawing.Point(12, 110);
             this.txtClienteEndereco.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteEndereco.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteEndereco.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteEndereco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteEndereco.Name = "txtClienteEndereco";
-            this.txtClienteEndereco.Size = new System.Drawing.Size(364, 22);
-            this.txtClienteEndereco.TabIndex = 7;
+            this.txtClienteEndereco.Size = new System.Drawing.Size(481, 22);
+            this.txtClienteEndereco.TabIndex = 6;
             // 
             // NumeroCliente
             // 
             this.NumeroCliente.AutoSize = true;
             this.NumeroCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.NumeroCliente.Location = new System.Drawing.Point(381, 100);
+            this.NumeroCliente.Location = new System.Drawing.Point(497, 91);
             this.NumeroCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NumeroCliente.Name = "NumeroCliente";
             this.NumeroCliente.Size = new System.Drawing.Size(58, 17);
@@ -433,20 +420,20 @@
             this.txtClienteNumero.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteNumero.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteNumero.Location = new System.Drawing.Point(383, 119);
+            this.txtClienteNumero.Location = new System.Drawing.Point(499, 110);
             this.txtClienteNumero.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteNumero.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteNumero.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteNumero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteNumero.Name = "txtClienteNumero";
-            this.txtClienteNumero.Size = new System.Drawing.Size(96, 22);
-            this.txtClienteNumero.TabIndex = 8;
+            this.txtClienteNumero.Size = new System.Drawing.Size(136, 22);
+            this.txtClienteNumero.TabIndex = 7;
             // 
             // BairroCliente
             // 
             this.BairroCliente.AutoSize = true;
             this.BairroCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.BairroCliente.Location = new System.Drawing.Point(483, 100);
+            this.BairroCliente.Location = new System.Drawing.Point(11, 138);
             this.BairroCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BairroCliente.Name = "BairroCliente";
             this.BairroCliente.Size = new System.Drawing.Size(46, 17);
@@ -458,20 +445,20 @@
             this.txtClienteBairro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteBairro.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteBairro.Location = new System.Drawing.Point(485, 119);
+            this.txtClienteBairro.Location = new System.Drawing.Point(12, 157);
             this.txtClienteBairro.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteBairro.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteBairro.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteBairro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteBairro.Name = "txtClienteBairro";
             this.txtClienteBairro.Size = new System.Drawing.Size(151, 22);
-            this.txtClienteBairro.TabIndex = 9;
+            this.txtClienteBairro.TabIndex = 8;
             // 
             // CidadeCliente
             // 
             this.CidadeCliente.AutoSize = true;
             this.CidadeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.CidadeCliente.Location = new System.Drawing.Point(7, 146);
+            this.CidadeCliente.Location = new System.Drawing.Point(90, 188);
             this.CidadeCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CidadeCliente.Name = "CidadeCliente";
             this.CidadeCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -484,44 +471,145 @@
             this.txtClienteCidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteCidade.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteCidade.Location = new System.Drawing.Point(13, 167);
+            this.txtClienteCidade.Location = new System.Drawing.Point(89, 207);
             this.txtClienteCidade.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteCidade.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteCidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteCidade.Name = "txtClienteCidade";
-            this.txtClienteCidade.Size = new System.Drawing.Size(272, 22);
-            this.txtClienteCidade.TabIndex = 10;
-            // 
-            // EstadoCliente
-            // 
-            this.EstadoCliente.AutoSize = true;
-            this.EstadoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.EstadoCliente.Location = new System.Drawing.Point(287, 146);
-            this.EstadoCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.EstadoCliente.Name = "EstadoCliente";
-            this.EstadoCliente.Size = new System.Drawing.Size(52, 17);
-            this.EstadoCliente.TabIndex = 39;
-            this.EstadoCliente.Text = "Estado";
+            this.txtClienteCidade.Size = new System.Drawing.Size(381, 22);
+            this.txtClienteCidade.TabIndex = 11;
             // 
             // txtClienteEstado
             // 
             this.txtClienteEstado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteEstado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteEstado.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteEstado.Location = new System.Drawing.Point(289, 166);
+            this.txtClienteEstado.Location = new System.Drawing.Point(476, 207);
             this.txtClienteEstado.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteEstado.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteEstado.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteEstado.Name = "txtClienteEstado";
-            this.txtClienteEstado.Size = new System.Drawing.Size(96, 22);
-            this.txtClienteEstado.TabIndex = 11;
+            this.txtClienteEstado.Size = new System.Drawing.Size(57, 22);
+            this.txtClienteEstado.TabIndex = 12;
+            // 
+            // EstadoCliente
+            // 
+            this.EstadoCliente.AutoSize = true;
+            this.EstadoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.EstadoCliente.Location = new System.Drawing.Point(476, 188);
+            this.EstadoCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EstadoCliente.Name = "EstadoCliente";
+            this.EstadoCliente.Size = new System.Drawing.Size(52, 17);
+            this.EstadoCliente.TabIndex = 39;
+            this.EstadoCliente.Text = "Estado";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label1.Location = new System.Drawing.Point(13, 188);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "IdCidade";
+            // 
+            // txtIdCidade
+            // 
+            this.txtIdCidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIdCidade.ForeColor = System.Drawing.Color.Black;
+            this.txtIdCidade.Location = new System.Drawing.Point(12, 207);
+            this.txtIdCidade.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtIdCidade.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtIdCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtIdCidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdCidade.Name = "txtIdCidade";
+            this.txtIdCidade.Size = new System.Drawing.Size(77, 22);
+            this.txtIdCidade.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label2.Location = new System.Drawing.Point(536, 188);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 17);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "CEP";
+            // 
+            // txtClienteCep
+            // 
+            this.txtClienteCep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClienteCep.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClienteCep.ForeColor = System.Drawing.Color.Black;
+            this.txtClienteCep.Location = new System.Drawing.Point(539, 207);
+            this.txtClienteCep.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtClienteCep.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtClienteCep.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteCep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClienteCep.Name = "txtClienteCep";
+            this.txtClienteCep.Size = new System.Drawing.Size(96, 22);
+            this.txtClienteCep.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label3.Location = new System.Drawing.Point(170, 140);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(94, 17);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Complemento";
+            // 
+            // txtClienteComplemento
+            // 
+            this.txtClienteComplemento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClienteComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClienteComplemento.ForeColor = System.Drawing.Color.Black;
+            this.txtClienteComplemento.Location = new System.Drawing.Point(170, 157);
+            this.txtClienteComplemento.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtClienteComplemento.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtClienteComplemento.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteComplemento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClienteComplemento.Name = "txtClienteComplemento";
+            this.txtClienteComplemento.Size = new System.Drawing.Size(465, 22);
+            this.txtClienteComplemento.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label4.Location = new System.Drawing.Point(10, 234);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Telefone";
+            // 
+            // txtClienteTelefone
+            // 
+            this.txtClienteTelefone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClienteTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClienteTelefone.ForeColor = System.Drawing.Color.Black;
+            this.txtClienteTelefone.Location = new System.Drawing.Point(12, 253);
+            this.txtClienteTelefone.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtClienteTelefone.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtClienteTelefone.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtClienteTelefone.Name = "txtClienteTelefone";
+            this.txtClienteTelefone.Size = new System.Drawing.Size(123, 22);
+            this.txtClienteTelefone.TabIndex = 14;
             // 
             // FormRecCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(647, 377);
+            this.ClientSize = new System.Drawing.Size(647, 436);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormRecCliente";
@@ -541,9 +629,7 @@
 
         private Controllers.LpText txtClienteId;
         private System.Windows.Forms.Label IdCliente;
-        private Controllers.LpText txtClienteNome;
-        private System.Windows.Forms.Label SobrenomeCliente;
-        private Controllers.LpText txtClienteSobrenome;
+        private Controllers.LpText txtClienteNomeRazao;
         private System.Windows.Forms.Label NomeCliente;
         private System.Windows.Forms.Label CpfCliente;
         private Controllers.LpText txtClienteCpfCnpj;
@@ -551,18 +637,26 @@
         private System.Windows.Forms.Label EmailCliente;
         private Controllers.LpText txtClienteEmail;
         private System.Windows.Forms.Label RgCliente;
-        private Controllers.LpText txtClienteRg;
+        private Controllers.LpText txtClienteRgIe;
         private System.Windows.Forms.Label TelefoneCliente;
-        private Controllers.LpText txtClienteTelefone;
+        private Controllers.LpText txtClienteCelular;
         private System.Windows.Forms.Label BairroCliente;
         private Controllers.LpText txtClienteBairro;
         private System.Windows.Forms.Label NumeroCliente;
         private Controllers.LpText txtClienteNumero;
         private System.Windows.Forms.Label EnderecoCliente;
         private Controllers.LpText txtClienteEndereco;
-        private System.Windows.Forms.Label EstadoCliente;
-        private Controllers.LpText txtClienteEstado;
         private System.Windows.Forms.Label CidadeCliente;
         private Controllers.LpText txtClienteCidade;
+        private System.Windows.Forms.Label label1;
+        private Controllers.LpText txtIdCidade;
+        private System.Windows.Forms.Label EstadoCliente;
+        private Controllers.LpText txtClienteEstado;
+        private System.Windows.Forms.Label label4;
+        private Controllers.LpText txtClienteTelefone;
+        private System.Windows.Forms.Label label3;
+        private Controllers.LpText txtClienteComplemento;
+        private System.Windows.Forms.Label label2;
+        private Controllers.LpText txtClienteCep;
     }
 }

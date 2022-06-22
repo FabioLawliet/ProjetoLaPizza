@@ -26,34 +26,40 @@ namespace LaPizza.Views
             if (Ativa)
             {
                 txtClienteId.Enabled = false;
-                txtClienteNome.Enabled = true;
-                txtClienteSobrenome.Enabled = true;
+                txtClienteNomeRazao.Enabled = true;
                 txtClienteCpfCnpj.Enabled = true;
-                txtClienteRg.Enabled = true;
+                txtClienteRgIe.Enabled = true;
                 txtClienteEmail.Enabled = true;
-                txtClienteTelefone.Enabled = true;
                 txtClienteEndereco.Enabled = true;
                 txtClienteNumero.Enabled = true;
                 txtClienteBairro.Enabled = true;
+                txtClienteComplemento.Enabled = true;
+                txtIdCidade.Enabled = true;
                 txtClienteCidade.Enabled = true;
                 txtClienteEstado.Enabled = true;
+                txtClienteCep.Enabled = true;
+                txtClienteCelular.Enabled = true;
+                txtClienteTelefone.Enabled = true;
                 cbAtivo.Enabled = true;
                 cbAtivo.Checked = true;
             }
             else
             {
                 txtClienteId.Enabled = false;
-                txtClienteNome.Enabled = false;
-                txtClienteSobrenome.Enabled = false;
-                txtClienteCpfCnpj.Enabled = false;
-                txtClienteRg.Enabled = false;
-                txtClienteEmail.Enabled = false;
-                txtClienteTelefone.Enabled = false;
-                txtClienteEndereco.Enabled = false;
-                txtClienteNumero.Enabled = false;
-                txtClienteBairro.Enabled = false;
-                txtClienteCidade.Enabled = false;
-                txtClienteEstado.Enabled = false;
+                txtClienteNomeRazao.Enabled = true;
+                txtClienteCpfCnpj.Enabled = true;
+                txtClienteRgIe.Enabled = true;
+                txtClienteEmail.Enabled = true;
+                txtClienteEndereco.Enabled = true;
+                txtClienteNumero.Enabled = true;
+                txtClienteBairro.Enabled = true;
+                txtClienteComplemento.Enabled = true;
+                txtIdCidade.Enabled = true;
+                txtClienteCidade.Enabled = true;
+                txtClienteEstado.Enabled = true;
+                txtClienteCep.Enabled = true;
+                txtClienteCelular.Enabled = true;
+                txtClienteTelefone.Enabled = true;
                 cbAtivo.Enabled = false;
                 cbAtivo.Checked = true;
             }
@@ -62,17 +68,20 @@ namespace LaPizza.Views
         private void LimpaComponentes()
         {
             txtClienteId.Text = string.Empty;
-            txtClienteNome.Text = string.Empty;
-            txtClienteSobrenome.Text = string.Empty;
+            txtClienteNomeRazao.Text = string.Empty;
             txtClienteCpfCnpj.Text = string.Empty;
-            txtClienteRg.Text = string.Empty;
+            txtClienteRgIe.Text = string.Empty;
             txtClienteEmail.Text = string.Empty;
-            txtClienteTelefone.Text = string.Empty;
             txtClienteEndereco.Text = string.Empty;
             txtClienteNumero.Text = string.Empty;
             txtClienteBairro.Text = string.Empty;
+            txtClienteComplemento.Text = string.Empty;
+            txtIdCidade.Text = string.Empty;
             txtClienteCidade.Text = string.Empty;
             txtClienteEstado.Text = string.Empty;
+            txtClienteCep.Text = string.Empty;
+            txtClienteTelefone.Text = string.Empty;
+            txtClienteCelular.Text = string.Empty;
             cbAtivo.Checked = true;
         }
 
@@ -95,40 +104,34 @@ namespace LaPizza.Views
             if (txtClienteId.Text != string.Empty)
                 idCliente = Convert.ToInt32(txtClienteId.Text);
 
-            if (txtClienteNome.Text == string.Empty)
+            if (txtClienteNomeRazao.Text == string.Empty)
             {
                 todosPreenchidos = false;
-                auxMessage += "O Campo Nome não foi preenchido corretamente! \n";
-            }
-
-            if (txtClienteSobrenome.Text == string.Empty)
-            {
-                todosPreenchidos = false;
-                auxMessage = "O campo Sobrenome não foi preenchido corretamente! \n";
+                auxMessage += "O Campo Nome / Razão não foi preenchido corretamente! \n";
             }
 
             if(txtClienteCpfCnpj.Text == String.Empty)
             {
                 todosPreenchidos = false;
-                auxMessage = "* O campo CPF não foi preenchido corretamente! \n";
+                auxMessage = "* O campo CPF / CNPJ não foi preenchido corretamente! \n";
             }
 
-            /*if (clienteControle.ExisteClienteCpf(txtClienteCpfCnpj.Text))
+            if(txtClienteRgIe.Text == string.Empty)
             {
                 todosPreenchidos = false;
-                auxMessage += "* O Campo CPF já existe! \n";
-            }*/
-
-            if(txtClienteRg.Text == string.Empty)
-            {
-                todosPreenchidos = false;
-                auxMessage = "* O Campo RG não foi preenchido corretamente! \n";
+                auxMessage = "* O Campo RG / Insc. Estadual não foi preenchido corretamente! \n";
             }
             
             if(txtClienteEmail.Text == string.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage = "* O Campo E-mail não foi preenchido corretamente! \n";
+            }
+
+            if(txtClienteEndereco.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "*O Campo Endereço não foi preenchido corretamente! \n";
             }
 
             if(txtClienteNumero.Text == string.Empty)
@@ -143,6 +146,18 @@ namespace LaPizza.Views
                 auxMessage = "* O Campo Bairro não foi preenchido corretamente! \n";
             }
 
+            if(txtClienteComplemento.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo Complemento não foi preenchido corretamente! \n";
+            }
+
+            if(txtIdCidade.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo IdCidade não foi preenchido corretamente! \n";
+            }
+
             if(txtClienteCidade.Text == string.Empty)
             {
                 todosPreenchidos = false;
@@ -153,6 +168,12 @@ namespace LaPizza.Views
             {
                 todosPreenchidos = false;
                 auxMessage = "* O Campo Estado não foi preenchido corretamente! \n";
+            }
+
+            if(txtClienteCep.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo CEP não foi preenchido corretamente! \n";
             }
 
 
@@ -169,10 +190,10 @@ namespace LaPizza.Views
 
             HabilitarComponentesPnlCliente(true);
 
-            if (txtClienteNome.CanFocus)
+            if (txtClienteNomeRazao.CanFocus)
             {
-                txtClienteNome.Focus();
-                txtClienteNome.Select(txtClienteNome.Text.Length, 0);
+                txtClienteNomeRazao.Focus();
+                txtClienteNomeRazao.Select(txtClienteNomeRazao.Text.Length, 0);
             }
         }
 
@@ -186,20 +207,20 @@ namespace LaPizza.Views
             if (TodosOsCamposPreenchidos())
             {
                 ClienteController Ccontrole = new ClienteController();
-                ClienteDto Cliente = new ClienteDto();
+                ClienteDB Cliente = new ClienteDB();
 
-                Cliente.id = Int32.Parse(txtClienteId.Text);
-                Cliente.nome = txtClienteNome.Text;
-                Cliente.sobrenome = txtClienteSobrenome.Text;
+                Cliente.idcliente = Int32.Parse(txtClienteId.Text);
+                Cliente.nomerazao = txtClienteNomeRazao.Text;
                 Cliente.cpfcnpj = txtClienteCpfCnpj.Text;
-                Cliente.rg = txtClienteRg.Text;
+                Cliente.rgie = txtClienteRgIe.Text;
                 Cliente.email = txtClienteEmail.Text;
-                Cliente.telefone = txtClienteTelefone.Text;
                 Cliente.endereco = txtClienteEndereco.Text;
                 Cliente.numero = txtClienteNumero.Text;
-                Cliente.cidade = txtClienteCidade.Text;
+                Cliente.idcidade = Int32.Parse(txtIdCidade.Text);
                 Cliente.bairro = txtClienteBairro.Text;
-                Cliente.estado = txtClienteEstado.Text;
+                Cliente.complemento = txtClienteComplemento.Text;
+                Cliente.telefone = txtClienteTelefone.Text;
+                Cliente.celular = txtClienteCelular.Text;
                 Cliente.ativo = cbAtivo.Checked;
 
                 if (MenuStatus == MStatus.Adicionando)
@@ -207,7 +228,7 @@ namespace LaPizza.Views
                 else if (MenuStatus == MStatus.Editando)
                     Ccontrole.Editar(Cliente);
                 else if (MenuStatus == MStatus.Excluindo)
-                    Ccontrole.Excluir(Cliente.id);
+                    Ccontrole.Excluir(Cliente.idcliente);
 
                 LimpaComponentes();
                 HabilitarComponentesPnlCliente(false);
@@ -224,18 +245,18 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlCliente(true);
 
-                txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
-                txtClienteNome.Text = Pesquisa.PesqCliente.nome;
-                txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
+                txtClienteId.Text = Pesquisa.PesqCliente.idcliente.ToString();
+                txtClienteNomeRazao.Text = Pesquisa.PesqCliente.nomerazao;
                 txtClienteCpfCnpj.Text = Pesquisa.PesqCliente.cpfcnpj;
-                txtClienteRg.Text = Pesquisa.PesqCliente.rg;
+                txtClienteRgIe.Text = Pesquisa.PesqCliente.rgie;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
-                txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
                 txtClienteEndereco.Text = Pesquisa.PesqCliente.endereco;
                 txtClienteNumero.Text = Pesquisa.PesqCliente.numero;
                 txtClienteBairro.Text = Pesquisa.PesqCliente.bairro;
-                txtClienteCidade.Text = Pesquisa.PesqCliente.cidade;
-                txtClienteEstado.Text = Pesquisa.PesqCliente.estado;
+                txtClienteComplemento.Text = Pesquisa.PesqCliente.complemento;
+                txtIdCidade.Text = Pesquisa.PesqCliente.idcidade.ToString();
+                txtClienteCelular.Text = Pesquisa.PesqCliente.celular;
+                txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
                 cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
             }
             else
@@ -244,10 +265,10 @@ namespace LaPizza.Views
                 return;
             }
 
-            if (txtClienteNome.CanFocus)
+            if (txtClienteNomeRazao.CanFocus)
             {
-                txtClienteNome.Focus();
-                txtClienteNome.Select(0, txtClienteNome.Text.Length);
+                txtClienteNomeRazao.Focus();
+                txtClienteNomeRazao.Select(0, txtClienteNomeRazao.Text.Length);
             }
         }
 
@@ -260,18 +281,19 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlCliente(false);
 
-                txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
-                txtClienteNome.Text = Pesquisa.PesqCliente.nome;
-                txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
+                txtClienteId.Text = Pesquisa.PesqCliente.idcliente.ToString();
+                txtClienteNomeRazao.Text = Pesquisa.PesqCliente.nomerazao;
                 txtClienteCpfCnpj.Text = Pesquisa.PesqCliente.cpfcnpj;
-                txtClienteRg.Text = Pesquisa.PesqCliente.rg;
+                txtClienteRgIe.Text = Pesquisa.PesqCliente.rgie;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
+                txtClienteCelular.Text = Pesquisa.PesqCliente.celular;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
                 txtClienteEndereco.Text = Pesquisa.PesqCliente.endereco;
+                txtClienteComplemento.Text = Pesquisa.PesqCliente.complemento;
                 txtClienteNumero.Text = Pesquisa.PesqCliente.numero;
+                txtIdCidade.Text = Pesquisa.PesqCliente.idcidade.ToString();
+                txtClienteCep.Text = Pesquisa.PesqCliente.cep;
                 txtClienteBairro.Text = Pesquisa.PesqCliente.bairro;
-                txtClienteCidade.Text = Pesquisa.PesqCliente.cidade;
-                txtClienteEstado.Text = Pesquisa.PesqCliente.estado;
                 cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
 
             }
@@ -294,18 +316,18 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlCliente(false);
 
-                txtClienteId.Text = Pesquisa.PesqCliente.id.ToString();
-                txtClienteNome.Text = Pesquisa.PesqCliente.nome;
-                txtClienteSobrenome.Text = Pesquisa.PesqCliente.sobrenome;
+                txtClienteId.Text = Pesquisa.PesqCliente.idcliente.ToString();
+                txtClienteNomeRazao.Text = Pesquisa.PesqCliente.nomerazao;
                 txtClienteCpfCnpj.Text = Pesquisa.PesqCliente.cpfcnpj;
-                txtClienteRg.Text = Pesquisa.PesqCliente.rg;
+                txtClienteRgIe.Text = Pesquisa.PesqCliente.rgie;
                 txtClienteEmail.Text = Pesquisa.PesqCliente.email;
-                txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
                 txtClienteEndereco.Text = Pesquisa.PesqCliente.endereco;
                 txtClienteNumero.Text = Pesquisa.PesqCliente.numero;
                 txtClienteBairro.Text = Pesquisa.PesqCliente.bairro;
-                txtClienteCidade.Text = Pesquisa.PesqCliente.cidade;
-                txtClienteEstado.Text = Pesquisa.PesqCliente.estado;
+                txtClienteComplemento.Text = Pesquisa.PesqCliente.complemento;
+                txtIdCidade.Text = Pesquisa.PesqCliente.idcidade.ToString();
+                txtClienteCelular.Text = Pesquisa.PesqCliente.celular;
+                txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
                 cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
 
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -322,7 +344,7 @@ namespace LaPizza.Views
 
         private void txtClienteNome_TextChanged(object sender, EventArgs e)
         {
-            if (txtClienteNome.Text != String.Empty && txtClienteNome.Enabled)
+            if (txtClienteNomeRazao.Text != String.Empty && txtClienteNomeRazao.Enabled)
                 HabilitaAcao(TipoAcao.Confirmar, true);
             else
                 HabilitaAcao(TipoAcao.Confirmar, false);

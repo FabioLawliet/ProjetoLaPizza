@@ -11,7 +11,7 @@ namespace LaPizza.Controllers
     public class ClienteController
     {
 
-        public void Adicionar(ClienteDto Cliente)
+        public void Adicionar(ClienteDB Cliente)
         {
             Context db = new Context();
             try
@@ -34,13 +34,13 @@ namespace LaPizza.Controllers
             if (cliente is null)
                 return 1;
             else
-                return db.cliente.Max(p => p.id) + 1;
+                return db.cliente.Max(p => p.idcliente) + 1;
         }
 
         public bool ExisteClienteCpf(string Cpfcnpj)
         {
             Context db = new Context();
-            ClienteDto cliente = db.cliente.Where(p => p.cpfcnpj == Cpfcnpj).FirstOrDefault();
+            ClienteDB cliente = db.cliente.Where(p => p.cpfcnpj == Cpfcnpj).FirstOrDefault();
 
             if (cliente != null && cliente.cpfcnpj == Cpfcnpj)
                 return true;
@@ -48,27 +48,26 @@ namespace LaPizza.Controllers
                 return false;
         }
 
-        public void Editar(ClienteDto Cliente)
+        public void Editar(ClienteDB Cliente)
         {
             Context db = new Context();
-            ClienteDto cliente = db.cliente.FirstOrDefault(p => p.id == Cliente.id);
+            ClienteDB cliente = db.cliente.FirstOrDefault(p => p.idcliente == Cliente.idcliente);
 
             if (cliente != null)
             {
                 try
                 {
-                    cliente.id = Cliente.id;
-                    cliente.nome = Cliente.nome;
-                    cliente.sobrenome = Cliente.sobrenome;
+                    cliente.idcliente = Cliente.idcliente;
+                    cliente.nomerazao = Cliente.nomerazao;
                     cliente.cpfcnpj = Cliente.cpfcnpj;
-                    cliente.rg = Cliente.rg;
+                    cliente.rgie = Cliente.rgie;
                     cliente.email = Cliente.email;
                     cliente.telefone = Cliente.telefone;
                     cliente.endereco = Cliente.endereco;
+                    cliente.complemento = Cliente.complemento;
                     cliente.numero = Cliente.numero;
-                    cliente.cidade = Cliente.cidade;
+                    cliente.idcidade = Cliente.idcidade;
                     cliente.bairro = Cliente.bairro;
-                    cliente.estado = Cliente.estado;
                     cliente.ativo = Cliente.ativo;
                     db.SaveChanges();
                 }
@@ -83,7 +82,7 @@ namespace LaPizza.Controllers
         public void Excluir(int Id)
         {
             Context db = new Context();
-            ClienteDto cliente = db.cliente.FirstOrDefault(p => p.id == Id);
+            ClienteDB cliente = db.cliente.FirstOrDefault(p => p.idcliente == Id);
 
             if (cliente != null)
             {
@@ -103,89 +102,101 @@ namespace LaPizza.Controllers
         public bool ExisteCliente(int Id)
         {
             Context db = new Context();
-            var cliente = db.cliente.Where(p => p.id == Id).FirstOrDefault();
+            var cliente = db.cliente.Where(p => p.idcliente == Id).FirstOrDefault();
 
-            if (cliente != null && cliente.id == Id)
+            if (cliente != null && cliente.idcliente == Id)
                 return true;
             else
                 return false;
         }
 
-        public ClienteModel GetCliente(int Id)
+        public ClienteDTO GetCliente(int Id)
         {
             Context db = new Context();
-            ClienteDto cliente = db.cliente.Where(p => p.id == Id).FirstOrDefault();
-            ClienteModel clienteModel = new ClienteModel();
-
-            if (cliente != null)
-            {
-                clienteModel.id = cliente.id;
-                clienteModel.nome = cliente.nome;
-                clienteModel.sobrenome = cliente.sobrenome;
-                clienteModel.cpfcnpj = cliente.cpfcnpj;
-                clienteModel.rg = cliente.rg;
-                clienteModel.email = cliente.email;
-                clienteModel.telefone = cliente.telefone;
-                clienteModel.endereco = cliente.endereco;
-                clienteModel.numero = cliente.numero;
-                clienteModel.cidade = cliente.cidade;
-                clienteModel.bairro = cliente.bairro;
-                clienteModel.estado = cliente.estado;
-                clienteModel.ativo = cliente.ativo;
-
-                return clienteModel;
-            }
-            else
-                return null;
+            List<ClienteDTO> lista = (from cliente in db.cliente
+                                      join cidade in db.cidade on cliente.idcidade equals cidade.idcidade
+                                      join estado in db.estado on cidade.idestado equals estado.idestado
+                                      where cliente.idcidade == Id
+                                      orderby cliente.idcliente
+                                      select new ClienteDTO
+                                      {
+                                          idcliente = cliente.idcliente,
+                                          nomerazao = cliente.nomerazao,
+                                          cpfcnpj = cliente.cpfcnpj,
+                                          rgie = cliente.rgie,
+                                          email = cliente.email,
+                                          endereco = cliente.endereco,
+                                          numero = cliente.numero,
+                                          bairro = cliente.bairro,
+                                          complemento = cliente.complemento,
+                                          idcidade = cliente.idcidade,
+                                          cidadenome = cidade.nome,
+                                          estadosigla = estado.sigla,
+                                          cep = cliente.cep,
+                                          telefone = cliente.telefone,
+                                          celular = cliente.celular,
+                                          ativo = cliente.ativo,
+                                      }).ToList();
+            return lista[0];
         }
 
-        public List<ClienteModel> GetClienteLista()
+        public List<ClienteDTO> GetClienteLista()
         {
             Context db = new Context();
-            List<ClienteModel> lista = (from cliente in db.cliente
-                                        orderby cliente.id
-                                        select new ClienteModel
+            List<ClienteDTO> lista = (from cliente in db.cliente
+                                        join cidade in db.cidade on cliente.idcidade equals cidade.idcidade
+                                        join estado in db.estado on cidade.idestado equals estado.idestado
+                                        orderby cliente.idcliente
+                                        select new ClienteDTO
                                         {
-                                            id = cliente.id,
-                                            nome = cliente.nome,
-                                            sobrenome = cliente.sobrenome,
+                                            idcliente = cliente.idcliente,
+                                            nomerazao = cliente.nomerazao,
                                             cpfcnpj = cliente.cpfcnpj,
-                                            rg = cliente.rg,
+                                            rgie = cliente.rgie,
                                             email = cliente.email,
-                                            telefone = cliente.telefone,
                                             endereco = cliente.endereco,
                                             numero = cliente.numero,
-                                            cidade = cliente.cidade,
                                             bairro = cliente.bairro,
-                                            estado = cliente.estado,
+                                            complemento = cliente.complemento,
+                                            idcidade = cliente.idcidade,
+                                            cidadenome = cidade.nome,
+                                            estadosigla = estado.sigla,
+                                            cep = cliente.cep,
+                                            telefone = cliente.telefone,
+                                            celular = cliente.celular,
                                             ativo = cliente.ativo,
                                         }).ToList();
             return lista;
         }
 
-        public List<ClienteModel> GetClientePesquisaGrid(string TextoPesquisa)
+        public List<ClienteDTO> GetClientePesquisaGrid(string TextoPesquisa)
         {
             Context db = new Context();
-            List<ClienteModel> lista = (from cliente in db.cliente
-                                        orderby cliente.id
-                                        select new ClienteModel
-                                        {
-                                            id = cliente.id,
-                                            nome = cliente.nome,
-                                            sobrenome = cliente.sobrenome,
+            List<ClienteDTO> lista = (from cliente in db.cliente
+                                      join cidade in db.cidade on cliente.idcidade equals cidade.idcidade
+                                      join estado in db.estado on cidade.idestado equals estado.idestado
+                                      orderby cliente.idcliente
+                                      select new ClienteDTO
+                                      {
+                                            idcliente = cliente.idcliente,
+                                            nomerazao = cliente.nomerazao,
                                             cpfcnpj = cliente.cpfcnpj,
-                                            rg = cliente.rg,
+                                            rgie = cliente.rgie,
                                             email = cliente.email,
-                                            telefone = cliente.telefone,
                                             endereco = cliente.endereco,
                                             numero = cliente.numero,
-                                            cidade = cliente.cidade,
                                             bairro = cliente.bairro,
-                                            estado = cliente.estado,
+                                            complemento = cliente.complemento,
+                                            idcidade = cliente.idcidade,
+                                            cidadenome = cidade.nome,
+                                            estadosigla = estado.sigla,
+                                            cep = cliente.cep,
+                                            telefone = cliente.telefone,
+                                            celular = cliente.celular,
                                             ativo = cliente.ativo,
                                         }).ToList();
 
-            return new List<ClienteModel>(lista.Where(p => p.nome.ToUpper().Contains(TextoPesquisa.ToUpper())));
+            return new List<ClienteDTO>(lista.Where(p => p.nomerazao.ToUpper().Contains(TextoPesquisa.ToUpper())));
         }
     }
 }

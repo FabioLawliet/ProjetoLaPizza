@@ -166,7 +166,8 @@ namespace LaPizza
             }
         }
 
-        private void btnCliCadastro_Click_1(object sender, EventArgs e)
+        
+        private void btnCliCadastro_Click(object sender, EventArgs e)
         {
             if (FCliente == null || FCliente.IsDisposed)
             {
@@ -180,11 +181,24 @@ namespace LaPizza
         }
 
         private void btnEstUnidadeMedida_Click(object sender, EventArgs e)
+        private void btnFornCadastro_Click(object sender, EventArgs e)
         {
             if (FUnidMedida == null || FUnidMedida.IsDisposed)
             {
+
                 FUnidMedida = new FormEstUnidadeMedida();
                 CentralizaTela(FUnidMedida, btnEstUnidadeMedida.Text);
+                FFornecedor = new FormRecFornecedor();
+                FFornecedor.Text = btnFornCadastro.Text;
+                FFornecedor.lbNomeRotina.Text = btnFornCadastro.Text;
+                FFornecedor.Visible = false;
+                FFornecedor.TopLevel = false;
+                pnlPrincipal.Controls.Add(FFornecedor);
+                FFornecedor.Left = (pnlPrincipal.Width - FFornecedor.Width) / 2;
+                FFornecedor.Top = (pnlPrincipal.Height - FFornecedor.Height) / 2;
+                FFornecedor.FormBorderStyle = FormBorderStyle.Sizable;
+                FFornecedor.Visible = true;
+                FFornecedor.BringToFront();
             }
             else
             {
