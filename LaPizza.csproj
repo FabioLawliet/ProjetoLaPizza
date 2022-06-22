@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\PedidoVendaController.cs" />
     <Compile Include="Controllers\UnidadeMedidaController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
@@ -227,6 +228,12 @@
     <Compile Include="Views\FormEstSubGrupo.Designer.cs">
       <DependentUpon>FormEstSubGrupo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FormRecFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormRecFornecedor.designer.cs">
+      <DependentUpon>FormRecFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormUsrUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +308,12 @@
     <Compile Include="Views\Pesquisas\FormRecClientePesquisa.Designer.cs">
       <DependentUpon>FormRecClientePesquisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\FormRecFornecedorPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormRecFornecedorPesquisa.designer.cs">
+      <DependentUpon>FormRecFornecedorPesquisa.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FormAcesso.resx">
       <DependentUpon>FormAcesso.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormEstUnidadeMedida.resx">
       <DependentUpon>FormEstUnidadeMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormRecFornecedor.resx">
+      <DependentUpon>FormRecFornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormUsrUsuario.resx">
       <DependentUpon>FormUsrUsuario.cs</DependentUpon>
@@ -376,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormRecClientePesquisa.resx">
       <DependentUpon>FormRecClientePesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\FormRecFornecedorPesquisa.resx">
+      <DependentUpon>FormRecFornecedorPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

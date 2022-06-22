@@ -16,7 +16,6 @@ namespace LaPizza.DAO
         public DbSet<MovimentoEstoqueDB> movimentoestoque { get; set; }
         public DbSet<MovimentoEstoqueItensDB> movimentoestoqueitens { get; set; }
         public DbSet<UsuarioDto> usuario { get; set; }
-        public DbSet<ClienteDto> cliente { get; set; }
         public DbSet<ClienteDB> cliente { get; set; }
         public DbSet<CidadeDB> cidade { get; set; }
         public DbSet<EstadoDB> estado { get; set; }

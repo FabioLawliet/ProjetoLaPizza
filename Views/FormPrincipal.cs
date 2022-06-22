@@ -22,6 +22,7 @@ namespace LaPizza
         FormUsrUsuario FUsuario;
         FormVenPedidoVenda FPedidoVenda;
         FormEntMercadoria FEntMercadoria;
+        FormRecFornecedor FFornecedor;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -181,12 +182,24 @@ namespace LaPizza
         }
 
         private void btnEstUnidadeMedida_Click(object sender, EventArgs e)
-        private void btnFornCadastro_Click(object sender, EventArgs e)
         {
             if (FUnidMedida == null || FUnidMedida.IsDisposed)
             {
-
                 FUnidMedida = new FormEstUnidadeMedida();
+                CentralizaTela(FUnidMedida, btnEstUnidadeMedida.Text);
+            }
+            else
+            {
+                FCliente.BringToFront();
+            }
+
+        }
+        private void btnFornCadastro_Click(object sender, EventArgs e)
+        {
+            if (FFornecedor == null || FFornecedor.IsDisposed)
+            {
+
+                FFornecedor = new FormRecFornecedor();
                 CentralizaTela(FUnidMedida, btnEstUnidadeMedida.Text);
                 FFornecedor = new FormRecFornecedor();
                 FFornecedor.Text = btnFornCadastro.Text;
@@ -231,5 +244,6 @@ namespace LaPizza
                 FEntMercadoria.BringToFront();
             }
         }
+
     }
 }

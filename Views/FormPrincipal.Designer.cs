@@ -39,7 +39,7 @@
             this.btnUsuCadastro = new System.Windows.Forms.Button();
             this.btnMenuUsuario = new System.Windows.Forms.Button();
             this.pnlSubMenuFornecedor = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnFornCadastro = new System.Windows.Forms.Button();
             this.btnMenuFornecedor = new System.Windows.Forms.Button();
             this.pnlSubMenuEstoque = new System.Windows.Forms.Panel();
             this.btnEstEntradaMerc = new System.Windows.Forms.Button();
@@ -253,7 +253,7 @@
             // pnlSubMenuFornecedor
             // 
             this.pnlSubMenuFornecedor.AutoSize = true;
-            this.pnlSubMenuFornecedor.Controls.Add(this.button6);
+            this.pnlSubMenuFornecedor.Controls.Add(this.btnFornCadastro);
             this.pnlSubMenuFornecedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 390);
             this.pnlSubMenuFornecedor.Name = "pnlSubMenuFornecedor";
@@ -261,25 +261,26 @@
             this.pnlSubMenuFornecedor.TabIndex = 7;
             this.pnlSubMenuFornecedor.Tag = "pnlSubMenu";
             // 
-            // button6
+            // btnFornCadastro
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(250, 25);
-            this.button6.TabIndex = 4;
-            this.button6.Tag = "btnSubMenu";
-            this.button6.Text = "Cadastro de Fornecedor";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnFornCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnFornCadastro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFornCadastro.FlatAppearance.BorderSize = 0;
+            this.btnFornCadastro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnFornCadastro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnFornCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFornCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFornCadastro.ForeColor = System.Drawing.Color.White;
+            this.btnFornCadastro.Location = new System.Drawing.Point(0, 0);
+            this.btnFornCadastro.Name = "btnFornCadastro";
+            this.btnFornCadastro.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFornCadastro.Size = new System.Drawing.Size(250, 25);
+            this.btnFornCadastro.TabIndex = 4;
+            this.btnFornCadastro.Tag = "btnSubMenu";
+            this.btnFornCadastro.Text = "Cadastro de Fornecedor";
+            this.btnFornCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFornCadastro.UseVisualStyleBackColor = false;
+            this.btnFornCadastro.Click += new System.EventHandler(this.btnFornCadastro_Click);
             // 
             // btnMenuFornecedor
             // 
@@ -591,6 +592,7 @@
             this.btnCliCadastro.Text = "Cadastro de Cliente";
             this.btnCliCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCliCadastro.UseVisualStyleBackColor = false;
+            this.btnCliCadastro.Click += new System.EventHandler(this.btnCliCadastro_Click);
             // 
             // btnMenuCliente
             // 
@@ -673,7 +675,7 @@
         private System.Windows.Forms.Button btnUsuCadastro;
         private System.Windows.Forms.Button btnMenuUsuario;
         private System.Windows.Forms.Panel pnlSubMenuFornecedor;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnFornCadastro;
         private System.Windows.Forms.Button btnMenuFornecedor;
         private System.Windows.Forms.Button btnMenuEstoque;
         private System.Windows.Forms.Panel pnlSubMenuVenda;
