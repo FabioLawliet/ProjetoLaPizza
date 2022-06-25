@@ -120,12 +120,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\FormaPagamentoController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\PedidoVendaController.cs" />
     <Compile Include="Controllers\UnidadeMedidaController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\InteracaoMenu.cs" />
-    <Compile Include="Controllers\LpText.cs">
+    <Compile Include="Componentes\LpText.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controllers\MarcaController.cs" />
@@ -144,6 +145,8 @@
     <Compile Include="Models\EntradaMercadoriaItemDTO.cs" />
     <Compile Include="Models\EstadoDB.cs" />
     <Compile Include="Models\EstadoDTO.cs" />
+    <Compile Include="Models\FormaPagamentoDB.cs" />
+    <Compile Include="Models\FormaPagamentoDTO.cs" />
     <Compile Include="Models\FornecedorDB.cs" />
     <Compile Include="Models\FornecedorDTO.cs" />
     <Compile Include="Models\GrupoDB.cs" />
@@ -168,6 +171,12 @@
     <Compile Include="Models\UnidadeMedidaDTO.cs" />
     <Compile Include="Models\UsuarioDto.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="Views\FormVenFormaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormVenFormaPagamento.Designer.cs">
+      <DependentUpon>FormVenFormaPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormAcesso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +311,12 @@
     <Compile Include="Views\Pesquisas\FormEstProdutoPesquisa.Designer.cs">
       <DependentUpon>FormEstProdutoPesquisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\FormVenFormaPagamentoPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormVenFormaPagamentoPesquisa.Designer.cs">
+      <DependentUpon>FormVenFormaPagamentoPesquisa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\FormRecClientePesquisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +329,9 @@
     <Compile Include="Views\Pesquisas\FormRecFornecedorPesquisa.designer.cs">
       <DependentUpon>FormRecFornecedorPesquisa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FormVenFormaPagamento.resx">
+      <DependentUpon>FormVenFormaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormAcesso.resx">
       <DependentUpon>FormAcesso.cs</DependentUpon>
     </EmbeddedResource>
@@ -395,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormRecFornecedorPesquisa.resx">
       <DependentUpon>FormRecFornecedorPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\FormVenFormaPagamentoPesquisa.resx">
+      <DependentUpon>FormVenFormaPagamentoPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

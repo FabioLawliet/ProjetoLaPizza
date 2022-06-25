@@ -23,6 +23,7 @@ namespace LaPizza
         FormVenPedidoVenda FPedidoVenda;
         FormEntMercadoria FEntMercadoria;
         FormRecFornecedor FFornecedor;
+        FormVenFormaPagamento FFormaPagamento;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -198,24 +199,12 @@ namespace LaPizza
         {
             if (FFornecedor == null || FFornecedor.IsDisposed)
             {
-
                 FFornecedor = new FormRecFornecedor();
-                CentralizaTela(FUnidMedida, btnEstUnidadeMedida.Text);
-                FFornecedor = new FormRecFornecedor();
-                FFornecedor.Text = btnFornCadastro.Text;
-                FFornecedor.lbNomeRotina.Text = btnFornCadastro.Text;
-                FFornecedor.Visible = false;
-                FFornecedor.TopLevel = false;
-                pnlPrincipal.Controls.Add(FFornecedor);
-                FFornecedor.Left = (pnlPrincipal.Width - FFornecedor.Width) / 2;
-                FFornecedor.Top = (pnlPrincipal.Height - FFornecedor.Height) / 2;
-                FFornecedor.FormBorderStyle = FormBorderStyle.Sizable;
-                FFornecedor.Visible = true;
-                FFornecedor.BringToFront();
+                CentralizaTela(FFornecedor, btnFornCadastro.Text);
             }
             else
             {
-                FUnidMedida.BringToFront();
+                FFornecedor.BringToFront();
             }
         }
 
@@ -245,5 +234,17 @@ namespace LaPizza
             }
         }
 
+        private void btnVenFormaPagamento_Click(object sender, EventArgs e)
+        {
+            if (FFormaPagamento == null || FFormaPagamento.IsDisposed)
+            {
+                FFormaPagamento = new FormVenFormaPagamento();
+                CentralizaTela(FFormaPagamento, btnVenFormaPagamento.Text);
+            }
+            else
+            {
+                FFormaPagamento.BringToFront();
+            }
+        }
     }
 }
