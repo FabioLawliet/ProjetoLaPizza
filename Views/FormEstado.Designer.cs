@@ -73,7 +73,7 @@
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Text = "Cadastro Estado";
+            this.lbNomeRotina.Text = "Cadastro de Estado";
             // 
             // pnlAcoesRodape
             // 

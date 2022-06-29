@@ -20,7 +20,7 @@ namespace LaPizza.Controllers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Houve um problema ao cadastrar Cliente, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                MessageBox.Show("Houve um problema ao cadastrar Fornecedor, feche o cadastro e tente novamente! \n\n" + ex.Message,
                     "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -74,7 +74,7 @@ namespace LaPizza.Controllers
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Houve um problema ao editar o cliente, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                    MessageBox.Show("Houve um problema ao editar o fornecedor, feche o cadastro e tente novamente! \n\n" + ex.Message,
                                     "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -94,7 +94,7 @@ namespace LaPizza.Controllers
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Não foi possível excluir o cliente, provavelmente existem movimentações no banco de dados para este cliente e ele não poderá ser excluído! \n\n" + ex.Message,
+                    MessageBox.Show("Não foi possível excluir o fornecedor, provavelmente existem movimentações no banco de dados para este cliente e ele não poderá ser excluído! \n\n" + ex.Message,
                                     "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

@@ -77,7 +77,7 @@
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Text = "Cadastro Cidade";
+            this.lbNomeRotina.Text = "Cadastro de Cidade";
             // 
             // pnlAcoesRodape
             // 
