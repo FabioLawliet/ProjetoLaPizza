@@ -139,7 +139,7 @@
             this.txtEstadoNome.Location = new System.Drawing.Point(103, 42);
             this.txtEstadoNome.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtEstadoNome.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtEstadoNome.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
+            this.txtEstadoNome.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtEstadoNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtEstadoNome.Name = "txtEstadoNome";
             this.txtEstadoNome.Size = new System.Drawing.Size(460, 22);
@@ -164,7 +164,7 @@
             this.txtEstadoSigla.Location = new System.Drawing.Point(571, 42);
             this.txtEstadoSigla.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtEstadoSigla.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtEstadoSigla.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
+            this.txtEstadoSigla.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtEstadoSigla.Margin = new System.Windows.Forms.Padding(4);
             this.txtEstadoSigla.Name = "txtEstadoSigla";
             this.txtEstadoSigla.Size = new System.Drawing.Size(67, 22);
