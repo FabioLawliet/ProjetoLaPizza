@@ -121,11 +121,8 @@
   <ItemGroup>
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
-<<<<<<< HEAD
     <Compile Include="Controllers\EstadoController.cs" />
-=======
     <Compile Include="Controllers\FormaPagamentoController.cs" />
->>>>>>> 4b48de21f208c86266ec88696f9b327a90cc8f49
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\PedidoVendaController.cs" />
     <Compile Include="Controllers\UnidadeMedidaController.cs" />

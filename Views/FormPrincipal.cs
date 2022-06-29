@@ -252,10 +252,12 @@ namespace LaPizza
 
         private void btnGerCidade_Click(object sender, EventArgs e)
         {
-            if(FCidade == null || FCidade.IsDisposed)
+            if (FCidade == null || FCidade.IsDisposed)
             {
                 FCidade = new FormCidade();
                 CentralizaTela(FCidade, btnGerCidade.Text);
+            }
+        }
         private void btnVenFormaPagamento_Click(object sender, EventArgs e)
         {
             if (FFormaPagamento == null || FFormaPagamento.IsDisposed)
