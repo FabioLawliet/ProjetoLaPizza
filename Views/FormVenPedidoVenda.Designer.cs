@@ -32,6 +32,8 @@
             this.lbPesquisa = new System.Windows.Forms.Label();
             this.lpText1 = new LaPizza.Controllers.LpText();
             this.pnlTopo = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbStatusPedido = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,21 +49,19 @@
             this.lbDataPedido = new System.Windows.Forms.Label();
             this.lbIdPedido = new System.Windows.Forms.Label();
             this.pnlTotal = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbTotalBruto = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbTotalBruto = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.GridProdutos = new System.Windows.Forms.DataGridView();
             this.check = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
-            this.pnlAcoesMenu.SuspendLayout();
             this.pnlAcoesRodape.SuspendLayout();
+            this.pnlAcoesMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlTopo.SuspendLayout();
             this.pnlTotal.SuspendLayout();
@@ -80,10 +80,6 @@
             // pnlNomeRotina
             // 
             this.pnlNomeRotina.Size = new System.Drawing.Size(854, 40);
-            // 
-            // pnlAcoesMenu
-            // 
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(854, 39);
             // 
             // btnAcaoAdicionar
             // 
@@ -151,6 +147,10 @@
             this.splitter3.Location = new System.Drawing.Point(744, 5);
             this.splitter3.Visible = false;
             // 
+            // pnlAcoesMenu
+            // 
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(854, 39);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -213,6 +213,28 @@
             this.pnlTopo.Name = "pnlTopo";
             this.pnlTopo.Size = new System.Drawing.Size(854, 90);
             this.pnlTopo.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(806, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 16);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Data:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(771, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 16);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "N. Pedido:";
             // 
             // label4
             // 
@@ -371,49 +393,16 @@
             this.pnlTotal.Size = new System.Drawing.Size(854, 67);
             this.pnlTotal.TabIndex = 12;
             // 
-            // label5
+            // label9
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(634, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 16);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Total Bruto:";
-            // 
-            // lbTotalBruto
-            // 
-            this.lbTotalBruto.AutoSize = true;
-            this.lbTotalBruto.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalBruto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbTotalBruto.Location = new System.Drawing.Point(766, 7);
-            this.lbTotalBruto.Name = "lbTotalBruto";
-            this.lbTotalBruto.Size = new System.Drawing.Size(68, 16);
-            this.lbTotalBruto.TabIndex = 3;
-            this.lbTotalBruto.Text = "TotaBruto";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(635, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 16);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Descontos:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(613, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 16);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Total Liquido:";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(743, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(92, 16);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "TotalLiquido";
             // 
             // label8
             // 
@@ -426,16 +415,49 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Desconto";
             // 
-            // label9
+            // label7
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(743, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 16);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "TotalLiquido";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(613, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 16);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Total Liquido:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(635, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 16);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Descontos:";
+            // 
+            // lbTotalBruto
+            // 
+            this.lbTotalBruto.AutoSize = true;
+            this.lbTotalBruto.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalBruto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTotalBruto.Location = new System.Drawing.Point(766, 7);
+            this.lbTotalBruto.Name = "lbTotalBruto";
+            this.lbTotalBruto.Size = new System.Drawing.Size(68, 16);
+            this.lbTotalBruto.TabIndex = 3;
+            this.lbTotalBruto.Text = "TotaBruto";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(634, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 16);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Total Bruto:";
             // 
             // panel4
             // 
@@ -467,28 +489,6 @@
             this.check.Name = "check";
             this.check.Width = 20;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(771, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 16);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "N. Pedido:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("October Twilight", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(806, 41);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 16);
-            this.label11.TabIndex = 44;
-            this.label11.Text = "Data:";
-            // 
             // FormVenPedidoVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,9 +499,9 @@
             this.Text = "Pedido de Venda";
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlNomeRotina.ResumeLayout(false);
+            this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlAcoesMenu.ResumeLayout(false);
             this.pnlAcoesMenu.PerformLayout();
-            this.pnlAcoesRodape.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlTopo.ResumeLayout(false);

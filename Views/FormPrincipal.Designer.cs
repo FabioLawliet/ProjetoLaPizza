@@ -53,14 +53,15 @@
             this.btnEstMarca = new System.Windows.Forms.Button();
             this.btnMenuEstoque = new System.Windows.Forms.Button();
             this.pnlSubMenuVenda = new System.Windows.Forms.Panel();
-            this.btnVenRegistrar = new System.Windows.Forms.Button();
-            this.btnVenPedido = new System.Windows.Forms.Button();
             this.btnMenuVenda = new System.Windows.Forms.Button();
             this.pnlSubMenuCliente = new System.Windows.Forms.Panel();
             this.btnCliCadastro = new System.Windows.Forms.Button();
             this.btnMenuCliente = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.btnVenFormaPagamento = new System.Windows.Forms.Button();
+            this.btnVenRegistrar = new System.Windows.Forms.Button();
+            this.btnVenPedido = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.pnlMenuLateral.SuspendLayout();
             this.pnlSubMenuGeral.SuspendLayout();
@@ -116,6 +117,7 @@
             this.pnlSubMenuGeral.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 692);
             this.pnlSubMenuGeral.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 585);
             this.pnlSubMenuGeral.Name = "pnlSubMenuGeral";
             this.pnlSubMenuGeral.Size = new System.Drawing.Size(333, 93);
             this.pnlSubMenuGeral.TabIndex = 11;
@@ -198,6 +200,7 @@
             this.btnMenuGeral.ForeColor = System.Drawing.Color.White;
             this.btnMenuGeral.Location = new System.Drawing.Point(0, 649);
             this.btnMenuGeral.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenuGeral.Location = new System.Drawing.Point(0, 550);
             this.btnMenuGeral.Name = "btnMenuGeral";
             this.btnMenuGeral.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuGeral.Size = new System.Drawing.Size(333, 43);
@@ -217,6 +220,7 @@
             this.pnlSubMenuUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 556);
             this.pnlSubMenuUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 475);
             this.pnlSubMenuUsuario.Name = "pnlSubMenuUsuario";
             this.pnlSubMenuUsuario.Size = new System.Drawing.Size(333, 93);
             this.pnlSubMenuUsuario.TabIndex = 9;
@@ -298,6 +302,7 @@
             this.btnMenuUsuario.ForeColor = System.Drawing.Color.White;
             this.btnMenuUsuario.Location = new System.Drawing.Point(0, 513);
             this.btnMenuUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 440);
             this.btnMenuUsuario.Name = "btnMenuUsuario";
             this.btnMenuUsuario.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuUsuario.Size = new System.Drawing.Size(333, 43);
@@ -315,6 +320,7 @@
             this.pnlSubMenuFornecedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 482);
             this.pnlSubMenuFornecedor.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 415);
             this.pnlSubMenuFornecedor.Name = "pnlSubMenuFornecedor";
             this.pnlSubMenuFornecedor.Size = new System.Drawing.Size(333, 31);
             this.pnlSubMenuFornecedor.TabIndex = 7;
@@ -354,6 +360,7 @@
             this.btnMenuFornecedor.ForeColor = System.Drawing.Color.White;
             this.btnMenuFornecedor.Location = new System.Drawing.Point(0, 439);
             this.btnMenuFornecedor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenuFornecedor.Location = new System.Drawing.Point(0, 380);
             this.btnMenuFornecedor.Name = "btnMenuFornecedor";
             this.btnMenuFornecedor.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuFornecedor.Size = new System.Drawing.Size(333, 43);
@@ -377,6 +384,7 @@
             this.pnlSubMenuEstoque.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuEstoque.Location = new System.Drawing.Point(0, 222);
             this.pnlSubMenuEstoque.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlSubMenuEstoque.Location = new System.Drawing.Point(0, 205);
             this.pnlSubMenuEstoque.Name = "pnlSubMenuEstoque";
             this.pnlSubMenuEstoque.Size = new System.Drawing.Size(333, 217);
             this.pnlSubMenuEstoque.TabIndex = 5;
@@ -548,6 +556,7 @@
             this.btnMenuEstoque.ForeColor = System.Drawing.Color.White;
             this.btnMenuEstoque.Location = new System.Drawing.Point(0, 179);
             this.btnMenuEstoque.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenuEstoque.Location = new System.Drawing.Point(0, 170);
             this.btnMenuEstoque.Name = "btnMenuEstoque";
             this.btnMenuEstoque.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnMenuEstoque.Size = new System.Drawing.Size(333, 43);
@@ -563,6 +572,7 @@
             this.pnlSubMenuVenda.AutoSize = true;
             this.pnlSubMenuVenda.Controls.Add(this.btnVenRegistrar);
             this.pnlSubMenuVenda.Controls.Add(this.btnVenPedido);
+            this.pnlSubMenuVenda.Controls.Add(this.btnVenFormaPagamento);
             this.pnlSubMenuVenda.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuVenda.Location = new System.Drawing.Point(0, 117);
             this.pnlSubMenuVenda.Margin = new System.Windows.Forms.Padding(4);
@@ -613,6 +623,10 @@
             this.btnVenPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVenPedido.UseVisualStyleBackColor = false;
             this.btnVenPedido.Click += new System.EventHandler(this.btnVenPedido_Click);
+            // 
+            this.pnlSubMenuVenda.Size = new System.Drawing.Size(250, 75);
+            this.pnlSubMenuVenda.TabIndex = 3;
+            this.pnlSubMenuVenda.Tag = "pnlSubMenu";
             // 
             // btnMenuVenda
             // 
@@ -716,6 +730,67 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(1486, 922);
             this.pnlPrincipal.TabIndex = 0;
             // 
+            // btnVenFormaPagamento
+            // 
+            this.btnVenFormaPagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnVenFormaPagamento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVenFormaPagamento.FlatAppearance.BorderSize = 0;
+            this.btnVenFormaPagamento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnVenFormaPagamento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnVenFormaPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVenFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenFormaPagamento.ForeColor = System.Drawing.Color.White;
+            this.btnVenFormaPagamento.Location = new System.Drawing.Point(0, 0);
+            this.btnVenFormaPagamento.Name = "btnVenFormaPagamento";
+            this.btnVenFormaPagamento.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVenFormaPagamento.Size = new System.Drawing.Size(250, 25);
+            this.btnVenFormaPagamento.TabIndex = 8;
+            this.btnVenFormaPagamento.Tag = "btnSubMenu";
+            this.btnVenFormaPagamento.Text = "Cadastro Forma de Pagamento";
+            this.btnVenFormaPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVenFormaPagamento.UseVisualStyleBackColor = false;
+            this.btnVenFormaPagamento.Click += new System.EventHandler(this.btnVenFormaPagamento_Click);
+            // 
+            // btnVenRegistrar
+            // 
+            this.btnVenRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnVenRegistrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVenRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnVenRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnVenRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnVenRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVenRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnVenRegistrar.Location = new System.Drawing.Point(0, 50);
+            this.btnVenRegistrar.Name = "btnVenRegistrar";
+            this.btnVenRegistrar.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVenRegistrar.Size = new System.Drawing.Size(250, 25);
+            this.btnVenRegistrar.TabIndex = 10;
+            this.btnVenRegistrar.Tag = "btnSubMenu";
+            this.btnVenRegistrar.Text = "Registrar Venda";
+            this.btnVenRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVenRegistrar.UseVisualStyleBackColor = false;
+            // 
+            // btnVenPedido
+            // 
+            this.btnVenPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnVenPedido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVenPedido.FlatAppearance.BorderSize = 0;
+            this.btnVenPedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnVenPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnVenPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVenPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenPedido.ForeColor = System.Drawing.Color.White;
+            this.btnVenPedido.Location = new System.Drawing.Point(0, 25);
+            this.btnVenPedido.Name = "btnVenPedido";
+            this.btnVenPedido.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnVenPedido.Size = new System.Drawing.Size(250, 25);
+            this.btnVenPedido.TabIndex = 9;
+            this.btnVenPedido.Tag = "btnSubMenu";
+            this.btnVenPedido.Text = "Pedido de Venda";
+            this.btnVenPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVenPedido.UseVisualStyleBackColor = false;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -759,8 +834,6 @@
         private System.Windows.Forms.Button btnMenuFornecedor;
         private System.Windows.Forms.Button btnMenuEstoque;
         private System.Windows.Forms.Panel pnlSubMenuVenda;
-        private System.Windows.Forms.Button btnVenRegistrar;
-        private System.Windows.Forms.Button btnVenPedido;
         private System.Windows.Forms.Button btnMenuVenda;
         private System.Windows.Forms.Panel pnlSubMenuCliente;
         private System.Windows.Forms.Button btnCliCadastro;
@@ -777,6 +850,9 @@
         private System.Windows.Forms.Button btnEstMarca;
         private System.Windows.Forms.Button btnGerCidade;
         private System.Windows.Forms.Button btnGerEstado;
+        private System.Windows.Forms.Button btnVenRegistrar;
+        private System.Windows.Forms.Button btnVenPedido;
+        private System.Windows.Forms.Button btnVenFormaPagamento;
     }
 }
 

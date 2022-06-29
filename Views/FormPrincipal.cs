@@ -25,6 +25,7 @@ namespace LaPizza
         FormRecFornecedor FFornecedor;
         FormEstado FEstado;
         FormCidade FCidade;
+        FormVenFormaPagamento FFormaPagamento;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -206,6 +207,7 @@ namespace LaPizza
             else
             {
                 FCliente.BringToFront();
+                FFornecedor.BringToFront();
             }
         }
 
@@ -254,6 +256,16 @@ namespace LaPizza
             {
                 FCidade = new FormCidade();
                 CentralizaTela(FCidade, btnGerCidade.Text);
+        private void btnVenFormaPagamento_Click(object sender, EventArgs e)
+        {
+            if (FFormaPagamento == null || FFormaPagamento.IsDisposed)
+            {
+                FFormaPagamento = new FormVenFormaPagamento();
+                CentralizaTela(FFormaPagamento, btnVenFormaPagamento.Text);
+            }
+            else
+            {
+                FFormaPagamento.BringToFront();
             }
         }
     }

@@ -25,5 +25,7 @@ namespace LaPizza.DAO
         public DbSet<EntradaMercadoriaDB> entradamercadoria { get; set; }
         public DbSet<EntradaMercadoriaItemDB> entradamercadoriaitem { get; set; }
         
+        public DbSet<FornecedorDB> fornecedor { get; set; }
+        public DbSet<FormaPagamentoDB> formapagamento { get; set; }
     }
 }
