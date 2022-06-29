@@ -29,25 +29,25 @@ namespace LaPizza.Views.Pesquisas
 
         public void AjustaCamposGrid()
         {
-            dbGridPesquisa.Columns["id"].DisplayIndex = 0;
-            dbGridPesquisa.Columns["id"].HeaderText = "Id";
-            dbGridPesquisa.Columns["id"].Width = 70;
+            dbGridPesquisa.Columns["idfornecedor"].DisplayIndex = 0;
+            dbGridPesquisa.Columns["idfornecedor"].HeaderText = "Id";
+            dbGridPesquisa.Columns["idfornecedor"].Width = 70;
 
-            dbGridPesquisa.Columns["razaosocial"].DisplayIndex = 1;
-            dbGridPesquisa.Columns["razaosocial"].HeaderText = "Razão Social";
-            dbGridPesquisa.Columns["razaosocial"].Width = 100;//384
+            dbGridPesquisa.Columns["nomerazao"].DisplayIndex = 1;
+            dbGridPesquisa.Columns["nomerazao"].HeaderText = "Razão Social";
+            dbGridPesquisa.Columns["nomerazao"].Width = 100;//384
 
-            dbGridPesquisa.Columns["nomefantasia"].DisplayIndex = 2;
-            dbGridPesquisa.Columns["nomefantasia"].HeaderText = "Nome Fantasia";
-            dbGridPesquisa.Columns["nomefantasia"].Width = 100;
+            dbGridPesquisa.Columns["rgie"].DisplayIndex = 2;
+            dbGridPesquisa.Columns["rgie"].HeaderText = "Rg / Insc. Estadual";
+            dbGridPesquisa.Columns["rgie"].Width = 110;
 
-            dbGridPesquisa.Columns["cnpjcpf"].DisplayIndex = 3;
-            dbGridPesquisa.Columns["cnpjcpf"].HeaderText = "CPF/CNPJ";
-            dbGridPesquisa.Columns["cnpjcpf"].Width = 100;
+            dbGridPesquisa.Columns["cpfcnpj"].DisplayIndex = 3;
+            dbGridPesquisa.Columns["cpfcnpj"].HeaderText = "CPF/CNPJ";
+            dbGridPesquisa.Columns["cpfcnpj"].Width = 100;
 
             dbGridPesquisa.Columns["telefone"].DisplayIndex = 4;
             dbGridPesquisa.Columns["telefone"].HeaderText = "Telefone";
-            dbGridPesquisa.Columns["telefone"].Width = 100;
+            dbGridPesquisa.Columns["telefone"].Width = 90;
 
             dbGridPesquisa.Columns["ativo"].Visible = false;
         }

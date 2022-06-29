@@ -61,8 +61,8 @@
             this.txtClienteTelefone = new LaPizza.Controllers.LpText();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
-            this.pnlAcoesMenu.SuspendLayout();
             this.pnlAcoesRodape.SuspendLayout();
+            this.pnlAcoesMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPrincipal
@@ -105,12 +105,6 @@
             // 
             this.pnlNomeRotina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlNomeRotina.Size = new System.Drawing.Size(647, 49);
-            // 
-            // pnlAcoesMenu
-            // 
-            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlAcoesMenu.Padding = new System.Windows.Forms.Padding(5);
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(647, 48);
             // 
             // btnAcaoAdicionar
             // 
@@ -211,6 +205,12 @@
             this.splitter3.Location = new System.Drawing.Point(501, 5);
             this.splitter3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter3.Size = new System.Drawing.Size(7, 38);
+            // 
+            // pnlAcoesMenu
+            // 
+            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlAcoesMenu.Padding = new System.Windows.Forms.Padding(5);
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(647, 48);
             // 
             // txtClienteId
             // 
@@ -458,7 +458,7 @@
             // 
             this.CidadeCliente.AutoSize = true;
             this.CidadeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.CidadeCliente.Location = new System.Drawing.Point(90, 188);
+            this.CidadeCliente.Location = new System.Drawing.Point(107, 188);
             this.CidadeCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CidadeCliente.Name = "CidadeCliente";
             this.CidadeCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -471,13 +471,13 @@
             this.txtClienteCidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteCidade.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteCidade.Location = new System.Drawing.Point(89, 207);
+            this.txtClienteCidade.Location = new System.Drawing.Point(108, 207);
             this.txtClienteCidade.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteCidade.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtClienteCidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteCidade.Name = "txtClienteCidade";
-            this.txtClienteCidade.Size = new System.Drawing.Size(381, 22);
+            this.txtClienteCidade.Size = new System.Drawing.Size(362, 22);
             this.txtClienteCidade.TabIndex = 11;
             // 
             // txtClienteEstado
@@ -488,7 +488,7 @@
             this.txtClienteEstado.Location = new System.Drawing.Point(476, 207);
             this.txtClienteEstado.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteEstado.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtClienteEstado.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtClienteEstado.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtClienteEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtClienteEstado.Name = "txtClienteEstado";
             this.txtClienteEstado.Size = new System.Drawing.Size(57, 22);
@@ -512,9 +512,9 @@
             this.label1.Location = new System.Drawing.Point(13, 188);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(89, 17);
             this.label1.TabIndex = 41;
-            this.label1.Text = "IdCidade";
+            this.label1.Text = "IdCidade(F2)";
             // 
             // txtIdCidade
             // 
@@ -524,11 +524,13 @@
             this.txtIdCidade.Location = new System.Drawing.Point(12, 207);
             this.txtIdCidade.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtIdCidade.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtIdCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtIdCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtIdCidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdCidade.Name = "txtIdCidade";
-            this.txtIdCidade.Size = new System.Drawing.Size(77, 22);
+            this.txtIdCidade.Size = new System.Drawing.Size(90, 22);
             this.txtIdCidade.TabIndex = 10;
+            this.txtIdCidade.TextChanged += new System.EventHandler(this.txtIdCidade_TextChanged);
+            this.txtIdCidade.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdCidade_KeyUp);
             // 
             // label2
             // 
@@ -618,9 +620,9 @@
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
             this.pnlNomeRotina.ResumeLayout(false);
+            this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlAcoesMenu.ResumeLayout(false);
             this.pnlAcoesMenu.PerformLayout();
-            this.pnlAcoesRodape.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

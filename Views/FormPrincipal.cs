@@ -23,6 +23,8 @@ namespace LaPizza
         FormVenPedidoVenda FPedidoVenda;
         FormEntMercadoria FEntMercadoria;
         FormRecFornecedor FFornecedor;
+        FormEstado FEstado;
+        FormCidade FCidade;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -198,24 +200,12 @@ namespace LaPizza
         {
             if (FFornecedor == null || FFornecedor.IsDisposed)
             {
-
                 FFornecedor = new FormRecFornecedor();
-                CentralizaTela(FUnidMedida, btnEstUnidadeMedida.Text);
-                FFornecedor = new FormRecFornecedor();
-                FFornecedor.Text = btnFornCadastro.Text;
-                FFornecedor.lbNomeRotina.Text = btnFornCadastro.Text;
-                FFornecedor.Visible = false;
-                FFornecedor.TopLevel = false;
-                pnlPrincipal.Controls.Add(FFornecedor);
-                FFornecedor.Left = (pnlPrincipal.Width - FFornecedor.Width) / 2;
-                FFornecedor.Top = (pnlPrincipal.Height - FFornecedor.Height) / 2;
-                FFornecedor.FormBorderStyle = FormBorderStyle.Sizable;
-                FFornecedor.Visible = true;
-                FFornecedor.BringToFront();
+                CentralizaTela(FFornecedor, btnFornCadastro.Text);
             }
             else
             {
-                FUnidMedida.BringToFront();
+                FCliente.BringToFront();
             }
         }
 
@@ -245,5 +235,26 @@ namespace LaPizza
             }
         }
 
+        private void btnGerEstado_Click(object sender, EventArgs e)
+        {
+            if(FEstado == null || FEstado.IsDisposed)
+            {
+                FEstado = new FormEstado();
+                CentralizaTela(FEstado, btnGerEstado.Text);
+            }
+            else
+            {
+                FEstado.BringToFront();
+            }
+        }
+
+        private void btnGerCidade_Click(object sender, EventArgs e)
+        {
+            if(FCidade == null || FCidade.IsDisposed)
+            {
+                FCidade = new FormCidade();
+                CentralizaTela(FCidade, btnGerCidade.Text);
+            }
+        }
     }
 }

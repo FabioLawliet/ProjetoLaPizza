@@ -35,8 +35,8 @@ namespace LaPizza.Views
                 txtClienteBairro.Enabled = true;
                 txtClienteComplemento.Enabled = true;
                 txtIdCidade.Enabled = true;
-                txtClienteCidade.Enabled = true;
-                txtClienteEstado.Enabled = true;
+                txtClienteCidade.Enabled = false;
+                txtClienteEstado.Enabled = false;
                 txtClienteCep.Enabled = true;
                 txtClienteCelular.Enabled = true;
                 txtClienteTelefone.Enabled = true;
@@ -46,20 +46,20 @@ namespace LaPizza.Views
             else
             {
                 txtClienteId.Enabled = false;
-                txtClienteNomeRazao.Enabled = true;
-                txtClienteCpfCnpj.Enabled = true;
-                txtClienteRgIe.Enabled = true;
-                txtClienteEmail.Enabled = true;
-                txtClienteEndereco.Enabled = true;
-                txtClienteNumero.Enabled = true;
-                txtClienteBairro.Enabled = true;
-                txtClienteComplemento.Enabled = true;
-                txtIdCidade.Enabled = true;
-                txtClienteCidade.Enabled = true;
-                txtClienteEstado.Enabled = true;
-                txtClienteCep.Enabled = true;
-                txtClienteCelular.Enabled = true;
-                txtClienteTelefone.Enabled = true;
+                txtClienteNomeRazao.Enabled = false;
+                txtClienteCpfCnpj.Enabled = false;
+                txtClienteRgIe.Enabled = false;
+                txtClienteEmail.Enabled = false;
+                txtClienteEndereco.Enabled = false;
+                txtClienteNumero.Enabled = false;
+                txtClienteBairro.Enabled = false;
+                txtClienteComplemento.Enabled = false;
+                txtIdCidade.Enabled = false;
+                txtClienteCidade.Enabled = false;
+                txtClienteEstado.Enabled = false;
+                txtClienteCep.Enabled = false;
+                txtClienteCelular.Enabled = false;
+                txtClienteTelefone.Enabled = false;
                 cbAtivo.Enabled = false;
                 cbAtivo.Checked = true;
             }
@@ -255,6 +255,9 @@ namespace LaPizza.Views
                 txtClienteBairro.Text = Pesquisa.PesqCliente.bairro;
                 txtClienteComplemento.Text = Pesquisa.PesqCliente.complemento;
                 txtIdCidade.Text = Pesquisa.PesqCliente.idcidade.ToString();
+                txtClienteCidade.Text = Pesquisa.PesqCliente.cidadenome;
+                txtClienteEstado.Text = Pesquisa.PesqCliente.estadosigla;
+                txtClienteCep.Text = Pesquisa.PesqCliente.cep;
                 txtClienteCelular.Text = Pesquisa.PesqCliente.celular;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
                 cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
@@ -292,6 +295,9 @@ namespace LaPizza.Views
                 txtClienteComplemento.Text = Pesquisa.PesqCliente.complemento;
                 txtClienteNumero.Text = Pesquisa.PesqCliente.numero;
                 txtIdCidade.Text = Pesquisa.PesqCliente.idcidade.ToString();
+                txtClienteCidade.Text = Pesquisa.PesqCliente.cidadenome;
+                txtClienteEstado.Text = Pesquisa.PesqCliente.estadosigla;
+                txtClienteCep.Text = Pesquisa.PesqCliente.cep;
                 txtClienteCep.Text = Pesquisa.PesqCliente.cep;
                 txtClienteBairro.Text = Pesquisa.PesqCliente.bairro;
                 cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
@@ -326,6 +332,9 @@ namespace LaPizza.Views
                 txtClienteBairro.Text = Pesquisa.PesqCliente.bairro;
                 txtClienteComplemento.Text = Pesquisa.PesqCliente.complemento;
                 txtIdCidade.Text = Pesquisa.PesqCliente.idcidade.ToString();
+                txtClienteCidade.Text = Pesquisa.PesqCliente.cidadenome;
+                txtClienteEstado.Text = Pesquisa.PesqCliente.estadosigla;
+                txtClienteCep.Text = Pesquisa.PesqCliente.cep;
                 txtClienteCelular.Text = Pesquisa.PesqCliente.celular;
                 txtClienteTelefone.Text = Pesquisa.PesqCliente.telefone;
                 cbAtivo.Checked = Pesquisa.PesqCliente.ativo;
@@ -360,6 +369,47 @@ namespace LaPizza.Views
                 if (txtClienteCpfCnpj.CanFocus)
                 {
                     txtClienteCpfCnpj.Focus();
+                }
+            }
+        }
+
+        private void txtIdCidade_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIdCidade.Text != "")
+            {
+                CidadeController Controle = new CidadeController();
+
+                if (Controle.ExisteCidadeId(Int32.Parse(txtIdCidade.Text)))
+                {
+                    txtIdCidade.Text = Controle.GetCidade(Int32.Parse(txtIdCidade.Text)).idcidade.ToString();
+                    txtClienteCidade.Text = Controle.GetCidade(Int32.Parse(txtIdCidade.Text)).nome;
+                    txtClienteEstado.Text = Controle.GetCidade(Int32.Parse(txtIdCidade.Text)).sigla;
+                }
+                else
+                {
+                    txtClienteCidade.Text = string.Empty;
+                    txtClienteEstado.Text = string.Empty;
+                }
+            }
+            else
+            {
+                txtClienteCidade.Text = string.Empty;
+                txtClienteEstado.Text = string.Empty;
+            }
+        }
+
+        private void txtIdCidade_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormCidadePesquisa Pesq = new FormCidadePesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtIdCidade.Text = Pesq.PesqCidade.idcidade.ToString();
+                    txtClienteCidade.Text = Pesq.PesqCidade.nome;
+                    txtClienteEstado.Text = Pesq.PesqCidade.sigla;
                 }
             }
         }

@@ -2,17 +2,20 @@
 {
     public class FornecedorDTO
     {
-        public int id { get; set; }
-        public string razaosocial { get; set; }
-        public string nomefantasia { get; set; }
-        public string cnpjcpf { get; set; }
-        public string inscricaoestadual { get; set; }
+        public int idfornecedor { get; set; }
+        public string nomerazao { get; set; }
+        public string rgie { get; set; }
+        public string cpfcnpj { get; set; }
         public string endereco { get; set; }
         public string numero { get; set; }
         public string bairro { get; set; }
-        public string cidade { get; set; }
-        public string estado { get; set; }
+        public string complemento { get; set; }
+        public string cep { get; set; }
+        public int idcidade { get; set; }
+        public string cidadenome { get; set; }
+        public string estadosigla { get; set; }
         public string telefone { get; set; }
+        public string celular { get; set; }
         public string email { get; set; }
         public bool ativo { get; set; }
     }

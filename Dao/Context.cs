@@ -17,12 +17,13 @@ namespace LaPizza.DAO
         public DbSet<MovimentoEstoqueItensDB> movimentoestoqueitens { get; set; }
         public DbSet<UsuarioDto> usuario { get; set; }
         public DbSet<ClienteDB> cliente { get; set; }
+        public DbSet<FornecedorDB> fornecedor { get; set; }
         public DbSet<CidadeDB> cidade { get; set; }
         public DbSet<EstadoDB> estado { get; set; }
         public DbSet<PedidoVendaDB> pedidovenda { get; set; }
         public DbSet<PedidoVendaItemDB> pedidovendaItem { get; set; }
         public DbSet<EntradaMercadoriaDB> entradamercadoria { get; set; }
         public DbSet<EntradaMercadoriaItemDB> entradamercadoriaitem { get; set; }
-        public DbSet<FornecedorDB> fornecedor { get; set; }
+        
     }
 }

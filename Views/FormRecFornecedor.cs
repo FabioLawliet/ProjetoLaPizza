@@ -24,34 +24,40 @@ namespace LaPizza.Views
             if (Ativa)
             {
                 txtFornecedorId.Enabled = false;
-                txtFornecedorRazaoSocial.Enabled = true;
-                txtFornecedorNomeFantasia.Enabled = true;
+                txtFornecedorNomeRazao.Enabled = true;
                 txtFornecedorCnpjCpf.Enabled = true;
-                txtFornecedorInscricaoEstadual.Enabled = true;
+                txtFornecedorRgIe.Enabled = true;
                 txtFornecedorEmail.Enabled = true;
-                txtFornecedorTelefone.Enabled = true;
                 txtFornecedorEndereco.Enabled = true;
                 txtFornecedorNumero.Enabled = true;
                 txtFornecedorBairro.Enabled = true;
-                txtFornecedorCidade.Enabled = true;
-                txtFornecedorEstado.Enabled = true;
+                txtFornecedorComplemento.Enabled = true;
+                txtIdCidade.Enabled = true;
+                txtFornecedorCidade.Enabled = false;
+                txtFornecedorEstado.Enabled = false;
+                txtFornecedorCep.Enabled = true;
+                txtFornecedorTelefone.Enabled = true;
+                txtFornecedorCelular.Enabled = true;
                 cbAtivo.Enabled = true;
                 cbAtivo.Checked = true;
             }
             else
             {
                 txtFornecedorId.Enabled = false;
-                txtFornecedorRazaoSocial.Enabled = false;
-                txtFornecedorNomeFantasia.Enabled = false;
+                txtFornecedorNomeRazao.Enabled = false;
                 txtFornecedorCnpjCpf.Enabled = false;
-                txtFornecedorInscricaoEstadual.Enabled = false;
+                txtFornecedorRgIe.Enabled = false;
                 txtFornecedorEmail.Enabled = false;
-                txtFornecedorTelefone.Enabled = false;
                 txtFornecedorEndereco.Enabled = false;
                 txtFornecedorNumero.Enabled = false;
                 txtFornecedorBairro.Enabled = false;
+                txtFornecedorComplemento.Enabled = false;
+                txtIdCidade.Enabled = false;
                 txtFornecedorCidade.Enabled = false;
                 txtFornecedorEstado.Enabled = false;
+                txtFornecedorCep.Enabled = false;
+                txtFornecedorTelefone.Enabled = false;
+                txtFornecedorCelular.Enabled = false;
                 cbAtivo.Enabled = false;
                 cbAtivo.Checked = true;
             }
@@ -60,17 +66,20 @@ namespace LaPizza.Views
         private void LimpaComponentes()
         {
             txtFornecedorId.Text = string.Empty;
-            txtFornecedorRazaoSocial.Text = string.Empty;
-            txtFornecedorNomeFantasia.Text = string.Empty;
+            txtFornecedorNomeRazao.Text = string.Empty;
             txtFornecedorCnpjCpf.Text = string.Empty;
-            txtFornecedorInscricaoEstadual.Text = string.Empty;
+            txtFornecedorRgIe.Text = string.Empty;
             txtFornecedorEmail.Text = string.Empty;
-            txtFornecedorTelefone.Text = string.Empty;
             txtFornecedorEndereco.Text = string.Empty;
             txtFornecedorNumero.Text = string.Empty;
             txtFornecedorBairro.Text = string.Empty;
+            txtFornecedorComplemento.Text = string.Empty;
+            txtIdCidade.Text = string.Empty;
             txtFornecedorCidade.Text = string.Empty;
             txtFornecedorEstado.Text = string.Empty;
+            txtFornecedorCep.Text = string.Empty;
+            txtFornecedorTelefone.Text = string.Empty;
+            txtFornecedorCelular.Text = string.Empty;
             cbAtivo.Checked = true;
         }
 
@@ -93,34 +102,28 @@ namespace LaPizza.Views
             if (txtFornecedorId.Text != string.Empty)
                 idFornecedor = Convert.ToInt32(txtFornecedorId.Text);
 
-            if (txtFornecedorRazaoSocial.Text == string.Empty)
+            if (txtFornecedorNomeRazao.Text == string.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage += "O Campo Razão Social não foi preenchido corretamente! \n";
             }
 
-            if (txtFornecedorNomeFantasia.Text == string.Empty)
-            {
-                todosPreenchidos = false;
-                auxMessage = "O campo Nome Fantasia não foi preenchido corretamente! \n";
-            }
-
-            if (txtFornecedorCnpjCpf.Text == String.Empty)
+            if (txtFornecedorCnpjCpf.Text == string.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage = "* O campo CNPJ/CPF não foi preenchido corretamente! \n";
             }
 
-            if (txtFornecedorInscricaoEstadual.Text == string.Empty)
+            if (txtFornecedorRgIe.Text == string.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage = "* O Campo da Inscrição Estadual não foi preenchido corretamente! \n";
             }
 
-            if (txtFornecedorTelefone.Text == string.Empty)
+            if (txtFornecedorEmail.Text == string.Empty)
             {
                 todosPreenchidos = false;
-                auxMessage = "* O Campo Telefone não foi preenchido corretamente! \n";
+                auxMessage = "* O Campo E-mail não foi preenchido corretamente! \n";
             }
 
             if (txtFornecedorEndereco.Text == string.Empty)
@@ -135,30 +138,41 @@ namespace LaPizza.Views
                 auxMessage = "* O Campo Número não foi preenchido corretamente! \n";
             }
 
-            if (txtFornecedorEstado.Text == string.Empty)
-            {
-                todosPreenchidos = false;
-                auxMessage = "* O Campo Estado não foi preenchido corretamente! \n";
-            }
-
-            if (txtFornecedorCidade.Text == string.Empty)
-            {
-                todosPreenchidos = false;
-                auxMessage = "* O Campo Cidade não foi preenchido corretamente! \n";
-            }
-
             if (txtFornecedorBairro.Text == string.Empty)
             {
                 todosPreenchidos = false;
                 auxMessage = "* O Campo Bairro não foi preenchido corretamente! \n";
             }
 
-            if (txtFornecedorEmail.Text == string.Empty)
+            if(txtFornecedorComplemento.Text == string.Empty)
             {
                 todosPreenchidos = false;
-                auxMessage = "* O Campo E-mail não foi preenchido corretamente! \n";
+                auxMessage = "* O Campo Complemento não foi preenchido corretamente! \n";
             }
 
+            if (txtIdCidade.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo IdCidade não foi preenchido corretamente! \n";
+            }
+
+            if(txtFornecedorCep.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo CEP não foi preenchido corretamente! \n";
+            }
+
+            if(txtFornecedorTelefone.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo Telefone não foi preenchido corretamente! \n";
+            }
+
+            if (txtFornecedorCelular.Text == string.Empty)
+            {
+                todosPreenchidos = false;
+                auxMessage = "* O Campo Celular não foi preenchido corretamente! \n";
+            }
 
             if (auxMessage != string.Empty)
                 MessageBox.Show(auxMessage, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -173,10 +187,10 @@ namespace LaPizza.Views
 
             HabilitarComponentesPnlFornecedor(true);
 
-            if (txtFornecedorRazaoSocial.CanFocus)
+            if (txtFornecedorNomeRazao.CanFocus)
             {
-                txtFornecedorRazaoSocial.Focus();
-                txtFornecedorRazaoSocial.Select(txtFornecedorRazaoSocial.Text.Length, 0);
+                txtFornecedorNomeRazao.Focus();
+                txtFornecedorNomeRazao.Select(txtFornecedorNomeRazao.Text.Length, 0);
             }
         }
 
@@ -192,18 +206,19 @@ namespace LaPizza.Views
                 FornecedorController Ccontrole = new FornecedorController();
                 FornecedorDB Fornecedor = new FornecedorDB();
 
-                Fornecedor.id = Int32.Parse(txtFornecedorId.Text);
-                Fornecedor.razaosocial = txtFornecedorRazaoSocial.Text;
-                Fornecedor.nomefantasia = txtFornecedorNomeFantasia.Text;
-                Fornecedor.cnpjcpf = txtFornecedorCnpjCpf.Text;
-                Fornecedor.inscricaoestadual = txtFornecedorInscricaoEstadual.Text;
-                Fornecedor.telefone = txtFornecedorTelefone.Text;
+                Fornecedor.idfornecedor = Int32.Parse(txtFornecedorId.Text);
+                Fornecedor.nomerazao = txtFornecedorNomeRazao.Text;
+                Fornecedor.cpfcnpj = txtFornecedorCnpjCpf.Text;
+                Fornecedor.rgie = txtFornecedorRgIe.Text;
+                Fornecedor.email = txtFornecedorEmail.Text;
                 Fornecedor.endereco = txtFornecedorEndereco.Text;
                 Fornecedor.numero = txtFornecedorNumero.Text;
-                Fornecedor.estado = txtFornecedorEstado.Text;
-                Fornecedor.cidade = txtFornecedorCidade.Text;
                 Fornecedor.bairro = txtFornecedorBairro.Text;
-                Fornecedor.email = txtFornecedorEmail.Text;
+                Fornecedor.complemento = txtFornecedorComplemento.Text;
+                Fornecedor.idcidade = Int32.Parse(txtIdCidade.Text);
+                Fornecedor.telefone = txtFornecedorTelefone.Text;
+                Fornecedor.celular = txtFornecedorCelular.Text;
+                Fornecedor.cep = txtFornecedorCep.Text;
                 Fornecedor.ativo = cbAtivo.Checked;
 
                 if (MenuStatus == MStatus.Adicionando)
@@ -211,7 +226,7 @@ namespace LaPizza.Views
                 else if (MenuStatus == MStatus.Editando)
                     Ccontrole.Editar(Fornecedor);
                 else if (MenuStatus == MStatus.Excluindo)
-                    Ccontrole.Excluir(Fornecedor.id);
+                    Ccontrole.Excluir(Fornecedor.idfornecedor);
 
                 LimpaComponentes();
                 HabilitarComponentesPnlFornecedor(false);
@@ -228,18 +243,21 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlFornecedor(true);
 
-                txtFornecedorId.Text = Pesquisa.PesqFornecedor.id.ToString();
-                txtFornecedorRazaoSocial.Text = Pesquisa.PesqFornecedor.razaosocial;
-                txtFornecedorNomeFantasia.Text = Pesquisa.PesqFornecedor.nomefantasia;
-                txtFornecedorCnpjCpf.Text = Pesquisa.PesqFornecedor.cnpjcpf;
-                txtFornecedorInscricaoEstadual.Text = Pesquisa.PesqFornecedor.inscricaoestadual;
-                txtFornecedorTelefone.Text = Pesquisa.PesqFornecedor.telefone;
+                txtFornecedorId.Text = Pesquisa.PesqFornecedor.idfornecedor.ToString();
+                txtFornecedorNomeRazao.Text = Pesquisa.PesqFornecedor.nomerazao;
+                txtFornecedorCnpjCpf.Text = Pesquisa.PesqFornecedor.cpfcnpj;
+                txtFornecedorRgIe.Text = Pesquisa.PesqFornecedor.rgie;
+                txtFornecedorEmail.Text = Pesquisa.PesqFornecedor.email;
                 txtFornecedorEndereco.Text = Pesquisa.PesqFornecedor.endereco;
                 txtFornecedorNumero.Text = Pesquisa.PesqFornecedor.numero;
-                txtFornecedorEstado.Text = Pesquisa.PesqFornecedor.estado;
-                txtFornecedorCidade.Text = Pesquisa.PesqFornecedor.cidade;
                 txtFornecedorBairro.Text = Pesquisa.PesqFornecedor.bairro;
-                txtFornecedorEmail.Text = Pesquisa.PesqFornecedor.email;
+                txtFornecedorComplemento.Text = Pesquisa.PesqFornecedor.complemento;
+                txtIdCidade.Text = Pesquisa.PesqFornecedor.idcidade.ToString();
+                txtFornecedorCidade.Text = Pesquisa.PesqFornecedor.cidadenome;
+                txtFornecedorEstado.Text = Pesquisa.PesqFornecedor.estadosigla;
+                txtFornecedorCep.Text = Pesquisa.PesqFornecedor.cep;
+                txtFornecedorTelefone.Text = Pesquisa.PesqFornecedor.telefone;
+                txtFornecedorCelular.Text = Pesquisa.PesqFornecedor.celular;
                 cbAtivo.Checked = Pesquisa.PesqFornecedor.ativo;
             }
             else
@@ -248,10 +266,10 @@ namespace LaPizza.Views
                 return;
             }
 
-            if (txtFornecedorRazaoSocial.CanFocus)
+            if (txtFornecedorNomeRazao.CanFocus)
             {
-                txtFornecedorRazaoSocial.Focus();
-                txtFornecedorRazaoSocial.Select(0, txtFornecedorRazaoSocial.Text.Length);
+                txtFornecedorNomeRazao.Focus();
+                txtFornecedorNomeRazao.Select(0, txtFornecedorNomeRazao.Text.Length);
             }
         }
 
@@ -264,18 +282,21 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlFornecedor(false);
 
-                txtFornecedorId.Text = Pesquisa.PesqFornecedor.id.ToString();
-                txtFornecedorRazaoSocial.Text = Pesquisa.PesqFornecedor.razaosocial;
-                txtFornecedorNomeFantasia.Text = Pesquisa.PesqFornecedor.nomefantasia;
-                txtFornecedorCnpjCpf.Text = Pesquisa.PesqFornecedor.cnpjcpf;
-                txtFornecedorInscricaoEstadual.Text = Pesquisa.PesqFornecedor.inscricaoestadual;
-                txtFornecedorTelefone.Text = Pesquisa.PesqFornecedor.telefone;
+                txtFornecedorId.Text = Pesquisa.PesqFornecedor.idfornecedor.ToString();
+                txtFornecedorNomeRazao.Text = Pesquisa.PesqFornecedor.nomerazao;
+                txtFornecedorCnpjCpf.Text = Pesquisa.PesqFornecedor.cpfcnpj;
+                txtFornecedorRgIe.Text = Pesquisa.PesqFornecedor.rgie;
+                txtFornecedorEmail.Text = Pesquisa.PesqFornecedor.email;
                 txtFornecedorEndereco.Text = Pesquisa.PesqFornecedor.endereco;
                 txtFornecedorNumero.Text = Pesquisa.PesqFornecedor.numero;
-                txtFornecedorEstado.Text = Pesquisa.PesqFornecedor.estado;
-                txtFornecedorCidade.Text = Pesquisa.PesqFornecedor.cidade;
                 txtFornecedorBairro.Text = Pesquisa.PesqFornecedor.bairro;
-                txtFornecedorEmail.Text = Pesquisa.PesqFornecedor.email;
+                txtFornecedorComplemento.Text = Pesquisa.PesqFornecedor.complemento;
+                txtIdCidade.Text = Pesquisa.PesqFornecedor.idcidade.ToString();
+                txtFornecedorCidade.Text = Pesquisa.PesqFornecedor.cidadenome;
+                txtFornecedorEstado.Text = Pesquisa.PesqFornecedor.estadosigla;
+                txtFornecedorCep.Text = Pesquisa.PesqFornecedor.cep;
+                txtFornecedorTelefone.Text = Pesquisa.PesqFornecedor.telefone;
+                txtFornecedorCelular.Text = Pesquisa.PesqFornecedor.celular;
                 cbAtivo.Checked = Pesquisa.PesqFornecedor.ativo;
 
             }
@@ -298,18 +319,21 @@ namespace LaPizza.Views
             {
                 HabilitarComponentesPnlFornecedor(false);
 
-                txtFornecedorId.Text = Pesquisa.PesqFornecedor.id.ToString();
-                txtFornecedorRazaoSocial.Text = Pesquisa.PesqFornecedor.razaosocial;
-                txtFornecedorNomeFantasia.Text = Pesquisa.PesqFornecedor.nomefantasia;
-                txtFornecedorCnpjCpf.Text = Pesquisa.PesqFornecedor.cnpjcpf;
-                txtFornecedorInscricaoEstadual.Text = Pesquisa.PesqFornecedor.inscricaoestadual;
-                txtFornecedorTelefone.Text = Pesquisa.PesqFornecedor.telefone;
+                txtFornecedorId.Text = Pesquisa.PesqFornecedor.idfornecedor.ToString();
+                txtFornecedorNomeRazao.Text = Pesquisa.PesqFornecedor.nomerazao;
+                txtFornecedorCnpjCpf.Text = Pesquisa.PesqFornecedor.cpfcnpj;
+                txtFornecedorRgIe.Text = Pesquisa.PesqFornecedor.rgie;
+                txtFornecedorEmail.Text = Pesquisa.PesqFornecedor.email;
                 txtFornecedorEndereco.Text = Pesquisa.PesqFornecedor.endereco;
                 txtFornecedorNumero.Text = Pesquisa.PesqFornecedor.numero;
-                txtFornecedorEstado.Text = Pesquisa.PesqFornecedor.estado;
-                txtFornecedorCidade.Text = Pesquisa.PesqFornecedor.cidade;
                 txtFornecedorBairro.Text = Pesquisa.PesqFornecedor.bairro;
-                txtFornecedorEmail.Text = Pesquisa.PesqFornecedor.email;
+                txtFornecedorComplemento.Text = Pesquisa.PesqFornecedor.complemento;
+                txtIdCidade.Text = Pesquisa.PesqFornecedor.idcidade.ToString();
+                txtFornecedorCidade.Text = Pesquisa.PesqFornecedor.cidadenome;
+                txtFornecedorEstado.Text = Pesquisa.PesqFornecedor.estadosigla;
+                txtFornecedorCep.Text = Pesquisa.PesqFornecedor.cep;
+                txtFornecedorTelefone.Text = Pesquisa.PesqFornecedor.telefone;
+                txtFornecedorCelular.Text = Pesquisa.PesqFornecedor.celular;
                 cbAtivo.Checked = Pesquisa.PesqFornecedor.ativo;
 
                 HabilitaAcao(TipoAcao.Confirmar, true);
@@ -324,9 +348,9 @@ namespace LaPizza.Views
                 btnConfirmar.Focus();
         }
 
-        private void txtFornecedorRazaoSocial_TextChanged(object sender, EventArgs e)
+        private void txtFornecedorNomeRazao_TextChanged(object sender, EventArgs e)
         {
-            if (txtFornecedorRazaoSocial.Text != String.Empty && txtFornecedorRazaoSocial.Enabled)
+            if (txtFornecedorNomeRazao.Text != String.Empty && txtFornecedorNomeRazao.Enabled)
                 HabilitaAcao(TipoAcao.Confirmar, true);
             else
                 HabilitaAcao(TipoAcao.Confirmar, false);
@@ -342,6 +366,47 @@ namespace LaPizza.Views
                 if (txtFornecedorCnpjCpf.CanFocus)
                 {
                     txtFornecedorCnpjCpf.Focus();
+                }
+            }
+        }
+
+        private void txtIdCidade_TextChanged(object sender, EventArgs e)
+        {
+            if(txtIdCidade.Text != "")
+            {
+                var cidadeid = Int32.Parse(txtIdCidade.Text);
+                CidadeController Controle = new CidadeController();
+
+                if (Controle.ExisteCidadeId(cidadeid))
+                {
+                    txtFornecedorCidade.Text = Controle.GetCidade(cidadeid).nome;
+                    txtFornecedorEstado.Text = Controle.GetCidade(cidadeid).sigla;
+                }
+                else
+                {
+                    txtFornecedorCidade.Text = String.Empty;
+                    txtFornecedorEstado.Text = String.Empty;
+                }
+            }
+            else
+            {
+                txtFornecedorCidade.Text = String.Empty;
+                txtFornecedorEstado.Text = String.Empty;
+            }
+        }
+
+        private void txtIdCidade_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormCidadePesquisa Pesq = new FormCidadePesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtIdCidade.Text = Pesq.PesqCidade.idcidade.ToString();
+                    txtFornecedorCidade.Text = Pesq.PesqCidade.nome;
+                    txtFornecedorEstado.Text = Pesq.PesqCidade.sigla;
                 }
             }
         }

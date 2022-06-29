@@ -33,15 +33,15 @@ namespace LaPizza.Controllers
             if (fornecedor is null)
                 return 1;
             else
-                return db.fornecedor.Max(p => p.id) + 1;
+                return db.fornecedor.Max(p => p.idfornecedor) + 1;
         }
 
         public bool ExisteFonecedorCnpjCpf(string Cnpjcpf)
         {
             Context db = new Context();
-            FornecedorDB fornecedor = db.fornecedor.Where(p => p.cnpjcpf == Cnpjcpf).FirstOrDefault();
+            FornecedorDB fornecedor = db.fornecedor.Where(p => p.cpfcnpj == Cnpjcpf).FirstOrDefault();
 
-            if (fornecedor != null && fornecedor.cnpjcpf == Cnpjcpf)
+            if (fornecedor != null && fornecedor.cpfcnpj == Cnpjcpf)
                 return true;
             else
                 return false;
@@ -50,24 +50,25 @@ namespace LaPizza.Controllers
         public void Editar(FornecedorDB Fornecedor)
         {
             Context db = new Context();
-            FornecedorDB fornecedor = db.fornecedor.FirstOrDefault(p => p.id == Fornecedor.id);
+            FornecedorDB fornecedor = db.fornecedor.FirstOrDefault(p => p.idfornecedor == Fornecedor.idfornecedor);
 
             if (fornecedor != null)
             {
                 try
                 {
-                    fornecedor.id = Fornecedor.id;
-                    fornecedor.razaosocial = Fornecedor.razaosocial;
-                    fornecedor.nomefantasia = Fornecedor.nomefantasia;
-                    fornecedor.cnpjcpf = Fornecedor.cnpjcpf;
-                    fornecedor.inscricaoestadual = Fornecedor.inscricaoestadual;
+                    fornecedor.idfornecedor = Fornecedor.idfornecedor;
+                    fornecedor.nomerazao = Fornecedor.nomerazao;
+                    fornecedor.cpfcnpj = Fornecedor.cpfcnpj;
+                    fornecedor.rgie = Fornecedor.rgie;
+                    fornecedor.email = Fornecedor.email;
                     fornecedor.endereco = Fornecedor.endereco;
                     fornecedor.numero = Fornecedor.numero;
                     fornecedor.bairro = Fornecedor.bairro;
-                    fornecedor.cidade = Fornecedor.cidade;
-                    fornecedor.estado = Fornecedor.estado;
+                    fornecedor.complemento = Fornecedor.complemento;
+                    fornecedor.idcidade = fornecedor.idcidade;
+                    fornecedor.cep = fornecedor.cep;
                     fornecedor.telefone = Fornecedor.telefone;
-                    fornecedor.email = Fornecedor.email;
+                    fornecedor.celular = Fornecedor.celular;
                     fornecedor.ativo = Fornecedor.ativo;
                     db.SaveChanges();
                 }
@@ -82,7 +83,7 @@ namespace LaPizza.Controllers
         public void Excluir(int Id)
         {
             Context db = new Context();
-            FornecedorDB fornecedor = db.fornecedor.FirstOrDefault(p => p.id == Id);
+            FornecedorDB fornecedor = db.fornecedor.FirstOrDefault(p => p.idfornecedor == Id);
 
             if (fornecedor != null)
             {
@@ -102,54 +103,59 @@ namespace LaPizza.Controllers
         public FornecedorDTO GetFornecedor(int Id)
         {
             Context db = new Context();
-            FornecedorDB fornecedor = db.fornecedor.Where(p => p.id == Id).FirstOrDefault();
-            FornecedorDTO fornecedorModel = new FornecedorDTO();
-
-            if (fornecedor != null)
-            {
-
-                fornecedorModel.id = fornecedor.id;
-                fornecedorModel.razaosocial = fornecedor.razaosocial;
-                fornecedorModel.nomefantasia = fornecedor.nomefantasia;
-                fornecedorModel.cnpjcpf = fornecedor.cnpjcpf;
-                fornecedorModel.inscricaoestadual = fornecedor.inscricaoestadual;
-                fornecedorModel.endereco = fornecedor.endereco;
-                fornecedorModel.numero = fornecedor.numero;
-                fornecedorModel.bairro = fornecedor.bairro;
-                fornecedorModel.cidade = fornecedor.cidade;
-                fornecedorModel.estado = fornecedor.estado;
-                fornecedorModel.telefone = fornecedor.telefone;
-                fornecedorModel.email = fornecedor.email;
-                fornecedorModel.ativo = fornecedor.ativo;
-
-            
-                return fornecedorModel;
-            }
-            else
-                return null;
+            List<FornecedorDTO> lista = (from fornecedor in db.fornecedor
+                                        join cidade in db.cidade on fornecedor.idcidade equals cidade.idcidade
+                                        join estado in db.estado on cidade.idcidade equals estado.idestado
+                                         where fornecedor.idfornecedor == Id
+                                      orderby fornecedor.idfornecedor
+                                      select new FornecedorDTO
+                                      {
+                                          idfornecedor = fornecedor.idfornecedor,
+                                          nomerazao = fornecedor.nomerazao,
+                                          cpfcnpj = fornecedor.cpfcnpj,
+                                          rgie = fornecedor.rgie,
+                                          email = fornecedor.email,
+                                          endereco = fornecedor.endereco,
+                                          numero = fornecedor.numero,
+                                          bairro = fornecedor.bairro,
+                                          complemento = fornecedor.complemento,
+                                          idcidade = fornecedor.idcidade,
+                                          cidadenome = cidade.nome,
+                                          estadosigla = estado.sigla,
+                                          cep = fornecedor.cep,
+                                          telefone = fornecedor.telefone,
+                                          celular = fornecedor.celular,
+                                          ativo = fornecedor.ativo,
+                                      }).ToList();
+            return lista[0];
         }
 
         public List<FornecedorDTO> GetFornecedorLista()
         {
             Context db = new Context();
             List<FornecedorDTO> lista = (from fornecedor in db.fornecedor
-                                           orderby fornecedor.id
-                                        select new FornecedorDTO
-                                        {
-                                            id = fornecedor.id,
-                                            razaosocial = fornecedor.razaosocial,
-                                            nomefantasia = fornecedor.nomefantasia,
-                                            cnpjcpf = fornecedor.cnpjcpf,
-                                            inscricaoestadual = fornecedor.inscricaoestadual,
-                                            endereco = fornecedor.endereco,
-                                            numero = fornecedor.numero,
-                                            bairro = fornecedor.bairro,
-                                            cidade = fornecedor.cidade,
-                                            estado = fornecedor.estado,
-                                            telefone = fornecedor.telefone,
-                                            email = fornecedor.email,
-                                            ativo = fornecedor.ativo,
-                                        }).ToList();
+                                         join cidade in db.cidade on fornecedor.idcidade equals cidade.idcidade
+                                         join estado in db.estado on cidade.idestado equals estado.idestado
+                                         orderby fornecedor.idfornecedor
+                                         select new FornecedorDTO
+                                         {
+                                             idfornecedor = fornecedor.idfornecedor,
+                                             nomerazao = fornecedor.nomerazao,
+                                             cpfcnpj = fornecedor.cpfcnpj,
+                                             rgie = fornecedor.rgie,
+                                             email = fornecedor.email,
+                                             endereco = fornecedor.endereco,
+                                             numero = fornecedor.numero,
+                                             bairro = fornecedor.bairro,
+                                             complemento = fornecedor.complemento,
+                                             idcidade = fornecedor.idcidade,
+                                             cidadenome = cidade.nome,
+                                             estadosigla = estado.sigla,
+                                             cep = fornecedor.cep,
+                                             telefone = fornecedor.telefone,
+                                             celular = fornecedor.celular,
+                                             ativo = fornecedor.ativo,
+                                         }).ToList();
             return lista;
         }
 
@@ -157,25 +163,30 @@ namespace LaPizza.Controllers
         {
             Context db = new Context();
             List<FornecedorDTO> lista = (from fornecedor in db.fornecedor
-                                           orderby fornecedor.id
-                                        select new FornecedorDTO
-                                        {
-                                            id = fornecedor.id,
-                                            razaosocial = fornecedor.razaosocial,
-                                            nomefantasia = fornecedor.nomefantasia,
-                                            cnpjcpf = fornecedor.cnpjcpf,
-                                            inscricaoestadual = fornecedor.inscricaoestadual,
-                                            endereco = fornecedor.endereco,
-                                            numero = fornecedor.numero,
-                                            bairro = fornecedor.bairro,
-                                            cidade = fornecedor.cidade,
-                                            estado = fornecedor.estado,
-                                            telefone = fornecedor.telefone,
-                                            email = fornecedor.email,
-                                            ativo = fornecedor.ativo,
-                                        }).ToList();
+                                         join cidade in db.cidade on fornecedor.idcidade equals cidade.idcidade
+                                         join estado in db.estado on cidade.idestado equals estado.idestado
+                                         orderby fornecedor.idfornecedor
+                                         select new FornecedorDTO
+                                         {
+                                             idfornecedor = fornecedor.idfornecedor,
+                                             nomerazao = fornecedor.nomerazao,
+                                             cpfcnpj = fornecedor.cpfcnpj,
+                                             rgie = fornecedor.rgie,
+                                             email = fornecedor.email,
+                                             endereco = fornecedor.endereco,
+                                             numero = fornecedor.numero,
+                                             bairro = fornecedor.bairro,
+                                             complemento = fornecedor.complemento,
+                                             idcidade = fornecedor.idcidade,
+                                             cidadenome = cidade.nome,
+                                             estadosigla = estado.sigla,
+                                             cep = fornecedor.cep,
+                                             telefone = fornecedor.telefone,
+                                             celular = fornecedor.celular,
+                                             ativo = fornecedor.ativo,
+                                          }).ToList();
 
-            return new List<FornecedorDTO>(lista.Where(p => p.razaosocial.ToUpper().Contains(TextoPesquisa.ToUpper())));
+            return new List<FornecedorDTO>(lista.Where(p => p.nomerazao.ToUpper().Contains(TextoPesquisa.ToUpper())));
         }
     }
 }
