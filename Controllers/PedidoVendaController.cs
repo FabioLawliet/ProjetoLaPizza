@@ -140,11 +140,11 @@ namespace LaPizza.Controllers
                                                   idunidmedida = unidade.idunidmedida,
                                                   unidademedidasigla = unidade.sigla,
                                                   saldoestoque = produto.saldoestoque,
-                                                  qtde = 0,
+                                                  qtde = 0.00m,
                                                   vlrunitario = produto.precoatual,
-                                                  vlrdesconto = 0,
-                                                  vlrdescontoperc = 0,
-                                                  vlrliquido = 0
+                                                  vlrdesconto = 0.00m,
+                                                  vlrdescontoperc = "0,00%",
+                                                  vlrliquido = 0.00m
                                               }).ToList();
             return lista;
         }

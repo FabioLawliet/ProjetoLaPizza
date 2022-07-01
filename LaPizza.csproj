@@ -169,6 +169,7 @@
     <Compile Include="Models\SubgrupoDB.cs" />
     <Compile Include="Models\SubgrupoDTO.cs" />
     <Compile Include="Models\TesteDto.cs" />
+    <Compile Include="Models\TipoPedidoDB.cs" />
     <Compile Include="Models\UnidadeMedidaDB.cs" />
     <Compile Include="Models\UnidadeMedidaDTO.cs" />
     <Compile Include="Models\UsuarioDto.cs" />

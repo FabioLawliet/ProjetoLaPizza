@@ -93,6 +93,9 @@ namespace LaPizza.Controllers
         public ProdutoDTO GetProduto(int Id)
         {
             Context db = new Context();
+
+
+            
             List<ProdutoDTO> Lista = (from produto in db.produto
                                         join marca in db.marca on produto.idmarca equals marca.idmarca
                                         join grupo in db.grupo on produto.idgrupo equals grupo.idgrupo

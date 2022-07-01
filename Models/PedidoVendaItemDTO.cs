@@ -18,7 +18,7 @@ namespace LaPizza.Models
         public decimal qtde { get; set; }
         public decimal vlrunitario { get; set; }
         public decimal vlrdesconto { get; set; }
-        public decimal vlrdescontoperc { get; set; }
+        public string vlrdescontoperc { get; set; }
         public decimal vlrliquido { get; set; }
     }
 }
