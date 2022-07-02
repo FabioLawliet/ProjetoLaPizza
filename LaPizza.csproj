@@ -153,6 +153,7 @@
     <Compile Include="Models\FornecedorDTO.cs" />
     <Compile Include="Models\GrupoDB.cs" />
     <Compile Include="Models\GrupoDTO.cs" />
+    <Compile Include="Models\ItemSelecionadoVendaDTO.cs" />
     <Compile Include="Models\MarcaDTO.cs" />
     <Compile Include="Models\MarcaDB.cs" />
     <Compile Include="Controllers\Utils.cs" />
@@ -275,6 +276,12 @@
     </Compile>
     <Compile Include="Views\FormVenPedidoVenda.Designer.cs">
       <DependentUpon>FormVenPedidoVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormVenSelecaoItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormVenSelecaoItem.Designer.cs">
+      <DependentUpon>FormVenSelecaoItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pesquisas\FormCidadePesquisa.cs">
       <SubType>Form</SubType>
@@ -406,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormVenPedidoVenda.resx">
       <DependentUpon>FormVenPedidoVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormVenSelecaoItem.resx">
+      <DependentUpon>FormVenSelecaoItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormCidadePesquisa.resx">
       <DependentUpon>FormCidadePesquisa.cs</DependentUpon>
@@ -546,6 +556,8 @@
     <None Include="Icons\CheckVenda.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icons\CarrinhoCompras.png" />
+    <None Include="Icons\CarrinhoComprasHover.png" />
     <Content Include="Icons\olhoAberto.png" />
     <Content Include="Icons\olhoFechado.png" />
     <None Include="Icons\SenhaVisivel.png" />

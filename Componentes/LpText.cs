@@ -35,7 +35,10 @@ namespace LaPizza.Controllers
         protected override void OnGotFocus(EventArgs e)
         {
             this.BackColor = LpCorFoco;
-            this.Select(this.Text.Length, 0);
+            if (this.TextAlign == HorizontalAlignment.Left)
+                this.Select(this.Text.Length, 0);
+            else
+                this.Select(0, this.Text.Length); 
             base.OnGotFocus(e);
         }
 
@@ -43,6 +46,25 @@ namespace LaPizza.Controllers
         {
             this.BackColor = LpCorPadrao;
             base.OnLostFocus(e);
+
+            switch (LpTipo)
+            {
+                case tipoCampo.Currency:
+                    if (this.Text == String.Empty)
+                        this.Text = "0,00";
+                    else
+                        this.Text = Convert.ToDecimal(this.Text).ToString("N2");
+                    break;
+
+                case tipoCampo.Integer:
+                    if (this.Text == String.Empty)
+                        this.Text = "0";
+                    break;
+
+                default:
+                    this.Text = this.Text;
+                    break;
+            }
         }
 
         protected override void OnEnabledChanged(EventArgs e)

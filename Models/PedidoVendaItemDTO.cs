@@ -8,6 +8,7 @@ namespace LaPizza.Models
 {
     public class PedidoVendaItemDTO
     {
+        public bool marcado { get; set; }
         public int id { get; set; }
         public int idpedido { get; set; }
         public int idproduto { get; set; }

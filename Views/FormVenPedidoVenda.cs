@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -15,11 +16,13 @@ namespace LaPizza.Views
 {
     public partial class FormVenPedidoVenda : LaPizza.Views.FormBaseCadastros
     {
+        PedidoVendaDTO FPedido = new PedidoVendaDTO();
         public FormVenPedidoVenda()
         {
             InitializeComponent();
             CarregarListaGrid();
             AlimentaTodosComboBox();
+            AtualizaTotais();
         }
 
         public void CarregarListaGrid()
@@ -33,7 +36,6 @@ namespace LaPizza.Views
 
         private void AjustaCampoGrid()
         {
-
             foreach (DataGridViewColumn Coluna in GridProdutos.Columns)
             {
                 switch (Coluna.Name)
@@ -55,40 +57,40 @@ namespace LaPizza.Views
                         Coluna.DisplayIndex = 2;
                         Coluna.HeaderText = "Descrição Produto";
                         Coluna.ReadOnly = true;
-                        Coluna.Width = 172; //230
+                        Coluna.Width = 192; //230
                         break;
                     case "unidademedidasigla":
                         Coluna.DisplayIndex = 3;
                         Coluna.HeaderText = "UN.";
                         Coluna.ReadOnly = true;
-                        Coluna.Width = 50;
+                        Coluna.Width = 40;
                         break;
                     case "saldoestoque":
                         Coluna.DisplayIndex = 4;
                         Coluna.HeaderText = "Estoque Disp.";
                         Coluna.ReadOnly = true;
-                        Coluna.Width = 70;
+                        Coluna.Width = 80;
                         break;
                     case "qtde":
                         Coluna.DisplayIndex = 5;
                         Coluna.HeaderText = "Qtde";
-                        Coluna.ReadOnly = false;
+                        Coluna.ReadOnly = true;
                         Coluna.ValueType = typeof(decimal);
                         Coluna.Width = 80;
                         break;
                     case "vlrdesconto":
                         Coluna.DisplayIndex = 6;
                         Coluna.HeaderText = "Desconto";
-                        Coluna.ReadOnly = false;
+                        Coluna.ReadOnly = true;
                         Coluna.ValueType = typeof(decimal);
                         Coluna.Width = 80;
                         break;
                     case "vlrdescontoperc":
                         Coluna.DisplayIndex = 7;
-                        Coluna.HeaderText = "% Desconto";
+                        Coluna.HeaderText = "Desc.%";
                         Coluna.ReadOnly = true;
                         Coluna.ValueType = typeof(string);
-                        Coluna.Width = 80;
+                        Coluna.Width = 60;
                         break;
                     case "vlrunitario":
                         Coluna.DisplayIndex = 8;
@@ -129,11 +131,6 @@ namespace LaPizza.Views
             cbFicha.SelectedIndex = 0;
         }
 
-        private void CarregaStatusPedido()
-        {
-
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -149,39 +146,47 @@ namespace LaPizza.Views
             AjustaCampoGrid();
             GridProdutos.Refresh();*/
         }
-
-        private void GridProdutos_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void GridProdutos_CellValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            if (GridProdutos.CurrentRow == null || e.RowIndex == -1)
-                return;
-
-            DataGridViewRow Linha   = GridProdutos.Rows[e.RowIndex];
-            DataGridViewCell CellQtde = GridProdutos.Rows[e.RowIndex].Cells["qtde"];
-            
-            if (string.IsNullOrEmpty(CellQtde.Value.ToString()) || (Convert.ToInt64(CellQtde.Value) <= 0))
-                Linha.Cells["check"].Value = LaPizza.Properties.Resources.vazio;
-            else
-                Linha.Cells["check"].Value = LaPizza.Properties.Resources.CheckVenda;
-        }
-
         private void GridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (GridProdutos.CurrentRow == null || e.RowIndex == -1)
-                return;
+            ItemSelecionadoVendaDTO item = new ItemSelecionadoVendaDTO();
+            FormVenSelecaoItem FormItem = new FormVenSelecaoItem();
 
-            DataGridViewRow Linha = GridProdutos.Rows[e.RowIndex];
-            DataGridViewCell CellQtde = GridProdutos.Rows[e.RowIndex].Cells["qtde"];
+            item.idProduto        = GridProdutos.CurrentRow.Cells["idproduto"].Value.ToString();
+            item.produtoDescricao = GridProdutos.CurrentRow.Cells["produtodescricao"].Value.ToString();
+            item.qtdeDisponivel   = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["saldoestoque"].Value.ToString());
 
-            if (Convert.ToDecimal(CellQtde.Value) == 0)
+            if (GridProdutos.CurrentRow.Cells["qtde"].Value.ToString() != "0,00" ) 
+                item.qtde = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["qtde"].Value.ToString());
+            else
+                item.qtde = 1.00m;
+
+            item.vlrUnitario = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["vlrunitario"].Value.ToString());
+            item.vlrDesconto = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["vlrdesconto"].Value.ToString());    
+
+            FormItem.FItem = item;
+            var Result = FormItem.ShowDialog();
+
+            if (Result == DialogResult.OK)
             {
-                CellQtde.Value = 1m;
-                Linha.Cells["check"].Value = LaPizza.Properties.Resources.CheckVenda;
-            }                
+                if (FormItem.FItem.qtde > 0)
+                {
+                    GridProdutos.CurrentRow.Cells["check"].Value = LaPizza.Properties.Resources.CheckVenda;
+                    GridProdutos.CurrentRow.Cells["marcado"].Value = true;
+                }
+                else
+                {
+                    GridProdutos.CurrentRow.Cells["check"].Value = LaPizza.Properties.Resources.vazio;
+                    GridProdutos.CurrentRow.Cells["marcado"].Value = false;
+                }
+
+                GridProdutos.CurrentRow.Cells["qtde"].Value = FormItem.FItem.qtde.ToString("N2");
+                GridProdutos.CurrentRow.Cells["vlrdesconto"].Value = FormItem.FItem.vlrDesconto.ToString("N2");
+                GridProdutos.CurrentRow.Cells["vlrliquido"].Value = FormItem.FItem.getVlrLiquido().ToString("N2");
+
+                AtualizaTotais();
+            }
+
+            HabilitaAcao(TipoAcao.Confirmar, ExisteItemLancadoPedido());
         }
 
         private void btnPesquisaCliente_Click(object sender, EventArgs e)
@@ -191,7 +196,11 @@ namespace LaPizza.Views
             var Result = Pesq.ShowDialog();
 
             if (Result == DialogResult.OK)
+            {
                 txtCliente.Text = Pesq.PesqCliente.idcliente + " - " + Pesq.PesqCliente.nomerazao;
+                FPedido.idcliente = Pesq.PesqCliente.idcliente;
+            }
+                
         }
 
         private void btnPesquisaFormaPagamento_Click(object sender, EventArgs e)
@@ -201,113 +210,84 @@ namespace LaPizza.Views
             var Result = Pesq.ShowDialog();
 
             if (Result == DialogResult.OK)
+            {
                 txtFormaPagamento.Text = Pesq.PesqFormaPagamento.idformapagamento + " - " + Pesq.PesqFormaPagamento.descricao;
+                FPedido.idformapagamento = Pesq.PesqFormaPagamento.idformapagamento;
+            }
         }
 
-        private void GridProdutos_CellLeave(object sender, DataGridViewCellEventArgs e)
+        private bool ExisteItemLancadoPedido()
         {
-            /*
-            DataGridViewCell CellQtde = GridProdutos.Rows[e.RowIndex].Cells["qtde"];
-            DataGridViewCell CellDesconto = GridProdutos.Rows[e.RowIndex].Cells["vlrdesconto"];
-            DataGridViewCell CellDescontoPerc = GridProdutos.Rows[e.RowIndex].Cells["vlrdescontoperc"];
-
-            if (String.IsNullOrEmpty((string)CellQtde.Value))
-                CellQtde.Value = 0m;
-
-            if (String.IsNullOrEmpty((string)CellDesconto.Value))
-                CellDesconto.Value = 0m;
-
-            if (String.IsNullOrEmpty((string)CellDescontoPerc.Value))
-                CellDescontoPerc.Value = 0m;*/
-
-        }
-
-        private void GridProdutos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            /*
-            MessageBox.Show("teste123");
-            if (e.KeyChar == (char)Keys.Delete)
-                if (GridProdutos.SelectedRows.Count > 0)
-                    GridProdutos.Rows.RemoveAt(GridProdutos.CurrentRow.Index);*/
-        }
-
-        private void ZeraCampoVazio()
-        {
-            if ((GridProdutos.CurrentCell.Value == null) || ((string)GridProdutos.CurrentCell.Value == String.Empty))
-                return;
-
-            if (GridProdutos.CurrentCell.ColumnIndex == GridProdutos.CurrentRow.Cells["qtde"].ColumnIndex)
-                GridProdutos.CurrentCell.Value = 0m;
-            else if (GridProdutos.CurrentCell.ColumnIndex == GridProdutos.CurrentRow.Cells["vlrdesconto"].ColumnIndex)
-                GridProdutos.CurrentCell.Value = 0m;
-            else if (GridProdutos.CurrentCell.ColumnIndex == GridProdutos.CurrentRow.Cells["vlrdescontoperc"].ColumnIndex)
-                GridProdutos.CurrentCell.Value = 0m;
+            int count = 0;
+            foreach (DataGridViewRow row in GridProdutos.Rows)
+            {
+                if ((bool)row.Cells["marcado"].Value == true)
+                {
+                    count++;
+                    break;
+                }
+            }
+            if (count > 0)
+                return true;
+            else
+                return false;
         }
 
         private void AtualizaTotais()
         {
-            if (GridProdutos.CurrentRow == null || GridProdutos.CurrentRow.Index == -1)
-                return;
-
             decimal TotalBruto    = 0m;
             decimal TotalDescontos = 0m;
 
             foreach (DataGridViewRow row in GridProdutos.Rows)
             {
+                
                 decimal qtde         = Convert.ToDecimal(row.Cells["qtde"].Value.ToString());
                 decimal desconto     = Convert.ToDecimal(row.Cells["vlrdesconto"].Value.ToString());
                 decimal vlrunitario  = Convert.ToDecimal(row.Cells["vlrunitario"].Value.ToString());
                 decimal vlrliquido   = Convert.ToDecimal(row.Cells["vlrliquido"].Value.ToString());
 
-                TotalBruto     += qtde * vlrunitario;
-                TotalDescontos += desconto;
+                TotalBruto          += qtde * vlrunitario;
+                TotalDescontos      += desconto;
             }
 
-            lbTotalBruto.Text     = Math.Truncate(TotalBruto).ToString("0.##");
-            lbTotalDescontos.Text = Math.Truncate(TotalDescontos).ToString("0.##");
-            lbTotalLiquido.Text   = Math.Truncate(TotalBruto - TotalDescontos).ToString("0.##");
-
+            lbTotalBruto.Text     = TotalBruto.ToString("C");
+            lbTotalDescontos.Text = TotalDescontos.ToString("C");
+            lbTotalLiquido.Text = (TotalBruto - TotalDescontos).ToString("C");
         }
 
-        private void AtualizaDescontoPercentual()
+        private void btnCarrinho_Click(object sender, EventArgs e)
         {
-            if (GridProdutos.CurrentRow == null || GridProdutos.CurrentRow.Index == -1)
-                return;
+            CurrencyManager cm = (CurrencyManager)BindingContext[GridProdutos.DataSource];
+            cm.EndCurrentEdit();
+            cm.SuspendBinding();
+            cm.ResumeBinding();
 
-            decimal qtde        = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["qtde"].Value.ToString());
-            decimal desconto    = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["vlrdesconto"].Value.ToString());
-            decimal vlrunitario = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["vlrunitario"].Value.ToString());            
-            
-            if (qtde != 0)
+            if (btnCarrinho.Tag.ToString() == "Lista")
             {
-                decimal descontoperc = (desconto / (qtde * vlrunitario) * 100);
-                if (descontoperc == 0)
-                    GridProdutos.CurrentRow.Cells["vlrdescontoperc"].Value = "0,00%";
-                else
-                    GridProdutos.CurrentRow.Cells["vlrdescontoperc"].Value = desconto.ToString("0.##") + "%";
+                btnCarrinho.Tag = "Carrinho";
+                btnCarrinho.BackgroundImage = Properties.Resources.CarrinhoComprasHover;
             }
-        }
-
-        private void AtualizaValorUnitario()
-        {
-            if (GridProdutos.CurrentRow == null || GridProdutos.CurrentRow.Index == -1)
-                return;
-
-                decimal qtde = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["qtde"].Value.ToString());
-                decimal desconto = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["vlrdesconto"].Value.ToString());
-                decimal vlrunitario = Convert.ToDecimal(GridProdutos.CurrentRow.Cells["vlrunitario"].Value.ToString());
-
-                GridProdutos.CurrentRow.Cells["vlrliquido"].Value = (qtde * vlrunitario) - desconto;
-        }
-
-        private void GridProdutos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            //ZeraCampoVazio();
-
-            AtualizaValorUnitario();
-            AtualizaDescontoPercentual();
-            AtualizaTotais();
-           
+            else
+            {
+                btnCarrinho.Tag = "Lista";
+                btnCarrinho.BackgroundImage = Properties.Resources.CarrinhoCompras;
+            }
+                
+            if (btnCarrinho.Tag.ToString() == "Lista")
+            {
+                foreach (DataGridViewRow row in GridProdutos.Rows)
+                    row.Visible = true;
+            }
+            else
+            {
+                foreach (DataGridViewRow row in GridProdutos.Rows)
+                {
+                    if ((bool)row.Cells["marcado"].Value == true)
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
         }
     }
 }
