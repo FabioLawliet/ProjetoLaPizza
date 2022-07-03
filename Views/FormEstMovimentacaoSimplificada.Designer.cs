@@ -54,8 +54,8 @@
             this.gridMovimentos = new System.Windows.Forms.DataGridView();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
-            this.pnlAcoesMenu.SuspendLayout();
             this.pnlAcoesRodape.SuspendLayout();
+            this.pnlAcoesMenu.SuspendLayout();
             this.boxFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMovimentos)).BeginInit();
             this.SuspendLayout();
@@ -73,10 +73,6 @@
             // pnlNomeRotina
             // 
             this.pnlNomeRotina.Size = new System.Drawing.Size(584, 40);
-            // 
-            // pnlAcoesMenu
-            // 
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(584, 39);
             // 
             // btnAcaoAdicionar
             // 
@@ -105,6 +101,7 @@
             // lbNomeRotina
             // 
             this.lbNomeRotina.Size = new System.Drawing.Size(584, 40);
+            this.lbNomeRotina.Text = "Form1";
             // 
             // pnlAcoesRodape
             // 
@@ -147,6 +144,10 @@
             // 
             this.splitter3.Location = new System.Drawing.Point(474, 5);
             this.splitter3.Visible = false;
+            // 
+            // pnlAcoesMenu
+            // 
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(584, 39);
             // 
             // txtMovimentoId
             // 
@@ -426,9 +427,9 @@
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
             this.pnlNomeRotina.ResumeLayout(false);
+            this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlAcoesMenu.ResumeLayout(false);
             this.pnlAcoesMenu.PerformLayout();
-            this.pnlAcoesRodape.ResumeLayout(false);
             this.boxFiltro.ResumeLayout(false);
             this.boxFiltro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMovimentos)).EndInit();

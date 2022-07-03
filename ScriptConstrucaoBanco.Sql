@@ -3,38 +3,43 @@
 /****************************************************************************
 TABELA MARCA
 ****************************************************************************/
+create sequence marca_seq increment 1 start 1;
 CREATE TABLE PUBLIC.MARCA(
-IdMarca Serial Primary Key,
+IdMarca integer primary key default nextval('marca_seq'),
 Descricao varchar(50),
 Ativa bool);
 
-INSERT INTO MARCA VALUES
-(1,'MARCA 01',true),
-(2,'MARCA 02',true),
-(3,'MARCA 03',true),
-(4,'MARCA 04',true),
-(5,'MARCA 05',true);
+INSERT INTO MARCA (Descricao, Ativa)
+VALUES
+('MARCA 01',true),
+('MARCA 02',true),
+('MARCA 03',true),
+('MARCA 04',true),
+('MARCA 05',true);
 
 /****************************************************************************
 TABELA GRUPO
 ****************************************************************************/
+create sequence grupo_seq increment 1 start 1;
 CREATE TABLE PUBLIC.GRUPO(
-IdGrupo Serial Primary Key,
+IdGrupo integer primary key default nextval('grupo_seq'),
 Descricao varchar(50),
 Ativo bool);
 
-INSERT INTO GRUPO VALUES
-(1,'GRUPO 01',true),
-(2,'GRUPO 02',true),
-(3,'GRUPO 03',true),
-(4,'GRUPO 04',true),
-(5,'GRUPO 05',true);
+INSERT INTO GRUPO (Descricao, Ativo)
+VALUES
+('GRUPO 01',true),
+('GRUPO 02',true),
+('GRUPO 03',true),
+('GRUPO 04',true),
+('GRUPO 05',true);
 
 /****************************************************************************
 TABELA SUBGRUPO
 ****************************************************************************/
+create sequence subgrupo_seq increment 1 start 1;
 CREATE TABLE PUBLIC.SUBGRUPO(
-Id Serial Primary Key,
+Id integer primary key default nextval('subgrupo_seq'),
 IdGrupo int,
 	CONSTRAINT "FK_idGrupo_TSubgrupo" FOREIGN KEY (IdGrupo)
 	REFERENCES PUBLIC.GRUPO (IdGrupo) MATCH SIMPLE
@@ -44,38 +49,42 @@ IdSubgrupo int,
 Descricao varchar(50),
 Ativo bool);
 
-INSERT INTO PUBLIC.SUBGRUPO VALUES
-( 1, 1, 1, 'SUBGRUPO 01', true),
-( 2, 1, 2, 'SUBGRUPO 02', true),
-( 3, 2, 1, 'SUBGRUPO 01', true),
-( 4, 2, 2, 'SUBGRUPO 02', true),
-( 5, 3, 1, 'SUBGRUPO 01', true),
-( 6, 3, 2, 'SUBGRUPO 02', true),
-( 7, 4, 1, 'SUBGRUPO 01', true),
-( 8, 4, 2, 'SUBGRUPO 02', true),
-( 9, 5, 1, 'SUBGRUPO 01', true),
-(10, 5, 2, 'SUBGRUPO 02', true);
+INSERT INTO PUBLIC.SUBGRUPO (IdGrupo, IdSubGrupo, Descricao, Ativo)
+VALUES
+(1, 1, 'SUBGRUPO 01', true),
+(1, 2, 'SUBGRUPO 02', true),
+(2, 1, 'SUBGRUPO 01', true),
+(2, 2, 'SUBGRUPO 02', true),
+(3, 1, 'SUBGRUPO 01', true),
+(3, 2, 'SUBGRUPO 02', true),
+(4, 1, 'SUBGRUPO 01', true),
+(4, 2, 'SUBGRUPO 02', true),
+(5, 1, 'SUBGRUPO 01', true),
+(5, 2, 'SUBGRUPO 02', true);
 
 /****************************************************************************
 TABELA UNIDADE MEDIDA
 ****************************************************************************/
+create sequence unidademedida_seq increment 1 start 1;
 CREATE TABLE PUBLIC.UNIDADEMEDIDA(
-IdUnidMedida Serial PRIMARY KEY,
+IdUnidMedida integer primary key default nextval('unidademedida_seq'),
 Descricao varchar(50),
 Sigla varchar(3),
 Ativa bool);
 
-INSERT INTO UNIDADEMEDIDA VALUES
-(1, 'UNIDADE', 'UN', true),
-(2, 'PEÇA'   , 'PC', true),
-(3, 'METRO'  , 'MT', true),
-(4, 'LITRO'  , 'LT', true);
+INSERT INTO UNIDADEMEDIDA (Descricao, Sigla, Ativa)
+VALUES
+('UNIDADE', 'UN', true),
+('PEÇA'   , 'PC', true),
+('METRO'  , 'MT', true),
+('LITRO'  , 'LT', true);
 
 /****************************************************************************
 TABELA PRODUTO 
 ****************************************************************************/
+create sequence produto_seq increment 1 start 1;
 CREATE TABLE PUBLIC.PRODUTO(
-IdProduto Serial PRIMARY KEY,
+IdProduto integer primary key default nextval('produto_seq'),
 Descricao varchar(60),
 DataCadastro varchar(20),
 Ativo bool,
@@ -108,25 +117,35 @@ QtdeEstMax decimal(10,2),
 PrecoAnterior decimal(10,2),
 PrecoAtual decimal(10,2));
 
-insert into produto values
-(1,'PRODUTO 01',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 10, 0,0,0,0,10.00),
-(2,'PRODUTO 02',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 15, 0,0,0,0,10.00),
-(3,'PRODUTO 03',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 20, 0,0,0,0,10.00),
-(4,'PRODUTO 04',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 25, 0,0,0,0,10.00),
-(5,'PRODUTO 05',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 30, 0,0,0,0,10.00);
+insert into produto (Descricao, DataCadastro, Ativo, IdGrupo, IdSubGrupo, IdMarca, IdUnidMedida, 
+CodigoFabricante, InfAdicionais, SaldoEstoque, QtdeEstMin, QtdeEstIdeal, QtdeEstMax, PrecoAnterior, PrecoAtual)
+values
+('Pizza P Salgada',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,50.00),
+('Pizza G Salgada',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,60.00),
+('Pizza GG Salgada',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,70.00),
+('Pizza P Doce',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,50.00),
+('Pizza G Doce',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,60.00),
+('Pizza GG Doce',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,70.00),
+('Refrigerante Garrafa 1L',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,9.00),
+('Refrigerante Lata 300ml',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,4.00),
+('Suco Laranja',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00),
+('Suco Morango',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00),
+('Suco Abacaxi',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00);
 
 /****************************************************************************
 TABELA MOVIMENTO DE ESTOQUE
 ****************************************************************************/
+create sequence movimentoestoque_seq increment 1 start 1;
 create table public.MovimentoEstoque(
-IdMovimentoEstoque serial PRIMARY KEY,
+IdMovimentoEstoque integer primary key default nextval('movimentoestoque_seq'),
 Descricao varchar(50),
 DataMovimento date,
 UsuarioMovimento varchar(50)
 );
 
+create sequence movimentoestoqueitem_seq increment 1 start 1;
 create table public.MovimentoEstoqueItens(
-Id serial primary key,
+Id integer primary key default nextval('movimentoestoqueitem_seq'),
 IdMovimentoEstoque int,
 	CONSTRAINT "FK_IdMovEstoque_TMovimentoEstoque" FOREIGN KEY (IdMovimentoEstoque)
 	REFERENCES public.movimentoestoque (IdMovimentoEstoque) MATCH SIMPLE
@@ -145,57 +164,67 @@ SaldoEstoqueNovo decimal (10,2));
 /****************************************************************************
 TABELA ESTADO
 ****************************************************************************/
+create sequence estado_seq increment 1 start 1;
 CREATE TABLE ESTADO(
-IdEstado serial primary key,
+IdEstado integer primary key default nextval('estado_seq'),
 Nome varchar(50),
 Sigla varchar(2));
 
-INSERT INTO estados (id, nome, sigla) VALUES
-(1, 'Acre', 'AC'),
-(2, 'Alagoas', 'AL'),
-(3, 'Amazonas', 'AM'),
-(4, 'Amapá', 'AP'),
-(5, 'Bahia', 'BA'),
-(6, 'Ceará', 'CE'),
-(7, 'Distrito Federal', 'DF'),
-(8, 'Espírito Santo', 'ES'),
-(9, 'Goiás', 'GO'),
-(10, 'Maranhão', 'MA'),
-(11, 'Minas Gerais', 'MG'),
-(12, 'Mato Grosso do Sul', 'MS'),
-(13, 'Mato Grosso', 'MT'),
-(14, 'Pará', 'PA'),
-(15, 'Paraíba', 'PB'),
-(16, 'Pernambuco', 'PE'),
-(17, 'Piauí', 'PI'),
-(18, 'Paraná', 'PR'),
-(19, 'Rio de Janeiro', 'RJ'),
-(20, 'Rio Grande do Norte', 'RN'),
-(21, 'Rondônia', 'RO'),
-(22, 'Roraima', 'RR'),
-(23, 'Rio Grande do Sul', 'RS'),
-(24, 'Santa Catarina', 'SC'),
-(25, 'Sergipe', 'SE'),
-(26, 'São Paulo', 'SP'),
-(27, 'Tocantins', 'TO');
+INSERT INTO estado (nome, sigla) VALUES
+('Acre', 'AC'),
+('Alagoas', 'AL'),
+('Amazonas', 'AM'),
+('Amapá', 'AP'),
+('Bahia', 'BA'),
+('Ceará', 'CE'),
+('Distrito Federal', 'DF'),
+('Espírito Santo', 'ES'),
+('Goiás', 'GO'),
+('Maranhão', 'MA'),
+('Minas Gerais', 'MG'),
+('Mato Grosso do Sul', 'MS'),
+('Mato Grosso', 'MT'),
+('Pará', 'PA'),
+('Paraíba', 'PB'),
+('Pernambuco', 'PE'),
+('Piauí', 'PI'),
+('Paraná', 'PR'),
+('Rio de Janeiro', 'RJ'),
+('Rio Grande do Norte', 'RN'),
+('Rondônia', 'RO'),
+('Roraima', 'RR'),
+('Rio Grande do Sul', 'RS'),
+('Santa Catarina', 'SC'),
+('Sergipe', 'SE'),
+('São Paulo', 'SP'),
+('Tocantins', 'TO');
 
 /****************************************************************************
 TABELA CIDADE
 ****************************************************************************/
+create sequence cidade_seq increment 1 start 1;
 CREATE TABLE CIDADE(
-IdCidade serial primary key,
+IdCidade integer primary key default nextval('cidade_seq'),
 Nome varchar(100),
 IdEstado int, 
 	CONSTRAINT "fk_idEstado_TCidade" FOREIGN KEY (idEstado)
 	REFERENCES public.Estado (idEstado) MATCH SIMPLE
 	ON UPDATE NO ACTION
     ON DELETE RESTRICT);
+	
+INSERT INTO cidade (nome, idestado) 
+VALUES	
+('CASCAVEL', 18),
+('CURITIBA', 18),
+('FOZ DO IGUAÇU', 18),
+('TOLEDO', 18);
 
 /****************************************************************************
 TABELA CLIENTE
 ****************************************************************************/
+create sequence cliente_seq increment 1 start 1;
 CREATE TABLE CLIENTE(
-IdCliente serial primary key,
+IdCliente integer primary key default nextval('cliente_seq'),
 NomeRazao varchar(100),
 RgIe varchar(14),
 CpfCnpj varchar(14),
@@ -217,23 +246,24 @@ Ativo bool);
 /****************************************************************************
 TABELA TIPO PEDIDO
 ****************************************************************************/
-
+create sequence tipopedido_seq increment 1 start 1;
 CREATE TABLE PUBLIC.TIPOPEDIDO(
-idTipoPedido serial primary key,
+idTipoPedido integer primary key default nextval('tipopedido_seq'),
 Sigla varchar(3),
 Descricao varchar(50),
 Ativo bool);
 
-INSERT INTO TIPOPEDIDO VALUES
-(1, 'NOR', 'VENDA NORMAL', true),
-(2, 'ORC', 'ORÇAMENTO'   , true);
+INSERT INTO TIPOPEDIDO (SIGLA, DESCRICAO, ATIVO)
+VALUES
+('NOR', 'VENDA NORMAL', true),
+('ORC', 'ORÇAMENTO'   , true);
 
 /****************************************************************************
 TABELA FORMA PAGAMENTO
 ****************************************************************************/
-
+create sequence formapagamento_seq increment 1 start 1;
 CREATE TABLE PUBLIC.FORMAPAGAMENTO(
-idFormaPagamento serial primary key,
+idFormaPagamento integer primary key default nextval('formapagamento_seq'),
 Descricao varchar(50),
 PermiteDinheiro bool,
 PermitePIX bool,
@@ -243,14 +273,19 @@ PermiteCheque bool,
 PermiteCrediario bool,
 ativa bool);
 
-INSERT INTO FORMAPAGAMENTO VALUES
-(1, 'A VISTA', false, true, true, false, true, true, true);
+INSERT INTO FORMAPAGAMENTO (Descricao, PermiteDinheiro, PermitePIX, PermiteCartaoDeb, 
+PermiteCartaoCred, PermiteCheque, PermiteCrediario, ativa)
+VALUES 
+('DINHEIRO', true, true, true, true, true, true, true),
+('CARTAO CREDITO', true, true, true, true, true, true, true),
+('CARTAO DEBITO', true, true, true, true, true, true, true);
 
 /****************************************************************************
 TABELA PEDIDO DE VENDA
 ****************************************************************************/
+create sequence pedidovenda_seq increment 1 start 1;
 create table PedidoVenda(
-idPedido serial primary key,
+idPedido integer primary key default nextval('pedidovenda_seq'),
 idFicha int,
 idFormaPagamento int,
 	CONSTRAINT "fk_idFormaPagamento_TPedidoVenda" FOREIGN KEY (idFormaPagamento)
@@ -269,25 +304,20 @@ idCliente int,
     ON DELETE RESTRICT,
 --idVendedor int,
 dataPedido TimeStamp,
-TotalValor numeric(18,2),
-TotalDesconto numeric(18,2));
+vlrTotalBruto numeric(18,2),
+vlrTotalDescontos numeric(18,2));
 
+create sequence pedidovendaitem_seq increment 1 start 1;
 create table pedidoitem(
-id serial primary key,
+idItem integer primary key default nextval('pedidovendaitem_seq'),
 idPedido int,
 	CONSTRAINT "fk_idPedido_TPedidoVendaItem" FOREIGN KEY (idPedido)
 	REFERENCES public.pedidovenda (idpedido) MATCH SIMPLE
 	ON UPDATE NO ACTION
     ON DELETE RESTRICT,
-idPedidoItem int,
 idProduto int,
 	CONSTRAINT "fk_idProduto_TPedidoVendaItem" FOREIGN KEY (idproduto)
 	REFERENCES public.produto (idproduto) MATCH SIMPLE
-	ON UPDATE NO ACTION
-    ON DELETE RESTRICT,
-idUnidMedida int,
-	CONSTRAINT "fk_idUnidMedida_TPedidoVendaItem" FOREIGN KEY (idUnidMedida)
-	REFERENCES public.UnidadeMedida (idUnidMedida) MATCH SIMPLE
 	ON UPDATE NO ACTION
     ON DELETE RESTRICT,
 Qtde numeric(18,4),
@@ -298,22 +328,24 @@ vlrDesconto numeric(18,2));
 /****************************************************************************
 TABELA USUARIO
 ****************************************************************************/
+create sequence usuario_seq increment 1 start 1;
 CREATE TABLE USUARIO(
-IdUsuario serial primary key,
+IdUsuario integer primary key default nextval('usuario_seq'),
 Nome varchar(100),
 LoginUsuario varchar(20),
 LoginSenha varchar(20),
 UsuarioAdm bool,
 Ativo bool);
 
-Insert into usuario VALUES
-(1, 'ADMINISTRADOR', 'ADM', 'AMD123', TRUE);
+Insert into usuario (Nome, LoginUsuario, LoginSenha, UsuarioAdm, Ativo)
+VALUES('ADMINISTRADOR', 'ADM', 'AMD123', TRUE, TRUE);
 
 /****************************************************************************
 TABELA FORNECEDOR
 ****************************************************************************/
+create sequence fornecedor_seq increment 1 start 1;
 CREATE TABLE FORNECEDOR(
-IdFornecedor serial primary key,
+IdFornecedor integer primary key default nextval('fornecedor_seq'),
 NomeRazao varchar(100),
 RgIe varchar(14),
 CpfCnpj varchar(14),
@@ -335,8 +367,9 @@ Ativo bool);
 /****************************************************************************
 TABELA ENTRADAMERCADORIA
 ****************************************************************************/
+create sequence entradamercadoria_seq increment 1 start 1;
 CREATE TABLE ENTRADAMERCADORIA(
-IdEntradaMerc serial primary key,
+IdEntradaMerc integer primary key default nextval('entradamercadoria_seq'),
 IdFornecedor int,
 	CONSTRAINT "fk_idFornecedor_TEntradaMercadoria" FOREIGN KEY (idFornecedor)
 	REFERENCES public.Fornecedor (idFornecedor) MATCH SIMPLE
@@ -352,8 +385,9 @@ VlrUnitarioTotal numeric(18,2),
 VlrLiquidoTotal numeric(18,2),
 DescontoTotal numeric(18,2));
 
+create sequence entradamercadoriaitem_seq increment 1 start 1;
 CREATE TABLE ENTRADAMERCADORIAITEM(
-Id serial primary key,
+Id integer primary key default nextval('entradamercadoriaitem_seq'),
 IdEntradaMerc int,
 	CONSTRAINT "fk_IdEntradaMerc_TEntradaMercadoriaItem" FOREIGN KEY (IdEntradaMerc)
 	REFERENCES public.EntradaMercadoria (IdEntradaMerc) MATCH SIMPLE

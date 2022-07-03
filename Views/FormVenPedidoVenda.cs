@@ -16,13 +16,16 @@ namespace LaPizza.Views
 {
     public partial class FormVenPedidoVenda : LaPizza.Views.FormBaseCadastros
     {
-        PedidoVendaDTO FPedido = new PedidoVendaDTO();
+        PedidoVendaDB FPedido = new PedidoVendaDB();
         public FormVenPedidoVenda()
         {
             InitializeComponent();
             CarregarListaGrid();
             AlimentaTodosComboBox();
             AtualizaTotais();
+
+            PedidoVendaController controle = new PedidoVendaController();
+            lbNumeroPedido.Text = controle.GetProximoId().ToString();
         }
 
         public void CarregarListaGrid()
@@ -120,11 +123,13 @@ namespace LaPizza.Views
             cbTipoPedido.DataSource = (from tp in db.tipopedido select tp.descricao).ToList();
             cbTipoPedido.SelectedIndex = 0;
 
+            cbStatusPedido.Items.Clear();
             cbStatusPedido.Items.Add("EM ANDAMENTO");
             cbStatusPedido.Items.Add("CONFIRMADO");
             cbStatusPedido.SelectedIndex = 0;
 
 
+            cbFicha.Items.Clear();
             for (int i = 1; i <= 10; i++)
                 cbFicha.Items.Add("FICHA " + i);
 
@@ -165,6 +170,7 @@ namespace LaPizza.Views
 
             FormItem.FItem = item;
             var Result = FormItem.ShowDialog();
+
 
             if (Result == DialogResult.OK)
             {
@@ -287,6 +293,60 @@ namespace LaPizza.Views
                     else
                         row.Visible = false;
                 }
+            }
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            FPedido.idficha = cbFicha.SelectedIndex + 1;
+            FPedido.idtipopedido = cbTipoPedido.SelectedIndex + 1;
+            FPedido.vlrtotalbruto = Convert.ToDecimal(lbTotalBruto.Text.Replace("R$ ", "").Replace(",", "."));
+            FPedido.vlrtotaldescontos = Convert.ToDecimal(lbTotalDescontos.Text.Replace("R$ ", "").Replace(",", "."));
+
+            foreach (DataGridViewRow row in GridProdutos.Rows)
+            {
+                if ((bool)row.Cells["marcado"].Value)
+                {
+                    PedidoVendaItemDB itemDB = new PedidoVendaItemDB();
+                    itemDB.idpedido = Convert.ToInt32(lbNumeroPedido.Text);
+                    itemDB.idproduto = (int)row.Cells["idproduto"].Value;
+                    itemDB.qtde = (decimal)row.Cells["qtde"].Value;
+                    itemDB.vlrunitario = (decimal)row.Cells["vlrunitario"].Value;
+                    itemDB.vlrdesconto = (decimal)row.Cells["vlrdesconto"].Value;
+                    itemDB.vlrbruto = (decimal)row.Cells["qtde"].Value * (decimal)row.Cells["vlrunitario"].Value;
+
+                    FPedido.items.Add(itemDB);
+                }
+            }
+
+            PedidoVendaController controle = new PedidoVendaController();
+
+            if (MenuStatus == null)
+                controle.Adicionar(FPedido);
+            //else if (MenuStatus == MStatus.Excluindo)
+            //controle.Excluir(FPedido);
+
+
+            lbNumeroPedido.Text = controle.GetProximoId().ToString();
+            FPedido.items.Clear();
+            CarregarListaGrid();
+            LimpaCampos();
+        }
+
+        private void LimpaCampos()
+        {
+            txtCliente.Text = string.Empty;
+            txtFormaPagamento.Text = string.Empty;
+            txtPesquisa.Text = string.Empty;
+            AlimentaTodosComboBox();
+            AtualizaTotais();
+        }
+
+        private void GridProdutos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(13))
+            {
+                //GridProdutos_CellDoubleClick(sender, GridProdutos.CurrentCell.DataGridView.get );
             }
         }
     }

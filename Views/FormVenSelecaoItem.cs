@@ -55,6 +55,7 @@ namespace LaPizza.Views
 
         private void FormVenSelecaoItem_Load(object sender, EventArgs e)
         {
+            this.KeyPress += FormVenSelecaoItem_KeyPress;
             if (FItem != null)
             {
                 FItem.calculaValores();
@@ -70,11 +71,24 @@ namespace LaPizza.Views
             }
 
             txtQtde.Focus();
+            txtQtde.Select();
+
+
         }
+
 
         private void txtVlrDesconto_Leave(object sender, EventArgs e)
         {
             RecalculaValores();
+        }
+
+        private void FormVenSelecaoItem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(13))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
         }
     }
 }

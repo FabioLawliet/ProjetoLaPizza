@@ -33,6 +33,7 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pnlTopo = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtProdutoId = new System.Windows.Forms.TextBox();
             this.txtProdutoDescricao = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.lbQtde = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtVlrDesconto = new LaPizza.Controllers.LpText();
             this.txtQtde = new LaPizza.Controllers.LpText();
             this.pnlAcoesRodape.SuspendLayout();
@@ -130,6 +130,20 @@
             this.pnlTopo.Name = "pnlTopo";
             this.pnlTopo.Size = new System.Drawing.Size(348, 82);
             this.pnlTopo.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label9.Location = new System.Drawing.Point(94, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(168, 25);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Seleção de Item";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtProdutoId
             // 
@@ -327,20 +341,6 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Qtde Disponível";
             // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label9.Location = new System.Drawing.Point(94, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(168, 25);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "Seleção de Item";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // txtVlrDesconto
             // 
             this.txtVlrDesconto.BackColor = System.Drawing.Color.White;
@@ -355,6 +355,7 @@
             this.txtVlrDesconto.Size = new System.Drawing.Size(164, 20);
             this.txtVlrDesconto.TabIndex = 35;
             this.txtVlrDesconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVlrDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormVenSelecaoItem_KeyPress);
             this.txtVlrDesconto.Leave += new System.EventHandler(this.txtVlrDesconto_Leave);
             // 
             // txtQtde
@@ -371,6 +372,7 @@
             this.txtQtde.Size = new System.Drawing.Size(164, 20);
             this.txtQtde.TabIndex = 19;
             this.txtQtde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtQtde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormVenSelecaoItem_KeyPress);
             this.txtQtde.Leave += new System.EventHandler(this.txtQtde_Leave);
             // 
             // FormVenSelecaoItem
@@ -384,6 +386,7 @@
             this.Name = "FormVenSelecaoItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormVenSelecaoItem_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormVenSelecaoItem_KeyPress);
             this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlTopo.ResumeLayout(false);
             this.pnlTopo.PerformLayout();

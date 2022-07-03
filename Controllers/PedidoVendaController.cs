@@ -2,6 +2,7 @@
 using LaPizza.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace LaPizza.Controllers
             try
             {
                 db.pedidovenda.Add(PedidoVenda);
+                db.SaveChanges();
                 db.pedidovendaItem.AddRange(PedidoVenda.items);
                 db.SaveChanges();
             }
@@ -114,15 +116,10 @@ namespace LaPizza.Controllers
             return lista;
         }*/
 
-        public int GetProximoId(int IdPedido)
+        public int GetProximoId()
         {
             Context db = new Context();
-            PedidoVendaDB pedido = db.pedidovenda.Where(p => p.idpedido == IdPedido).FirstOrDefault();
-
-            if (pedido == null)
-                return 1;
-            else
-                return db.pedidovenda.Where(p => p.idpedido == IdPedido).Max(p => p.idpedido) + 1;
+            return db.Database.SqlQuery<int>("select last_value from public.pedidovenda_seq").Single()+1;
         }
 
         public List<PedidoVendaItemDTO> GetPedidoVendaItens()
@@ -133,8 +130,6 @@ namespace LaPizza.Controllers
                                               orderby produto.idproduto
                                               select new PedidoVendaItemDTO
                                               {
-                                                  id = 0,
-                                                  idpedido = 0,
                                                   idproduto = produto.idproduto,
                                                   produtodescricao = produto.descricao,
                                                   idunidmedida = unidade.idunidmedida,

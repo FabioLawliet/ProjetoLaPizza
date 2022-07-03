@@ -136,6 +136,12 @@ namespace LaPizza.Controllers
                 return;
             }
 
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                base.OnKeyPress(e);
+                return;
+            }
+
             switch (LpTipo)
             {
                 case tipoCampo.Integer:
