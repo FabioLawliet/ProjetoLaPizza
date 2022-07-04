@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LaPizza.Models
 {
-    [Table("ENTRADAMERCADORIA", Schema = "public")]
+    [Table("entradamercadoria", Schema = "public")]
     public class EntradaMercadoriaDB
     {
         [Key]

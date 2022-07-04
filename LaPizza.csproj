@@ -121,6 +121,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\EntradaMercadoriaController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\FormaPagamentoController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
@@ -295,6 +296,12 @@
     <Compile Include="Views\Pesquisas\FormEstadoPesquisa.Designer.cs">
       <DependentUpon>FormEstadoPesquisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\FormEstEntradaMercPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormEstEntradaMercPesquisa.Designer.cs">
+      <DependentUpon>FormEstEntradaMercPesquisa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pesquisas\FormEstUnidadeMedidaPesquisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormEstadoPesquisa.resx">
       <DependentUpon>FormEstadoPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\FormEstEntradaMercPesquisa.resx">
+      <DependentUpon>FormEstEntradaMercPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormEstGrupoPesquisa.resx">
       <DependentUpon>FormEstGrupoPesquisa.cs</DependentUpon>
