@@ -112,6 +112,7 @@
             this.btnAcaoConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.Location = new System.Drawing.Point(714, 5);
+            this.btnAcaoConsultar.Click += new System.EventHandler(this.btnAcaoConsultar_Click);
             // 
             // lbNomeRotina
             // 

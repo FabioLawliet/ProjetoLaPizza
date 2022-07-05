@@ -31,7 +31,7 @@ namespace LaPizza.Views
         public void CarregarListaGrid()
         {
             PedidoVendaController controle = new PedidoVendaController();
-            List<PedidoVendaItemDTO> lista = controle.GetPedidoVendaItens();
+            List<PedidoVendaItemDTO> lista = controle.GetProdutos();
 
             GridProdutos.DataSource = lista;
             AjustaCampoGrid();
@@ -300,8 +300,8 @@ namespace LaPizza.Views
         {
             FPedido.idficha = cbFicha.SelectedIndex + 1;
             FPedido.idtipopedido = cbTipoPedido.SelectedIndex + 1;
-            FPedido.vlrtotalbruto = Convert.ToDecimal(lbTotalBruto.Text.Replace("R$ ", "").Replace(",", "."));
-            FPedido.vlrtotaldescontos = Convert.ToDecimal(lbTotalDescontos.Text.Replace("R$ ", "").Replace(",", "."));
+            FPedido.vlrtotalbruto = Convert.ToDecimal(lbTotalBruto.Text.Replace("R$ ", ""));
+            FPedido.vlrtotaldescontos = Convert.ToDecimal(lbTotalDescontos.Text.Replace("R$ ", ""));
 
             foreach (DataGridViewRow row in GridProdutos.Rows)
             {
@@ -347,6 +347,19 @@ namespace LaPizza.Views
             if (e.KeyChar == Convert.ToChar(13))
             {
                 //GridProdutos_CellDoubleClick(sender, GridProdutos.CurrentCell.DataGridView.get );
+            }
+        }
+
+        private void btnAcaoConsultar_Click(object sender, EventArgs e)
+        {
+            Context db = new Context();
+            FormVenPedidoVendaPesquisa Pesq = new FormVenPedidoVendaPesquisa();
+            var Result = Pesq.ShowDialog();
+
+            if (Result == DialogResult.OK)
+            {
+                txtCliente.Text = Pesq.PesqPedido.idcliente + " - " + Pesq.PesqPedido.clientenome;
+                txtFormaPagamento.Text = Pesq.PesqPedido.idformapagamento + " - " + Pesq.PesqPedido.formapagamentodescricao;
             }
         }
     }

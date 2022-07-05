@@ -370,6 +370,12 @@
     <Compile Include="Views\Pesquisas\FormRecFornecedorPesquisa.designer.cs">
       <DependentUpon>FormRecFornecedorPesquisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pesquisas\FormVenPedidoVendaPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pesquisas\FormVenPedidoVendaPesquisa.Designer.cs">
+      <DependentUpon>FormVenPedidoVendaPesquisa.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FormVenFormaPagamento.resx">
       <DependentUpon>FormVenFormaPagamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -475,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pesquisas\FormVenFormaPagamentoPesquisa.resx">
       <DependentUpon>FormVenFormaPagamentoPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pesquisas\FormVenPedidoVendaPesquisa.resx">
+      <DependentUpon>FormVenPedidoVendaPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

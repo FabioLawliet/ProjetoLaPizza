@@ -43,6 +43,7 @@
             this.txtVlrBruto = new System.Windows.Forms.TextBox();
             this.txtVlrDescontoPerc = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtVlrDesconto = new LaPizza.Controllers.LpText();
             this.label1 = new System.Windows.Forms.Label();
             this.txtVlrUnitario = new System.Windows.Forms.TextBox();
             this.txtQtdeDisponivel = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.lbQtde = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtVlrDesconto = new LaPizza.Controllers.LpText();
             this.txtQtde = new LaPizza.Controllers.LpText();
             this.pnlAcoesRodape.SuspendLayout();
             this.pnlTopo.SuspendLayout();
@@ -138,7 +138,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label9.Location = new System.Drawing.Point(94, 9);
+            this.label9.Location = new System.Drawing.Point(94, 3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(168, 25);
             this.label9.TabIndex = 31;
@@ -148,6 +148,7 @@
             // txtProdutoId
             // 
             this.txtProdutoId.BackColor = System.Drawing.Color.White;
+            this.txtProdutoId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProdutoId.Enabled = false;
             this.txtProdutoId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdutoId.ForeColor = System.Drawing.Color.Black;
@@ -160,6 +161,7 @@
             // txtProdutoDescricao
             // 
             this.txtProdutoDescricao.BackColor = System.Drawing.Color.White;
+            this.txtProdutoDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProdutoDescricao.Enabled = false;
             this.txtProdutoDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdutoDescricao.ForeColor = System.Drawing.Color.Black;
@@ -174,6 +176,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Brown;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(77, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
@@ -184,6 +187,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(13, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 13);
@@ -260,6 +264,23 @@
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 36;
             this.label4.Text = "Desconto %";
+            // 
+            // txtVlrDesconto
+            // 
+            this.txtVlrDesconto.BackColor = System.Drawing.Color.White;
+            this.txtVlrDesconto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtVlrDesconto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtVlrDesconto.ForeColor = System.Drawing.Color.Black;
+            this.txtVlrDesconto.Location = new System.Drawing.Point(172, 64);
+            this.txtVlrDesconto.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtVlrDesconto.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtVlrDesconto.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
+            this.txtVlrDesconto.Name = "txtVlrDesconto";
+            this.txtVlrDesconto.Size = new System.Drawing.Size(164, 20);
+            this.txtVlrDesconto.TabIndex = 35;
+            this.txtVlrDesconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVlrDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormVenSelecaoItem_KeyPress);
+            this.txtVlrDesconto.Leave += new System.EventHandler(this.txtVlrDesconto_Leave);
             // 
             // label1
             // 
@@ -340,23 +361,6 @@
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Qtde Disponível";
-            // 
-            // txtVlrDesconto
-            // 
-            this.txtVlrDesconto.BackColor = System.Drawing.Color.White;
-            this.txtVlrDesconto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVlrDesconto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtVlrDesconto.ForeColor = System.Drawing.Color.Black;
-            this.txtVlrDesconto.Location = new System.Drawing.Point(172, 64);
-            this.txtVlrDesconto.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.txtVlrDesconto.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.txtVlrDesconto.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Currency;
-            this.txtVlrDesconto.Name = "txtVlrDesconto";
-            this.txtVlrDesconto.Size = new System.Drawing.Size(164, 20);
-            this.txtVlrDesconto.TabIndex = 35;
-            this.txtVlrDesconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtVlrDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormVenSelecaoItem_KeyPress);
-            this.txtVlrDesconto.Leave += new System.EventHandler(this.txtVlrDesconto_Leave);
             // 
             // txtQtde
             // 
