@@ -29,29 +29,34 @@ namespace LaPizza.Controllers
             }
         }
 
-        /*public void Editar(SubgrupoDB Subgrupo)
+        public void Consultar(PedidoVendaDB PedidoVenda)
         {
             Context db = new Context();
-            SubgrupoDB subgrupo = db.subgrupo.Where(p => p.idgrupo == Subgrupo.idgrupo).FirstOrDefault(p => p.idsubgrupo == Subgrupo.idsubgrupo);
-
-            if (subgrupo != null)
+            PedidoVendaDB Pedido = db.pedidovenda.FirstOrDefault(p => p.idpedido == PedidoVenda.idpedido);
+            List<PedidoVendaItemDB> listaItemDB = db.pedidovendaItem.Where(p => p.idpedido == PedidoVenda.idpedido).ToList();
+            if (Pedido != null)
             {
                 try
                 {
-                    subgrupo.idsubgrupo = Subgrupo.idsubgrupo;
-                    subgrupo.descricao = Subgrupo.descricao;
-                    subgrupo.idgrupo = Subgrupo.idgrupo;
-                    subgrupo.ativo = Subgrupo.ativo;
+                    db.pedidovendaItem.RemoveRange(listaItemDB);
+                    db.SaveChanges();
+
+                    Pedido.idcliente = PedidoVenda.idcliente;
+                    Pedido.idformapagamento = PedidoVenda.idformapagamento;
+                    Pedido.vlrtotalbruto = PedidoVenda.vlrtotalbruto;
+                    Pedido.vlrtotaldescontos = PedidoVenda.vlrtotaldescontos;
+
+                    db.pedidovendaItem.AddRange(PedidoVenda.items);
                     db.SaveChanges();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Houve um problema ao editar o subgrupo, feche o cadastro e tente novamente! \n\n" + ex.Message,
+                    MessageBox.Show("Houve um problema ao salvar as edições feitas na Venda, feche a rotina e tente novamente! \n\n" + ex.Message,
                                     "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
-
+        /*
         public bool ExisteSubgrupo(int IdGrupo, int IdSubgrupo)
         {
             Context db = new Context();
@@ -197,8 +202,6 @@ namespace LaPizza.Controllers
 
             if (listaItens.Count > 1)
                 pedido.itens.AddRange(listaItens);
-            else
-                pedido.itens.Add(listaItens[0]);
             
             return pedido;
         }

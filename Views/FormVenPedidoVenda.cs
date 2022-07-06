@@ -21,6 +21,7 @@ namespace LaPizza.Views
         {
             InitializeComponent();
             CarregarListaGrid();
+            AjustaCampoGrid();
             AlimentaTodosComboBox();
             AtualizaTotais();
 
@@ -33,8 +34,7 @@ namespace LaPizza.Views
             PedidoVendaController controle = new PedidoVendaController();
             List<PedidoVendaItemDTO> lista = controle.GetProdutos();
 
-            GridProdutos.DataSource = lista;
-            AjustaCampoGrid();
+            GridProdutos.DataSource = lista; 
         }
 
         private void AjustaCampoGrid()
@@ -60,7 +60,7 @@ namespace LaPizza.Views
                         Coluna.DisplayIndex = 2;
                         Coluna.HeaderText = "Descrição Produto";
                         Coluna.ReadOnly = true;
-                        Coluna.Width = 192; //230
+                        Coluna.Width = 185; //230
                         break;
                     case "unidademedidasigla":
                         Coluna.DisplayIndex = 3;
@@ -74,6 +74,13 @@ namespace LaPizza.Views
                         Coluna.ReadOnly = true;
                         Coluna.Width = 80;
                         break;
+                    case "vlrunitario":
+                        Coluna.DisplayIndex = 6;
+                        Coluna.HeaderText = "Preço";
+                        Coluna.ReadOnly = true;
+                        Coluna.ValueType = typeof(decimal);
+                        Coluna.Width = 80;
+                        break;
                     case "qtde":
                         Coluna.DisplayIndex = 5;
                         Coluna.HeaderText = "Qtde";
@@ -82,25 +89,18 @@ namespace LaPizza.Views
                         Coluna.Width = 80;
                         break;
                     case "vlrdesconto":
-                        Coluna.DisplayIndex = 6;
+                        Coluna.DisplayIndex = 7;
                         Coluna.HeaderText = "Desconto";
                         Coluna.ReadOnly = true;
                         Coluna.ValueType = typeof(decimal);
                         Coluna.Width = 80;
                         break;
                     case "vlrdescontoperc":
-                        Coluna.DisplayIndex = 7;
+                        Coluna.DisplayIndex = 8;
                         Coluna.HeaderText = "Desc.%";
                         Coluna.ReadOnly = true;
                         Coluna.ValueType = typeof(string);
                         Coluna.Width = 60;
-                        break;
-                    case "vlrunitario":
-                        Coluna.DisplayIndex = 8;
-                        Coluna.HeaderText = "Preço";
-                        Coluna.ReadOnly = true;
-                        Coluna.ValueType = typeof(decimal);
-                        Coluna.Width = 80;
                         break;
                     case "vlrliquido":
                         Coluna.DisplayIndex = 9;
@@ -141,12 +141,13 @@ namespace LaPizza.Views
             LimpaCampos();
             CarregarListaGrid();
             AlimentaTodosComboBox();
-            AtualizaTotais();
 
+            FPedido.items.Clear();
             PedidoVendaController controle = new PedidoVendaController();
             lbNumeroPedido.Text = controle.GetProximoId().ToString();
 
             HabilitaAcaoMenu(true);
+            AtualizaTotais();
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
@@ -267,7 +268,7 @@ namespace LaPizza.Views
 
             lbTotalBruto.Text     = TotalBruto.ToString("C");
             lbTotalDescontos.Text = TotalDescontos.ToString("C");
-            lbTotalLiquido.Text = (TotalBruto - TotalDescontos).ToString("C");
+            lbTotalLiquido.Text   = (TotalBruto - TotalDescontos).ToString("C");
         }
 
         private void btnCarrinho_Click(object sender, EventArgs e)
@@ -307,6 +308,7 @@ namespace LaPizza.Views
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            FPedido.idpedido = Convert.ToInt32(lbNumeroPedido.Text);
             FPedido.idficha = cbFicha.SelectedIndex + 1;
             FPedido.idtipopedido = cbTipoPedido.SelectedIndex + 1;
             FPedido.vlrtotalbruto = Convert.ToDecimal(lbTotalBruto.Text.Replace("R$ ", ""));
@@ -333,9 +335,7 @@ namespace LaPizza.Views
             if (MenuStatus == null)
                 controle.Adicionar(FPedido);
             else if (MenuStatus == MStatus.Consultando)
-            {
-                //controle.
-            }
+                controle.Consultar(FPedido);
             else if (MenuStatus == MStatus.Excluindo)
                 controle.Excluir(Convert.ToInt32(lbNumeroPedido.Text));
 
@@ -375,7 +375,9 @@ namespace LaPizza.Views
             if (Result == DialogResult.OK)
             {
                 txtCliente.Text = Pesq.PesqPedido.idcliente + " - " + Pesq.PesqPedido.clientenome;
+                FPedido.idcliente = Pesq.PesqPedido.idcliente;
                 txtFormaPagamento.Text = Pesq.PesqPedido.idformapagamento + " - " + Pesq.PesqPedido.formapagamentodescricao;
+                FPedido.idformapagamento = Pesq.PesqPedido.idformapagamento;
                 lbNumeroPedido.Text = Pesq.PesqPedido.idpedido.ToString();
 
                 foreach(DataGridViewRow row in GridProdutos.Rows)
@@ -404,8 +406,6 @@ namespace LaPizza.Views
             {
                 btnCancelar_Click(sender, e);
             }
-
-
         }
 
         private void btnSair_Click(object sender, EventArgs e)
