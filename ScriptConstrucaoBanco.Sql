@@ -330,15 +330,14 @@ TABELA USUARIO
 ****************************************************************************/
 create sequence usuario_seq increment 1 start 1;
 CREATE TABLE USUARIO(
-IdUsuario integer primary key default nextval('usuario_seq'),
-Nome varchar(100),
-LoginUsuario varchar(20),
-LoginSenha varchar(20),
-UsuarioAdm bool,
-Ativo bool);
+id integer primary key default nextval('usuario_seq'),
+nome varchar(100),
+usuario varchar(20),
+senha varchar(20),
+ativo bool);
 
-Insert into usuario (Nome, LoginUsuario, LoginSenha, UsuarioAdm, Ativo)
-VALUES('ADMINISTRADOR', 'ADM', 'AMD123', TRUE, TRUE);
+Insert into usuario nome usuario senha, ativo 
+VALUES('ADMINISTRADOR', 'ADM', 'AMD123', TRUE);
 
 /****************************************************************************
 TABELA FORNECEDOR
