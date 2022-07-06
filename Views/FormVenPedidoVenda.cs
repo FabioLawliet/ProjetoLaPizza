@@ -138,7 +138,15 @@ namespace LaPizza.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            LimpaCampos();
+            CarregarListaGrid();
+            AlimentaTodosComboBox();
+            AtualizaTotais();
+
+            PedidoVendaController controle = new PedidoVendaController();
+            lbNumeroPedido.Text = controle.GetProximoId().ToString();
+
+            HabilitaAcaoMenu(true);
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
@@ -193,6 +201,7 @@ namespace LaPizza.Views
             }
 
             HabilitaAcao(TipoAcao.Confirmar, ExisteItemLancadoPedido());
+            HabilitaAcao(TipoAcao.Cancelar, ExisteItemLancadoPedido());
         }
 
         private void btnPesquisaCliente_Click(object sender, EventArgs e)
@@ -323,6 +332,13 @@ namespace LaPizza.Views
 
             if (MenuStatus == null)
                 controle.Adicionar(FPedido);
+            else if (MenuStatus == MStatus.Consultando)
+            {
+                //controle.
+            }
+            else if (MenuStatus == MStatus.Excluindo)
+                controle.Excluir(Convert.ToInt32(lbNumeroPedido.Text));
+
             //else if (MenuStatus == MStatus.Excluindo)
             //controle.Excluir(FPedido);
 
@@ -360,6 +376,80 @@ namespace LaPizza.Views
             {
                 txtCliente.Text = Pesq.PesqPedido.idcliente + " - " + Pesq.PesqPedido.clientenome;
                 txtFormaPagamento.Text = Pesq.PesqPedido.idformapagamento + " - " + Pesq.PesqPedido.formapagamentodescricao;
+                lbNumeroPedido.Text = Pesq.PesqPedido.idpedido.ToString();
+
+                foreach(DataGridViewRow row in GridProdutos.Rows)
+                {
+                    foreach(PedidoVendaItemDTO item in Pesq.PesqPedido.itens)
+                    {
+                        if ((int)row.Cells["idproduto"].Value == item.idproduto)
+                        {
+                            row.Cells["marcado"].Value     = true;
+                            row.Cells["check"].Value       = Properties.Resources.CheckVenda;
+                            row.Cells["qtde"].Value        = item.qtde.ToString("N2");
+                            row.Cells["vlrdesconto"].Value = item.vlrdesconto.ToString("N2");
+                            row.Cells["vlrliquido"].Value  = ((item.qtde * item.vlrunitario) - item.vlrdesconto).ToString("N2");
+                        }
+                    }
+                }
+
+                lbTotalBruto.Text = Pesq.PesqPedido.vlrtotalbruto.ToString("C");
+                lbTotalDescontos.Text = Pesq.PesqPedido.vlrtotaldescontos.ToString("C");
+                lbTotalLiquido.Text = (Pesq.PesqPedido.vlrtotalbruto - Pesq.PesqPedido.vlrtotaldescontos).ToString("C");
+
+                HabilitaAcao(TipoAcao.Confirmar, ExisteItemLancadoPedido());
+                HabilitaAcao(TipoAcao.Cancelar, ExisteItemLancadoPedido());
+            }
+            else
+            {
+                btnCancelar_Click(sender, e);
+            }
+
+
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAcaoExcluir_Click(object sender, EventArgs e)
+        {
+            Context db = new Context();
+            FormVenPedidoVendaPesquisa Pesq = new FormVenPedidoVendaPesquisa();
+            var Result = Pesq.ShowDialog();
+
+            if (Result == DialogResult.OK)
+            {
+                txtCliente.Text = Pesq.PesqPedido.idcliente + " - " + Pesq.PesqPedido.clientenome;
+                txtFormaPagamento.Text = Pesq.PesqPedido.idformapagamento + " - " + Pesq.PesqPedido.formapagamentodescricao;
+                lbNumeroPedido.Text = Pesq.PesqPedido.idpedido.ToString();
+
+                foreach (DataGridViewRow row in GridProdutos.Rows)
+                {
+                    foreach (PedidoVendaItemDTO item in Pesq.PesqPedido.itens)
+                    {
+                        if ((int)row.Cells["idproduto"].Value == item.idproduto)
+                        {
+                            row.Cells["marcado"].Value = true;
+                            row.Cells["check"].Value = Properties.Resources.CheckVenda;
+                            row.Cells["qtde"].Value = item.qtde.ToString("N2");
+                            row.Cells["vlrdesconto"].Value = item.vlrdesconto.ToString("N2");
+                            row.Cells["vlrliquido"].Value = ((item.qtde * item.vlrunitario) - item.vlrdesconto).ToString("N2");
+                        }
+                    }
+                }
+
+                lbTotalBruto.Text = Pesq.PesqPedido.vlrtotalbruto.ToString("C");
+                lbTotalDescontos.Text = Pesq.PesqPedido.vlrtotaldescontos.ToString("C");
+                lbTotalLiquido.Text = (Pesq.PesqPedido.vlrtotalbruto - Pesq.PesqPedido.vlrtotaldescontos).ToString("C");
+
+                HabilitaAcao(TipoAcao.Confirmar, ExisteItemLancadoPedido());
+                HabilitaAcao(TipoAcao.Cancelar, ExisteItemLancadoPedido());
+            }
+            else
+            {
+                btnCancelar_Click(sender, e);
             }
         }
     }

@@ -130,6 +130,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.Location = new System.Drawing.Point(634, 5);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -137,6 +138,7 @@
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.btnSair.Location = new System.Drawing.Point(709, 5);
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAcaoExcluir
             // 
@@ -144,6 +146,7 @@
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.Location = new System.Drawing.Point(749, 5);
+            this.btnAcaoExcluir.Click += new System.EventHandler(this.btnAcaoExcluir_Click);
             // 
             // btnConfirmar
             // 

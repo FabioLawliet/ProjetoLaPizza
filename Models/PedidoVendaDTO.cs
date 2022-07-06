@@ -17,5 +17,10 @@ namespace LaPizza.Models
         public decimal vlrtotalbruto { get; set; }
 
         public List<PedidoVendaItemDTO> itens;
+
+        public PedidoVendaDTO()
+        {
+            itens = new List<PedidoVendaItemDTO>();
+        }
     }
 }

@@ -64,12 +64,13 @@ namespace LaPizza.Views.Pesquisas
 
             int id = (int)dbGridPesquisa.CurrentRow.Cells[0].Value;
             PesqPedido = controle.GetPedidoId(id);
-
+            DialogResult = DialogResult.OK;
             Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 

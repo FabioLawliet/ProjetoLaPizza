@@ -52,25 +52,6 @@ namespace LaPizza.Controllers
             }
         }
 
-        public void Excluir(int IdGrupo, int IdSubgrupo)
-        {
-            Context db = new Context();
-            SubgrupoDB subgrupo = db.subgrupo.Where(p => p.idgrupo == IdGrupo).FirstOrDefault(p => p.idsubgrupo == IdSubgrupo);
-
-            if (subgrupo != null)
-            {
-                try
-                {
-                    db.subgrupo.Remove(subgrupo);
-                    db.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Não foi possível excluir o subgrupo, provavelmente existem movimentações no banco de dados para este subgrupo e ele não poderá ser excluído! \n\n" + ex.Message,
-                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
         public bool ExisteSubgrupo(int IdGrupo, int IdSubgrupo)
         {
             Context db = new Context();
@@ -116,6 +97,28 @@ namespace LaPizza.Controllers
             return lista;
         }*/
 
+        public void Excluir(int idPedido)
+        {
+            Context db = new Context();
+            PedidoVendaDB pedido = db.pedidovenda.FirstOrDefault(p => p.idpedido == idPedido);
+            List<PedidoVendaItemDB> itens = db.pedidovendaItem.Where(p => p.idpedido == idPedido).ToList();
+
+            if (pedido != null && itens != null)
+            {
+                try
+                {
+                    db.pedidovendaItem.RemoveRange(itens);
+                    db.SaveChanges();
+                    db.pedidovenda.Remove(pedido);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível excluir o pedido, provavelmente existem movimentações no banco de dados para este pedido e ele não poderá ser excluído! \n\n" + ex.Message,
+                                    "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
         public int GetProximoId()
         {
             Context db = new Context();
@@ -192,7 +195,11 @@ namespace LaPizza.Controllers
                                                     vlrliquido = item.vlrbruto - item.vlrdesconto,
                                                    }).ToList();
 
-            pedido.itens.AddRange(listaItens);
+            if (listaItens.Count > 1)
+                pedido.itens.AddRange(listaItens);
+            else
+                pedido.itens.Add(listaItens[0]);
+            
             return pedido;
         }
 
