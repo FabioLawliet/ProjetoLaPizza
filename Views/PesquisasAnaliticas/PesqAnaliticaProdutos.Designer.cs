@@ -30,21 +30,21 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BoxFiltro = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.lbMovimentacoes = new System.Windows.Forms.Label();
+            this.cbMovimentacoes = new System.Windows.Forms.ComboBox();
+            this.lbEstoque = new System.Windows.Forms.Label();
+            this.cbSaldoEstoque = new System.Windows.Forms.ComboBox();
+            this.lbPesquisarApenas = new System.Windows.Forms.Label();
+            this.lbOrdenar = new System.Windows.Forms.Label();
+            this.cbTipoOrdenacao = new System.Windows.Forms.ComboBox();
+            this.cbPesquisarAtivos = new System.Windows.Forms.ComboBox();
+            this.lbMarcaDescricao = new System.Windows.Forms.Label();
+            this.lbMarca = new System.Windows.Forms.Label();
             this.lbSubgrupoDescricao = new System.Windows.Forms.Label();
-            this.lpText5 = new LaPizza.Controllers.LpText();
+            this.txtMarcaId = new LaPizza.Controllers.LpText();
             this.txtSubgrupoDescricao = new LaPizza.Controllers.LpText();
-            this.lpText3 = new LaPizza.Controllers.LpText();
+            this.txtMarcaDescricao = new LaPizza.Controllers.LpText();
             this.lbSubgrupo = new System.Windows.Forms.Label();
             this.txtGrupoId = new LaPizza.Controllers.LpText();
             this.txtSubgrupoId = new LaPizza.Controllers.LpText();
@@ -153,21 +153,21 @@
             // 
             // BoxFiltro
             // 
-            this.BoxFiltro.Controls.Add(this.button1);
-            this.BoxFiltro.Controls.Add(this.label6);
-            this.BoxFiltro.Controls.Add(this.comboBox4);
-            this.BoxFiltro.Controls.Add(this.label5);
-            this.BoxFiltro.Controls.Add(this.comboBox3);
-            this.BoxFiltro.Controls.Add(this.label4);
-            this.BoxFiltro.Controls.Add(this.label1);
-            this.BoxFiltro.Controls.Add(this.comboBox2);
-            this.BoxFiltro.Controls.Add(this.comboBox1);
-            this.BoxFiltro.Controls.Add(this.label2);
-            this.BoxFiltro.Controls.Add(this.label3);
+            this.BoxFiltro.Controls.Add(this.btnPesquisar);
+            this.BoxFiltro.Controls.Add(this.lbMovimentacoes);
+            this.BoxFiltro.Controls.Add(this.cbMovimentacoes);
+            this.BoxFiltro.Controls.Add(this.lbEstoque);
+            this.BoxFiltro.Controls.Add(this.cbSaldoEstoque);
+            this.BoxFiltro.Controls.Add(this.lbPesquisarApenas);
+            this.BoxFiltro.Controls.Add(this.lbOrdenar);
+            this.BoxFiltro.Controls.Add(this.cbTipoOrdenacao);
+            this.BoxFiltro.Controls.Add(this.cbPesquisarAtivos);
+            this.BoxFiltro.Controls.Add(this.lbMarcaDescricao);
+            this.BoxFiltro.Controls.Add(this.lbMarca);
             this.BoxFiltro.Controls.Add(this.lbSubgrupoDescricao);
-            this.BoxFiltro.Controls.Add(this.lpText5);
+            this.BoxFiltro.Controls.Add(this.txtMarcaId);
             this.BoxFiltro.Controls.Add(this.txtSubgrupoDescricao);
-            this.BoxFiltro.Controls.Add(this.lpText3);
+            this.BoxFiltro.Controls.Add(this.txtMarcaDescricao);
             this.BoxFiltro.Controls.Add(this.lbSubgrupo);
             this.BoxFiltro.Controls.Add(this.txtGrupoId);
             this.BoxFiltro.Controls.Add(this.txtSubgrupoId);
@@ -182,106 +182,120 @@
             this.BoxFiltro.TabStop = false;
             this.BoxFiltro.Text = "Filtros";
             // 
-            // button1
+            // btnPesquisar
             // 
-            this.button1.BackColor = System.Drawing.Color.IndianRed;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(450, 103);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(316, 25);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Pesquisar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPesquisar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnPesquisar.FlatAppearance.BorderSize = 0;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPesquisar.Location = new System.Drawing.Point(450, 103);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(316, 25);
+            this.btnPesquisar.TabIndex = 45;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // lbMovimentacoes
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(608, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "Movimentações:";
+            this.lbMovimentacoes.AutoSize = true;
+            this.lbMovimentacoes.Location = new System.Drawing.Point(608, 54);
+            this.lbMovimentacoes.Name = "lbMovimentacoes";
+            this.lbMovimentacoes.Size = new System.Drawing.Size(85, 13);
+            this.lbMovimentacoes.TabIndex = 44;
+            this.lbMovimentacoes.Text = "Movimentações:";
             // 
-            // comboBox4
+            // cbMovimentacoes
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(611, 69);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(155, 21);
-            this.comboBox4.TabIndex = 43;
+            this.cbMovimentacoes.FormattingEnabled = true;
+            this.cbMovimentacoes.Items.AddRange(new object[] {
+            "Com movimentação",
+            "Sem movimentação"});
+            this.cbMovimentacoes.Location = new System.Drawing.Point(611, 69);
+            this.cbMovimentacoes.Name = "cbMovimentacoes";
+            this.cbMovimentacoes.Size = new System.Drawing.Size(155, 21);
+            this.cbMovimentacoes.TabIndex = 43;
             // 
-            // label5
+            // lbEstoque
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(447, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Saldo de Estoque:";
+            this.lbEstoque.AutoSize = true;
+            this.lbEstoque.Location = new System.Drawing.Point(447, 54);
+            this.lbEstoque.Name = "lbEstoque";
+            this.lbEstoque.Size = new System.Drawing.Size(94, 13);
+            this.lbEstoque.TabIndex = 42;
+            this.lbEstoque.Text = "Saldo de Estoque:";
             // 
-            // comboBox3
+            // cbSaldoEstoque
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(450, 69);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(155, 21);
-            this.comboBox3.TabIndex = 41;
+            this.cbSaldoEstoque.FormattingEnabled = true;
+            this.cbSaldoEstoque.Items.AddRange(new object[] {
+            "Positivo",
+            "Negativo",
+            "Positivo/Negativo"});
+            this.cbSaldoEstoque.Location = new System.Drawing.Point(450, 69);
+            this.cbSaldoEstoque.Name = "cbSaldoEstoque";
+            this.cbSaldoEstoque.Size = new System.Drawing.Size(155, 21);
+            this.cbSaldoEstoque.TabIndex = 41;
             // 
-            // label4
+            // lbPesquisarApenas
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(608, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Pesquisar apenas:";
+            this.lbPesquisarApenas.AutoSize = true;
+            this.lbPesquisarApenas.Location = new System.Drawing.Point(608, 16);
+            this.lbPesquisarApenas.Name = "lbPesquisarApenas";
+            this.lbPesquisarApenas.Size = new System.Drawing.Size(94, 13);
+            this.lbPesquisarApenas.TabIndex = 40;
+            this.lbPesquisarApenas.Text = "Pesquisar apenas:";
             // 
-            // label1
+            // lbOrdenar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Ordenar por:";
+            this.lbOrdenar.AutoSize = true;
+            this.lbOrdenar.Location = new System.Drawing.Point(447, 16);
+            this.lbOrdenar.Name = "lbOrdenar";
+            this.lbOrdenar.Size = new System.Drawing.Size(66, 13);
+            this.lbOrdenar.TabIndex = 39;
+            this.lbOrdenar.Text = "Ordenar por:";
             // 
-            // comboBox2
+            // cbTipoOrdenacao
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(450, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(155, 21);
-            this.comboBox2.TabIndex = 38;
+            this.cbTipoOrdenacao.FormattingEnabled = true;
+            this.cbTipoOrdenacao.Items.AddRange(new object[] {
+            "Cód. Produto",
+            "Desc. Produto"});
+            this.cbTipoOrdenacao.Location = new System.Drawing.Point(450, 30);
+            this.cbTipoOrdenacao.Name = "cbTipoOrdenacao";
+            this.cbTipoOrdenacao.Size = new System.Drawing.Size(155, 21);
+            this.cbTipoOrdenacao.TabIndex = 38;
             // 
-            // comboBox1
+            // cbPesquisarAtivos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(611, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 21);
-            this.comboBox1.TabIndex = 37;
+            this.cbPesquisarAtivos.FormattingEnabled = true;
+            this.cbPesquisarAtivos.Items.AddRange(new object[] {
+            "Ativos",
+            "Inativos",
+            "Ativos/Inativos"});
+            this.cbPesquisarAtivos.Location = new System.Drawing.Point(611, 30);
+            this.cbPesquisarAtivos.Name = "cbPesquisarAtivos";
+            this.cbPesquisarAtivos.Size = new System.Drawing.Size(155, 21);
+            this.cbPesquisarAtivos.TabIndex = 37;
             // 
-            // label2
+            // lbMarcaDescricao
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Descrição";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lbMarcaDescricao.AutoSize = true;
+            this.lbMarcaDescricao.Location = new System.Drawing.Point(72, 15);
+            this.lbMarcaDescricao.Name = "lbMarcaDescricao";
+            this.lbMarcaDescricao.Size = new System.Drawing.Size(55, 13);
+            this.lbMarcaDescricao.TabIndex = 35;
+            this.lbMarcaDescricao.Text = "Descrição";
+            this.lbMarcaDescricao.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // lbMarca
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Marca(F2)";
+            this.lbMarca.AutoSize = true;
+            this.lbMarca.Location = new System.Drawing.Point(3, 16);
+            this.lbMarca.Name = "lbMarca";
+            this.lbMarca.Size = new System.Drawing.Size(55, 13);
+            this.lbMarca.TabIndex = 15;
+            this.lbMarca.Text = "Marca(F2)";
             // 
             // lbSubgrupoDescricao
             // 
@@ -292,18 +306,18 @@
             this.lbSubgrupoDescricao.TabIndex = 34;
             this.lbSubgrupoDescricao.Text = "Descrição";
             // 
-            // lpText5
+            // txtMarcaId
             // 
-            this.lpText5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText5.ForeColor = System.Drawing.Color.Black;
-            this.lpText5.Location = new System.Drawing.Point(6, 31);
-            this.lpText5.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText5.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText5.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText5.Name = "lpText5";
-            this.lpText5.Size = new System.Drawing.Size(70, 20);
-            this.lpText5.TabIndex = 17;
+            this.txtMarcaId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMarcaId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarcaId.ForeColor = System.Drawing.Color.Black;
+            this.txtMarcaId.Location = new System.Drawing.Point(6, 31);
+            this.txtMarcaId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMarcaId.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtMarcaId.Name = "txtMarcaId";
+            this.txtMarcaId.Size = new System.Drawing.Size(70, 20);
+            this.txtMarcaId.TabIndex = 17;
             // 
             // txtSubgrupoDescricao
             // 
@@ -319,18 +333,18 @@
             this.txtSubgrupoDescricao.Size = new System.Drawing.Size(368, 20);
             this.txtSubgrupoDescricao.TabIndex = 33;
             // 
-            // lpText3
+            // txtMarcaDescricao
             // 
-            this.lpText3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText3.ForeColor = System.Drawing.Color.Black;
-            this.lpText3.Location = new System.Drawing.Point(75, 31);
-            this.lpText3.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText3.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText3.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText3.Name = "lpText3";
-            this.lpText3.Size = new System.Drawing.Size(368, 20);
-            this.lpText3.TabIndex = 18;
+            this.txtMarcaDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMarcaDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarcaDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtMarcaDescricao.Location = new System.Drawing.Point(75, 31);
+            this.txtMarcaDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMarcaDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMarcaDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtMarcaDescricao.Name = "txtMarcaDescricao";
+            this.txtMarcaDescricao.Size = new System.Drawing.Size(368, 20);
+            this.txtMarcaDescricao.TabIndex = 18;
             // 
             // lbSubgrupo
             // 
@@ -421,21 +435,21 @@
         #endregion
 
         private System.Windows.Forms.GroupBox BoxFiltro;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Label lbMovimentacoes;
+        private System.Windows.Forms.ComboBox cbMovimentacoes;
+        private System.Windows.Forms.Label lbEstoque;
+        private System.Windows.Forms.ComboBox cbSaldoEstoque;
+        private System.Windows.Forms.Label lbPesquisarApenas;
+        private System.Windows.Forms.Label lbOrdenar;
+        private System.Windows.Forms.ComboBox cbTipoOrdenacao;
+        private System.Windows.Forms.ComboBox cbPesquisarAtivos;
+        private System.Windows.Forms.Label lbMarcaDescricao;
+        private System.Windows.Forms.Label lbMarca;
         private System.Windows.Forms.Label lbSubgrupoDescricao;
-        private Controllers.LpText lpText5;
+        private Controllers.LpText txtMarcaId;
         public Controllers.LpText txtSubgrupoDescricao;
-        private Controllers.LpText lpText3;
+        private Controllers.LpText txtMarcaDescricao;
         private System.Windows.Forms.Label lbSubgrupo;
         public Controllers.LpText txtGrupoId;
         public Controllers.LpText txtSubgrupoId;

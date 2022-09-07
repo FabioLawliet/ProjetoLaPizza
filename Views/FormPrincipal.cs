@@ -5,6 +5,7 @@ using LaPizza.Models;
 using LaPizza.Controllers;
 using LaPizza.Views;
 using System.Linq;
+using LaPizza.Views.PesquisasAnaliticas;
 
 namespace LaPizza
 {
@@ -26,6 +27,7 @@ namespace LaPizza
         FormEstado FEstado;
         FormCidade FCidade;
         FormVenFormaPagamento FFormaPagamento;
+        PesqAnaliticaProdutos FPesqAnaProdutos;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -268,6 +270,19 @@ namespace LaPizza
             else
             {
                 FFormaPagamento.BringToFront();
+            }
+        }
+
+        private void btnPesqProdutos_Click(object sender, EventArgs e)
+        {
+            if (FPesqAnaProdutos == null || FPesqAnaProdutos.IsDisposed)
+            {
+                FPesqAnaProdutos = new PesqAnaliticaProdutos();
+                CentralizaTela(FPesqAnaProdutos, btnPesqProdutos.Text);
+            }
+            else
+            {
+                FPesqAnaProdutos.BringToFront();
             }
         }
     }
