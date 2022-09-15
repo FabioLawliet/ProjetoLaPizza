@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GridProdutos = new System.Windows.Forms.DataGridView();
             this.BoxFiltro = new System.Windows.Forms.GroupBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.lbMovimentacoes = new System.Windows.Forms.Label();
@@ -55,14 +55,14 @@
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesRodape.SuspendLayout();
             this.pnlAcoesMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridProdutos)).BeginInit();
             this.BoxFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPrincipal
             // 
+            this.pnlPrincipal.Controls.Add(this.GridProdutos);
             this.pnlPrincipal.Controls.Add(this.BoxFiltro);
-            this.pnlPrincipal.Controls.Add(this.dataGridView1);
             this.pnlPrincipal.Padding = new System.Windows.Forms.Padding(5);
             this.pnlPrincipal.Size = new System.Drawing.Size(786, 433);
             // 
@@ -139,17 +139,18 @@
             this.pnlAcoesMenu.Size = new System.Drawing.Size(786, 39);
             this.pnlAcoesMenu.Visible = false;
             // 
-            // dataGridView1
+            // GridProdutos
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 423);
-            this.dataGridView1.TabIndex = 36;
+            this.GridProdutos.AllowUserToOrderColumns = true;
+            this.GridProdutos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.GridProdutos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridProdutos.Enabled = false;
+            this.GridProdutos.Location = new System.Drawing.Point(5, 145);
+            this.GridProdutos.Name = "GridProdutos";
+            this.GridProdutos.Size = new System.Drawing.Size(776, 283);
+            this.GridProdutos.TabIndex = 36;
             // 
             // BoxFiltro
             // 
@@ -195,6 +196,7 @@
             this.btnPesquisar.TabIndex = 45;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // lbMovimentacoes
             // 
@@ -286,7 +288,6 @@
             this.lbMarcaDescricao.Size = new System.Drawing.Size(55, 13);
             this.lbMarcaDescricao.TabIndex = 35;
             this.lbMarcaDescricao.Text = "Descrição";
-            this.lbMarcaDescricao.Click += new System.EventHandler(this.label2_Click);
             // 
             // lbMarca
             // 
@@ -318,6 +319,8 @@
             this.txtMarcaId.Name = "txtMarcaId";
             this.txtMarcaId.Size = new System.Drawing.Size(70, 20);
             this.txtMarcaId.TabIndex = 17;
+            this.txtMarcaId.TextChanged += new System.EventHandler(this.txtMarcaId_TextChanged);
+            this.txtMarcaId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMarcaId_KeyUp);
             // 
             // txtSubgrupoDescricao
             // 
@@ -337,6 +340,7 @@
             // 
             this.txtMarcaDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMarcaDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarcaDescricao.Enabled = false;
             this.txtMarcaDescricao.ForeColor = System.Drawing.Color.Black;
             this.txtMarcaDescricao.Location = new System.Drawing.Point(75, 31);
             this.txtMarcaDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -418,6 +422,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(786, 552);
+            this.KeyPreview = true;
             this.Name = "PesqAnaliticaProdutos";
             this.Text = "";
             this.pnlPrincipal.ResumeLayout(false);
@@ -425,7 +430,7 @@
             this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlAcoesMenu.ResumeLayout(false);
             this.pnlAcoesMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridProdutos)).EndInit();
             this.BoxFiltro.ResumeLayout(false);
             this.BoxFiltro.PerformLayout();
             this.ResumeLayout(false);
@@ -456,6 +461,6 @@
         private System.Windows.Forms.Label lbGrupo;
         private System.Windows.Forms.Label lbGrupoDescricao;
         public Controllers.LpText txtGrupoDescricao;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GridProdutos;
     }
 }
