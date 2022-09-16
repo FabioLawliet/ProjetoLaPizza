@@ -56,11 +56,6 @@ namespace LaPizza.Controllers
                         this.Text = Convert.ToDecimal(this.Text).ToString("N2");
                     break;
 
-                case tipoCampo.Integer:
-                    if (this.Text == String.Empty)
-                        this.Text = "0";
-                    break;
-
                 default:
                     this.Text = this.Text;
                     break;

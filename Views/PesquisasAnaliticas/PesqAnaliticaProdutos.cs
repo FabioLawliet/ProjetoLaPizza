@@ -14,6 +14,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
         public PesqAnaliticaProdutos()
         {
             InitializeComponent();
+            IniciaCampos();
         }
 
         private void IniciaCampos()
@@ -63,7 +64,31 @@ namespace LaPizza.Views.PesquisasAnaliticas
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             GridProdutos.DataSource = GetProdutoLista();
+            AjustaColunas();
             GridProdutos.Enabled = true;
+        }
+
+        private void AjustaColunas()
+        {
+            GridProdutos.Columns["idproduto"].DisplayIndex = 0;
+            GridProdutos.Columns["descricao"].DisplayIndex = 1;
+            GridProdutos.Columns["unidmedidasigla"].DisplayIndex = 2;
+            GridProdutos.Columns["saldoestoque"].DisplayIndex = 3;
+            GridProdutos.Columns["precoatual"].DisplayIndex = 4;
+            GridProdutos.Columns["precoanterior"].DisplayIndex = 5;
+            GridProdutos.Columns["infadicionais"].DisplayIndex = 6;
+            GridProdutos.Columns["idmarca"].DisplayIndex = 7;
+            GridProdutos.Columns["marcadescricao"].DisplayIndex = 8;
+            GridProdutos.Columns["idgrupo"].DisplayIndex = 9;
+            GridProdutos.Columns["grupodescricao"].DisplayIndex = 10;
+            GridProdutos.Columns["idsubgrupo"].DisplayIndex = 11;
+            GridProdutos.Columns["subgrupodescricao"].DisplayIndex = 12;
+            GridProdutos.Columns["codigofabricante"].DisplayIndex = 13;
+            GridProdutos.Columns["qtdeestmin"].DisplayIndex = 14;
+            GridProdutos.Columns["qtdeestideal"].DisplayIndex = 15;
+            GridProdutos.Columns["qtdeestmax"].DisplayIndex = 16;
+            GridProdutos.Columns["dataCadastro"].DisplayIndex = 17;
+            GridProdutos.Columns["ativo"].DisplayIndex = 18;
         }
 
         public List<ProdutoDTO> GetProdutoLista()
@@ -81,24 +106,24 @@ namespace LaPizza.Views.PesquisasAnaliticas
                                       {
                                           idproduto = produto.idproduto,
                                           descricao = produto.descricao,
-                                          //dataCadastro = produto.datacadastro.ToString(),
-                                          ativo = produto.ativo,
+                                          //idunidmedida = produto.idunidmedida,
+                                          unidmedidasigla = unidade.sigla,
+                                          saldoestoque = produto.saldoestoque,
+                                          precoatual = produto.precoatual,
+                                          precoanterior = produto.precoanterior,
+                                          infadicionais = produto.infadicionais,
+                                          idmarca = produto.idmarca,
+                                          marcadescricao = marca.descricao,
                                           idgrupo = produto.idgrupo,
                                           grupodescricao = grupo.descricao,
                                           idsubgrupo = produto.idsubgrupo,
                                           subgrupodescricao = subgrupo.descricao,
-                                          idmarca = produto.idmarca,
-                                          marcadescricao = marca.descricao,
                                           codigofabricante = produto.codigofabricante,
-                                          infadicionais = produto.infadicionais,
-                                          saldoestoque = produto.saldoestoque,
-                                          idunidmedida = produto.idunidmedida,
-                                          unidmedidasigla = unidade.sigla,
                                           qtdeestmin = produto.qtdeestmin,
                                           qtdeestideal = produto.qtdeestideal,
                                           qtdeestmax = produto.qtdeestmax,
-                                          precoanterior = produto.precoanterior,
-                                          precoatual = produto.precoatual
+                                          //dataCadastro = produto.datacadastro.ToString(),
+                                          ativo = produto.ativo
                                       }).ToList();
 
             if (txtMarcaId.Text != "")
@@ -119,6 +144,11 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 Lista = new List<ProdutoDTO>(Lista.Where(p => p.saldoestoque > 0));
             else if (cbSaldoEstoque.SelectedIndex == 1)
                 Lista = new List<ProdutoDTO>(Lista.Where(p => p.saldoestoque <= 0));
+
+            if (cbTipoOrdenacao.SelectedIndex == 0)
+                Lista = new List<ProdutoDTO>(Lista.OrderBy(p => p.idproduto));
+            else if (cbTipoOrdenacao.SelectedIndex == 1)
+                Lista = new List<ProdutoDTO>(Lista.OrderBy(p => p.descricao));
 
             return Lista;
         }
