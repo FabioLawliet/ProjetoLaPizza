@@ -53,7 +53,7 @@
             this.txtGrupoDescricao = new LaPizza.Controllers.LpText();
             this.idproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidmedidasigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saldoestoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precoatual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precoanterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,6 +126,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.Location = new System.Drawing.Point(636, 5);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -167,7 +168,7 @@
             this.GridProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idproduto,
             this.descricao,
-            this.UN,
+            this.unidmedidasigla,
             this.saldoestoque,
             this.precoatual,
             this.precoanterior,
@@ -192,7 +193,7 @@
             this.GridProdutos.ReadOnly = true;
             this.GridProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridProdutos.Size = new System.Drawing.Size(776, 283);
-            this.GridProdutos.TabIndex = 36;
+            this.GridProdutos.TabIndex = 12;
             // 
             // BoxFiltro
             // 
@@ -235,7 +236,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(450, 103);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(316, 25);
-            this.btnPesquisar.TabIndex = 45;
+            this.btnPesquisar.TabIndex = 11;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -258,7 +259,7 @@
             this.cbMovimentacoes.Location = new System.Drawing.Point(611, 69);
             this.cbMovimentacoes.Name = "cbMovimentacoes";
             this.cbMovimentacoes.Size = new System.Drawing.Size(155, 21);
-            this.cbMovimentacoes.TabIndex = 43;
+            this.cbMovimentacoes.TabIndex = 10;
             // 
             // lbEstoque
             // 
@@ -279,7 +280,7 @@
             this.cbSaldoEstoque.Location = new System.Drawing.Point(450, 69);
             this.cbSaldoEstoque.Name = "cbSaldoEstoque";
             this.cbSaldoEstoque.Size = new System.Drawing.Size(155, 21);
-            this.cbSaldoEstoque.TabIndex = 41;
+            this.cbSaldoEstoque.TabIndex = 9;
             // 
             // lbPesquisarApenas
             // 
@@ -308,7 +309,7 @@
             this.cbTipoOrdenacao.Location = new System.Drawing.Point(450, 30);
             this.cbTipoOrdenacao.Name = "cbTipoOrdenacao";
             this.cbTipoOrdenacao.Size = new System.Drawing.Size(155, 21);
-            this.cbTipoOrdenacao.TabIndex = 38;
+            this.cbTipoOrdenacao.TabIndex = 7;
             // 
             // cbPesquisarAtivos
             // 
@@ -320,7 +321,7 @@
             this.cbPesquisarAtivos.Location = new System.Drawing.Point(611, 30);
             this.cbPesquisarAtivos.Name = "cbPesquisarAtivos";
             this.cbPesquisarAtivos.Size = new System.Drawing.Size(155, 21);
-            this.cbPesquisarAtivos.TabIndex = 37;
+            this.cbPesquisarAtivos.TabIndex = 8;
             // 
             // lbMarcaDescricao
             // 
@@ -360,7 +361,7 @@
             this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtMarcaId.Name = "txtMarcaId";
             this.txtMarcaId.Size = new System.Drawing.Size(70, 20);
-            this.txtMarcaId.TabIndex = 17;
+            this.txtMarcaId.TabIndex = 0;
             this.txtMarcaId.TextChanged += new System.EventHandler(this.txtMarcaId_TextChanged);
             this.txtMarcaId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMarcaId_KeyUp);
             // 
@@ -376,7 +377,7 @@
             this.txtSubgrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtSubgrupoDescricao.Name = "txtSubgrupoDescricao";
             this.txtSubgrupoDescricao.Size = new System.Drawing.Size(368, 20);
-            this.txtSubgrupoDescricao.TabIndex = 33;
+            this.txtSubgrupoDescricao.TabIndex = 5;
             // 
             // txtMarcaDescricao
             // 
@@ -390,7 +391,7 @@
             this.txtMarcaDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtMarcaDescricao.Name = "txtMarcaDescricao";
             this.txtMarcaDescricao.Size = new System.Drawing.Size(368, 20);
-            this.txtMarcaDescricao.TabIndex = 18;
+            this.txtMarcaDescricao.TabIndex = 1;
             // 
             // lbSubgrupo
             // 
@@ -413,7 +414,9 @@
             this.txtGrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtGrupoId.Name = "txtGrupoId";
             this.txtGrupoId.Size = new System.Drawing.Size(70, 20);
-            this.txtGrupoId.TabIndex = 27;
+            this.txtGrupoId.TabIndex = 2;
+            this.txtGrupoId.TextChanged += new System.EventHandler(this.txtGrupoId_TextChanged);
+            this.txtGrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGrupoId_KeyUp);
             // 
             // txtSubgrupoId
             // 
@@ -427,7 +430,9 @@
             this.txtSubgrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
             this.txtSubgrupoId.Name = "txtSubgrupoId";
             this.txtSubgrupoId.Size = new System.Drawing.Size(70, 20);
-            this.txtSubgrupoId.TabIndex = 31;
+            this.txtSubgrupoId.TabIndex = 4;
+            this.txtSubgrupoId.TextChanged += new System.EventHandler(this.txtSubgrupoId_TextChanged);
+            this.txtSubgrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSubgrupoId_KeyUp);
             // 
             // lbGrupo
             // 
@@ -459,7 +464,8 @@
             this.txtGrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtGrupoDescricao.Name = "txtGrupoDescricao";
             this.txtGrupoDescricao.Size = new System.Drawing.Size(368, 20);
-            this.txtGrupoDescricao.TabIndex = 29;
+            this.txtGrupoDescricao.TabIndex = 3;
+            this.txtGrupoDescricao.TextChanged += new System.EventHandler(this.txtGrupoDescricao_TextChanged);
             // 
             // idproduto
             // 
@@ -479,14 +485,14 @@
             this.descricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.descricao.Width = 200;
             // 
-            // UN
+            // unidmedidasigla
             // 
-            this.UN.DataPropertyName = "unidmedidasigla";
-            this.UN.HeaderText = "UN";
-            this.UN.Name = "UN";
-            this.UN.ReadOnly = true;
-            this.UN.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.UN.Width = 30;
+            this.unidmedidasigla.DataPropertyName = "unidmedidasigla";
+            this.unidmedidasigla.HeaderText = "UN";
+            this.unidmedidasigla.Name = "unidmedidasigla";
+            this.unidmedidasigla.ReadOnly = true;
+            this.unidmedidasigla.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.unidmedidasigla.Width = 30;
             // 
             // saldoestoque
             // 
@@ -676,7 +682,7 @@
         private System.Windows.Forms.DataGridView GridProdutos;
         private System.Windows.Forms.DataGridViewTextBoxColumn idproduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unidmedidasigla;
         private System.Windows.Forms.DataGridViewTextBoxColumn saldoestoque;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoatual;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoanterior;

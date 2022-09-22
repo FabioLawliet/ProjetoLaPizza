@@ -1,6 +1,7 @@
 ﻿using LaPizza.Controllers;
 using LaPizza.DAO;
 using LaPizza.Models;
+using LaPizza.Views.Pesquisas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -64,8 +65,18 @@ namespace LaPizza.Views.PesquisasAnaliticas
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             GridProdutos.DataSource = GetProdutoLista();
-            AjustaColunas();
-            GridProdutos.Enabled = true;
+
+            if (GridProdutos.RowCount <= 0)
+                MessageBox.Show("Não foi encontrado nenhum produto com os filtros informados!", "informação", MessageBoxButtons.OK);
+            else
+            {
+                AjustaColunas();
+                GridProdutos.Enabled = true;
+                BoxFiltro.Enabled = false;
+                btnPesquisar.BackColor = btnCancelar.BackColor;
+                HabilitaAcao(TipoAcao.Cancelar, true);
+            }                    
+            
         }
 
         private void AjustaColunas()
@@ -151,6 +162,113 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 Lista = new List<ProdutoDTO>(Lista.OrderBy(p => p.descricao));
 
             return Lista;
+        }
+
+        private void txtGrupoId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGrupoId.Text != "")
+            {
+                GrupoController Controle = new GrupoController();
+
+                var id = Int32.Parse(txtGrupoId.Text);
+
+                if (Controle.ExisteGrupoId(id))
+                    txtGrupoDescricao.Text = Controle.GetGrupo(id).descricao;
+                else
+                {
+                    txtGrupoDescricao.Text = String.Empty;
+                    txtSubgrupoId.Text = String.Empty;
+                    txtSubgrupoDescricao.Text = String.Empty;
+                }
+            }
+            else
+            {
+                txtGrupoDescricao.Text = String.Empty;
+                txtSubgrupoId.Text = String.Empty;
+                txtSubgrupoDescricao.Text = String.Empty;
+            }
+        }
+
+        private void txtGrupoId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormEstGrupoPesquisa Pesq = new FormEstGrupoPesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtGrupoId.Text = Pesq.PesqGrupo.idgrupo.ToString();
+                    txtGrupoDescricao.Text = Pesq.PesqGrupo.descricao;
+                }
+            }
+        }
+
+        private void txtSubgrupoId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSubgrupoId.Text != "")
+            {
+                SubgrupoController controle = new SubgrupoController();
+
+                var idGrupo = Int32.Parse(txtGrupoId.Text);
+                var idSubgrupo = Int32.Parse(txtSubgrupoId.Text);
+
+                if (controle.ExisteSubgrupo(idGrupo, idSubgrupo))
+                {
+                    txtSubgrupoDescricao.Text = controle.GetSubgrupo(idGrupo, idSubgrupo).descricao;
+                }
+                else
+                    txtSubgrupoDescricao.Text = String.Empty;
+            }
+            else
+                txtSubgrupoDescricao.Text = String.Empty;
+        }
+
+        private void txtSubgrupoId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                var idGrupo = Int32.Parse(txtGrupoId.Text);
+
+                FormEstSubgrupoPesquisa Pesq = new FormEstSubgrupoPesquisa(idGrupo);
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtSubgrupoId.Text = Pesq.PesqSubgrupo.idsubgrupo.ToString();
+                    txtSubgrupoDescricao.Text = Pesq.PesqSubgrupo.descricao;
+                }
+            }
+        }
+
+        private void txtGrupoDescricao_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGrupoDescricao.Text != String.Empty)
+                txtSubgrupoId.Enabled = true;
+            else
+                txtSubgrupoId.Enabled = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            ClearAllComponentsForm();
+            BoxFiltro.Enabled = true;
+            btnPesquisar.BackColor = btnSair.BackColor;
+            if (txtMarcaId.CanFocus) {
+                txtMarcaId.Focus();
+            }
+        }
+
+        private void ClearAllComponentsForm()
+        {
+            txtGrupoId.Text = string.Empty;
+            txtGrupoDescricao.Text = string.Empty;
+            txtSubgrupoId.Text = string.Empty;
+            txtSubgrupoDescricao.Text = string.Empty;
+            txtMarcaId.Text = string.Empty;
+            txtMarcaDescricao.Text = string.Empty;
+            IniciaCampos();
+            GridProdutos.DataSource = null;
         }
     }
 }
