@@ -303,7 +303,9 @@ idCliente int,
 	ON UPDATE NO ACTION
     ON DELETE RESTRICT,
 --idVendedor int,
-dataPedido TimeStamp,
+dataAbertura TimeStamp,
+dataFechamento TimeStamp,
+status Boolean,
 vlrTotalBruto numeric(18,2),
 vlrTotalDescontos numeric(18,2));
 
