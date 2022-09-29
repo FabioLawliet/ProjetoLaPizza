@@ -13,7 +13,9 @@ namespace LaPizza.Models
         public int idtipopedido { get; set; }
         public int idcliente { get; set; }
         public int idformapagamento { get; set; }
-        public string datapedido { get; set; }
+        public string dataabertura { get; set; }
+        public string datafechamento { get; set; }
+        public string status { get; set; }
         public decimal vlrtotalbruto { get; set; }
         public decimal vlrtotaldescontos { get; set; }
 

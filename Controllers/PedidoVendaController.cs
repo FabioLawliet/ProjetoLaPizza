@@ -148,7 +148,7 @@ namespace LaPizza.Controllers
                                               clientenome             = cliente.nomerazao,
                                               idformapagamento        = pedido.idformapagamento,
                                               formapagamentodescricao = pag.descricao, 
-                                              datapedido              = pedido.datapedido,
+                                              dataabertura            = pedido.dataabertura,
                                               vlrtotaldescontos       = pedido.vlrtotaldescontos,
                                               vlrtotalbruto           = pedido.vlrtotalbruto,
                                           }).ToList();
@@ -175,7 +175,7 @@ namespace LaPizza.Controllers
                                         clientenome = cliente.nomerazao,
                                         idformapagamento = ped.idformapagamento,
                                         formapagamentodescricao = pag.descricao,
-                                        datapedido = ped.datapedido,
+                                        dataabertura = ped.dataabertura,
                                         vlrtotaldescontos = ped.vlrtotaldescontos,
                                         vlrtotalbruto = ped.vlrtotalbruto,
                                     }).FirstOrDefault();

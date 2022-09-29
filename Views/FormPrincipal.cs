@@ -28,6 +28,7 @@ namespace LaPizza
         FormCidade FCidade;
         FormVenFormaPagamento FFormaPagamento;
         PesqAnaliticaProdutos FPesqAnaProdutos;
+        PesqAnaliticaPedidos FPesqAnaPedidos;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -283,6 +284,19 @@ namespace LaPizza
             else
             {
                 FPesqAnaProdutos.BringToFront();
+            }
+        }
+
+        private void btnPesqPedidos_Click(object sender, EventArgs e)
+        {
+            if (FPesqAnaPedidos == null || FPesqAnaPedidos.IsDisposed)
+            {
+                FPesqAnaPedidos = new PesqAnaliticaPedidos();
+                CentralizaTela(FPesqAnaPedidos, FPesqAnaPedidos.Text);
+            }
+            else
+            {
+                FPesqAnaPedidos.BringToFront();
             }
         }
     }

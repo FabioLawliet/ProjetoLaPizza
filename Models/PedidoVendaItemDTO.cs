@@ -18,6 +18,7 @@ namespace LaPizza.Models
         public decimal saldoestoque { get; set; }
         public decimal qtde { get; set; }
         public decimal vlrunitario { get; set; }
+        public decimal vlrbruto { get; set; }
         public decimal vlrdesconto { get; set; }
         public string vlrdescontoperc { get; set; }
         public decimal vlrliquido { get; set; }
