@@ -54,6 +54,7 @@
             this.btnEstMarca = new System.Windows.Forms.Button();
             this.btnMenuEstoque = new System.Windows.Forms.Button();
             this.pnlSubMenuVenda = new System.Windows.Forms.Panel();
+            this.btnPesqPedidos = new System.Windows.Forms.Button();
             this.btnVenRegistrar = new System.Windows.Forms.Button();
             this.btnVenPedido = new System.Windows.Forms.Button();
             this.btnVenFormaPagamento = new System.Windows.Forms.Button();
@@ -63,7 +64,8 @@
             this.btnMenuCliente = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.btnPesqPedidos = new System.Windows.Forms.Button();
+            this.btnPesqCliente = new System.Windows.Forms.Button();
+            this.btnPesqFornecedor = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.pnlMenuLateral.SuspendLayout();
             this.pnlSubMenuGeral.SuspendLayout();
@@ -115,7 +117,7 @@
             this.pnlSubMenuGeral.Controls.Add(this.btnGerCidade);
             this.pnlSubMenuGeral.Controls.Add(this.button3);
             this.pnlSubMenuGeral.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 635);
+            this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 685);
             this.pnlSubMenuGeral.Name = "pnlSubMenuGeral";
             this.pnlSubMenuGeral.Size = new System.Drawing.Size(233, 75);
             this.pnlSubMenuGeral.TabIndex = 11;
@@ -193,7 +195,7 @@
             this.btnMenuGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuGeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuGeral.ForeColor = System.Drawing.Color.White;
-            this.btnMenuGeral.Location = new System.Drawing.Point(0, 600);
+            this.btnMenuGeral.Location = new System.Drawing.Point(0, 650);
             this.btnMenuGeral.Name = "btnMenuGeral";
             this.btnMenuGeral.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuGeral.Size = new System.Drawing.Size(233, 35);
@@ -211,7 +213,7 @@
             this.pnlSubMenuUsuario.Controls.Add(this.btnUsuControleAcesso);
             this.pnlSubMenuUsuario.Controls.Add(this.btnUsuCadastro);
             this.pnlSubMenuUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 525);
+            this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 575);
             this.pnlSubMenuUsuario.Name = "pnlSubMenuUsuario";
             this.pnlSubMenuUsuario.Size = new System.Drawing.Size(233, 75);
             this.pnlSubMenuUsuario.TabIndex = 9;
@@ -288,7 +290,7 @@
             this.btnMenuUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 490);
+            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 540);
             this.btnMenuUsuario.Name = "btnMenuUsuario";
             this.btnMenuUsuario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuUsuario.Size = new System.Drawing.Size(233, 35);
@@ -302,11 +304,12 @@
             // pnlSubMenuFornecedor
             // 
             this.pnlSubMenuFornecedor.AutoSize = true;
+            this.pnlSubMenuFornecedor.Controls.Add(this.btnPesqFornecedor);
             this.pnlSubMenuFornecedor.Controls.Add(this.btnFornCadastro);
             this.pnlSubMenuFornecedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 465);
+            this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 490);
             this.pnlSubMenuFornecedor.Name = "pnlSubMenuFornecedor";
-            this.pnlSubMenuFornecedor.Size = new System.Drawing.Size(233, 25);
+            this.pnlSubMenuFornecedor.Size = new System.Drawing.Size(233, 50);
             this.pnlSubMenuFornecedor.TabIndex = 7;
             this.pnlSubMenuFornecedor.Tag = "pnlSubMenu";
             // 
@@ -341,7 +344,7 @@
             this.btnMenuFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuFornecedor.ForeColor = System.Drawing.Color.White;
-            this.btnMenuFornecedor.Location = new System.Drawing.Point(0, 430);
+            this.btnMenuFornecedor.Location = new System.Drawing.Point(0, 455);
             this.btnMenuFornecedor.Name = "btnMenuFornecedor";
             this.btnMenuFornecedor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuFornecedor.Size = new System.Drawing.Size(233, 35);
@@ -364,7 +367,7 @@
             this.pnlSubMenuEstoque.Controls.Add(this.btnEstGrupo);
             this.pnlSubMenuEstoque.Controls.Add(this.btnEstMarca);
             this.pnlSubMenuEstoque.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuEstoque.Location = new System.Drawing.Point(0, 230);
+            this.pnlSubMenuEstoque.Location = new System.Drawing.Point(0, 255);
             this.pnlSubMenuEstoque.Name = "pnlSubMenuEstoque";
             this.pnlSubMenuEstoque.Size = new System.Drawing.Size(233, 200);
             this.pnlSubMenuEstoque.TabIndex = 5;
@@ -548,7 +551,7 @@
             this.btnMenuEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuEstoque.ForeColor = System.Drawing.Color.White;
-            this.btnMenuEstoque.Location = new System.Drawing.Point(0, 195);
+            this.btnMenuEstoque.Location = new System.Drawing.Point(0, 220);
             this.btnMenuEstoque.Name = "btnMenuEstoque";
             this.btnMenuEstoque.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuEstoque.Size = new System.Drawing.Size(233, 35);
@@ -567,11 +570,32 @@
             this.pnlSubMenuVenda.Controls.Add(this.btnVenPedido);
             this.pnlSubMenuVenda.Controls.Add(this.btnVenFormaPagamento);
             this.pnlSubMenuVenda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuVenda.Location = new System.Drawing.Point(0, 95);
+            this.pnlSubMenuVenda.Location = new System.Drawing.Point(0, 120);
             this.pnlSubMenuVenda.Name = "pnlSubMenuVenda";
             this.pnlSubMenuVenda.Size = new System.Drawing.Size(233, 100);
             this.pnlSubMenuVenda.TabIndex = 3;
             this.pnlSubMenuVenda.Tag = "pnlSubMenu";
+            // 
+            // btnPesqPedidos
+            // 
+            this.btnPesqPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnPesqPedidos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPesqPedidos.FlatAppearance.BorderSize = 0;
+            this.btnPesqPedidos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnPesqPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnPesqPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesqPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesqPedidos.ForeColor = System.Drawing.Color.White;
+            this.btnPesqPedidos.Location = new System.Drawing.Point(0, 75);
+            this.btnPesqPedidos.Name = "btnPesqPedidos";
+            this.btnPesqPedidos.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnPesqPedidos.Size = new System.Drawing.Size(233, 25);
+            this.btnPesqPedidos.TabIndex = 11;
+            this.btnPesqPedidos.Tag = "btnSubMenu";
+            this.btnPesqPedidos.Text = "Pesquisa de Pedidos Venda";
+            this.btnPesqPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPesqPedidos.UseVisualStyleBackColor = false;
+            this.btnPesqPedidos.Click += new System.EventHandler(this.btnPesqPedidos_Click);
             // 
             // btnVenRegistrar
             // 
@@ -646,7 +670,7 @@
             this.btnMenuVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuVenda.ForeColor = System.Drawing.Color.White;
-            this.btnMenuVenda.Location = new System.Drawing.Point(0, 60);
+            this.btnMenuVenda.Location = new System.Drawing.Point(0, 85);
             this.btnMenuVenda.Name = "btnMenuVenda";
             this.btnMenuVenda.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuVenda.Size = new System.Drawing.Size(233, 35);
@@ -660,11 +684,12 @@
             // pnlSubMenuCliente
             // 
             this.pnlSubMenuCliente.AutoSize = true;
+            this.pnlSubMenuCliente.Controls.Add(this.btnPesqCliente);
             this.pnlSubMenuCliente.Controls.Add(this.btnCliCadastro);
             this.pnlSubMenuCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuCliente.Location = new System.Drawing.Point(0, 35);
             this.pnlSubMenuCliente.Name = "pnlSubMenuCliente";
-            this.pnlSubMenuCliente.Size = new System.Drawing.Size(233, 25);
+            this.pnlSubMenuCliente.Size = new System.Drawing.Size(233, 50);
             this.pnlSubMenuCliente.TabIndex = 0;
             this.pnlSubMenuCliente.Tag = "pnlSubMenu";
             // 
@@ -732,26 +757,47 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(1114, 749);
             this.pnlPrincipal.TabIndex = 0;
             // 
-            // btnPesqPedidos
+            // btnPesqCliente
             // 
-            this.btnPesqPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btnPesqPedidos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPesqPedidos.FlatAppearance.BorderSize = 0;
-            this.btnPesqPedidos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnPesqPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnPesqPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesqPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesqPedidos.ForeColor = System.Drawing.Color.White;
-            this.btnPesqPedidos.Location = new System.Drawing.Point(0, 75);
-            this.btnPesqPedidos.Name = "btnPesqPedidos";
-            this.btnPesqPedidos.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnPesqPedidos.Size = new System.Drawing.Size(233, 25);
-            this.btnPesqPedidos.TabIndex = 11;
-            this.btnPesqPedidos.Tag = "btnSubMenu";
-            this.btnPesqPedidos.Text = "Pesquisa de Pedidos Venda";
-            this.btnPesqPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPesqPedidos.UseVisualStyleBackColor = false;
-            this.btnPesqPedidos.Click += new System.EventHandler(this.btnPesqPedidos_Click);
+            this.btnPesqCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnPesqCliente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPesqCliente.FlatAppearance.BorderSize = 0;
+            this.btnPesqCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnPesqCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnPesqCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesqCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesqCliente.ForeColor = System.Drawing.Color.White;
+            this.btnPesqCliente.Location = new System.Drawing.Point(0, 25);
+            this.btnPesqCliente.Name = "btnPesqCliente";
+            this.btnPesqCliente.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnPesqCliente.Size = new System.Drawing.Size(233, 25);
+            this.btnPesqCliente.TabIndex = 5;
+            this.btnPesqCliente.Tag = "btnSubMenu";
+            this.btnPesqCliente.Text = "Pesquisa de Clientes";
+            this.btnPesqCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPesqCliente.UseVisualStyleBackColor = false;
+            this.btnPesqCliente.Click += new System.EventHandler(this.btnPesqCliente_Click);
+            // 
+            // btnPesqFornecedor
+            // 
+            this.btnPesqFornecedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnPesqFornecedor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPesqFornecedor.FlatAppearance.BorderSize = 0;
+            this.btnPesqFornecedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnPesqFornecedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnPesqFornecedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesqFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesqFornecedor.ForeColor = System.Drawing.Color.White;
+            this.btnPesqFornecedor.Location = new System.Drawing.Point(0, 25);
+            this.btnPesqFornecedor.Name = "btnPesqFornecedor";
+            this.btnPesqFornecedor.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnPesqFornecedor.Size = new System.Drawing.Size(233, 25);
+            this.btnPesqFornecedor.TabIndex = 5;
+            this.btnPesqFornecedor.Tag = "btnSubMenu";
+            this.btnPesqFornecedor.Text = "Pesquisa de Fornecedores";
+            this.btnPesqFornecedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPesqFornecedor.UseVisualStyleBackColor = false;
+            this.btnPesqFornecedor.Click += new System.EventHandler(this.btnPesqFornecedor_Click);
             // 
             // FormPrincipal
             // 
@@ -816,6 +862,8 @@
         private System.Windows.Forms.Button btnVenFormaPagamento;
         private System.Windows.Forms.Button btnPesqProdutos;
         private System.Windows.Forms.Button btnPesqPedidos;
+        private System.Windows.Forms.Button btnPesqFornecedor;
+        private System.Windows.Forms.Button btnPesqCliente;
     }
 }
 

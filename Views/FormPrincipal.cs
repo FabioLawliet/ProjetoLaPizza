@@ -29,6 +29,9 @@ namespace LaPizza
         FormVenFormaPagamento FFormaPagamento;
         PesqAnaliticaProdutos FPesqAnaProdutos;
         PesqAnaliticaPedidos FPesqAnaPedidos;
+        PesqAnaliticaClientes FPesqAnaCliente;
+        PesqAnaliticaFornecedores FPesqAnaFornecedores;
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -39,7 +42,8 @@ namespace LaPizza
             {
                 Context db = new Context();
                 var marca = db.marca.FirstOrDefault();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Houve um problema ao se conectar com o banco de dados! \n\n" + ex.Message,
                                 "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,15 +86,15 @@ namespace LaPizza
 
         private void CentralizaTela(Form Formulario, string TextRotina)
         {
-                Formulario.Text = TextRotina;
-                Formulario.Visible = false;
-                Formulario.TopLevel = false;
-                pnlPrincipal.Controls.Add(Formulario);
-                Formulario.Left = (pnlPrincipal.Width - Formulario.Width) / 2;
-                Formulario.Top = (pnlPrincipal.Height - Formulario.Height) / 2;
-                Formulario.FormBorderStyle = FormBorderStyle.Sizable;
-                Formulario.Visible = true;
-                Formulario.BringToFront();
+            Formulario.Text = TextRotina;
+            Formulario.Visible = false;
+            Formulario.TopLevel = false;
+            pnlPrincipal.Controls.Add(Formulario);
+            Formulario.Left = (pnlPrincipal.Width - Formulario.Width) / 2;
+            Formulario.Top = (pnlPrincipal.Height - Formulario.Height) / 2;
+            Formulario.FormBorderStyle = FormBorderStyle.Sizable;
+            Formulario.Visible = true;
+            Formulario.BringToFront();
 
         }
         // ------------------------------------------------------------
@@ -118,7 +122,7 @@ namespace LaPizza
             else
             {
                 FProduto.BringToFront();
-            }            
+            }
         }
 
         private void btnEstGrupo_Click(object sender, EventArgs e)
@@ -157,7 +161,7 @@ namespace LaPizza
             else
             {
                 FSubgrupo.BringToFront();
-            } 
+            }
         }
 
         private void btnUsuCadastro_Click(object sender, EventArgs e)
@@ -173,7 +177,7 @@ namespace LaPizza
             }
         }
 
-        
+
         private void btnCliCadastro_Click(object sender, EventArgs e)
         {
             if (FCliente == null || FCliente.IsDisposed)
@@ -242,7 +246,7 @@ namespace LaPizza
 
         private void btnGerEstado_Click(object sender, EventArgs e)
         {
-            if(FEstado == null || FEstado.IsDisposed)
+            if (FEstado == null || FEstado.IsDisposed)
             {
                 FEstado = new FormEstado();
                 CentralizaTela(FEstado, btnGerEstado.Text);
@@ -297,6 +301,32 @@ namespace LaPizza
             else
             {
                 FPesqAnaPedidos.BringToFront();
+            }
+        }
+
+        private void btnPesqCliente_Click(object sender, EventArgs e)
+        {
+            if (FPesqAnaCliente == null || FPesqAnaCliente.IsDisposed)
+            {
+                FPesqAnaCliente = new PesqAnaliticaClientes();
+                CentralizaTela(FPesqAnaCliente, FPesqAnaCliente.Text);
+            }
+            else
+            {
+                FPesqAnaCliente.BringToFront();
+            }
+        }
+
+        private void btnPesqFornecedor_Click(object sender, EventArgs e)
+        {
+            if (FPesqAnaFornecedores == null || FPesqAnaFornecedores.IsDisposed)
+            {
+                FPesqAnaFornecedores = new PesqAnaliticaFornecedores();
+                CentralizaTela(FPesqAnaFornecedores, FPesqAnaFornecedores.Text);
+            }
+            else
+            {
+                FPesqAnaFornecedores.BringToFront();
             }
         }
     }
