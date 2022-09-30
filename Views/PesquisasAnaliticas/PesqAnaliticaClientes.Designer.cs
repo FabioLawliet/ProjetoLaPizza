@@ -465,6 +465,7 @@
             this.txtCidadeId.TabIndex = 14;
             this.txtCidadeId.TextChanged += new System.EventHandler(this.txtCidadeId_TextChanged);
             this.txtCidadeId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCidadeId_KeyUp);
+            this.txtCidadeId.Leave += new System.EventHandler(this.txtCidadeId_Leave);
             // 
             // txtClienteId
             // 
@@ -480,6 +481,7 @@
             this.txtClienteId.TabIndex = 7;
             this.txtClienteId.TextChanged += new System.EventHandler(this.txtClienteId_TextChanged);
             this.txtClienteId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClienteId_KeyUp);
+            this.txtClienteId.Leave += new System.EventHandler(this.txtClienteId_Leave);
             // 
             // txtNomeCliente
             // 

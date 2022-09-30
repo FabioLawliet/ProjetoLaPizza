@@ -258,5 +258,29 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 txtClienteId.Focus();
             }
         }
+
+        private void txtClienteId_Leave(object sender, EventArgs e)
+        {
+            if(txtClienteId.Text != "")
+            {
+                txtCidadeId.Enabled = false;
+            }
+            else
+            {
+                txtCidadeId.Enabled = true;
+            }
+        }
+
+        private void txtCidadeId_Leave(object sender, EventArgs e)
+        {
+            if (txtCidadeId.Text != "")
+            {
+                txtClienteId.Enabled = false;
+            }
+            else
+            {
+                txtClienteId.Enabled = true;
+            }
+        }
     }
 }
