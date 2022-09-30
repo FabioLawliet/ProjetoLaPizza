@@ -76,7 +76,6 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 btnPesquisar.BackColor = btnCancelar.BackColor;
                 HabilitaAcao(TipoAcao.Cancelar, true);
             }                    
-            
         }
 
         private void AjustaColunas()

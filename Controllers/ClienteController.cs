@@ -116,8 +116,7 @@ namespace LaPizza.Controllers
             List<ClienteDTO> lista = (from cliente in db.cliente
                                       join cidade in db.cidade on cliente.idcidade equals cidade.idcidade
                                       join estado in db.estado on cidade.idestado equals estado.idestado
-                                      where cliente.idcidade == Id
-                                      orderby cliente.idcliente
+                                      where cliente.idcliente == Id
                                       select new ClienteDTO
                                       {
                                           idcliente = cliente.idcliente,

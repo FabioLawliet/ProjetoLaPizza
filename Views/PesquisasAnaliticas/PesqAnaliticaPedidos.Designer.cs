@@ -34,22 +34,22 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.GridProdutos = new System.Windows.Forms.DataGridView();
-            this.cbPesquisarAtivos = new System.Windows.Forms.ComboBox();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.lbOrdenar = new System.Windows.Forms.Label();
-            this.lbPesquisarApenas = new System.Windows.Forms.Label();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.BoxFiltro = new System.Windows.Forms.GroupBox();
             this.ProdutoColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdutoColDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdutoColQtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdutoColVlrUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdutoColVlrDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdutoColVlrBruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbFormaPagamento = new System.Windows.Forms.ComboBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.lbOrdenar = new System.Windows.Forms.Label();
+            this.lbPesquisarApenas = new System.Windows.Forms.Label();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtInicial = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtFinal = new System.Windows.Forms.DateTimePicker();
+            this.BoxFiltro = new System.Windows.Forms.GroupBox();
             this.PedidoColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PedidoColAbertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PedidoColFechamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,78 +77,78 @@
             this.pnlPrincipal.Controls.Add(this.GridPedidos);
             this.pnlPrincipal.Controls.Add(this.panel1);
             this.pnlPrincipal.Controls.Add(this.BoxFiltro);
-            this.pnlPrincipal.Size = new System.Drawing.Size(828, 483);
+            this.pnlPrincipal.Size = new System.Drawing.Size(878, 483);
             // 
             // pnlNomeRotina
             // 
-            this.pnlNomeRotina.Size = new System.Drawing.Size(828, 40);
+            this.pnlNomeRotina.Size = new System.Drawing.Size(878, 40);
             // 
             // btnAcaoAdicionar
             // 
             this.btnAcaoAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAcaoAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoAdicionar.Location = new System.Drawing.Point(688, 5);
+            this.btnAcaoAdicionar.Location = new System.Drawing.Point(738, 5);
             // 
             // btnAcaoEditar
             // 
             this.btnAcaoEditar.FlatAppearance.BorderSize = 0;
             this.btnAcaoEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoEditar.Location = new System.Drawing.Point(723, 5);
+            this.btnAcaoEditar.Location = new System.Drawing.Point(773, 5);
             // 
             // btnAcaoConsultar
             // 
             this.btnAcaoConsultar.FlatAppearance.BorderSize = 0;
             this.btnAcaoConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoConsultar.Location = new System.Drawing.Point(758, 5);
+            this.btnAcaoConsultar.Location = new System.Drawing.Point(808, 5);
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Size = new System.Drawing.Size(828, 40);
+            this.lbNomeRotina.Size = new System.Drawing.Size(878, 40);
             this.lbNomeRotina.Text = "Form1";
             // 
             // pnlAcoesRodape
             // 
             this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 562);
-            this.pnlAcoesRodape.Size = new System.Drawing.Size(828, 40);
+            this.pnlAcoesRodape.Size = new System.Drawing.Size(878, 40);
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnCancelar.Location = new System.Drawing.Point(678, 5);
+            this.btnCancelar.Location = new System.Drawing.Point(728, 5);
             // 
             // btnSair
             // 
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.btnSair.Location = new System.Drawing.Point(753, 5);
+            this.btnSair.Location = new System.Drawing.Point(803, 5);
             // 
             // btnAcaoExcluir
             // 
             this.btnAcaoExcluir.FlatAppearance.BorderSize = 0;
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoExcluir.Location = new System.Drawing.Point(793, 5);
+            this.btnAcaoExcluir.Location = new System.Drawing.Point(843, 5);
             // 
             // btnConfirmar
             // 
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
-            this.btnConfirmar.Location = new System.Drawing.Point(603, 5);
+            this.btnConfirmar.Location = new System.Drawing.Point(653, 5);
             // 
             // splitter3
             // 
-            this.splitter3.Location = new System.Drawing.Point(718, 5);
+            this.splitter3.Location = new System.Drawing.Point(768, 5);
             // 
             // pnlAcoesMenu
             // 
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(828, 39);
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(878, 39);
             this.pnlAcoesMenu.Visible = false;
             // 
             // panel1
@@ -158,7 +158,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(828, 20);
+            this.panel1.Size = new System.Drawing.Size(878, 20);
             this.panel1.TabIndex = 42;
             // 
             // lbPedidos
@@ -196,7 +196,7 @@
             this.GridPedidos.Name = "GridPedidos";
             this.GridPedidos.ReadOnly = true;
             this.GridPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridPedidos.Size = new System.Drawing.Size(828, 162);
+            this.GridPedidos.Size = new System.Drawing.Size(878, 162);
             this.GridPedidos.TabIndex = 43;
             this.GridPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridPedidos_CellClick);
             // 
@@ -207,7 +207,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 244);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(828, 20);
+            this.panel2.Size = new System.Drawing.Size(878, 20);
             this.panel2.TabIndex = 44;
             // 
             // label1
@@ -242,117 +242,8 @@
             this.GridProdutos.Name = "GridProdutos";
             this.GridProdutos.ReadOnly = true;
             this.GridProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridProdutos.Size = new System.Drawing.Size(828, 219);
+            this.GridProdutos.Size = new System.Drawing.Size(878, 219);
             this.GridProdutos.TabIndex = 45;
-            // 
-            // cbPesquisarAtivos
-            // 
-            this.cbPesquisarAtivos.FormattingEnabled = true;
-            this.cbPesquisarAtivos.Items.AddRange(new object[] {
-            "Ativos",
-            "Inativos",
-            "Ativos/Inativos"});
-            this.cbPesquisarAtivos.Location = new System.Drawing.Point(377, 30);
-            this.cbPesquisarAtivos.Name = "cbPesquisarAtivos";
-            this.cbPesquisarAtivos.Size = new System.Drawing.Size(219, 21);
-            this.cbPesquisarAtivos.TabIndex = 8;
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "Cód. Produto",
-            "Desc. Produto"});
-            this.cbStatus.Location = new System.Drawing.Point(208, 30);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(163, 21);
-            this.cbStatus.TabIndex = 7;
-            // 
-            // lbOrdenar
-            // 
-            this.lbOrdenar.AutoSize = true;
-            this.lbOrdenar.Location = new System.Drawing.Point(205, 15);
-            this.lbOrdenar.Name = "lbOrdenar";
-            this.lbOrdenar.Size = new System.Drawing.Size(40, 13);
-            this.lbOrdenar.TabIndex = 39;
-            this.lbOrdenar.Text = "Status:";
-            // 
-            // lbPesquisarApenas
-            // 
-            this.lbPesquisarApenas.AutoSize = true;
-            this.lbPesquisarApenas.Location = new System.Drawing.Point(374, 14);
-            this.lbPesquisarApenas.Name = "lbPesquisarApenas";
-            this.lbPesquisarApenas.Size = new System.Drawing.Size(111, 13);
-            this.lbPesquisarApenas.TabIndex = 40;
-            this.lbPesquisarApenas.Text = "Forma de Pagamento:";
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.IndianRed;
-            this.btnPesquisar.FlatAppearance.BorderSize = 0;
-            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPesquisar.Location = new System.Drawing.Point(602, 31);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(167, 20);
-            this.btnPesquisar.TabIndex = 11;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Data inicial:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 31);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(94, 20);
-            this.dateTimePicker1.TabIndex = 48;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(105, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Data final:";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(108, 31);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(94, 20);
-            this.dateTimePicker2.TabIndex = 50;
-            // 
-            // BoxFiltro
-            // 
-            this.BoxFiltro.Controls.Add(this.dateTimePicker2);
-            this.BoxFiltro.Controls.Add(this.label3);
-            this.BoxFiltro.Controls.Add(this.dateTimePicker1);
-            this.BoxFiltro.Controls.Add(this.lbPesquisarApenas);
-            this.BoxFiltro.Controls.Add(this.label2);
-            this.BoxFiltro.Controls.Add(this.btnPesquisar);
-            this.BoxFiltro.Controls.Add(this.cbStatus);
-            this.BoxFiltro.Controls.Add(this.cbPesquisarAtivos);
-            this.BoxFiltro.Controls.Add(this.lbOrdenar);
-            this.BoxFiltro.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BoxFiltro.Location = new System.Drawing.Point(0, 0);
-            this.BoxFiltro.Name = "BoxFiltro";
-            this.BoxFiltro.Size = new System.Drawing.Size(828, 62);
-            this.BoxFiltro.TabIndex = 39;
-            this.BoxFiltro.TabStop = false;
-            this.BoxFiltro.Text = "Filtros";
             // 
             // ProdutoColId
             // 
@@ -407,6 +298,108 @@
             this.ProdutoColVlrBruto.ReadOnly = true;
             this.ProdutoColVlrBruto.Width = 80;
             // 
+            // cbFormaPagamento
+            // 
+            this.cbFormaPagamento.FormattingEnabled = true;
+            this.cbFormaPagamento.Location = new System.Drawing.Point(433, 30);
+            this.cbFormaPagamento.Name = "cbFormaPagamento";
+            this.cbFormaPagamento.Size = new System.Drawing.Size(219, 21);
+            this.cbFormaPagamento.TabIndex = 8;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(209, 30);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(218, 21);
+            this.cbStatus.TabIndex = 7;
+            // 
+            // lbOrdenar
+            // 
+            this.lbOrdenar.AutoSize = true;
+            this.lbOrdenar.Location = new System.Drawing.Point(206, 14);
+            this.lbOrdenar.Name = "lbOrdenar";
+            this.lbOrdenar.Size = new System.Drawing.Size(40, 13);
+            this.lbOrdenar.TabIndex = 39;
+            this.lbOrdenar.Text = "Status:";
+            // 
+            // lbPesquisarApenas
+            // 
+            this.lbPesquisarApenas.AutoSize = true;
+            this.lbPesquisarApenas.Location = new System.Drawing.Point(430, 14);
+            this.lbPesquisarApenas.Name = "lbPesquisarApenas";
+            this.lbPesquisarApenas.Size = new System.Drawing.Size(110, 13);
+            this.lbPesquisarApenas.TabIndex = 40;
+            this.lbPesquisarApenas.Text = "Forma de pagamento:";
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnPesquisar.FlatAppearance.BorderSize = 0;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPesquisar.Location = new System.Drawing.Point(658, 31);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(214, 20);
+            this.btnPesquisar.TabIndex = 11;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Data inicial:";
+            // 
+            // dtInicial
+            // 
+            this.dtInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtInicial.Location = new System.Drawing.Point(9, 31);
+            this.dtInicial.Name = "dtInicial";
+            this.dtInicial.Size = new System.Drawing.Size(94, 20);
+            this.dtInicial.TabIndex = 48;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(106, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Data final:";
+            // 
+            // dtFinal
+            // 
+            this.dtFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFinal.Location = new System.Drawing.Point(109, 31);
+            this.dtFinal.Name = "dtFinal";
+            this.dtFinal.Size = new System.Drawing.Size(94, 20);
+            this.dtFinal.TabIndex = 50;
+            // 
+            // BoxFiltro
+            // 
+            this.BoxFiltro.Controls.Add(this.dtFinal);
+            this.BoxFiltro.Controls.Add(this.label3);
+            this.BoxFiltro.Controls.Add(this.dtInicial);
+            this.BoxFiltro.Controls.Add(this.lbPesquisarApenas);
+            this.BoxFiltro.Controls.Add(this.label2);
+            this.BoxFiltro.Controls.Add(this.btnPesquisar);
+            this.BoxFiltro.Controls.Add(this.cbStatus);
+            this.BoxFiltro.Controls.Add(this.cbFormaPagamento);
+            this.BoxFiltro.Controls.Add(this.lbOrdenar);
+            this.BoxFiltro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BoxFiltro.Location = new System.Drawing.Point(0, 0);
+            this.BoxFiltro.Name = "BoxFiltro";
+            this.BoxFiltro.Size = new System.Drawing.Size(878, 62);
+            this.BoxFiltro.TabIndex = 39;
+            this.BoxFiltro.TabStop = false;
+            this.BoxFiltro.Text = "Filtros";
+            // 
             // PedidoColId
             // 
             this.PedidoColId.DataPropertyName = "idpedido";
@@ -450,7 +443,7 @@
             this.PedidoColPagamento.Name = "PedidoColPagamento";
             this.PedidoColPagamento.ReadOnly = true;
             this.PedidoColPagamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColPagamento.Width = 160;
+            this.PedidoColPagamento.Width = 140;
             // 
             // PedidoColStatus
             // 
@@ -462,12 +455,11 @@
             // 
             // PedidoColTipoPedido
             // 
-            this.PedidoColTipoPedido.DataPropertyName = "idtipopedido";
+            this.PedidoColTipoPedido.DataPropertyName = "tipopedidodescricao";
             this.PedidoColTipoPedido.HeaderText = "Tipo Pedido";
             this.PedidoColTipoPedido.Name = "PedidoColTipoPedido";
             this.PedidoColTipoPedido.ReadOnly = true;
             this.PedidoColTipoPedido.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColTipoPedido.Width = 80;
             // 
             // PedidoColDescontos
             // 
@@ -490,7 +482,7 @@
             // PesqAnaliticaPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(828, 602);
+            this.ClientSize = new System.Drawing.Size(878, 602);
             this.Name = "PesqAnaliticaPedidos";
             this.Text = "";
             this.pnlPrincipal.ResumeLayout(false);
@@ -519,14 +511,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbPedidos;
         private System.Windows.Forms.GroupBox BoxFiltro;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtFinal;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtInicial;
         private System.Windows.Forms.Label lbPesquisarApenas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.ComboBox cbPesquisarAtivos;
+        private System.Windows.Forms.ComboBox cbFormaPagamento;
         private System.Windows.Forms.Label lbOrdenar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColDescricao;

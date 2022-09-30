@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using LaPizza.Controllers;
 
 namespace LaPizza.Views.PesquisasAnaliticas
 {
@@ -16,8 +17,28 @@ namespace LaPizza.Views.PesquisasAnaliticas
         public PesqAnaliticaPedidos()
         {
             InitializeComponent();
+            PopularCbFormaPagamento();
+            PopularCbStatus();
         }
 
+        public void PopularCbFormaPagamento()
+        {
+            Context db = new Context();
+            FormaPagamentoController control = new FormaPagamentoController();
+            List<FormaPagamentoDTO> ListaPagamentos = control.GetFormaPagamentoLista();
+
+            foreach(FormaPagamentoDTO pag in ListaPagamentos){
+                cbFormaPagamento.Items.Add(pag.descricao);
+            }
+            cbFormaPagamento.SelectedIndex = 0;
+        }
+
+        public void PopularCbStatus()
+        {
+            cbStatus.Items.Add("Fechado");
+            cbStatus.Items.Add("Aberto");
+            cbStatus.SelectedIndex = 0;
+        }
         public List<PedidoVendaDTO> getListaPedidos()
         {
             Context db = new Context();
@@ -32,12 +53,24 @@ namespace LaPizza.Views.PesquisasAnaliticas
                                               idtipopedido = pedido.idtipopedido,
                                               tipopedidodescricao = tp.descricao,
                                               clientenome = pedido.idcliente + " - " + cliente.nomerazao,
+                                              idformapagamento = pag.idformapagamento,
                                               formapagamentodescricao = pedido.idformapagamento + " - " + pag.descricao,
                                               dataabertura = pedido.dataabertura,
                                               datafechamento = pedido.datafechamento,
+                                              status = pedido.status,
                                               vlrtotaldescontos = pedido.vlrtotaldescontos,
                                               vlrtotalbruto = pedido.vlrtotalbruto,
                                           }).ToList();
+
+            lista = new List<PedidoVendaDTO>(lista.Where(p => p.dataabertura >= dtInicial.Value && p.dataabertura <= dtFinal.Value));
+
+            if (cbStatus.SelectedIndex == 1)
+                lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "ABR"));
+            else if (cbStatus.SelectedIndex == 0)
+                lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "FEC"));
+
+            if (cbFormaPagamento.SelectedIndex >= 0)
+                lista = new List<PedidoVendaDTO>(lista.Where(p => p.idformapagamento == (cbFormaPagamento.SelectedIndex + 1)));            
 
             return lista;
         }
