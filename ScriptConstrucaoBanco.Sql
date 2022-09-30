@@ -1,4 +1,4 @@
---CREATE DATABASE db;
+CREATE DATABASE db;
 
 /****************************************************************************
 TABELA MARCA
@@ -306,6 +306,7 @@ idCliente int,
 dataAbertura TimeStamp,
 dataFechamento TimeStamp,
 status Boolean,
+dataPedido TimeStamp,
 vlrTotalBruto numeric(18,2),
 vlrTotalDescontos numeric(18,2));
 
@@ -338,7 +339,7 @@ usuario varchar(20),
 senha varchar(20),
 ativo bool);
 
-Insert into usuario nome usuario senha, ativo 
+Insert into usuario (nome, usuario, senha, ativo) 
 VALUES('ADMINISTRADOR', 'ADM', 'AMD123', TRUE);
 
 /****************************************************************************

@@ -444,6 +444,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PesquisasAnaliticas\PesqAnaliticaPedidos.resx">
       <DependentUpon>PesqAnaliticaPedidos.cs</DependentUpon>
+    <EmbeddedResource Include="Views\PesquisasAnaliticas\PesqAnaliticaClientes.resx">
+      <DependentUpon>PesqAnaliticaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PesquisasAnaliticas\PesqAnaliticaFornecedores.resx">
+      <DependentUpon>PesqAnaliticaFornecedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PesquisasAnaliticas\PesqAnaliticaProdutos.resx">
       <DependentUpon>PesqAnaliticaProdutos.cs</DependentUpon>

@@ -143,28 +143,28 @@ namespace LaPizza.Controllers
         {
             Context db = new Context();
             List<ClienteDTO> lista = (from cliente in db.cliente
-                                        join cidade in db.cidade on cliente.idcidade equals cidade.idcidade
-                                        join estado in db.estado on cidade.idestado equals estado.idestado
-                                        orderby cliente.idcliente
-                                        select new ClienteDTO
-                                        {
-                                            idcliente = cliente.idcliente,
-                                            nomerazao = cliente.nomerazao,
-                                            cpfcnpj = cliente.cpfcnpj,
-                                            rgie = cliente.rgie,
-                                            email = cliente.email,
-                                            endereco = cliente.endereco,
-                                            numero = cliente.numero,
-                                            bairro = cliente.bairro,
-                                            complemento = cliente.complemento,
-                                            idcidade = cliente.idcidade,
-                                            cidadenome = cidade.nome,
-                                            estadosigla = estado.sigla,
-                                            cep = cliente.cep,
-                                            telefone = cliente.telefone,
-                                            celular = cliente.celular,
-                                            ativo = cliente.ativo,
-                                        }).ToList();
+                                      join cidade in db.cidade on cliente.idcidade equals cidade.idcidade
+                                      join estado in db.estado on cidade.idestado equals estado.idestado
+                                      orderby cliente.idcliente
+                                      select new ClienteDTO
+                                      {
+                                          idcliente = cliente.idcliente,
+                                          nomerazao = cliente.nomerazao,
+                                          cpfcnpj = cliente.cpfcnpj,
+                                          rgie = cliente.rgie,
+                                          email = cliente.email,
+                                          endereco = cliente.endereco,
+                                          numero = cliente.numero,
+                                          bairro = cliente.bairro,
+                                          complemento = cliente.complemento,
+                                          idcidade = cliente.idcidade,
+                                          cidadenome = cidade.nome,
+                                          estadosigla = estado.sigla,
+                                          cep = cliente.cep,
+                                          telefone = cliente.telefone,
+                                          celular = cliente.celular,
+                                          ativo = cliente.ativo,
+                                      }).ToList();
             return lista;
         }
 
@@ -196,6 +196,17 @@ namespace LaPizza.Controllers
                                         }).ToList();
 
             return new List<ClienteDTO>(lista.Where(p => p.nomerazao.ToUpper().Contains(TextoPesquisa.ToUpper())));
+        }
+
+        public bool ExisteNomeCliente(string Nome)
+        {
+            Context db = new Context();
+            var cliente = db.cliente.Where(p => p.nomerazao == Nome).FirstOrDefault();
+
+            if (cliente != null && cliente.nomerazao == Nome)
+                return true;
+            else
+                return false;
         }
     }
 }

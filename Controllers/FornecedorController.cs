@@ -36,6 +36,17 @@ namespace LaPizza.Controllers
                 return db.fornecedor.Max(p => p.idfornecedor) + 1;
         }
 
+        public bool ExisteFornecedor(int Id)
+        {
+            Context db = new Context();
+            var fornecedor = db.fornecedor.Where(p => p.idfornecedor == Id).FirstOrDefault();
+
+            if (fornecedor != null && fornecedor.idfornecedor == Id)
+                return true;
+            else
+                return false;
+        }
+
         public bool ExisteFonecedorCnpjCpf(string Cnpjcpf)
         {
             Context db = new Context();
