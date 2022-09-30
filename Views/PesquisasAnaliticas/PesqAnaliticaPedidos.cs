@@ -30,14 +30,14 @@ namespace LaPizza.Views.PesquisasAnaliticas
             foreach(FormaPagamentoDTO pag in ListaPagamentos){
                 cbFormaPagamento.Items.Add(pag.descricao);
             }
-            cbFormaPagamento.SelectedIndex = 0;
+            cbFormaPagamento.SelectedIndex = -1;
         }
 
         public void PopularCbStatus()
         {
             cbStatus.Items.Add("Fechado");
             cbStatus.Items.Add("Aberto");
-            cbStatus.SelectedIndex = 0;
+            cbStatus.SelectedIndex = -1;
         }
         public List<PedidoVendaDTO> getListaPedidos()
         {
@@ -97,6 +97,12 @@ namespace LaPizza.Views.PesquisasAnaliticas
         {
             GridPedidos.DataSource = getListaPedidos();
             AjustaGridPedidos();
+
+            if (GridPedidos.RowCount > 0)
+                AlimentaProdutosPedido(Convert.ToInt32(GridPedidos.Rows[1].Cells["PedidoColId"].Value));
+
+            HabilitaAcao(TipoAcao.Cancelar, true);
+            BoxFiltro.Enabled = false;
         }
 
         private void AjustaGridPedidos()
@@ -132,7 +138,6 @@ namespace LaPizza.Views.PesquisasAnaliticas
         {
             GridProdutos.DataSource = getProdutos(PedidoId);
             AjustaGridProdutos();
-
         }
 
         private void AjustaGridProdutos()
@@ -152,6 +157,16 @@ namespace LaPizza.Views.PesquisasAnaliticas
             GridProdutos.Columns["ProdutoColVlrDesconto"].Visible = true;
             GridProdutos.Columns["ProdutoColVlrBruto"].DisplayIndex = 5;
             GridProdutos.Columns["ProdutoColVlrBruto"].Visible = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            HabilitaAcao(TipoAcao.Cancelar, false);
+
+            GridPedidos.DataSource = new List<PedidoVendaDTO>();
+            GridProdutos.DataSource = new List<PedidoVendaItemDTO>();
+
+            BoxFiltro.Enabled = true;
         }
     }
 }
