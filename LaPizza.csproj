@@ -284,18 +284,6 @@
     <Compile Include="Views\FormVenSelecaoItem.Designer.cs">
       <DependentUpon>FormVenSelecaoItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\PesquisasAnaliticas\PesqAnaliticaClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\PesquisasAnaliticas\PesqAnaliticaClientes.Designer.cs">
-      <DependentUpon>PesqAnaliticaClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PesquisasAnaliticas\PesqAnaliticaFornecedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\PesquisasAnaliticas\PesqAnaliticaFornecedores.Designer.cs">
-      <DependentUpon>PesqAnaliticaFornecedores.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\PesquisasAnaliticas\PesqAnaliticaPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,12 +441,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormVenSelecaoItem.resx">
       <DependentUpon>FormVenSelecaoItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\PesquisasAnaliticas\PesqAnaliticaClientes.resx">
-      <DependentUpon>PesqAnaliticaClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\PesquisasAnaliticas\PesqAnaliticaFornecedores.resx">
-      <DependentUpon>PesqAnaliticaFornecedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PesquisasAnaliticas\PesqAnaliticaPedidos.resx">
       <DependentUpon>PesqAnaliticaPedidos.cs</DependentUpon>
