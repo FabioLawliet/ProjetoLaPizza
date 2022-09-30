@@ -63,7 +63,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (txtFornecedorId.Text != String.Empty)
+            if (txtFornecedorId.Text != String.Empty && txtCidadeId.Text == String.Empty)
             {
                 GridFornecedor.DataSource = GetFornecedorLista();
 
@@ -80,9 +80,26 @@ namespace LaPizza.Views.PesquisasAnaliticas
                     HabilitaAcao(TipoAcao.Cancelar, true);
                 }
             }
-            else
+            if(txtCidadeId.Text != String.Empty && txtFornecedorId.Text == String.Empty)
             {
                 GridFornecedor.DataSource = GetFornecedorCidadeLista(txtNomeCidade.Text);
+
+                if (GridFornecedor.RowCount <= 0)
+                {
+                    MessageBox.Show("Não foi encontrado nenhum Fornecedor com os filtros informados!", "informação", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    AjustaColunas();
+                    GridFornecedor.Enabled = true;
+                    BoxFiltro.Enabled = false;
+                    btnPesquisar.BackColor = btnCancelar.BackColor;
+                    HabilitaAcao(TipoAcao.Cancelar, true);
+                }
+            }
+            else
+            {
+                GridFornecedor.DataSource = GetFornecedorLista();
 
                 if (GridFornecedor.RowCount <= 0)
                 {
