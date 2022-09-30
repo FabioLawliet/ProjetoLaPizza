@@ -254,10 +254,36 @@ namespace LaPizza.Views.PesquisasAnaliticas
         {
             ClearAllComponentsForm();
             BoxFiltro.Enabled = true;
+            txtFornecedorId.Enabled = true;
+            txtCidadeId.Enabled = true;
             btnPesquisar.BackColor = btnSair.BackColor;
             if (txtFornecedorId.CanFocus)
             {
                 txtFornecedorId.Focus();
+            }
+        }
+
+        private void txtFornecedorId_Leave(object sender, EventArgs e)
+        {
+            if(txtFornecedorId.Text != "")
+            {
+                txtCidadeId.Enabled = false;
+            }
+            else
+            {
+                txtCidadeId.Enabled = true;
+            }
+        }
+
+        private void txtCidadeId_Leave(object sender, EventArgs e)
+        {
+            if (txtCidadeId.Text != "")
+            {
+                txtFornecedorId.Enabled = false;
+            }
+            else
+            {
+                txtFornecedorId.Enabled = true;
             }
         }
     }

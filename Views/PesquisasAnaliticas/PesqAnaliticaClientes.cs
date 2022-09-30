@@ -61,7 +61,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (txtClienteId.Text != String.Empty)
+            if (txtClienteId.Text != String.Empty && txtCidadeId.Text == String.Empty)
             {
                 GridCliente.DataSource = GetClienteLista();
 
@@ -78,9 +78,26 @@ namespace LaPizza.Views.PesquisasAnaliticas
                     HabilitaAcao(TipoAcao.Cancelar, true);
                 }
             }
-            else
+            if(txtCidadeId.Text != String.Empty && txtClienteId.Text == String.Empty)
             {
                 GridCliente.DataSource = GetClienteCidadeLista(txtNomeCidade.Text);
+
+                if (GridCliente.RowCount <= 0)
+                {
+                    MessageBox.Show("Não foi encontrado nenhum Cliente com os filtros informados!", "informação", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    AjustaColunas();
+                    GridCliente.Enabled = true;
+                    BoxFiltro.Enabled = false;
+                    btnPesquisar.BackColor = btnCancelar.BackColor;
+                    HabilitaAcao(TipoAcao.Cancelar, true);
+                }
+            }
+            else
+            {
+                GridCliente.DataSource = GetClienteLista();
 
                 if (GridCliente.RowCount <= 0)
                 {
@@ -252,10 +269,36 @@ namespace LaPizza.Views.PesquisasAnaliticas
         {
              ClearAllComponentsForm();
              BoxFiltro.Enabled = true;
+             txtClienteId.Enabled = true;
+             txtCidadeId.Enabled = true;
              btnPesquisar.BackColor = btnSair.BackColor;
             if (txtClienteId.CanFocus)
             {
                 txtClienteId.Focus();
+            }
+        }
+
+        private void txtClienteId_Leave(object sender, EventArgs e)
+        {
+            if(txtClienteId.Text != "")
+            {
+                txtCidadeId.Enabled = false;
+            }
+            else
+            {
+                txtCidadeId.Enabled = true;
+            }
+        }
+
+        private void txtCidadeId_Leave(object sender, EventArgs e)
+        {
+            if(txtCidadeId.Text != "")
+            {
+                txtClienteId.Enabled = false;
+            }
+            else
+            {
+                txtClienteId.Enabled = true;
             }
         }
     }
