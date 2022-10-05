@@ -75,50 +75,69 @@
             this.pnlPrincipal.Controls.Add(this.txtNomeCliente);
             this.pnlPrincipal.Controls.Add(this.GridCliente);
             this.pnlPrincipal.Controls.Add(this.BoxFiltro);
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 59);
-            this.pnlPrincipal.Size = new System.Drawing.Size(1048, 571);
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 48);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlPrincipal.Size = new System.Drawing.Size(786, 464);
             // 
             // pnlNomeRotina
             // 
-            this.pnlNomeRotina.Size = new System.Drawing.Size(1048, 49);
+            this.pnlNomeRotina.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlNomeRotina.Size = new System.Drawing.Size(786, 40);
             // 
             // btnAcaoAdicionar
             // 
             this.btnAcaoAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAcaoAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoAdicionar.Location = new System.Drawing.Point(860, 6);
+            this.btnAcaoAdicionar.Location = new System.Drawing.Point(647, 4);
+            this.btnAcaoAdicionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAcaoAdicionar.MaximumSize = new System.Drawing.Size(30, 32);
+            this.btnAcaoAdicionar.MinimumSize = new System.Drawing.Size(22, 24);
+            this.btnAcaoAdicionar.Size = new System.Drawing.Size(30, 24);
             // 
             // btnAcaoEditar
             // 
             this.btnAcaoEditar.FlatAppearance.BorderSize = 0;
             this.btnAcaoEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoEditar.Location = new System.Drawing.Point(907, 6);
+            this.btnAcaoEditar.Location = new System.Drawing.Point(682, 4);
+            this.btnAcaoEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAcaoEditar.MaximumSize = new System.Drawing.Size(30, 32);
+            this.btnAcaoEditar.MinimumSize = new System.Drawing.Size(22, 24);
+            this.btnAcaoEditar.Size = new System.Drawing.Size(30, 24);
             // 
             // btnAcaoConsultar
             // 
             this.btnAcaoConsultar.FlatAppearance.BorderSize = 0;
             this.btnAcaoConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoConsultar.Location = new System.Drawing.Point(954, 6);
+            this.btnAcaoConsultar.Location = new System.Drawing.Point(717, 4);
+            this.btnAcaoConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAcaoConsultar.MaximumSize = new System.Drawing.Size(30, 32);
+            this.btnAcaoConsultar.MinimumSize = new System.Drawing.Size(22, 24);
+            this.btnAcaoConsultar.Size = new System.Drawing.Size(30, 24);
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Size = new System.Drawing.Size(1048, 49);
+            this.lbNomeRotina.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbNomeRotina.Size = new System.Drawing.Size(786, 40);
             this.lbNomeRotina.Text = "Pesquisa Clientes";
             // 
             // pnlAcoesRodape
             // 
-            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 630);
-            this.pnlAcoesRodape.Size = new System.Drawing.Size(1048, 49);
+            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 512);
+            this.pnlAcoesRodape.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAcoesRodape.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAcoesRodape.Size = new System.Drawing.Size(786, 40);
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnCancelar.Location = new System.Drawing.Point(848, 6);
+            this.btnCancelar.Location = new System.Drawing.Point(637, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Size = new System.Drawing.Size(70, 32);
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
@@ -126,33 +145,44 @@
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.btnSair.Location = new System.Drawing.Point(948, 6);
+            this.btnSair.Location = new System.Drawing.Point(712, 4);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSair.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSair.Size = new System.Drawing.Size(70, 32);
             // 
             // btnAcaoExcluir
             // 
             this.btnAcaoExcluir.FlatAppearance.BorderSize = 0;
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoExcluir.Location = new System.Drawing.Point(1001, 6);
+            this.btnAcaoExcluir.Location = new System.Drawing.Point(752, 4);
+            this.btnAcaoExcluir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAcaoExcluir.MaximumSize = new System.Drawing.Size(30, 32);
+            this.btnAcaoExcluir.MinimumSize = new System.Drawing.Size(22, 24);
+            this.btnAcaoExcluir.Size = new System.Drawing.Size(30, 24);
             // 
             // btnConfirmar
             // 
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
-            this.btnConfirmar.Location = new System.Drawing.Point(-225, 6);
-            this.btnConfirmar.Size = new System.Drawing.Size(1066, 37);
+            this.btnConfirmar.Location = new System.Drawing.Point(-168, 4);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConfirmar.Size = new System.Drawing.Size(800, 32);
             this.btnConfirmar.Visible = false;
             // 
             // splitter3
             // 
-            this.splitter3.Location = new System.Drawing.Point(900, 6);
-            this.splitter3.Size = new System.Drawing.Size(7, 0);
+            this.splitter3.Location = new System.Drawing.Point(677, 4);
+            this.splitter3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter3.Size = new System.Drawing.Size(5, 0);
             // 
             // pnlAcoesMenu
             // 
             this.pnlAcoesMenu.Enabled = false;
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(1048, 10);
+            this.pnlAcoesMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAcoesMenu.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(786, 8);
             this.pnlAcoesMenu.Visible = false;
             // 
             // GridCliente
@@ -177,11 +207,12 @@
             this.email,
             this.ativo});
             this.GridCliente.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GridCliente.Location = new System.Drawing.Point(0, 103);
+            this.GridCliente.Location = new System.Drawing.Point(0, 84);
+            this.GridCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.GridCliente.Name = "GridCliente";
             this.GridCliente.RowHeadersWidth = 51;
             this.GridCliente.RowTemplate.Height = 24;
-            this.GridCliente.Size = new System.Drawing.Size(1048, 468);
+            this.GridCliente.Size = new System.Drawing.Size(786, 380);
             this.GridCliente.TabIndex = 0;
             // 
             // idcliente
@@ -331,9 +362,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 18);
+            this.label1.Location = new System.Drawing.Point(46, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 16);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nome / Razão";
             // 
@@ -343,17 +375,19 @@
             this.cbTipoOrdenacao.Items.AddRange(new object[] {
             "Cód. Cliente",
             "Nome Cliente"});
-            this.cbTipoOrdenacao.Location = new System.Drawing.Point(519, 35);
+            this.cbTipoOrdenacao.Location = new System.Drawing.Point(389, 28);
+            this.cbTipoOrdenacao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbTipoOrdenacao.Name = "cbTipoOrdenacao";
-            this.cbTipoOrdenacao.Size = new System.Drawing.Size(122, 24);
+            this.cbTipoOrdenacao.Size = new System.Drawing.Size(92, 21);
             this.cbTipoOrdenacao.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(515, 18);
+            this.label2.Location = new System.Drawing.Point(386, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
+            this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ordernar por:";
             // 
@@ -364,26 +398,29 @@
             "Ativos",
             "Inativos",
             "Ativos/Inativos"});
-            this.cbPesquisarAtivos.Location = new System.Drawing.Point(646, 38);
+            this.cbPesquisarAtivos.Location = new System.Drawing.Point(484, 31);
+            this.cbPesquisarAtivos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbPesquisarAtivos.Name = "cbPesquisarAtivos";
-            this.cbPesquisarAtivos.Size = new System.Drawing.Size(122, 24);
+            this.cbPesquisarAtivos.Size = new System.Drawing.Size(92, 21);
             this.cbPesquisarAtivos.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(642, 21);
+            this.label3.Location = new System.Drawing.Point(482, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 16);
+            this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Pesquisar apenas:";
             // 
             // idlcliente
             // 
             this.idlcliente.AutoSize = true;
-            this.idlcliente.Location = new System.Drawing.Point(12, 18);
+            this.idlcliente.Location = new System.Drawing.Point(9, 15);
+            this.idlcliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idlcliente.Name = "idlcliente";
-            this.idlcliente.Size = new System.Drawing.Size(44, 16);
+            this.idlcliente.Size = new System.Drawing.Size(37, 13);
             this.idlcliente.TabIndex = 8;
             this.idlcliente.Text = "Id (F2)";
             // 
@@ -394,10 +431,9 @@
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPesquisar.Location = new System.Drawing.Point(799, 32);
-            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPesquisar.Location = new System.Drawing.Point(599, 26);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(216, 31);
+            this.btnPesquisar.Size = new System.Drawing.Size(162, 25);
             this.btnPesquisar.TabIndex = 12;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
@@ -414,9 +450,11 @@
             this.BoxFiltro.Controls.Add(this.label2);
             this.BoxFiltro.Controls.Add(this.btnPesquisar);
             this.BoxFiltro.Controls.Add(this.cbTipoOrdenacao);
-            this.BoxFiltro.Location = new System.Drawing.Point(3, 3);
+            this.BoxFiltro.Location = new System.Drawing.Point(2, 2);
+            this.BoxFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BoxFiltro.Name = "BoxFiltro";
-            this.BoxFiltro.Size = new System.Drawing.Size(1034, 83);
+            this.BoxFiltro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BoxFiltro.Size = new System.Drawing.Size(776, 67);
             this.BoxFiltro.TabIndex = 13;
             this.BoxFiltro.TabStop = false;
             this.BoxFiltro.Text = "Filtro";
@@ -424,9 +462,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(316, 17);
+            this.label5.Location = new System.Drawing.Point(237, 14);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 16);
+            this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Nome Cidade";
             // 
@@ -436,20 +475,22 @@
             this.txtNomeCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNomeCidade.Enabled = false;
             this.txtNomeCidade.ForeColor = System.Drawing.Color.Black;
-            this.txtNomeCidade.Location = new System.Drawing.Point(319, 36);
+            this.txtNomeCidade.Location = new System.Drawing.Point(239, 29);
             this.txtNomeCidade.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtNomeCidade.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtNomeCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtNomeCidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNomeCidade.Name = "txtNomeCidade";
-            this.txtNomeCidade.Size = new System.Drawing.Size(170, 22);
+            this.txtNomeCidade.Size = new System.Drawing.Size(128, 20);
             this.txtNomeCidade.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(266, 17);
+            this.label4.Location = new System.Drawing.Point(200, 14);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "Id (F2)";
             // 
@@ -458,12 +499,13 @@
             this.txtCidadeId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCidadeId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCidadeId.ForeColor = System.Drawing.Color.Black;
-            this.txtCidadeId.Location = new System.Drawing.Point(269, 36);
+            this.txtCidadeId.Location = new System.Drawing.Point(202, 29);
             this.txtCidadeId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtCidadeId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtCidadeId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
+            this.txtCidadeId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCidadeId.Name = "txtCidadeId";
-            this.txtCidadeId.Size = new System.Drawing.Size(50, 22);
+            this.txtCidadeId.Size = new System.Drawing.Size(38, 20);
             this.txtCidadeId.TabIndex = 14;
             this.txtCidadeId.TextChanged += new System.EventHandler(this.txtCidadeId_TextChanged);
             this.txtCidadeId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCidadeId_KeyUp);
@@ -474,12 +516,13 @@
             this.txtClienteId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClienteId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClienteId.ForeColor = System.Drawing.Color.Black;
-            this.txtClienteId.Location = new System.Drawing.Point(18, 39);
+            this.txtClienteId.Location = new System.Drawing.Point(14, 32);
             this.txtClienteId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtClienteId.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtClienteId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.Integer;
+            this.txtClienteId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtClienteId.Name = "txtClienteId";
-            this.txtClienteId.Size = new System.Drawing.Size(50, 22);
+            this.txtClienteId.Size = new System.Drawing.Size(38, 20);
             this.txtClienteId.TabIndex = 7;
             this.txtClienteId.TextChanged += new System.EventHandler(this.txtClienteId_TextChanged);
             this.txtClienteId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClienteId_KeyUp);
@@ -491,18 +534,20 @@
             this.txtNomeCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNomeCliente.Enabled = false;
             this.txtNomeCliente.ForeColor = System.Drawing.Color.Black;
-            this.txtNomeCliente.Location = new System.Drawing.Point(68, 39);
+            this.txtNomeCliente.Location = new System.Drawing.Point(51, 32);
             this.txtNomeCliente.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtNomeCliente.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtNomeCliente.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtNomeCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(170, 22);
+            this.txtNomeCliente.Size = new System.Drawing.Size(128, 20);
             this.txtNomeCliente.TabIndex = 1;
             // 
             // PesqAnaliticaClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(1048, 679);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(786, 552);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PesqAnaliticaClientes";
             this.Text = "";
             this.pnlPrincipal.ResumeLayout(false);

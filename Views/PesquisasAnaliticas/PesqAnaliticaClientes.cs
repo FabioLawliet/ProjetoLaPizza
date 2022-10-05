@@ -68,6 +68,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 if (GridCliente.RowCount <= 0)
                 {
                     MessageBox.Show("Não foi encontrado nenhum Cliente com os filtros informados!", "informação", MessageBoxButtons.OK);
+                    HabilitaAcao(TipoAcao.Cancelar, true);
                 }
                 else
                 {
@@ -85,6 +86,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 if (GridCliente.RowCount <= 0)
                 {
                     MessageBox.Show("Não foi encontrado nenhum Cliente com os filtros informados!", "informação", MessageBoxButtons.OK);
+                    HabilitaAcao(TipoAcao.Cancelar, true);
                 }
                 else
                 {

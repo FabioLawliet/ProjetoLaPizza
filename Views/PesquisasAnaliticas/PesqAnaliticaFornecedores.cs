@@ -70,6 +70,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 if (GridFornecedor.RowCount <= 0)
                 {
                     MessageBox.Show("Não foi encontrado nenhum Fornecedor com os filtros informados!", "informação", MessageBoxButtons.OK);
+                    HabilitaAcao(TipoAcao.Cancelar, true);
                 }
                 else
                 {
@@ -87,6 +88,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
                 if (GridFornecedor.RowCount <= 0)
                 {
                     MessageBox.Show("Não foi encontrado nenhum Fornecedor com os filtros informados!", "informação", MessageBoxButtons.OK);
+                    HabilitaAcao(TipoAcao.Cancelar, true);
                 }
                 else
                 {
