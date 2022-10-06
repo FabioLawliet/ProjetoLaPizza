@@ -296,7 +296,7 @@ namespace LaPizza
             if (FPesqAnaPedidos == null || FPesqAnaPedidos.IsDisposed)
             {
                 FPesqAnaPedidos = new PesqAnaliticaPedidos();
-                CentralizaTela(FPesqAnaPedidos, FPesqAnaPedidos.Text);
+                CentralizaTela(FPesqAnaPedidos, btnPesqPedidos.Text);
             }
             else
             {
@@ -309,7 +309,7 @@ namespace LaPizza
             if (FPesqAnaCliente == null || FPesqAnaCliente.IsDisposed)
             {
                 FPesqAnaCliente = new PesqAnaliticaClientes();
-                CentralizaTela(FPesqAnaCliente, FPesqAnaCliente.Text);
+                CentralizaTela(FPesqAnaCliente, btnPesqCliente.Text);
             }
             else
             {
@@ -322,7 +322,7 @@ namespace LaPizza
             if (FPesqAnaFornecedores == null || FPesqAnaFornecedores.IsDisposed)
             {
                 FPesqAnaFornecedores = new PesqAnaliticaFornecedores();
-                CentralizaTela(FPesqAnaFornecedores, FPesqAnaFornecedores.Text);
+                CentralizaTela(FPesqAnaFornecedores, btnPesqFornecedor.Text);
             }
             else
             {

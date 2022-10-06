@@ -35,7 +35,7 @@ namespace LaPizza.Controllers
                 {
                     produto.idproduto = Produto.idproduto;
                     produto.descricao = Produto.descricao;
-                    produto.datacadastro = Produto.datacadastro.ToString();
+                    produto.datacadastro = Produto.datacadastro;
                     produto.ativo = Produto.ativo;
                     produto.idgrupo = Produto.idgrupo;
                     produto.idsubgrupo = Produto.idsubgrupo;

@@ -84,7 +84,7 @@ create sequence produto_seq increment 1 start 1;
 CREATE TABLE PUBLIC.PRODUTO(
 IdProduto integer primary key default nextval('produto_seq'),
 Descricao varchar(60),
-DataCadastro varchar(20),
+DataCadastro TimeStamp,
 Ativo bool,
 IdGrupo int,
 	CONSTRAINT "FK_idGrupo_TProduto" FOREIGN KEY (IdGrupo)
@@ -121,13 +121,13 @@ values
 ('Pizza P Salgada',CURRENT_DATE, true, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,50.00),
 ('Pizza G Salgada',CURRENT_DATE, true, 1, 2, 2, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,60.00),
 ('Pizza GG Salgada',CURRENT_DATE, true, 2, 1, 3, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,70.00),
-('Pizza P Doce',CURRENT_DATE, true, 2, 2, 4, 4, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,50.00),
-('Pizza G Doce',CURRENT_DATE, true, 3, 1, 5, 5, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,60.00),
+('Pizza P Doce',CURRENT_DATE, true, 2, 2, 4, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,50.00),
+('Pizza G Doce',CURRENT_DATE, true, 3, 1, 5, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,60.00),
 ('Pizza GG Doce',CURRENT_DATE, true, 3, 2, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,70.00),
 ('Refrigerante Garrafa 1L',CURRENT_DATE, true, 4, 1, 2, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,9.00),
 ('Refrigerante Lata 300ml',CURRENT_DATE, true, 4, 2, 3, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,4.00),
-('Suco Laranja',CURRENT_DATE, true, 5, 1, 4, 4, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00),
-('Suco Morango',CURRENT_DATE, false, 5, 2, 5, 5, 'FABRICANTE','INF ADICIONAIS', 0, 0,0,0,0,8.00),
+('Suco Laranja',CURRENT_DATE, true, 5, 1, 4, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00),
+('Suco Morango',CURRENT_DATE, false, 5, 2, 5, 1, 'FABRICANTE','INF ADICIONAIS', 0, 0,0,0,0,8.00),
 ('Suco Abacaxi',CURRENT_DATE, false, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 0, 0,0,0,0,8.00);
 
 /****************************************************************************
@@ -242,12 +242,12 @@ Email varchar(100),
 Ativo bool);
 
 insert into CLIENTE (NomeRazao,RgIe,CpfCnpj,Endereco,Numero,Bairro,Complemento,Cep,IdCidade,Telefone,Celular,Email,Ativo)
-values('CLIENTE 01', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True),
-('CLIENTE 02', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True),
-('CLIENTE 03', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', False),
-('CLIENTE 04', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', False),
-('CLIENTE 05', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True),
-('CLIENTE 06', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True);
+values('CLIENTE 01', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('CLIENTE 02', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('CLIENTE 03', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('CLIENTE 04', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('CLIENTE 05', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', False),
+('CLIENTE 06', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', False),
 
 /****************************************************************************
 TABELA TIPO PEDIDO
@@ -311,7 +311,7 @@ idCliente int,
 --idVendedor int,
 dataAbertura TimeStamp,
 dataFechamento TimeStamp,
-status varchar(3),
+status varchar(10),
 dataPedido TimeStamp,
 vlrTotalBruto numeric(18,2),
 vlrTotalDescontos numeric(18,2));
@@ -335,12 +335,12 @@ vlrBruto numeric(18,2),
 vlrDesconto numeric(18,2));
 
 insert into PedidoVenda(idFicha,idFormaPagamento,idTipoPedido,idCliente,dataAbertura,dataFechamento,status,dataPedido,vlrTotalBruto,vlrTotalDescontos)
-values(1,1,1,1,'01.01.2022','01.01.2022','FEC','01.01.2022', 50.00, 0),
-(1,1,2,2,'02.01.2022','02.01.2022','FEC','01.01.2022', 68.00, 0),
-(1,1,2,2,'03.01.2022','03.01.2022','FEC','01.01.2022', 58.00, 0),
-(1,2,2,2,'04.01.2022','04.01.2022','FEC','01.01.2022', 76.00, 0),
-(1,2,2,2,'05.01.2022','05.01.2022','ABR','01.01.2022', 126.00, 0),                             
-(1,3,2,2,'06.01.2022','06.01.2022','ABR','01.01.2022', 136.00, 0);                             
+values(1,1,1,1,'01.10.2022','01.10.2022','FECHADO','01.10.2022', 50.00, 0),
+(1,1,2,2,'02.10.2022','02.10.2022','FECHADO','01.10.2022', 68.00, 0),
+(1,1,2,2,'03.10.2022','03.10.2022','FECHADO','01.10.2022', 58.00, 0),
+(1,2,2,2,'04.10.2022','04.10.2022','FECHADO','01.10.2022', 76.00, 0),
+(1,2,2,2,'05.10.2022','05.10.2022','ABERTO','01.10.2022', 126.00, 0),                             
+(1,3,2,2,'06.10.2022','06.10.2022','ABERTO','01.10.2022', 136.00, 0);                             
 																							   
 insert into PedidoItem(idPedido, idProduto, Qtde, vlrUnitario, vlrBruto, vlrDesconto)          
 values(1,2,1,50,50,0),                                                                         
@@ -399,12 +399,12 @@ Email varchar(100),
 Ativo bool);
 
 insert into FORNECEDOR (NomeRazao,RgIe,CpfCnpj,Endereco,Numero,Bairro,Complemento,Cep,IdCidade,Telefone,Celular,Email,Ativo)
-values('FORNECEDOR 01', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True),
-('FORNECEDOR 02', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True),
-('FORNECEDOR 03', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', False),
-('FORNECEDOR 04', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', False),
-('FORNECEDOR 05', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True),
-('FORNECEDOR 06', 'RGIE', '11111111111', '1', '1','1','1','1', 1, '1','1','1', True);
+values('FORNECEDOR 01', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('FORNECEDOR 02', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('FORNECEDOR 03', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('FORNECEDOR 04', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', True),
+('FORNECEDOR 05', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', False),
+('FORNECEDOR 06', 'RGIE', '11111111111', 'Endereco fake', '123','Coqueiral','Complemento','1234567', 1, '123456789','123456789','email@gmail.com', False);
 
 /****************************************************************************
 TABELA ENTRADAMERCADORIA

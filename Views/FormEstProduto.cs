@@ -237,7 +237,7 @@ namespace LaPizza.Views
 
                 Produto.idproduto = Int32.Parse(txtProdutoId.Text);
                 Produto.descricao = txtProdutoDescricao.Text;
-                Produto.datacadastro = DateTime.Today.ToString();
+                Produto.datacadastro = DateTime.Today;
                 Produto.ativo = cbAtivo.Checked;
                 Produto.idgrupo = Int32.Parse(txtGrupoId.Text);
                 Produto.idsubgrupo = Int32.Parse(txtSubgrupoId.Text);

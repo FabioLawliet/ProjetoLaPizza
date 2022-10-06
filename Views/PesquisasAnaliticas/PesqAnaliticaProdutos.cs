@@ -96,7 +96,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
 
             GridProdutos.Columns["descricao"].DisplayIndex = 1;
             GridProdutos.Columns["descricao"].HeaderText = "Descricao";
-            GridProdutos.Columns["descricao"].Width = 100;
+            GridProdutos.Columns["descricao"].Width = 250;
             GridProdutos.Columns["descricao"].Visible = true;
 
             GridProdutos.Columns["unidmedidasigla"].DisplayIndex = 2;
@@ -216,7 +216,7 @@ namespace LaPizza.Views.PesquisasAnaliticas
                                           qtdeestmin = produto.qtdeestmin,
                                           qtdeestideal = produto.qtdeestideal,
                                           qtdeestmax = produto.qtdeestmax,
-                                          //dataCadastro = produto.datacadastro.ToString(),
+                                          datacadastro = produto.datacadastro,
                                           ativo = produto.ativo
                                       }).ToList();
 

@@ -31,24 +31,24 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbPedidos = new System.Windows.Forms.Label();
             this.GridPedidos = new System.Windows.Forms.DataGridView();
-            this.PedidoColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColAbertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColFechamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColTipoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColDescontos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoColVlrBruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataabertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datafechamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientenome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formapagamentodescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipopedidodescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vlrtotaldescontos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vlrtotalbruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.GridProdutos = new System.Windows.Forms.DataGridView();
-            this.ProdutoColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdutoColDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdutoColQtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdutoColVlrUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdutoColVlrDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdutoColVlrBruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produtodescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vlrunitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vlrdesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vlrbruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbFormaPagamento = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.lbOrdenar = new System.Windows.Forms.Label();
@@ -155,7 +155,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.BackColor = System.Drawing.Color.IndianRed;
             this.panel1.Controls.Add(this.lbPedidos);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 62);
@@ -183,107 +183,124 @@
             this.GridPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PedidoColId,
-            this.PedidoColAbertura,
-            this.PedidoColFechamento,
-            this.PedidoColCliente,
-            this.PedidoColPagamento,
-            this.PedidoColStatus,
-            this.PedidoColTipoPedido,
-            this.PedidoColDescontos,
-            this.PedidoColVlrBruto});
+            this.idpedido,
+            this.dataabertura,
+            this.datafechamento,
+            this.clientenome,
+            this.formapagamentodescricao,
+            this.status,
+            this.tipopedidodescricao,
+            this.vlrtotaldescontos,
+            this.vlrtotalbruto});
             this.GridPedidos.Dock = System.Windows.Forms.DockStyle.Top;
             this.GridPedidos.Location = new System.Drawing.Point(0, 82);
             this.GridPedidos.MultiSelect = false;
             this.GridPedidos.Name = "GridPedidos";
             this.GridPedidos.ReadOnly = true;
+            this.GridPedidos.RowHeadersVisible = false;
             this.GridPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridPedidos.Size = new System.Drawing.Size(878, 162);
             this.GridPedidos.TabIndex = 43;
             this.GridPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridPedidos_CellClick);
             // 
-            // PedidoColId
+            // idpedido
             // 
-            this.PedidoColId.DataPropertyName = "idpedido";
-            this.PedidoColId.HeaderText = "Pedido";
-            this.PedidoColId.Name = "PedidoColId";
-            this.PedidoColId.ReadOnly = true;
-            this.PedidoColId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColId.Width = 60;
+            this.idpedido.DataPropertyName = "idpedido";
+            this.idpedido.HeaderText = "Pedido";
+            this.idpedido.Name = "idpedido";
+            this.idpedido.ReadOnly = true;
+            this.idpedido.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idpedido.Visible = false;
+            this.idpedido.Width = 60;
             // 
-            // PedidoColAbertura
+            // dataabertura
             // 
-            this.PedidoColAbertura.DataPropertyName = "dataabertura";
-            this.PedidoColAbertura.HeaderText = "Data Abertura";
-            this.PedidoColAbertura.Name = "PedidoColAbertura";
-            this.PedidoColAbertura.ReadOnly = true;
-            this.PedidoColAbertura.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColAbertura.Width = 70;
+            this.dataabertura.DataPropertyName = "dataabertura";
+            this.dataabertura.HeaderText = "Data Abertura";
+            this.dataabertura.Name = "dataabertura";
+            this.dataabertura.ReadOnly = true;
+            this.dataabertura.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataabertura.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataabertura.Visible = false;
+            this.dataabertura.Width = 70;
             // 
-            // PedidoColFechamento
+            // datafechamento
             // 
-            this.PedidoColFechamento.DataPropertyName = "datafechamento";
-            this.PedidoColFechamento.HeaderText = "Data Fechamento";
-            this.PedidoColFechamento.Name = "PedidoColFechamento";
-            this.PedidoColFechamento.ReadOnly = true;
-            this.PedidoColFechamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColFechamento.Width = 70;
+            this.datafechamento.DataPropertyName = "datafechamento";
+            this.datafechamento.HeaderText = "Data Fechamento";
+            this.datafechamento.Name = "datafechamento";
+            this.datafechamento.ReadOnly = true;
+            this.datafechamento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.datafechamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.datafechamento.Visible = false;
+            this.datafechamento.Width = 70;
             // 
-            // PedidoColCliente
+            // clientenome
             // 
-            this.PedidoColCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PedidoColCliente.DataPropertyName = "clientenome";
-            this.PedidoColCliente.HeaderText = "Cliente";
-            this.PedidoColCliente.Name = "PedidoColCliente";
-            this.PedidoColCliente.ReadOnly = true;
-            this.PedidoColCliente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clientenome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clientenome.DataPropertyName = "clientenome";
+            this.clientenome.HeaderText = "Cliente";
+            this.clientenome.Name = "clientenome";
+            this.clientenome.ReadOnly = true;
+            this.clientenome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clientenome.Visible = false;
             // 
-            // PedidoColPagamento
+            // formapagamentodescricao
             // 
-            this.PedidoColPagamento.DataPropertyName = "formapagamentodescricao";
-            this.PedidoColPagamento.HeaderText = "Form. Pag.";
-            this.PedidoColPagamento.Name = "PedidoColPagamento";
-            this.PedidoColPagamento.ReadOnly = true;
-            this.PedidoColPagamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColPagamento.Width = 140;
+            this.formapagamentodescricao.DataPropertyName = "formapagamentodescricao";
+            this.formapagamentodescricao.HeaderText = "Form. Pag.";
+            this.formapagamentodescricao.Name = "formapagamentodescricao";
+            this.formapagamentodescricao.ReadOnly = true;
+            this.formapagamentodescricao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.formapagamentodescricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.formapagamentodescricao.Visible = false;
+            this.formapagamentodescricao.Width = 140;
             // 
-            // PedidoColStatus
+            // status
             // 
-            this.PedidoColStatus.DataPropertyName = "status";
-            this.PedidoColStatus.HeaderText = "Status";
-            this.PedidoColStatus.Name = "PedidoColStatus";
-            this.PedidoColStatus.ReadOnly = true;
-            this.PedidoColStatus.Width = 60;
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.status.Visible = false;
+            this.status.Width = 60;
             // 
-            // PedidoColTipoPedido
+            // tipopedidodescricao
             // 
-            this.PedidoColTipoPedido.DataPropertyName = "tipopedidodescricao";
-            this.PedidoColTipoPedido.HeaderText = "Tipo Pedido";
-            this.PedidoColTipoPedido.Name = "PedidoColTipoPedido";
-            this.PedidoColTipoPedido.ReadOnly = true;
-            this.PedidoColTipoPedido.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tipopedidodescricao.DataPropertyName = "tipopedidodescricao";
+            this.tipopedidodescricao.HeaderText = "Tipo Pedido";
+            this.tipopedidodescricao.Name = "tipopedidodescricao";
+            this.tipopedidodescricao.ReadOnly = true;
+            this.tipopedidodescricao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tipopedidodescricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tipopedidodescricao.Visible = false;
             // 
-            // PedidoColDescontos
+            // vlrtotaldescontos
             // 
-            this.PedidoColDescontos.DataPropertyName = "vlrtotaldescontos";
-            this.PedidoColDescontos.HeaderText = "Descontos";
-            this.PedidoColDescontos.Name = "PedidoColDescontos";
-            this.PedidoColDescontos.ReadOnly = true;
-            this.PedidoColDescontos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColDescontos.Width = 60;
+            this.vlrtotaldescontos.DataPropertyName = "vlrtotaldescontos";
+            this.vlrtotaldescontos.HeaderText = "Descontos";
+            this.vlrtotaldescontos.Name = "vlrtotaldescontos";
+            this.vlrtotaldescontos.ReadOnly = true;
+            this.vlrtotaldescontos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.vlrtotaldescontos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vlrtotaldescontos.Visible = false;
+            this.vlrtotaldescontos.Width = 60;
             // 
-            // PedidoColVlrBruto
+            // vlrtotalbruto
             // 
-            this.PedidoColVlrBruto.DataPropertyName = "vlrtotalbruto";
-            this.PedidoColVlrBruto.HeaderText = "Valor Bruto";
-            this.PedidoColVlrBruto.Name = "PedidoColVlrBruto";
-            this.PedidoColVlrBruto.ReadOnly = true;
-            this.PedidoColVlrBruto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PedidoColVlrBruto.Width = 60;
+            this.vlrtotalbruto.DataPropertyName = "vlrtotalbruto";
+            this.vlrtotalbruto.HeaderText = "Valor Bruto";
+            this.vlrtotalbruto.Name = "vlrtotalbruto";
+            this.vlrtotalbruto.ReadOnly = true;
+            this.vlrtotalbruto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.vlrtotalbruto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vlrtotalbruto.Visible = false;
+            this.vlrtotalbruto.Width = 60;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.DimGray;
+            this.panel2.BackColor = System.Drawing.Color.IndianRed;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 244);
@@ -311,73 +328,80 @@
             this.GridProdutos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProdutoColId,
-            this.ProdutoColDescricao,
-            this.ProdutoColQtde,
-            this.ProdutoColVlrUnitario,
-            this.ProdutoColVlrDesconto,
-            this.ProdutoColVlrBruto});
+            this.idproduto,
+            this.produtodescricao,
+            this.qtde,
+            this.vlrunitario,
+            this.vlrdesconto,
+            this.vlrbruto});
             this.GridProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridProdutos.Location = new System.Drawing.Point(0, 264);
             this.GridProdutos.MultiSelect = false;
             this.GridProdutos.Name = "GridProdutos";
             this.GridProdutos.ReadOnly = true;
+            this.GridProdutos.RowHeadersVisible = false;
             this.GridProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridProdutos.Size = new System.Drawing.Size(878, 219);
             this.GridProdutos.TabIndex = 45;
             // 
-            // ProdutoColId
+            // idproduto
             // 
-            this.ProdutoColId.DataPropertyName = "idproduto";
-            this.ProdutoColId.HeaderText = "Produto";
-            this.ProdutoColId.Name = "ProdutoColId";
-            this.ProdutoColId.ReadOnly = true;
-            this.ProdutoColId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ProdutoColId.Width = 60;
+            this.idproduto.DataPropertyName = "idproduto";
+            this.idproduto.HeaderText = "Produto";
+            this.idproduto.Name = "idproduto";
+            this.idproduto.ReadOnly = true;
+            this.idproduto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idproduto.Visible = false;
+            this.idproduto.Width = 60;
             // 
-            // ProdutoColDescricao
+            // produtodescricao
             // 
-            this.ProdutoColDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProdutoColDescricao.DataPropertyName = "produtodescricao";
-            this.ProdutoColDescricao.FillWeight = 300F;
-            this.ProdutoColDescricao.HeaderText = "Desc. Produto";
-            this.ProdutoColDescricao.Name = "ProdutoColDescricao";
-            this.ProdutoColDescricao.ReadOnly = true;
+            this.produtodescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.produtodescricao.DataPropertyName = "produtodescricao";
+            this.produtodescricao.FillWeight = 300F;
+            this.produtodescricao.HeaderText = "Desc. Produto";
+            this.produtodescricao.Name = "produtodescricao";
+            this.produtodescricao.ReadOnly = true;
+            this.produtodescricao.Visible = false;
             // 
-            // ProdutoColQtde
+            // qtde
             // 
-            this.ProdutoColQtde.DataPropertyName = "qtde";
-            this.ProdutoColQtde.HeaderText = "Qtde";
-            this.ProdutoColQtde.Name = "ProdutoColQtde";
-            this.ProdutoColQtde.ReadOnly = true;
-            this.ProdutoColQtde.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ProdutoColQtde.Width = 80;
+            this.qtde.DataPropertyName = "qtde";
+            this.qtde.HeaderText = "Qtde";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.qtde.Visible = false;
+            this.qtde.Width = 80;
             // 
-            // ProdutoColVlrUnitario
+            // vlrunitario
             // 
-            this.ProdutoColVlrUnitario.DataPropertyName = "vlrunitario";
-            this.ProdutoColVlrUnitario.HeaderText = "Vlr Unit.";
-            this.ProdutoColVlrUnitario.Name = "ProdutoColVlrUnitario";
-            this.ProdutoColVlrUnitario.ReadOnly = true;
-            this.ProdutoColVlrUnitario.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ProdutoColVlrUnitario.Width = 80;
+            this.vlrunitario.DataPropertyName = "vlrunitario";
+            this.vlrunitario.HeaderText = "Vlr Unit.";
+            this.vlrunitario.Name = "vlrunitario";
+            this.vlrunitario.ReadOnly = true;
+            this.vlrunitario.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vlrunitario.Visible = false;
+            this.vlrunitario.Width = 80;
             // 
-            // ProdutoColVlrDesconto
+            // vlrdesconto
             // 
-            this.ProdutoColVlrDesconto.DataPropertyName = "vlrdesconto";
-            this.ProdutoColVlrDesconto.HeaderText = "Vlr Desc.";
-            this.ProdutoColVlrDesconto.Name = "ProdutoColVlrDesconto";
-            this.ProdutoColVlrDesconto.ReadOnly = true;
-            this.ProdutoColVlrDesconto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ProdutoColVlrDesconto.Width = 80;
+            this.vlrdesconto.DataPropertyName = "vlrdesconto";
+            this.vlrdesconto.HeaderText = "Vlr Desc.";
+            this.vlrdesconto.Name = "vlrdesconto";
+            this.vlrdesconto.ReadOnly = true;
+            this.vlrdesconto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vlrdesconto.Visible = false;
+            this.vlrdesconto.Width = 80;
             // 
-            // ProdutoColVlrBruto
+            // vlrbruto
             // 
-            this.ProdutoColVlrBruto.DataPropertyName = "vlrbruto";
-            this.ProdutoColVlrBruto.HeaderText = "Vlr Bruto";
-            this.ProdutoColVlrBruto.Name = "ProdutoColVlrBruto";
-            this.ProdutoColVlrBruto.ReadOnly = true;
-            this.ProdutoColVlrBruto.Width = 80;
+            this.vlrbruto.DataPropertyName = "vlrbruto";
+            this.vlrbruto.HeaderText = "Vlr Bruto";
+            this.vlrbruto.Name = "vlrbruto";
+            this.vlrbruto.ReadOnly = true;
+            this.vlrbruto.Visible = false;
+            this.vlrbruto.Width = 80;
             // 
             // cbFormaPagamento
             // 
@@ -522,20 +546,20 @@
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.ComboBox cbFormaPagamento;
         private System.Windows.Forms.Label lbOrdenar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColDescricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColQtde;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColVlrUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColVlrDesconto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoColVlrBruto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColAbertura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColFechamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColPagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColTipoPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColDescontos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoColVlrBruto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idproduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn produtodescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vlrunitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vlrdesconto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vlrbruto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataabertura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datafechamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientenome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formapagamentodescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipopedidodescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vlrtotaldescontos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vlrtotalbruto;
     }
 }

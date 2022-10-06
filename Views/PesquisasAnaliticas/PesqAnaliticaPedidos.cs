@@ -64,12 +64,12 @@ namespace LaPizza.Views.PesquisasAnaliticas
                                               vlrtotalbruto = pedido.vlrtotalbruto,
                                           }).ToList();
 
-            lista = new List<PedidoVendaDTO>(lista.Where(p => p.dataabertura >= dtInicial.Value && p.dataabertura <= dtFinal.Value));
+            lista = new List<PedidoVendaDTO>(lista.Where(p =>(p.dataabertura >= dtInicial.Value.AddDays(-1) && p.dataabertura <= dtFinal.Value)));
 
             if (cbStatus.SelectedIndex == 1)
-                lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "ABR"));
+                lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "ABERTO"));
             else if (cbStatus.SelectedIndex == 2)
-                lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "FEC"));
+                lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "FECHADO"));
 
             if (cbFormaPagamento.SelectedIndex >= 1)
                 lista = new List<PedidoVendaDTO>(lista.Where(p => p.idformapagamento == (cbFormaPagamento.SelectedIndex)));            
@@ -98,13 +98,22 @@ namespace LaPizza.Views.PesquisasAnaliticas
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             GridPedidos.DataSource = getListaPedidos();
-            AjustaGridPedidos();
-
-            if (GridPedidos.RowCount > 0)
-                AlimentaProdutosPedido(Convert.ToInt32(GridPedidos.Rows[1].Cells["PedidoColId"].Value));
-
-            HabilitaAcao(TipoAcao.Cancelar, true);
-            BoxFiltro.Enabled = false;
+            
+            if (GridPedidos.RowCount <= 0)
+            {
+                GridPedidos.DataSource = null;
+                MessageBox.Show("Não foi encontrado nenhum pedido com os filtros informados!", "informação", MessageBoxButtons.OK);
+            }
+            else
+            {
+                AjustaGridPedidos();
+                GridPedidos.RowHeadersVisible = true;
+                GridPedidos.Enabled = true;
+                AlimentaProdutosPedido(Convert.ToInt32(GridPedidos.Rows[0].Cells["idpedido"].Value));
+                btnPesquisar.BackColor = btnCancelar.BackColor;
+                HabilitaAcao(TipoAcao.Cancelar, true);
+                BoxFiltro.Enabled = false;
+            }          
         }
 
         private void AjustaGridPedidos()
@@ -112,28 +121,52 @@ namespace LaPizza.Views.PesquisasAnaliticas
             for (int i = 0; i < GridPedidos.Columns.Count; i++)
                 GridPedidos.Columns[i].Visible = false;
 
-            GridPedidos.Columns["PedidoColId"].DisplayIndex = 0;
-            GridPedidos.Columns["PedidoColId"].Visible = true;
-            GridPedidos.Columns["PedidoColAbertura"].DisplayIndex = 1;
-            GridPedidos.Columns["PedidoColAbertura"].Visible = true;
-            GridPedidos.Columns["PedidoColFechamento"].DisplayIndex = 2;
-            GridPedidos.Columns["PedidoColFechamento"].Visible = true;
-            GridPedidos.Columns["PedidoColCliente"].DisplayIndex = 3;
-            GridPedidos.Columns["PedidoColCliente"].Visible = true;
-            GridPedidos.Columns["PedidoColPagamento"].DisplayIndex = 4;
-            GridPedidos.Columns["PedidoColPagamento"].Visible = true;
-            GridPedidos.Columns["PedidoColTipoPedido"].DisplayIndex = 5;
-            GridPedidos.Columns["PedidoColTipoPedido"].Visible = true;
-            GridPedidos.Columns["PedidoColDescontos"].DisplayIndex = 6;
-            GridPedidos.Columns["PedidoColDescontos"].Visible = true;
-            GridPedidos.Columns["PedidoColVlrBruto"].DisplayIndex = 7;
-            GridPedidos.Columns["PedidoColVlrBruto"].Visible = true;
+            GridPedidos.Columns["idpedido"].DisplayIndex = 0;
+            GridPedidos.Columns["idpedido"].HeaderText = "Pedido";
+            GridPedidos.Columns["idpedido"].Width = 50;
+            GridPedidos.Columns["idpedido"].Visible = true;
+
+            GridPedidos.Columns["dataabertura"].DisplayIndex = 1;
+            GridPedidos.Columns["dataabertura"].HeaderText = "Data Abertura";
+            GridPedidos.Columns["dataabertura"].Width = 90;
+            GridPedidos.Columns["dataabertura"].Visible = true;
+
+            GridPedidos.Columns["status"].DisplayIndex = 2;
+            GridPedidos.Columns["status"].HeaderText = "Status";
+            GridPedidos.Columns["status"].Width = 80;
+            GridPedidos.Columns["status"].Visible = true;
+
+            GridPedidos.Columns["clientenome"].DisplayIndex = 3;
+            GridPedidos.Columns["clientenome"].HeaderText = "Cliente";
+            GridPedidos.Columns["clientenome"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GridPedidos.Columns["clientenome"].Width = 100;
+            GridPedidos.Columns["clientenome"].Visible = true;
+
+            GridPedidos.Columns["formapagamentodescricao"].DisplayIndex = 4;
+            GridPedidos.Columns["formapagamentodescricao"].HeaderText = "Form. Pagto";
+            GridPedidos.Columns["formapagamentodescricao"].Width = 140;
+            GridPedidos.Columns["formapagamentodescricao"].Visible = true;
+
+            GridPedidos.Columns["tipopedidodescricao"].DisplayIndex = 5;
+            GridPedidos.Columns["tipopedidodescricao"].HeaderText = "Tipo Pedido";
+            GridPedidos.Columns["tipopedidodescricao"].Width = 100;
+            GridPedidos.Columns["tipopedidodescricao"].Visible = true;
+
+            GridPedidos.Columns["vlrtotaldescontos"].DisplayIndex = 6;
+            GridPedidos.Columns["vlrtotaldescontos"].HeaderText = "Desconto";
+            GridPedidos.Columns["vlrtotaldescontos"].Width = 90;
+            GridPedidos.Columns["vlrtotaldescontos"].Visible = true;
+
+            GridPedidos.Columns["vlrtotalbruto"].DisplayIndex = 7;
+            GridPedidos.Columns["vlrtotalbruto"].HeaderText = "Valor Bruto";
+            GridPedidos.Columns["vlrtotalbruto"].Width = 90;
+            GridPedidos.Columns["vlrtotalbruto"].Visible = true;
         }
 
         private void GridPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-                AlimentaProdutosPedido(Convert.ToInt32(GridPedidos.Rows[e.RowIndex].Cells["PedidoColId"].Value));         
+                AlimentaProdutosPedido(Convert.ToInt32(GridPedidos.Rows[e.RowIndex].Cells["idpedido"].Value));         
         }
 
         private void AlimentaProdutosPedido(int PedidoId)
@@ -147,26 +180,44 @@ namespace LaPizza.Views.PesquisasAnaliticas
             for (int i = 0; i < GridProdutos.Columns.Count; i++)
                 GridProdutos.Columns[i].Visible = false;
 
-            GridProdutos.Columns["ProdutoColId"].DisplayIndex = 0;
-            GridProdutos.Columns["ProdutoColId"].Visible = true;
-            GridProdutos.Columns["ProdutoColDescricao"].DisplayIndex = 1;
-            GridProdutos.Columns["ProdutoColDescricao"].Visible = true;
-            GridProdutos.Columns["ProdutoColqtde"].DisplayIndex = 2;
-            GridProdutos.Columns["ProdutoColqtde"].Visible = true;
-            GridProdutos.Columns["ProdutoColVlrUnitario"].DisplayIndex = 3;
-            GridProdutos.Columns["ProdutoColVlrUnitario"].Visible = true;
-            GridProdutos.Columns["ProdutoColVlrDesconto"].DisplayIndex = 4;
-            GridProdutos.Columns["ProdutoColVlrDesconto"].Visible = true;
-            GridProdutos.Columns["ProdutoColVlrBruto"].DisplayIndex = 5;
-            GridProdutos.Columns["ProdutoColVlrBruto"].Visible = true;
+            GridProdutos.Columns["idproduto"].DisplayIndex = 0;
+            GridProdutos.Columns["idproduto"].HeaderText = "Produto";
+            GridProdutos.Columns["idproduto"].Width = 50;
+            GridProdutos.Columns["idproduto"].Visible = true;
+
+            GridProdutos.Columns["produtodescricao"].DisplayIndex = 1;
+            GridProdutos.Columns["produtodescricao"].HeaderText = "Descrição";
+            GridProdutos.Columns["produtodescricao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GridProdutos.Columns["produtodescricao"].Visible = true;
+
+            GridProdutos.Columns["qtde"].DisplayIndex = 2;
+            GridProdutos.Columns["qtde"].HeaderText = "Quantidade";
+            GridProdutos.Columns["qtde"].Width = 80;
+            GridProdutos.Columns["qtde"].Visible = true;
+
+            GridProdutos.Columns["vlrunitario"].DisplayIndex = 3;
+            GridProdutos.Columns["vlrunitario"].HeaderText = "Vlr. Unit.";
+            GridProdutos.Columns["vlrunitario"].Width = 90;
+            GridProdutos.Columns["vlrunitario"].Visible = true;
+
+            GridProdutos.Columns["vlrdesconto"].DisplayIndex = 4;
+            GridProdutos.Columns["vlrdesconto"].HeaderText = "Vlr. Desc.";
+            GridProdutos.Columns["vlrdesconto"].Width = 90;
+            GridProdutos.Columns["vlrdesconto"].Visible = true;
+
+            GridProdutos.Columns["vlrbruto"].DisplayIndex = 5;
+            GridProdutos.Columns["vlrbruto"].HeaderText = "Vlr Bruto";
+            GridProdutos.Columns["vlrbruto"].Width = 90;
+            GridProdutos.Columns["vlrbruto"].Visible = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             HabilitaAcao(TipoAcao.Cancelar, false);
 
-            GridPedidos.DataSource = new List<PedidoVendaDTO>();
-            GridProdutos.DataSource = new List<PedidoVendaItemDTO>();
+            GridPedidos.DataSource = null;
+            GridProdutos.DataSource = null;
+            btnPesquisar.BackColor = btnSair.BackColor;
 
             BoxFiltro.Enabled = true;
         }

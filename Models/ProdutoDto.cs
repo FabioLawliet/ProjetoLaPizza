@@ -6,7 +6,7 @@ namespace LaPizza.Models
     {
         public int idproduto { get; set; }
         public string descricao { get; set; }
-        public string datacadastro { get; set; }
+        public DateTime datacadastro { get; set; }
         public int idgrupo { get; set; }
         public string grupodescricao { get; set; }
         public int idsubgrupo { get; set; }
