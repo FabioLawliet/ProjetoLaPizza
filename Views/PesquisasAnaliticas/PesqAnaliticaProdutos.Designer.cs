@@ -191,6 +191,7 @@
             this.GridProdutos.MultiSelect = false;
             this.GridProdutos.Name = "GridProdutos";
             this.GridProdutos.ReadOnly = true;
+            this.GridProdutos.RowHeadersVisible = false;
             this.GridProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridProdutos.Size = new System.Drawing.Size(776, 283);
             this.GridProdutos.TabIndex = 12;
@@ -198,156 +199,173 @@
             // idproduto
             // 
             this.idproduto.DataPropertyName = "idproduto";
-            this.idproduto.HeaderText = "Produto";
+            this.idproduto.HeaderText = "";
             this.idproduto.Name = "idproduto";
             this.idproduto.ReadOnly = true;
             this.idproduto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idproduto.Visible = false;
             this.idproduto.Width = 60;
             // 
             // descricao
             // 
             this.descricao.DataPropertyName = "descricao";
-            this.descricao.HeaderText = "Desc. Produto";
+            this.descricao.HeaderText = "";
             this.descricao.Name = "descricao";
             this.descricao.ReadOnly = true;
             this.descricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.descricao.Visible = false;
             this.descricao.Width = 200;
             // 
             // unidmedidasigla
             // 
             this.unidmedidasigla.DataPropertyName = "unidmedidasigla";
-            this.unidmedidasigla.HeaderText = "UN";
+            this.unidmedidasigla.HeaderText = "";
             this.unidmedidasigla.Name = "unidmedidasigla";
             this.unidmedidasigla.ReadOnly = true;
             this.unidmedidasigla.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.unidmedidasigla.Visible = false;
             this.unidmedidasigla.Width = 30;
             // 
             // saldoestoque
             // 
             this.saldoestoque.DataPropertyName = "saldoestoque";
-            this.saldoestoque.HeaderText = "Saldo de Estoque";
+            this.saldoestoque.HeaderText = "";
             this.saldoestoque.Name = "saldoestoque";
             this.saldoestoque.ReadOnly = true;
             this.saldoestoque.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.saldoestoque.Visible = false;
             this.saldoestoque.Width = 60;
             // 
             // precoatual
             // 
             this.precoatual.DataPropertyName = "precoatual";
-            this.precoatual.HeaderText = "Preço Atual";
+            this.precoatual.HeaderText = "";
             this.precoatual.Name = "precoatual";
             this.precoatual.ReadOnly = true;
             this.precoatual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.precoatual.Visible = false;
             this.precoatual.Width = 60;
             // 
             // precoanterior
             // 
             this.precoanterior.DataPropertyName = "precoanterior";
-            this.precoanterior.HeaderText = "Preço Anterior";
+            this.precoanterior.HeaderText = "";
             this.precoanterior.Name = "precoanterior";
             this.precoanterior.ReadOnly = true;
             this.precoanterior.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.precoanterior.Visible = false;
             this.precoanterior.Width = 60;
             // 
             // infadicionais
             // 
             this.infadicionais.DataPropertyName = "infadicionais";
-            this.infadicionais.HeaderText = "Inf. Adicionais";
+            this.infadicionais.HeaderText = "";
             this.infadicionais.Name = "infadicionais";
             this.infadicionais.ReadOnly = true;
             this.infadicionais.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.infadicionais.Visible = false;
             this.infadicionais.Width = 150;
             // 
             // idmarca
             // 
             this.idmarca.DataPropertyName = "idmarca";
-            this.idmarca.HeaderText = "Marca";
+            this.idmarca.HeaderText = "";
             this.idmarca.Name = "idmarca";
             this.idmarca.ReadOnly = true;
             this.idmarca.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idmarca.Visible = false;
             this.idmarca.Width = 60;
             // 
             // marcadescricao
             // 
             this.marcadescricao.DataPropertyName = "marcadescricao";
-            this.marcadescricao.HeaderText = "Desc. Marca";
+            this.marcadescricao.HeaderText = "";
             this.marcadescricao.Name = "marcadescricao";
             this.marcadescricao.ReadOnly = true;
             this.marcadescricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.marcadescricao.Visible = false;
             this.marcadescricao.Width = 150;
             // 
             // idgrupo
             // 
             this.idgrupo.DataPropertyName = "idgrupo";
-            this.idgrupo.HeaderText = "Grupo";
+            this.idgrupo.HeaderText = "";
             this.idgrupo.Name = "idgrupo";
             this.idgrupo.ReadOnly = true;
             this.idgrupo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idgrupo.Visible = false;
             this.idgrupo.Width = 60;
             // 
             // grupodescricao
             // 
             this.grupodescricao.DataPropertyName = "grupodescricao";
-            this.grupodescricao.HeaderText = "Desc. Grupo";
+            this.grupodescricao.HeaderText = "";
             this.grupodescricao.Name = "grupodescricao";
             this.grupodescricao.ReadOnly = true;
             this.grupodescricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.grupodescricao.Visible = false;
             this.grupodescricao.Width = 150;
             // 
             // idsubgrupo
             // 
             this.idsubgrupo.DataPropertyName = "idsubgrupo";
-            this.idsubgrupo.HeaderText = "Subgrupo";
+            this.idsubgrupo.HeaderText = "";
             this.idsubgrupo.Name = "idsubgrupo";
             this.idsubgrupo.ReadOnly = true;
             this.idsubgrupo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idsubgrupo.Visible = false;
             this.idsubgrupo.Width = 60;
             // 
             // SubgrupoDescricao
             // 
             this.SubgrupoDescricao.DataPropertyName = "SubgrupoDescricao";
-            this.SubgrupoDescricao.HeaderText = "Desc. Subgrupo";
+            this.SubgrupoDescricao.HeaderText = "";
             this.SubgrupoDescricao.Name = "SubgrupoDescricao";
             this.SubgrupoDescricao.ReadOnly = true;
             this.SubgrupoDescricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.SubgrupoDescricao.Visible = false;
             this.SubgrupoDescricao.Width = 150;
             // 
             // codigofabricante
             // 
             this.codigofabricante.DataPropertyName = "codigofabricante";
-            this.codigofabricante.HeaderText = "Cód. Fabricante";
+            this.codigofabricante.HeaderText = "";
             this.codigofabricante.Name = "codigofabricante";
             this.codigofabricante.ReadOnly = true;
             this.codigofabricante.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.codigofabricante.Visible = false;
             // 
             // qtdeestmin
             // 
             this.qtdeestmin.DataPropertyName = "qtdeestmin";
-            this.qtdeestmin.HeaderText = "Qtde Est. Mínimo";
+            this.qtdeestmin.HeaderText = "";
             this.qtdeestmin.Name = "qtdeestmin";
             this.qtdeestmin.ReadOnly = true;
             this.qtdeestmin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.qtdeestmin.Visible = false;
             // 
             // qtdeestideal
             // 
             this.qtdeestideal.DataPropertyName = "qtdeestideal";
-            this.qtdeestideal.HeaderText = "Qtde Est. Ideal";
+            this.qtdeestideal.HeaderText = "";
             this.qtdeestideal.Name = "qtdeestideal";
             this.qtdeestideal.ReadOnly = true;
             this.qtdeestideal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.qtdeestideal.Visible = false;
             // 
             // qtdeestmax
             // 
             this.qtdeestmax.DataPropertyName = "qtdeestmax";
-            this.qtdeestmax.HeaderText = "Qtde Est. Máximo";
+            this.qtdeestmax.HeaderText = "";
             this.qtdeestmax.Name = "qtdeestmax";
             this.qtdeestmax.ReadOnly = true;
             this.qtdeestmax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.qtdeestmax.Visible = false;
             // 
             // datacadastro
             // 
             this.datacadastro.DataPropertyName = "datacadastro";
-            this.datacadastro.HeaderText = "Data Cadastro";
+            this.datacadastro.HeaderText = "";
             this.datacadastro.Name = "datacadastro";
             this.datacadastro.ReadOnly = true;
             this.datacadastro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -358,10 +376,11 @@
             // 
             this.ativo.DataPropertyName = "ativo";
             this.ativo.FalseValue = "false";
-            this.ativo.HeaderText = "Ativo";
+            this.ativo.HeaderText = "";
             this.ativo.Name = "ativo";
             this.ativo.ReadOnly = true;
             this.ativo.TrueValue = "true";
+            this.ativo.Visible = false;
             this.ativo.Width = 60;
             // 
             // BoxFiltro

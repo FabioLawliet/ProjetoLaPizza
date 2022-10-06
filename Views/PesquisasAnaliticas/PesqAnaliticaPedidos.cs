@@ -27,7 +27,8 @@ namespace LaPizza.Views.PesquisasAnaliticas
             FormaPagamentoController control = new FormaPagamentoController();
             List<FormaPagamentoDTO> ListaPagamentos = control.GetFormaPagamentoLista();
 
-            foreach(FormaPagamentoDTO pag in ListaPagamentos){
+            cbFormaPagamento.Items.Add("");
+            foreach (FormaPagamentoDTO pag in ListaPagamentos){
                 cbFormaPagamento.Items.Add(pag.descricao);
             }
             cbFormaPagamento.SelectedIndex = -1;
@@ -35,9 +36,10 @@ namespace LaPizza.Views.PesquisasAnaliticas
 
         public void PopularCbStatus()
         {
-            cbStatus.Items.Add("Fechado");
+            cbStatus.Items.Add("");
             cbStatus.Items.Add("Aberto");
-            cbStatus.SelectedIndex = -1;
+            cbStatus.Items.Add("Fechado");            
+            cbStatus.SelectedIndex = 0;
         }
         public List<PedidoVendaDTO> getListaPedidos()
         {
@@ -66,11 +68,11 @@ namespace LaPizza.Views.PesquisasAnaliticas
 
             if (cbStatus.SelectedIndex == 1)
                 lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "ABR"));
-            else if (cbStatus.SelectedIndex == 0)
+            else if (cbStatus.SelectedIndex == 2)
                 lista = new List<PedidoVendaDTO>(lista.Where(p => p.status == "FEC"));
 
-            if (cbFormaPagamento.SelectedIndex >= 0)
-                lista = new List<PedidoVendaDTO>(lista.Where(p => p.idformapagamento == (cbFormaPagamento.SelectedIndex + 1)));            
+            if (cbFormaPagamento.SelectedIndex >= 1)
+                lista = new List<PedidoVendaDTO>(lista.Where(p => p.idformapagamento == (cbFormaPagamento.SelectedIndex)));            
 
             return lista;
         }

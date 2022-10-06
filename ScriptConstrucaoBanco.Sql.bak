@@ -127,8 +127,8 @@ values
 ('Refrigerante Garrafa 1L',CURRENT_DATE, true, 4, 1, 2, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,9.00),
 ('Refrigerante Lata 300ml',CURRENT_DATE, true, 4, 2, 3, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,4.00),
 ('Suco Laranja',CURRENT_DATE, true, 5, 1, 4, 4, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00),
-('Suco Morango',CURRENT_DATE, false, 5, 2, 5, 5, 'FABRICANTE','INF ADICIONAIS', 0, 0,0,0,0,8.00),
-('Suco Abacaxi',CURRENT_DATE, false, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 0, 0,0,0,0,8.00);
+('Suco Morango',CURRENT_DATE, false, 5, 2, 5, 5, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00),
+('Suco Abacaxi',CURRENT_DATE, false, 1, 1, 1, 1, 'FABRICANTE','INF ADICIONAIS', 99, 0,0,0,0,8.00);
 
 /****************************************************************************
 TABELA MOVIMENTO DE ESTOQUE
