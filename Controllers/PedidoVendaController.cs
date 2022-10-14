@@ -214,6 +214,7 @@ namespace LaPizza.Controllers
                                               orderby produto.idproduto
                                               select new PedidoVendaItemDTO
                                               {
+                                                  marcado = false,
                                                   idproduto = produto.idproduto,
                                                   produtodescricao = produto.descricao,
                                                   idunidmedida = unidade.idunidmedida,

@@ -17,16 +17,17 @@ namespace LaPizza.Views
     public partial class FormVenPedidoVenda : LaPizza.Views.FormBaseCadastros
     {
         PedidoVendaDB FPedido = new PedidoVendaDB();
+        DataTable dt = new DataTable();
+        string ColumnSelected = "";
         public FormVenPedidoVenda()
         {
             InitializeComponent();
             CarregarListaGrid();
-            AjustaCampoGrid();
             AlimentaTodosComboBox();
-            AtualizaTotais();
+            //AtualizaTotais();
 
-            PedidoVendaController controle = new PedidoVendaController();
-            lbNumeroPedido.Text = controle.GetProximoId().ToString();
+            //PedidoVendaController controle = new PedidoVendaController();
+            //lbNumeroPedido.Text = controle.GetProximoId().ToString();
         }
 
         public void CarregarListaGrid()
@@ -34,9 +35,34 @@ namespace LaPizza.Views
             PedidoVendaController controle = new PedidoVendaController();
             List<PedidoVendaItemDTO> lista = controle.GetProdutos();
 
-            GridProdutos.DataSource = lista; 
-        }
+            dt.Columns.Add("check", typeof(Boolean));
+            dt.Columns.Add("idproduto", typeof(string));
+            dt.Columns.Add("produtodescricao", typeof(string));
+            dt.Columns.Add("unidademedidasigla", typeof(string));
+            dt.Columns.Add("saldoestoque", typeof(string));
+            dt.Columns.Add("vlrunitario", typeof(string));
+            dt.Columns.Add("qtde", typeof(string));
+            dt.Columns.Add("vlrdesconto", typeof(string));
+            dt.Columns.Add("vlrdescontoperc", typeof(string));
+            dt.Columns.Add("vlrliquido", typeof(string));
 
+            foreach (var i in lista)
+            {
+                dt.Rows.Add(i.marcado, 
+                            i.idproduto, 
+                            i.produtodescricao, 
+                            i.unidademedidasigla,
+                            i.saldoestoque,
+                            i.vlrunitario,
+                            i.qtde,
+                            i.vlrdesconto,
+                            i.vlrdescontoperc,
+                            i.vlrliquido);
+            }
+
+            GridProdutos.DataSource = dt;
+            AjustaCampoGrid();
+        }
         private void AjustaCampoGrid()
         {
             foreach (DataGridViewColumn Coluna in GridProdutos.Columns)
@@ -46,8 +72,7 @@ namespace LaPizza.Views
                     case "check":
                         Coluna.DisplayIndex = 0;
                         Coluna.HeaderText = "";
-                        Coluna.ReadOnly = true;
-                        Coluna.ValueType = typeof(Image);
+                        Coluna.ReadOnly = false;
                         Coluna.Width = 20;
                         break;
                     case "idproduto":
@@ -124,10 +149,9 @@ namespace LaPizza.Views
             cbTipoPedido.SelectedIndex = 0;
 
             cbStatusPedido.Items.Clear();
-            cbStatusPedido.Items.Add("EM ANDAMENTO");
-            cbStatusPedido.Items.Add("CONFIRMADO");
+            cbStatusPedido.Items.Add("ABERTO");
+            cbStatusPedido.Items.Add("FECHADO");
             cbStatusPedido.SelectedIndex = 0;
-
 
             cbFicha.Items.Clear();
             for (int i = 1; i <= 10; i++)
@@ -138,6 +162,7 @@ namespace LaPizza.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            /*
             LimpaCampos();
             CarregarListaGrid();
             AlimentaTodosComboBox();
@@ -147,21 +172,18 @@ namespace LaPizza.Views
             lbNumeroPedido.Text = controle.GetProximoId().ToString();
 
             HabilitaAcaoMenu(true);
-            AtualizaTotais();
+            AtualizaTotais();*/
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            /*GridProdutos.DataSource = null;
-            ProdutoController controle = new ProdutoController();
-            List<ProdutoDTO> Lista = controle.GetProdutoPesquisaGrid(txtpesquisa);
-
-            GridProdutos.DataSource = Lista;
-            AjustaCampoGrid();
-            GridProdutos.Refresh();*/
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = ColumnSelected + "  LIKE '%" + txtPesquisa.Text + "%'";
+            GridProdutos.DataSource = dv;
         }
         private void GridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             ItemSelecionadoVendaDTO item = new ItemSelecionadoVendaDTO();
             FormVenSelecaoItem FormItem = new FormVenSelecaoItem();
 
@@ -202,7 +224,7 @@ namespace LaPizza.Views
             }
 
             HabilitaAcao(TipoAcao.Confirmar, ExisteItemLancadoPedido());
-            HabilitaAcao(TipoAcao.Cancelar, ExisteItemLancadoPedido());
+            HabilitaAcao(TipoAcao.Cancelar, ExisteItemLancadoPedido());*/
         }
 
         private void btnPesquisaCliente_Click(object sender, EventArgs e)
@@ -451,6 +473,12 @@ namespace LaPizza.Views
             {
                 btnCancelar_Click(sender, e);
             }
+        }
+
+        private void GridProdutos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ColumnSelected = dt.Columns[e.ColumnIndex].ColumnName;
+            lbPesquisa.Text = "Pesquisa por (";
         }
     }
 }
