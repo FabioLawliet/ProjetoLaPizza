@@ -535,6 +535,7 @@
             // 
             // GridProdutos
             // 
+            this.GridProdutos.AllowUserToAddRows = false;
             this.GridProdutos.AllowUserToDeleteRows = false;
             this.GridProdutos.AllowUserToOrderColumns = true;
             this.GridProdutos.AllowUserToResizeColumns = false;
@@ -565,7 +566,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GridProdutos.DefaultCellStyle = dataGridViewCellStyle3;
             this.GridProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.GridProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.GridProdutos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.GridProdutos.Location = new System.Drawing.Point(0, 0);
             this.GridProdutos.MultiSelect = false;
@@ -584,8 +585,10 @@
             this.GridProdutos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.GridProdutos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.GridProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridProdutos.ShowEditingIcon = false;
             this.GridProdutos.Size = new System.Drawing.Size(784, 235);
             this.GridProdutos.TabIndex = 1;
+            this.GridProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProdutos_CellClick);
             this.GridProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProdutos_CellDoubleClick);
             this.GridProdutos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridProdutos_ColumnHeaderMouseClick);
             this.GridProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GridProdutos_KeyPress);
