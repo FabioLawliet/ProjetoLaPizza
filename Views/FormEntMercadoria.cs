@@ -28,6 +28,7 @@ namespace LaPizza.Views
         private ProdutoDTO _produto;
         private int _produtoSelecionado = 0;
         private double _totalBruto, _totalDesconto, _totalLiquido, _totalProduto;
+       
         public FormEntMercadoria()
         {
             InitializeComponent();
@@ -635,7 +636,17 @@ namespace LaPizza.Views
             else 
                 cancelaOperacao();
         }
-        
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtVlrUnit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtVlrDesc_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Convert.ToInt32(e.KeyChar) == 13)
