@@ -195,7 +195,7 @@ namespace LaPizza.Views
             this.txtFornecedor.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtFornecedor.Name = "txtFornecedor";
             this.txtFornecedor.Size = new System.Drawing.Size(166, 20);
-            this.txtFornecedor.TabIndex = 1;
+            this.txtFornecedor.TabIndex = 3;
             // 
             // PesquisaFornecedor
             // 
@@ -222,7 +222,7 @@ namespace LaPizza.Views
             this.dtAbertura.Location = new System.Drawing.Point(244, 18);
             this.dtAbertura.Name = "dtAbertura";
             this.dtAbertura.Size = new System.Drawing.Size(95, 20);
-            this.dtAbertura.TabIndex = 2;
+            this.dtAbertura.TabIndex = 1;
             // 
             // label2
             // 
@@ -248,7 +248,7 @@ namespace LaPizza.Views
             this.dtConclusao.Location = new System.Drawing.Point(345, 18);
             this.dtConclusao.Name = "dtConclusao";
             this.dtConclusao.Size = new System.Drawing.Size(95, 20);
-            this.dtConclusao.TabIndex = 3;
+            this.dtConclusao.TabIndex = 2;
             // 
             // gbStatus
             // 
@@ -258,7 +258,7 @@ namespace LaPizza.Views
             this.gbStatus.Location = new System.Drawing.Point(6, 6);
             this.gbStatus.Name = "gbStatus";
             this.gbStatus.Size = new System.Drawing.Size(232, 35);
-            this.gbStatus.TabIndex = 7;
+            this.gbStatus.TabIndex = 0;
             this.gbStatus.TabStop = false;
             this.gbStatus.Text = "Status";
             // 
@@ -312,7 +312,7 @@ namespace LaPizza.Views
             this.txtInfAdicionais.Multiline = true;
             this.txtInfAdicionais.Name = "txtInfAdicionais";
             this.txtInfAdicionais.Size = new System.Drawing.Size(399, 20);
-            this.txtInfAdicionais.TabIndex = 4;
+            this.txtInfAdicionais.TabIndex = 8;
             // 
             // label4
             // 
@@ -335,7 +335,7 @@ namespace LaPizza.Views
             this.txtFrete.MaxLength = 10;
             this.txtFrete.Name = "txtFrete";
             this.txtFrete.Size = new System.Drawing.Size(70, 20);
-            this.txtFrete.TabIndex = 5;
+            this.txtFrete.TabIndex = 4;
             this.txtFrete.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFrete.TextChanged += new System.EventHandler(this.txtFrete_TextChanged);
             // 
@@ -360,7 +360,7 @@ namespace LaPizza.Views
             this.txtOutrosCustos.MaxLength = 10;
             this.txtOutrosCustos.Name = "txtOutrosCustos";
             this.txtOutrosCustos.Size = new System.Drawing.Size(70, 20);
-            this.txtOutrosCustos.TabIndex = 6;
+            this.txtOutrosCustos.TabIndex = 5;
             this.txtOutrosCustos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtOutrosCustos.TextChanged += new System.EventHandler(this.txtOutrosCustos_TextChanged);
             // 
@@ -477,7 +477,7 @@ namespace LaPizza.Views
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.ReadOnly = true;
             this.txtProduto.Size = new System.Drawing.Size(273, 20);
-            this.txtProduto.TabIndex = 8;
+            this.txtProduto.TabIndex = 9;
             // 
             // label15
             // 
@@ -500,10 +500,10 @@ namespace LaPizza.Views
             this.txtQtde.MaxLength = 10;
             this.txtQtde.Name = "txtQtde";
             this.txtQtde.Size = new System.Drawing.Size(75, 20);
-            this.txtQtde.TabIndex = 9;
-            this.txtQtde.Text = "1";
+            this.txtQtde.TabIndex = 10;
             this.txtQtde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtQtde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtde_KeyPress);
+            this.txtQtde.Leave += new System.EventHandler(this.txtQtde_Leave);
             // 
             // label16
             // 
@@ -513,7 +513,6 @@ namespace LaPizza.Views
             this.label16.Size = new System.Drawing.Size(58, 13);
             this.label16.TabIndex = 58;
             this.label16.Text = "Vlr Unitário";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // txtVlrUnit
             // 
@@ -527,10 +526,10 @@ namespace LaPizza.Views
             this.txtVlrUnit.MaxLength = 10;
             this.txtVlrUnit.Name = "txtVlrUnit";
             this.txtVlrUnit.Size = new System.Drawing.Size(75, 20);
-            this.txtVlrUnit.TabIndex = 10;
+            this.txtVlrUnit.TabIndex = 11;
             this.txtVlrUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtVlrUnit.TextChanged += new System.EventHandler(this.txtVlrUnit_TextChanged);
             this.txtVlrUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVlrUnit_KeyPress);
+            this.txtVlrUnit.Leave += new System.EventHandler(this.txtVlrUnit_Leave);
             // 
             // label17
             // 
@@ -553,9 +552,10 @@ namespace LaPizza.Views
             this.txtVlrDesc.MaxLength = 10;
             this.txtVlrDesc.Name = "txtVlrDesc";
             this.txtVlrDesc.Size = new System.Drawing.Size(75, 20);
-            this.txtVlrDesc.TabIndex = 11;
+            this.txtVlrDesc.TabIndex = 12;
             this.txtVlrDesc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVlrDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVlrDesc_KeyPress);
+            this.txtVlrDesc.Leave += new System.EventHandler(this.txtVlrDesc_Leave);
             // 
             // label18
             // 
@@ -578,7 +578,7 @@ namespace LaPizza.Views
             this.txtVlrTotal.MaxLength = 10;
             this.txtVlrTotal.Name = "txtVlrTotal";
             this.txtVlrTotal.Size = new System.Drawing.Size(75, 20);
-            this.txtVlrTotal.TabIndex = 12;
+            this.txtVlrTotal.TabIndex = 13;
             this.txtVlrTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVlrTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVlrTotal_KeyPress);
             // 
@@ -603,7 +603,7 @@ namespace LaPizza.Views
             this.txtVlrVenda.MaxLength = 10;
             this.txtVlrVenda.Name = "txtVlrVenda";
             this.txtVlrVenda.Size = new System.Drawing.Size(75, 20);
-            this.txtVlrVenda.TabIndex = 13;
+            this.txtVlrVenda.TabIndex = 14;
             this.txtVlrVenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVlrVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVlrVenda_KeyPress);
             // 
@@ -623,7 +623,7 @@ namespace LaPizza.Views
             this.DGVProdutos.ReadOnly = true;
             this.DGVProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVProdutos.Size = new System.Drawing.Size(773, 138);
-            this.DGVProdutos.TabIndex = 65;
+            this.DGVProdutos.TabIndex = 1;
             this.DGVProdutos.TabStop = false;
             this.DGVProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVProdutos_CellClick);
             this.DGVProdutos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DGVProdutos_KeyUp);
@@ -714,7 +714,7 @@ namespace LaPizza.Views
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 119);
-            this.panel1.TabIndex = 66;
+            this.panel1.TabIndex = 0;
             // 
             // btnInserir
             // 
@@ -726,7 +726,7 @@ namespace LaPizza.Views
             this.btnInserir.Location = new System.Drawing.Point(704, 93);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(75, 20);
-            this.btnInserir.TabIndex = 67;
+            this.btnInserir.TabIndex = 15;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
             // 
@@ -751,7 +751,7 @@ namespace LaPizza.Views
             this.txtChaveNota.MaxLength = 10;
             this.txtChaveNota.Name = "txtChaveNota";
             this.txtChaveNota.Size = new System.Drawing.Size(267, 20);
-            this.txtChaveNota.TabIndex = 69;
+            this.txtChaveNota.TabIndex = 7;
             this.txtChaveNota.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
@@ -775,7 +775,7 @@ namespace LaPizza.Views
             this.txtNumeroNota.MaxLength = 10;
             this.txtNumeroNota.Name = "txtNumeroNota";
             this.txtNumeroNota.Size = new System.Drawing.Size(95, 20);
-            this.txtNumeroNota.TabIndex = 67;
+            this.txtNumeroNota.TabIndex = 6;
             this.txtNumeroNota.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FormEntMercadoria

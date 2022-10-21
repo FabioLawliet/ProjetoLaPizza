@@ -33,7 +33,27 @@ namespace LaPizza.Views
         {
             InitializeComponent();
             HabilitarComponentesPnlPrincipal(false);            
-        }      
+        }
+
+        private void txtQtde_Leave(object sender, EventArgs e)
+        {
+            if (_produto == null)
+            {
+                MessageBox.Show("Selecione um produto.");
+                txtProduto.Focus();
+            }
+            else
+            {
+                if ((txtQtde.Text == string.Empty) || (txtQtde.Text == "0,00") || (txtQtde.Text == "0"))
+                {
+                    txtQtde.Text = "1,00";
+                }
+                //Recalcula();
+                RecalculaTotal();
+                txtVlrUnit.Focus();
+            }
+        }
+
         private  void HabilitarComponentesPnlPrincipal(bool ativa)
         {
             if (ativa)
@@ -53,6 +73,8 @@ namespace LaPizza.Views
                 txtVlrDesc.Enabled = true;
                 txtVlrTotal.Enabled = true;
                 txtVlrVenda.Enabled = true;
+                txtNumeroNota.Enabled = true;
+                txtChaveNota.Enabled = true;
             }
             else
             {
@@ -71,8 +93,44 @@ namespace LaPizza.Views
                 txtVlrDesc.Enabled = false;
                 txtVlrTotal.Enabled = false;
                 txtVlrVenda.Enabled = false;
+                txtNumeroNota.Enabled = false;
+                txtChaveNota.Enabled = false;
             }
-        }       
+        }
+
+        private void LimparComponentesEntraMerc()
+        {
+            _totalBruto = 0.00;
+            _totalDesconto = 0.00;
+            _totalLiquido = 0.00;
+            _totalProduto = 0.00;
+            _produtoSelecionado = 0;
+            txtFornecedor.Text = "";
+            PesquisaFornecedor.Text = "";
+            dtAbertura.Text = "";
+            dtConclusao.Text = "";
+            txtInfAdicionais.Text = "";
+            txtFrete.Text = "";
+            txtOutrosCustos.Text = "";
+            gbStatus.Text = "";
+            txtProduto.Text = "";
+            pesquisaProduto.Text = "";
+            txtQtde.Text = "";
+            txtVlrUnit.Text = "";
+            txtVlrDesc.Text = "";
+            txtVlrTotal.Text = "";
+            txtVlrVenda.Text = "";
+            txtNumeroNota.Text = "";
+            txtChaveNota.Text = "";
+            DGVProdutos.DataSource = null;
+            _Fornecedor = null;
+            _produto = null;
+            _entradaController = null;
+            _entradaMercadoria = null;
+            _entradaMercadoriaItem = null;
+            _produtosGrid.Clear();
+        }
+
         private void pesquisaProduto_Click(object sender, EventArgs e)
         {
             FormEstProdutoPesquisa prodPesquisa = new FormEstProdutoPesquisa();
@@ -84,7 +142,7 @@ namespace LaPizza.Views
                 txtVlrUnit.Text = prodPesquisa.PProduto.precoatual.ToString();
                 txtVlrTotal.Text = prodPesquisa.PProduto.precoatual.ToString();
                 txtQtde.Focus();
-            }         
+            }
         }
 
         private void PesquisaFornecedor_Click(object sender, EventArgs e)
@@ -105,7 +163,7 @@ namespace LaPizza.Views
             {
                 txtFrete.Text = "0,00";
                 txtOutrosCustos.Text = "0,00";
-                txtQtde.Text = "1,00";
+                txtQtde.Text = "0,00";
                 txtVlrUnit.Text = "0,00";
                 txtVlrDesc.Text = "0,00";
                 txtVlrTotal.Text = "0,00";
@@ -113,15 +171,37 @@ namespace LaPizza.Views
 
                 rbCancelar.Enabled = false;
                 _entradaController = new EntradaMercadoriaController();
-                _entradaMercadoria = new EntradaMercadoriaDB();                                                
-                _entradaMercadoria.identradamerc = _entradaController.GetProxIdEntradaMercadoria();                
+                _entradaMercadoria = new EntradaMercadoriaDB();
+                _entradaMercadoria.identradamerc = _entradaController.GetProxIdEntradaMercadoria();
                 HabilitaAcao(TipoAcao.Confirmar, true);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao dar entrada de mercadoria "+ex.Message);
-            }                        
+                MessageBox.Show("Erro ao dar entrada de mercadoria " + ex.Message);
+            }
         }
+
+        public void RecalculaTotal()
+        {
+            double Qte = 0, Desconto = 0, VlrUnit = 0;
+
+            if (txtVlrDesc.Text != "")
+                Desconto = Convert.ToDouble(txtVlrDesc.Text);
+
+            if (txtQtde.Text != "")
+                Qte = Convert.ToDouble(txtQtde.Text);
+
+            if (txtVlrUnit.Text != "")
+                VlrUnit = Convert.ToDouble(txtVlrUnit.Text);
+
+            txtVlrTotal.Text = (Qte * VlrUnit - Desconto).ToString("N2");
+        }
+
+        //Acima ultimo metodo ajustado xD
+
+
+
+
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {           
@@ -174,7 +254,7 @@ namespace LaPizza.Views
                             //Rateia Frete
                             _entradaController.RatearOutrosEFrete(_entradaMercadoria.identradamerc, _produtosGrid);
                         }
-                        LimpaComponentes();
+                        LimparComponentesEntraMerc();
                         HabilitarComponentesPnlPrincipal(false);
                         HabilitarAcoesIniciais();
 
@@ -230,7 +310,7 @@ namespace LaPizza.Views
                             //Rateia Frete
                             _entradaController.RatearOutrosEFrete(_entradaMercadoria.identradamerc, _produtosGrid);
                         }
-                        LimpaComponentes();
+                        LimparComponentesEntraMerc();
                         HabilitarComponentesPnlPrincipal(false);
                         HabilitarAcoesIniciais();
 
@@ -254,7 +334,7 @@ namespace LaPizza.Views
                         _entradaController.VoltaProdVlrAnterior(_produtosGrid);
 
                         _entradaController.CancelaEntrada(_entradaMercadoria);                        
-                        LimpaComponentes();
+                        LimparComponentesEntraMerc();
                         HabilitarComponentesPnlPrincipal(false);
                         HabilitarAcoesIniciais();
                     }                    
@@ -270,40 +350,13 @@ namespace LaPizza.Views
             _totalProduto = 0.00;
             _produto = null;
             txtProduto.Text = "";
-            txtQtde.Text = "1";
+            txtQtde.Text = "";
             txtVlrUnit.Text = "";
             txtVlrDesc.Text = "";
             txtVlrTotal.Text = "";
             txtVlrVenda.Text = "";
         }
-        private void LimpaComponentes()
-        {            
-            _totalBruto = 0.00;
-            _totalDesconto = 0.00;
-            _totalLiquido = 0.00;
-            _totalProduto = 0.00;
-            _produtoSelecionado = 0;
-            txtFornecedor.Text = "";
-            txtInfAdicionais.Text = "";
-            txtFrete.Text = "";
-            txtOutrosCustos.Text = "";
-            txtProduto.Text = "";
-            txtQtde.Text = "1";
-            txtVlrUnit.Text = "";
-            txtVlrDesc.Text = "";
-            txtVlrTotal.Text = "";
-            txtVlrVenda.Text = "";
-            lblDescontos.Text = "";
-            lblTotalBruto.Text = "";
-            lblTotalLiquido.Text = "";
-            DGVProdutos.DataSource = null;
-            _Fornecedor = null;
-            _produto = null;
-            _entradaController = null;
-            _entradaMercadoria = null;
-            _entradaMercadoriaItem = null;
-            _produtosGrid.Clear();          
-        }
+        
         private bool ValidaCampos()
         {
             if(_Fornecedor == null)
@@ -320,9 +373,10 @@ namespace LaPizza.Views
             }
             return true;
         }
+
         private void Recalcula()
         {
-            double qtde, unit, total;
+            double total, qtde, unit;
             if(txtProduto.Text != string.Empty)
             {
                 if (txtVlrDesc.Text == string.Empty)
@@ -332,8 +386,9 @@ namespace LaPizza.Views
                 if (txtQtde.Text == string.Empty)
                     txtQtde.Text = "0";
                 if (txtVlrDesc.Focused)
-                {                   
+                {
                     total = Convert.ToDouble(txtVlrTotal.Text);
+                    total = Convert.ToDouble(txtVlrUnit.Text) * Convert.ToDouble(txtQtde.Text) - Convert.ToDouble(txtVlrDesc.Text);
                     total -= Convert.ToDouble(txtVlrDesc.Text);
                     txtVlrTotal.Text = total.ToString("N2");
                 }
@@ -354,8 +409,8 @@ namespace LaPizza.Views
                     txtVlrUnit.Text = unit.ToString("N2");
                 }
             }
-            
         }
+
         private void txtQtde_KeyPress(object sender, KeyPressEventArgs e)
         {       
             if (Convert.ToInt32(e.KeyChar) == 13)
@@ -528,13 +583,13 @@ namespace LaPizza.Views
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
-        {                                          
-            LimpaComponentes();
+        {
+            LimparComponentesEntraMerc();
             HabilitarComponentesPnlPrincipal(false);
         }
         private void cancelaOperacao()
         {
-            LimpaComponentes();
+            LimparComponentesEntraMerc();
             HabilitarComponentesPnlPrincipal(false);
             HabilitarAcoesIniciais();
         }
@@ -637,15 +692,46 @@ namespace LaPizza.Views
                 cancelaOperacao();
         }
 
-        private void label16_Click(object sender, EventArgs e)
+        private void txtVlrUnit_Leave(object sender, EventArgs e)
         {
-
+            if (_produto == null)
+            {
+                MessageBox.Show("Selecione um produto.");
+                txtProduto.Focus();
+            }
+            else if ((txtVlrUnit.Text == string.Empty) || txtVlrUnit.Text == "0,00" || txtVlrUnit.Text == "0")
+            {
+                MessageBox.Show("Campo valor unitário não pode ser igual a 0 \n selecione o produto novamente");
+                txtProduto.Focus();
+            }
+            else
+            {
+                //Recalcula();
+                RecalculaTotal();
+                txtVlrDesc.Focus();
+            }
         }
 
-        private void txtVlrUnit_TextChanged(object sender, EventArgs e)
+        private void txtVlrDesc_Leave(object sender, EventArgs e)
         {
+            if (_produto == null)
+            {
+                MessageBox.Show("Selecione o produto.");
+                txtProduto.Focus();
+                return;
+            }
 
+            if (txtVlrTotal.Text == string.Empty || (txtVlrTotal.Text == "0,00") || (txtVlrTotal.Text == "0"))
+            {
+                MessageBox.Show("Selecione o produto.");
+                txtProduto.Focus();
+                return;
+            }
+
+            //Recalcula();
+            RecalculaTotal();
         }
+
 
         private void txtVlrDesc_KeyPress(object sender, KeyPressEventArgs e)
         {
