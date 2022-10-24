@@ -43,6 +43,9 @@ namespace LaPizza.Controllers
 
                     Pedido.idcliente = PedidoVenda.idcliente;
                     Pedido.idformapagamento = PedidoVenda.idformapagamento;
+                    Pedido.idficha = PedidoVenda.idficha;
+                    Pedido.idtipopedido = PedidoVenda.idtipopedido;
+                    Pedido.status = PedidoVenda.status;
                     Pedido.vlrtotalbruto = PedidoVenda.vlrtotalbruto;
                     Pedido.vlrtotaldescontos = PedidoVenda.vlrtotaldescontos;
 
@@ -136,7 +139,8 @@ namespace LaPizza.Controllers
             List<PedidoVendaDTO> lista = (from pedido in db.pedidovenda
                                           join tp in db.tipopedido on pedido.idtipopedido equals tp.idtipopedido
                                           join cliente in db.cliente on pedido.idcliente equals cliente.idcliente
-                                          join pag in db.formapagamento on pedido.idformapagamento equals pag.idformapagamento 
+                                          join pag in db.formapagamento on pedido.idformapagamento equals pag.idformapagamento
+                                          where pedido.status == "ABERTO"
                                           orderby pedido.idpedido
                                           select new PedidoVendaDTO
                                           {
@@ -169,6 +173,7 @@ namespace LaPizza.Controllers
                                     {
                                         idpedido = ped.idpedido,
                                         idficha = ped.idficha,
+                                        status = ped.status,
                                         idtipopedido = ped.idtipopedido,
                                         tipopedidodescricao = tp.descricao,
                                         idcliente = ped.idcliente,

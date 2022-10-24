@@ -37,6 +37,8 @@
             this.lbPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new LaPizza.Controllers.LpText();
             this.pnlTopo = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataPedido = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbIdPedido = new System.Windows.Forms.Label();
@@ -221,6 +223,8 @@
             // pnlTopo
             // 
             this.pnlTopo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlTopo.Controls.Add(this.label5);
+            this.pnlTopo.Controls.Add(this.dataPedido);
             this.pnlTopo.Controls.Add(this.panel2);
             this.pnlTopo.Controls.Add(this.btnPesquisaCliente);
             this.pnlTopo.Controls.Add(this.btnPesquisaFormaPagamento);
@@ -241,13 +245,32 @@
             this.pnlTopo.Size = new System.Drawing.Size(784, 93);
             this.pnlTopo.TabIndex = 7;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(4, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "Data";
+            // 
+            // dataPedido
+            // 
+            this.dataPedido.Enabled = false;
+            this.dataPedido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataPedido.Location = new System.Drawing.Point(7, 60);
+            this.dataPedido.Name = "dataPedido";
+            this.dataPedido.Size = new System.Drawing.Size(89, 20);
+            this.dataPedido.TabIndex = 49;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.IndianRed;
             this.panel2.Controls.Add(this.tableLayoutPanel2);
-            this.panel2.Location = new System.Drawing.Point(629, 0);
+            this.panel2.Location = new System.Drawing.Point(611, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(155, 93);
+            this.panel2.Size = new System.Drawing.Size(173, 93);
             this.panel2.TabIndex = 48;
             // 
             // tableLayoutPanel2
@@ -261,7 +284,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.85714F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.14286F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(155, 70);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(173, 70);
             this.tableLayoutPanel2.TabIndex = 49;
             // 
             // lbIdPedido
@@ -273,7 +296,7 @@
             this.lbIdPedido.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbIdPedido.Location = new System.Drawing.Point(3, 0);
             this.lbIdPedido.Name = "lbIdPedido";
-            this.lbIdPedido.Size = new System.Drawing.Size(149, 22);
+            this.lbIdPedido.Size = new System.Drawing.Size(167, 22);
             this.lbIdPedido.TabIndex = 3;
             this.lbIdPedido.Text = "Nº Pedido";
             this.lbIdPedido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -286,7 +309,7 @@
             this.lbNumeroPedido.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbNumeroPedido.Location = new System.Drawing.Point(3, 22);
             this.lbNumeroPedido.Name = "lbNumeroPedido";
-            this.lbNumeroPedido.Size = new System.Drawing.Size(149, 48);
+            this.lbNumeroPedido.Size = new System.Drawing.Size(167, 48);
             this.lbNumeroPedido.TabIndex = 2;
             this.lbNumeroPedido.Text = "0";
             this.lbNumeroPedido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -353,7 +376,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(4, 44);
+            this.label2.Location = new System.Drawing.Point(99, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 39;
@@ -395,9 +418,9 @@
             this.cbTipoPedido.BackColor = System.Drawing.Color.White;
             this.cbTipoPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoPedido.FormattingEnabled = true;
-            this.cbTipoPedido.Location = new System.Drawing.Point(7, 60);
+            this.cbTipoPedido.Location = new System.Drawing.Point(102, 60);
             this.cbTipoPedido.Name = "cbTipoPedido";
-            this.cbTipoPedido.Size = new System.Drawing.Size(295, 21);
+            this.cbTipoPedido.Size = new System.Drawing.Size(200, 21);
             this.cbTipoPedido.TabIndex = 4;
             // 
             // txtFormaPagamento
@@ -665,5 +688,7 @@
         public System.Windows.Forms.DataGridView GridProdutos;
         private System.Windows.Forms.Button btnCarrinho;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dataPedido;
     }
 }
