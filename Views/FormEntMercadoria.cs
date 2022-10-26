@@ -71,7 +71,7 @@ namespace LaPizza.Views
                 txtQtde.Enabled = true;
                 txtVlrUnit.Enabled = true;
                 txtVlrDesc.Enabled = true;
-                txtVlrTotal.Enabled = true;
+                //txtVlrTotal.Enabled = true;
                 txtVlrVenda.Enabled = true;
                 txtNumeroNota.Enabled = true;
                 txtChaveNota.Enabled = true;
@@ -181,26 +181,81 @@ namespace LaPizza.Views
             }
         }
 
+        private void Recalcula()
+        {
+            double total, qtde, unit;
+            if (txtProduto.Text != string.Empty)
+            {
+                if (txtVlrDesc.Text == string.Empty)
+                    txtVlrDesc.Text = "0";
+                if (txtVlrVenda.Text == string.Empty)
+                    txtVlrVenda.Text = "0";
+                if (txtQtde.Text == string.Empty)
+                    txtQtde.Text = "0";
+                if (txtVlrDesc.Focused)
+                {
+                    total = Convert.ToDouble(txtVlrTotal.Text);
+                    total = Convert.ToDouble(txtVlrUnit.Text) * Convert.ToDouble(txtQtde.Text) - Convert.ToDouble(txtVlrDesc.Text);
+                    total -= Convert.ToDouble(txtVlrDesc.Text);
+                    txtVlrTotal.Text = total.ToString("N2");
+                }
+                else if (txtVlrVenda.Focused)
+                {
+                    _totalBruto += _totalProduto;
+                    _totalDesconto += Convert.ToDouble(txtVlrDesc.Text);
+                    _totalLiquido += Convert.ToDouble(txtVlrTotal.Text);
+                }
+                else
+                {
+                    qtde = Convert.ToDouble(txtQtde.Text);
+                    unit = Convert.ToDouble(txtVlrUnit.Text);
+                    _totalProduto = qtde * unit;
+                    Math.Truncate(_totalProduto);
+                    txtVlrTotal.Text = _totalProduto.ToString("N2");
+                    txtQtde.Text = qtde.ToString("N2");
+                    txtVlrUnit.Text = unit.ToString("N2");
+                }
+            }
+        }
+
         public void RecalculaTotal()
         {
-            double Qte = 0, Desconto = 0, VlrUnit = 0;
+            double qtde = 0, Desconto = 0, unit = 0, total = 0;
 
             if (txtVlrDesc.Text != "")
                 Desconto = Convert.ToDouble(txtVlrDesc.Text);
 
             if (txtQtde.Text != "")
-                Qte = Convert.ToDouble(txtQtde.Text);
+                qtde = Convert.ToDouble(txtQtde.Text);
 
             if (txtVlrUnit.Text != "")
-                VlrUnit = Convert.ToDouble(txtVlrUnit.Text);
+                unit = Convert.ToDouble(txtVlrUnit.Text);
+            
+            txtVlrTotal.Text = (qtde * unit - Desconto).ToString("N2");
+        }
 
-            txtVlrTotal.Text = (Qte * VlrUnit - Desconto).ToString("N2");
+        public void CalculaTotaisGrid()
+        {
+            double VlrBruto = 0, VlrDesconto = 0, VlrLiquido = 0;
+            double VlrFrete = Convert.ToDouble(txtFrete.Text), VlrOutrosCustos = Convert.ToDouble(txtOutrosCustos.Text);
+            lblTotalBruto.Text = (VlrBruto + VlrFrete + VlrOutrosCustos).ToString();
+
+
+            if (DGVProdutos.Rows.Count <= 0)
+                return;
+
+            foreach(DataGridViewRow row in DGVProdutos.Rows)
+            {
+                VlrBruto += Convert.ToDouble(row.Cells["vlrUnitario"].Value) * Convert.ToDouble(row.Cells["quantidade"].Value);
+                VlrDesconto += Convert.ToDouble(row.Cells["desconto"].Value);
+            }
+
+            lblDescontos.Text = VlrDesconto.ToString("N2");
+            lblTotalBruto.Text = VlrBruto.ToString("N2");
+            lblTotalLiquido.Text = (VlrBruto - VlrDesconto).ToString("N2");
         }
 
         //Acima ultimo metodo ajustado xD
-
-
-
 
 
         private void btnConfirmar_Click(object sender, EventArgs e)
@@ -215,6 +270,8 @@ namespace LaPizza.Views
                         _entradaMercadoria.dataabertura = dtAbertura.Value;
                         _entradaMercadoria.dataconclusao = dtConclusao.Value;
                         _entradaMercadoria.infadicionais = txtInfAdicionais.Text;
+                        _entradaMercadoria.numeronf = txtNumeroNota.Text;
+                        _entradaMercadoria.chavenf = txtChaveNota.Text;
                         if (txtFrete.Text != string.Empty)
                             _entradaMercadoria.vlrfrete = Convert.ToDouble(txtFrete.Text);
                         if (txtOutrosCustos.Text != string.Empty)
@@ -374,100 +431,6 @@ namespace LaPizza.Views
             return true;
         }
 
-        private void Recalcula()
-        {
-            double total, qtde, unit;
-            if(txtProduto.Text != string.Empty)
-            {
-                if (txtVlrDesc.Text == string.Empty)
-                    txtVlrDesc.Text = "0";
-                if (txtVlrVenda.Text == string.Empty)
-                    txtVlrVenda.Text = "0";
-                if (txtQtde.Text == string.Empty)
-                    txtQtde.Text = "0";
-                if (txtVlrDesc.Focused)
-                {
-                    total = Convert.ToDouble(txtVlrTotal.Text);
-                    total = Convert.ToDouble(txtVlrUnit.Text) * Convert.ToDouble(txtQtde.Text) - Convert.ToDouble(txtVlrDesc.Text);
-                    total -= Convert.ToDouble(txtVlrDesc.Text);
-                    txtVlrTotal.Text = total.ToString("N2");
-                }
-                else if (txtVlrVenda.Focused)
-                {                    
-                    _totalBruto += _totalProduto;
-                    _totalDesconto += Convert.ToDouble(txtVlrDesc.Text);
-                    _totalLiquido += Convert.ToDouble(txtVlrTotal.Text);
-                }
-                else
-                {
-                    qtde = Convert.ToDouble(txtQtde.Text);
-                    unit = Convert.ToDouble(txtVlrUnit.Text);
-                    _totalProduto = qtde * unit;
-                    Math.Truncate(_totalProduto);
-                    txtVlrTotal.Text = _totalProduto.ToString("N2");
-                    txtQtde.Text = qtde.ToString("N2");
-                    txtVlrUnit.Text = unit.ToString("N2");
-                }
-            }
-        }
-
-        private void txtQtde_KeyPress(object sender, KeyPressEventArgs e)
-        {       
-            if (Convert.ToInt32(e.KeyChar) == 13)
-            {     
-                if(_produto == null)
-                {
-                    MessageBox.Show("Selecione um produto.");
-                    txtProduto.Focus();
-                }
-                else
-                {
-                    if((txtQtde.Text == string.Empty) || (txtQtde.Text == "0,00") || (txtQtde.Text == "0"))
-                    {
-                        txtQtde.Text = "1,00";                       
-                    }                                     
-                    Recalcula();
-                    txtVlrUnit.Focus();                                      
-                }                                                          
-            }
-        }
-
-        private void txtVlrVenda_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            double vlrVenda, vlrUnit;
-            if(Convert.ToInt32(e.KeyChar) == 13)
-            {               
-                if((txtVlrVenda.Text != string.Empty) && (txtVlrUnit.Text != string.Empty) && (txtVlrUnit.Text != "0,00") && (txtVlrUnit.Text != "0"))
-                {
-                    vlrUnit = Convert.ToDouble(txtVlrUnit.Text);
-                    vlrVenda = Convert.ToDouble(txtVlrVenda.Text);                   
-                    if(vlrVenda <= vlrUnit)
-                    {
-                        MessageBox.Show("Valor de venda não pode ser menor que o valor unitário.\n" +
-                        "Valor unitário R$ " + vlrUnit.ToString("N2"));                       
-                        txtVlrVenda.Focus();
-                        return;
-                    }                    
-                }
-                if ((_produto != null) && (txtVlrTotal.Text != string.Empty) && (txtVlrTotal.Text != "0,00")
-                  && (txtVlrVenda.Text != string.Empty) && (txtVlrVenda.Text != "0") && (txtVlrVenda.Text != "0,00"))
-                {
-                    Recalcula();
-                    lblTotalBruto.Text = _totalBruto.ToString("N2");
-                    lblDescontos.Text = _totalDesconto.ToString("N2");
-                    lblTotalLiquido.Text = _totalLiquido.ToString("N2");
-                    AddProdutoGrid();
-                    AjeitaCamposGrid();
-                    LimpaCamposProd();
-                    txtProduto.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("Selecione o produto.");
-                    txtProduto.Focus();
-                }
-            }            
-        }
         private void AjeitaCamposGrid()
         {
             DGVProdutos.Columns["id"].HeaderText = "Cód. Produto";           
@@ -692,6 +655,8 @@ namespace LaPizza.Views
                 cancelaOperacao();
         }
 
+        
+
         private void txtVlrUnit_Leave(object sender, EventArgs e)
         {
             if (_produto == null)
@@ -732,6 +697,40 @@ namespace LaPizza.Views
             RecalculaTotal();
         }
 
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            double vlrVenda, vlrUnit;
+            if ((txtVlrVenda.Text != string.Empty) && (txtVlrUnit.Text != string.Empty) && (txtVlrUnit.Text != "0,00") && (txtVlrUnit.Text != "0"))
+            {
+                vlrUnit = Convert.ToDouble(txtVlrUnit.Text);
+                vlrVenda = Convert.ToDouble(txtVlrVenda.Text);
+                if (vlrVenda <= vlrUnit)
+                {
+                    MessageBox.Show("Valor de venda não pode ser menor que o valor unitário.\n" +
+                    "Valor unitário R$ " + vlrUnit.ToString("N2"));
+                    txtVlrVenda.Focus();
+                    return;
+                }
+            }
+            if ((_produto != null) && (txtVlrTotal.Text != string.Empty) && (txtVlrTotal.Text != "0,00")
+              && (txtVlrVenda.Text != string.Empty) && (txtVlrVenda.Text != "0") && (txtVlrVenda.Text != "0,00"))
+            {
+                Recalcula();
+                lblTotalBruto.Text = _totalBruto.ToString("N2");
+                lblDescontos.Text = _totalDesconto.ToString("N2");
+                lblTotalLiquido.Text = _totalLiquido.ToString("N2");
+                AddProdutoGrid();
+                AjeitaCamposGrid();
+                LimpaCamposProd();
+                txtProduto.Focus();
+                CalculaTotaisGrid();
+            }
+            else
+            {
+                MessageBox.Show("Selecione o produto.");
+                txtProduto.Focus();
+            }
+        }
 
         private void txtVlrDesc_KeyPress(object sender, KeyPressEventArgs e)
         {

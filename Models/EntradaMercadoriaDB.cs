@@ -23,5 +23,7 @@ namespace LaPizza.Models
         public double vlrunitariototal { get; set; }
         public double vlrliquidototal { get; set; }
         public double descontototal { get; set; }
+        public string numeronf { get; set; }
+        public string chavenf { get; set; }
     }
 }
