@@ -328,6 +328,8 @@ namespace LaPizza.Views
                         _entradaMercadoria.dataabertura = dtAbertura.Value;
                         _entradaMercadoria.dataconclusao = dtConclusao.Value;
                         _entradaMercadoria.infadicionais = txtInfAdicionais.Text;
+                        _entradaMercadoria.numeronf = txtNumeroNota.Text;
+                        _entradaMercadoria.chavenf = txtChaveNota.Text;
                         if (txtFrete.Text != string.Empty)
                             _entradaMercadoria.vlrfrete = Convert.ToDouble(txtFrete.Text);
                         if (txtOutrosCustos.Text != string.Empty)
