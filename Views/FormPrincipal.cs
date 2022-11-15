@@ -6,6 +6,7 @@ using LaPizza.Controllers;
 using LaPizza.Views;
 using System.Linq;
 using LaPizza.Views.PesquisasAnaliticas;
+using LaPizza.Views.Relatorios;
 
 namespace LaPizza
 {
@@ -31,6 +32,7 @@ namespace LaPizza
         PesqAnaliticaPedidos FPesqAnaPedidos;
         PesqAnaliticaClientes FPesqAnaCliente;
         PesqAnaliticaFornecedores FPesqAnaFornecedores;
+        RelProdutos FRelProdutos;
 
         public FormPrincipal()
         {
@@ -328,6 +330,24 @@ namespace LaPizza
             {
                 FPesqAnaFornecedores.BringToFront();
             }
+        }
+
+        private void btnRelProdutos_Click(object sender, EventArgs e)
+        {
+            if (FRelProdutos == null || FRelProdutos.IsDisposed)
+            {
+                FRelProdutos = new RelProdutos();
+                CentralizaTela(FRelProdutos, btnRelProdutos.Text);
+            }
+            else
+            {
+                FRelProdutos.BringToFront();
+            }
+        }
+
+        private void btnRelMarcas_Click(object sender, EventArgs e)
+        {
+            //nada
         }
     }
 }

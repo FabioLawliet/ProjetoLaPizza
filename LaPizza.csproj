@@ -13,6 +13,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,11 +28,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,6 +65,24 @@
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql, Version=6.0.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>packages\Npgsql.6.0.3\lib\netstandard2.0\Npgsql.dll</HintPath>
@@ -176,6 +194,7 @@
     <Compile Include="Models\UnidadeMedidaDTO.cs" />
     <Compile Include="Models\UsuarioDto.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Views\FormVenFormaPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +419,18 @@
     <Compile Include="Views\Pesquisas\FormVenPedidoVendaPesquisa.Designer.cs">
       <DependentUpon>FormVenPedidoVendaPesquisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Relatorios\RelProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Relatorios\RelProdutos.Designer.cs">
+      <DependentUpon>RelProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Relatorios\RelProdutosRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Relatorios\RelProdutosRV.Designer.cs">
+      <DependentUpon>RelProdutosRV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\FormVenFormaPagamento.resx">
       <DependentUpon>FormVenFormaPagamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -521,7 +552,15 @@
     <EmbeddedResource Include="Views\Pesquisas\FormVenPedidoVendaPesquisa.resx">
       <DependentUpon>FormVenPedidoVendaPesquisa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Relatorios\RelProdutos.resx">
+      <DependentUpon>RelProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Relatorios\RelProdutosRV.resx">
+      <DependentUpon>RelProdutosRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Relatorios\RelProdutos.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\LaPizza.Models.ProdutoDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -611,6 +650,19 @@
     <None Include="Icons\CheckVenda.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Icons\CarrinhoCompras.png" />
     <None Include="Icons\CarrinhoComprasHover.png" />
     <Content Include="Icons\olhoAberto.png" />
