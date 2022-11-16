@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LaPizza.Controllers;
+using LaPizza.DAO;
+using LaPizza.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +21,12 @@ namespace LaPizza.Views.Relatorios
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            using(var frm = new RelProdutosRV())
+            Context db = new Context();
+            ProdutoController ctr = new ProdutoController();
+
+            DataTable dt = CollectionHelper.ConvertTo<ProdutoDTO>(ctr.GetProdutoLista());
+
+            using (var frm = new RelProdutosRV(dt))
             {
                 frm.ShowDialog();
             }

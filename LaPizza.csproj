@@ -137,6 +137,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionHelper.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EntradaMercadoriaController.cs" />

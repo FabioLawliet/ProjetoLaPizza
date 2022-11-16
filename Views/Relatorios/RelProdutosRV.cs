@@ -12,16 +12,19 @@ namespace LaPizza.Views.Relatorios
 {
     public partial class RelProdutosRV : Form
     {
-        public RelProdutosRV()
+        DataTable dt = new DataTable();
+        public RelProdutosRV(DataTable dt)
         {
             InitializeComponent();
+            this.dt = dt;
         }
 
         private void RelProdutosRV_Load(object sender, EventArgs e)
         {
-            {
-                this.reportViewer.RefreshReport();
-            }
+            this.reportViewer.LocalReport.DataSources.Clear();
+            this.reportViewer.LocalReport.DataSources.Add(new
+                Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", dt));
+            this.reportViewer.RefreshReport();
         }
     }
 }
