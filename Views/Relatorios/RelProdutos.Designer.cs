@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lpText1 = new LaPizza.Controllers.LpText();
+            this.txtProdutoId = new LaPizza.Controllers.LpText();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lpText2 = new LaPizza.Controllers.LpText();
+            this.txtProdutoDescricao = new LaPizza.Controllers.LpText();
             this.label3 = new System.Windows.Forms.Label();
-            this.lpText3 = new LaPizza.Controllers.LpText();
+            this.txtGrupoDescricao = new LaPizza.Controllers.LpText();
             this.label4 = new System.Windows.Forms.Label();
-            this.lpText4 = new LaPizza.Controllers.LpText();
+            this.txtGrupoId = new LaPizza.Controllers.LpText();
             this.label5 = new System.Windows.Forms.Label();
-            this.lpText5 = new LaPizza.Controllers.LpText();
+            this.txtSubgrupoDescricao = new LaPizza.Controllers.LpText();
             this.label6 = new System.Windows.Forms.Label();
-            this.lpText6 = new LaPizza.Controllers.LpText();
+            this.txtSubgrupoId = new LaPizza.Controllers.LpText();
             this.label7 = new System.Windows.Forms.Label();
-            this.lpText7 = new LaPizza.Controllers.LpText();
+            this.txtMarcaDescricao = new LaPizza.Controllers.LpText();
             this.label8 = new System.Windows.Forms.Label();
-            this.lpText8 = new LaPizza.Controllers.LpText();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtMarcaId = new LaPizza.Controllers.LpText();
+            this.cbPesquisarAtivos = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbTipoOrdenacao = new System.Windows.Forms.ComboBox();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
             this.pnlAcoesRodape.SuspendLayout();
@@ -57,25 +57,25 @@
             // pnlPrincipal
             // 
             this.pnlPrincipal.Controls.Add(this.label10);
-            this.pnlPrincipal.Controls.Add(this.comboBox2);
+            this.pnlPrincipal.Controls.Add(this.cbTipoOrdenacao);
             this.pnlPrincipal.Controls.Add(this.label9);
-            this.pnlPrincipal.Controls.Add(this.comboBox1);
+            this.pnlPrincipal.Controls.Add(this.cbPesquisarAtivos);
             this.pnlPrincipal.Controls.Add(this.label7);
-            this.pnlPrincipal.Controls.Add(this.lpText7);
+            this.pnlPrincipal.Controls.Add(this.txtMarcaDescricao);
             this.pnlPrincipal.Controls.Add(this.label8);
-            this.pnlPrincipal.Controls.Add(this.lpText8);
+            this.pnlPrincipal.Controls.Add(this.txtMarcaId);
             this.pnlPrincipal.Controls.Add(this.label5);
-            this.pnlPrincipal.Controls.Add(this.lpText5);
+            this.pnlPrincipal.Controls.Add(this.txtSubgrupoDescricao);
             this.pnlPrincipal.Controls.Add(this.label6);
-            this.pnlPrincipal.Controls.Add(this.lpText6);
+            this.pnlPrincipal.Controls.Add(this.txtSubgrupoId);
             this.pnlPrincipal.Controls.Add(this.label3);
-            this.pnlPrincipal.Controls.Add(this.lpText3);
+            this.pnlPrincipal.Controls.Add(this.txtGrupoDescricao);
             this.pnlPrincipal.Controls.Add(this.label4);
-            this.pnlPrincipal.Controls.Add(this.lpText4);
+            this.pnlPrincipal.Controls.Add(this.txtGrupoId);
             this.pnlPrincipal.Controls.Add(this.label2);
-            this.pnlPrincipal.Controls.Add(this.lpText2);
+            this.pnlPrincipal.Controls.Add(this.txtProdutoDescricao);
             this.pnlPrincipal.Controls.Add(this.label1);
-            this.pnlPrincipal.Controls.Add(this.lpText1);
+            this.pnlPrincipal.Controls.Add(this.txtProdutoId);
             this.pnlPrincipal.Size = new System.Drawing.Size(387, 225);
             // 
             // pnlNomeRotina
@@ -151,18 +151,18 @@
             this.pnlAcoesMenu.Size = new System.Drawing.Size(387, 39);
             this.pnlAcoesMenu.Visible = false;
             // 
-            // lpText1
+            // txtProdutoId
             // 
-            this.lpText1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText1.ForeColor = System.Drawing.Color.Black;
-            this.lpText1.Location = new System.Drawing.Point(12, 31);
-            this.lpText1.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText1.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText1.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText1.Name = "lpText1";
-            this.lpText1.Size = new System.Drawing.Size(65, 20);
-            this.lpText1.TabIndex = 0;
+            this.txtProdutoId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProdutoId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProdutoId.ForeColor = System.Drawing.Color.Black;
+            this.txtProdutoId.Location = new System.Drawing.Point(12, 31);
+            this.txtProdutoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtProdutoId.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtProdutoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtProdutoId.Name = "txtProdutoId";
+            this.txtProdutoId.Size = new System.Drawing.Size(65, 20);
+            this.txtProdutoId.TabIndex = 0;
             // 
             // label1
             // 
@@ -182,19 +182,19 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Descrição";
             // 
-            // lpText2
+            // txtProdutoDescricao
             // 
-            this.lpText2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText2.Enabled = false;
-            this.lpText2.ForeColor = System.Drawing.Color.Black;
-            this.lpText2.Location = new System.Drawing.Point(76, 31);
-            this.lpText2.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText2.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText2.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText2.Name = "lpText2";
-            this.lpText2.Size = new System.Drawing.Size(298, 20);
-            this.lpText2.TabIndex = 2;
+            this.txtProdutoDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProdutoDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProdutoDescricao.Enabled = false;
+            this.txtProdutoDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtProdutoDescricao.Location = new System.Drawing.Point(76, 31);
+            this.txtProdutoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtProdutoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtProdutoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtProdutoDescricao.Name = "txtProdutoDescricao";
+            this.txtProdutoDescricao.Size = new System.Drawing.Size(298, 20);
+            this.txtProdutoDescricao.TabIndex = 2;
             // 
             // label3
             // 
@@ -205,19 +205,19 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Descrição";
             // 
-            // lpText3
+            // txtGrupoDescricao
             // 
-            this.lpText3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText3.Enabled = false;
-            this.lpText3.ForeColor = System.Drawing.Color.Black;
-            this.lpText3.Location = new System.Drawing.Point(76, 70);
-            this.lpText3.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText3.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText3.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText3.Name = "lpText3";
-            this.lpText3.Size = new System.Drawing.Size(298, 20);
-            this.lpText3.TabIndex = 6;
+            this.txtGrupoDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGrupoDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGrupoDescricao.Enabled = false;
+            this.txtGrupoDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtGrupoDescricao.Location = new System.Drawing.Point(76, 70);
+            this.txtGrupoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtGrupoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtGrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtGrupoDescricao.Name = "txtGrupoDescricao";
+            this.txtGrupoDescricao.Size = new System.Drawing.Size(298, 20);
+            this.txtGrupoDescricao.TabIndex = 6;
             // 
             // label4
             // 
@@ -228,18 +228,20 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Grupo";
             // 
-            // lpText4
+            // txtGrupoId
             // 
-            this.lpText4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText4.ForeColor = System.Drawing.Color.Black;
-            this.lpText4.Location = new System.Drawing.Point(12, 70);
-            this.lpText4.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText4.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText4.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText4.Name = "lpText4";
-            this.lpText4.Size = new System.Drawing.Size(65, 20);
-            this.lpText4.TabIndex = 4;
+            this.txtGrupoId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGrupoId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGrupoId.ForeColor = System.Drawing.Color.Black;
+            this.txtGrupoId.Location = new System.Drawing.Point(12, 70);
+            this.txtGrupoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtGrupoId.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtGrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtGrupoId.Name = "txtGrupoId";
+            this.txtGrupoId.Size = new System.Drawing.Size(65, 20);
+            this.txtGrupoId.TabIndex = 4;
+            this.txtGrupoId.TextChanged += new System.EventHandler(this.txtGrupoId_TextChanged);
+            this.txtGrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGrupoId_KeyUp);
             // 
             // label5
             // 
@@ -250,19 +252,19 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Descrição";
             // 
-            // lpText5
+            // txtSubgrupoDescricao
             // 
-            this.lpText5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText5.Enabled = false;
-            this.lpText5.ForeColor = System.Drawing.Color.Black;
-            this.lpText5.Location = new System.Drawing.Point(76, 109);
-            this.lpText5.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText5.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText5.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText5.Name = "lpText5";
-            this.lpText5.Size = new System.Drawing.Size(298, 20);
-            this.lpText5.TabIndex = 10;
+            this.txtSubgrupoDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSubgrupoDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSubgrupoDescricao.Enabled = false;
+            this.txtSubgrupoDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtSubgrupoDescricao.Location = new System.Drawing.Point(76, 109);
+            this.txtSubgrupoDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtSubgrupoDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtSubgrupoDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtSubgrupoDescricao.Name = "txtSubgrupoDescricao";
+            this.txtSubgrupoDescricao.Size = new System.Drawing.Size(298, 20);
+            this.txtSubgrupoDescricao.TabIndex = 10;
             // 
             // label6
             // 
@@ -273,18 +275,20 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "SubGrupo";
             // 
-            // lpText6
+            // txtSubgrupoId
             // 
-            this.lpText6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText6.ForeColor = System.Drawing.Color.Black;
-            this.lpText6.Location = new System.Drawing.Point(12, 109);
-            this.lpText6.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText6.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText6.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText6.Name = "lpText6";
-            this.lpText6.Size = new System.Drawing.Size(65, 20);
-            this.lpText6.TabIndex = 8;
+            this.txtSubgrupoId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSubgrupoId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSubgrupoId.ForeColor = System.Drawing.Color.Black;
+            this.txtSubgrupoId.Location = new System.Drawing.Point(12, 109);
+            this.txtSubgrupoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtSubgrupoId.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtSubgrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtSubgrupoId.Name = "txtSubgrupoId";
+            this.txtSubgrupoId.Size = new System.Drawing.Size(65, 20);
+            this.txtSubgrupoId.TabIndex = 8;
+            this.txtSubgrupoId.TextChanged += new System.EventHandler(this.txtSubgrupoId_TextChanged);
+            this.txtSubgrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSubgrupoId_KeyUp);
             // 
             // label7
             // 
@@ -295,19 +299,19 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Descrição";
             // 
-            // lpText7
+            // txtMarcaDescricao
             // 
-            this.lpText7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText7.Enabled = false;
-            this.lpText7.ForeColor = System.Drawing.Color.Black;
-            this.lpText7.Location = new System.Drawing.Point(76, 148);
-            this.lpText7.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText7.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText7.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText7.Name = "lpText7";
-            this.lpText7.Size = new System.Drawing.Size(298, 20);
-            this.lpText7.TabIndex = 14;
+            this.txtMarcaDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMarcaDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarcaDescricao.Enabled = false;
+            this.txtMarcaDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtMarcaDescricao.Location = new System.Drawing.Point(76, 148);
+            this.txtMarcaDescricao.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMarcaDescricao.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMarcaDescricao.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtMarcaDescricao.Name = "txtMarcaDescricao";
+            this.txtMarcaDescricao.Size = new System.Drawing.Size(298, 20);
+            this.txtMarcaDescricao.TabIndex = 14;
             // 
             // label8
             // 
@@ -318,26 +322,28 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Marca";
             // 
-            // lpText8
+            // txtMarcaId
             // 
-            this.lpText8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lpText8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lpText8.ForeColor = System.Drawing.Color.Black;
-            this.lpText8.Location = new System.Drawing.Point(12, 148);
-            this.lpText8.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.lpText8.LpCorPadrao = System.Drawing.SystemColors.Window;
-            this.lpText8.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
-            this.lpText8.Name = "lpText8";
-            this.lpText8.Size = new System.Drawing.Size(65, 20);
-            this.lpText8.TabIndex = 12;
+            this.txtMarcaId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMarcaId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarcaId.ForeColor = System.Drawing.Color.Black;
+            this.txtMarcaId.Location = new System.Drawing.Point(12, 148);
+            this.txtMarcaId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.txtMarcaId.LpCorPadrao = System.Drawing.SystemColors.Window;
+            this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
+            this.txtMarcaId.Name = "txtMarcaId";
+            this.txtMarcaId.Size = new System.Drawing.Size(65, 20);
+            this.txtMarcaId.TabIndex = 12;
+            this.txtMarcaId.TextChanged += new System.EventHandler(this.txtMarcaId_TextChanged);
+            this.txtMarcaId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMarcaId_KeyUp);
             // 
-            // comboBox1
+            // cbPesquisarAtivos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 187);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 21);
-            this.comboBox1.TabIndex = 16;
+            this.cbPesquisarAtivos.FormattingEnabled = true;
+            this.cbPesquisarAtivos.Location = new System.Drawing.Point(12, 187);
+            this.cbPesquisarAtivos.Name = "cbPesquisarAtivos";
+            this.cbPesquisarAtivos.Size = new System.Drawing.Size(151, 21);
+            this.cbPesquisarAtivos.TabIndex = 16;
             // 
             // label9
             // 
@@ -357,13 +363,13 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Ordenar por:";
             // 
-            // comboBox2
+            // cbTipoOrdenacao
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(169, 187);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(205, 21);
-            this.comboBox2.TabIndex = 18;
+            this.cbTipoOrdenacao.FormattingEnabled = true;
+            this.cbTipoOrdenacao.Location = new System.Drawing.Point(169, 187);
+            this.cbTipoOrdenacao.Name = "cbTipoOrdenacao";
+            this.cbTipoOrdenacao.Size = new System.Drawing.Size(205, 21);
+            this.cbTipoOrdenacao.TabIndex = 18;
             // 
             // RelProdutos
             // 
@@ -384,24 +390,24 @@
         #endregion
 
         private System.Windows.Forms.Label label7;
-        private Controllers.LpText lpText7;
+        private Controllers.LpText txtMarcaDescricao;
         private System.Windows.Forms.Label label8;
-        private Controllers.LpText lpText8;
+        private Controllers.LpText txtMarcaId;
         private System.Windows.Forms.Label label5;
-        private Controllers.LpText lpText5;
+        private Controllers.LpText txtSubgrupoDescricao;
         private System.Windows.Forms.Label label6;
-        private Controllers.LpText lpText6;
+        private Controllers.LpText txtSubgrupoId;
         private System.Windows.Forms.Label label3;
-        private Controllers.LpText lpText3;
+        private Controllers.LpText txtGrupoDescricao;
         private System.Windows.Forms.Label label4;
-        private Controllers.LpText lpText4;
+        private Controllers.LpText txtGrupoId;
         private System.Windows.Forms.Label label2;
-        private Controllers.LpText lpText2;
+        private Controllers.LpText txtProdutoDescricao;
         private System.Windows.Forms.Label label1;
-        private Controllers.LpText lpText1;
+        private Controllers.LpText txtProdutoId;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbTipoOrdenacao;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbPesquisarAtivos;
     }
 }
