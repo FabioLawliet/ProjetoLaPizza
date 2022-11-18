@@ -72,8 +72,8 @@
             this.txtPrecoAtual = new LaPizza.Controllers.LpText();
             this.pnlPrincipal.SuspendLayout();
             this.pnlNomeRotina.SuspendLayout();
-            this.pnlAcoesMenu.SuspendLayout();
             this.pnlAcoesRodape.SuspendLayout();
+            this.pnlAcoesMenu.SuspendLayout();
             this.BoxInformacoesGerais.SuspendLayout();
             this.BoxEstoque.SuspendLayout();
             this.BoxPrecos.SuspendLayout();
@@ -91,10 +91,6 @@
             // pnlNomeRotina
             // 
             this.pnlNomeRotina.Size = new System.Drawing.Size(670, 40);
-            // 
-            // pnlAcoesMenu
-            // 
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(670, 39);
             // 
             // btnAcaoAdicionar
             // 
@@ -123,6 +119,7 @@
             // lbNomeRotina
             // 
             this.lbNomeRotina.Size = new System.Drawing.Size(670, 40);
+            this.lbNomeRotina.Text = "Form1";
             // 
             // pnlAcoesRodape
             // 
@@ -164,6 +161,10 @@
             // splitter3
             // 
             this.splitter3.Location = new System.Drawing.Point(560, 5);
+            // 
+            // pnlAcoesMenu
+            // 
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(670, 39);
             // 
             // txtProdutoId
             // 
@@ -695,11 +696,12 @@
             this.KeyPreview = true;
             this.Name = "FormEstProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "";
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlNomeRotina.ResumeLayout(false);
+            this.pnlAcoesRodape.ResumeLayout(false);
             this.pnlAcoesMenu.ResumeLayout(false);
             this.pnlAcoesMenu.PerformLayout();
-            this.pnlAcoesRodape.ResumeLayout(false);
             this.BoxInformacoesGerais.ResumeLayout(false);
             this.BoxInformacoesGerais.PerformLayout();
             this.BoxEstoque.ResumeLayout(false);

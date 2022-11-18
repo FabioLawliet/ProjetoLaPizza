@@ -119,6 +119,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.Location = new System.Drawing.Point(237, 5);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -163,6 +164,9 @@
             this.txtProdutoId.Name = "txtProdutoId";
             this.txtProdutoId.Size = new System.Drawing.Size(65, 20);
             this.txtProdutoId.TabIndex = 0;
+            this.txtProdutoId.TextChanged += new System.EventHandler(this.txtProdutoId_TextChanged);
+            this.txtProdutoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtProdutoId_KeyUp);
+            this.txtProdutoId.Leave += new System.EventHandler(this.LeaveGenerico);
             // 
             // label1
             // 
@@ -218,6 +222,7 @@
             this.txtGrupoDescricao.Name = "txtGrupoDescricao";
             this.txtGrupoDescricao.Size = new System.Drawing.Size(298, 20);
             this.txtGrupoDescricao.TabIndex = 6;
+            this.txtGrupoDescricao.TextChanged += new System.EventHandler(this.txtGrupoDescricao_TextChanged_1);
             // 
             // label4
             // 
@@ -239,9 +244,10 @@
             this.txtGrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtGrupoId.Name = "txtGrupoId";
             this.txtGrupoId.Size = new System.Drawing.Size(65, 20);
-            this.txtGrupoId.TabIndex = 4;
+            this.txtGrupoId.TabIndex = 1;
             this.txtGrupoId.TextChanged += new System.EventHandler(this.txtGrupoId_TextChanged);
             this.txtGrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGrupoId_KeyUp);
+            this.txtGrupoId.Leave += new System.EventHandler(this.LeaveGenerico);
             // 
             // label5
             // 
@@ -279,6 +285,7 @@
             // 
             this.txtSubgrupoId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSubgrupoId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSubgrupoId.Enabled = false;
             this.txtSubgrupoId.ForeColor = System.Drawing.Color.Black;
             this.txtSubgrupoId.Location = new System.Drawing.Point(12, 109);
             this.txtSubgrupoId.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -286,7 +293,7 @@
             this.txtSubgrupoId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtSubgrupoId.Name = "txtSubgrupoId";
             this.txtSubgrupoId.Size = new System.Drawing.Size(65, 20);
-            this.txtSubgrupoId.TabIndex = 8;
+            this.txtSubgrupoId.TabIndex = 2;
             this.txtSubgrupoId.TextChanged += new System.EventHandler(this.txtSubgrupoId_TextChanged);
             this.txtSubgrupoId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSubgrupoId_KeyUp);
             // 
@@ -333,17 +340,22 @@
             this.txtMarcaId.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtMarcaId.Name = "txtMarcaId";
             this.txtMarcaId.Size = new System.Drawing.Size(65, 20);
-            this.txtMarcaId.TabIndex = 12;
+            this.txtMarcaId.TabIndex = 3;
             this.txtMarcaId.TextChanged += new System.EventHandler(this.txtMarcaId_TextChanged);
             this.txtMarcaId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMarcaId_KeyUp);
+            this.txtMarcaId.Leave += new System.EventHandler(this.LeaveGenerico);
             // 
             // cbPesquisarAtivos
             // 
             this.cbPesquisarAtivos.FormattingEnabled = true;
+            this.cbPesquisarAtivos.Items.AddRange(new object[] {
+            "Ativo/Inativos",
+            "Ativos",
+            "Inativos"});
             this.cbPesquisarAtivos.Location = new System.Drawing.Point(12, 187);
             this.cbPesquisarAtivos.Name = "cbPesquisarAtivos";
             this.cbPesquisarAtivos.Size = new System.Drawing.Size(151, 21);
-            this.cbPesquisarAtivos.TabIndex = 16;
+            this.cbPesquisarAtivos.TabIndex = 4;
             // 
             // label9
             // 
@@ -366,10 +378,15 @@
             // cbTipoOrdenacao
             // 
             this.cbTipoOrdenacao.FormattingEnabled = true;
+            this.cbTipoOrdenacao.Items.AddRange(new object[] {
+            "Cod. Produto",
+            "Desc. Produto",
+            "Grupo",
+            "Marca"});
             this.cbTipoOrdenacao.Location = new System.Drawing.Point(169, 187);
             this.cbTipoOrdenacao.Name = "cbTipoOrdenacao";
             this.cbTipoOrdenacao.Size = new System.Drawing.Size(205, 21);
-            this.cbTipoOrdenacao.TabIndex = 18;
+            this.cbTipoOrdenacao.TabIndex = 5;
             // 
             // RelProdutos
             // 

@@ -15,22 +15,54 @@ namespace LaPizza.Views.Relatorios
         public RelProdutos()
         {
             InitializeComponent();
+            LimpaCampos();
             HabilitaAcao(TipoAcao.Confirmar, true);
+        }
+
+        private void habilitaBotoes()
+        {
+            bool Editado = false;
+
+            if (txtProdutoId.Text != "")
+                Editado = true;
+
+            if (txtGrupoId.Text != "")
+                Editado = true;
+
+            if (txtMarcaId.Text != "")
+                Editado = true;
+
+            HabilitaAcao(TipoAcao.Cancelar, Editado);
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             Context db = new Context();
-            ProdutoController ctr = new ProdutoController();
 
-            DataTable dt = CollectionHelper.ConvertTo<ProdutoDTO>(ctr.GetProdutoLista());
+            DataTable dt = CollectionHelper.ConvertTo<ProdutoDTO>(GetProdutoLista());
 
             using (var frm = new RelProdutosRV(dt))
             {
                 frm.ShowDialog();
             }
+
+            HabilitaAcao(TipoAcao.Confirmar, true);
         }
 
+        public void LimpaCampos()
+        {
+            txtProdutoId.Text = "";
+            txtProdutoDescricao.Text = "";
+            txtGrupoId.Text = "";
+            txtGrupoDescricao.Text = "";
+            txtSubgrupoId.Text = "";
+            txtSubgrupoDescricao.Text = "";
+            txtMarcaId.Text = "";
+            txtMarcaDescricao.Text = "";
+            cbPesquisarAtivos.SelectedIndex = 0;
+            cbTipoOrdenacao.SelectedIndex = 0;
+            HabilitaAcao(TipoAcao.Confirmar, true);
+        }
         public List<ProdutoDTO> GetProdutoLista()
         {
             Context db = new Context();
@@ -65,6 +97,11 @@ namespace LaPizza.Views.Relatorios
                                           datacadastro = produto.datacadastro,
                                           ativo = produto.ativo
                                       }).ToList();
+            if (txtProdutoId.Text != "")
+            {
+                Lista = new List<ProdutoDTO>(Lista.Where(p => p.idproduto == Convert.ToInt32(txtProdutoId.Text)));
+                return Lista;
+            }
 
             if (txtMarcaId.Text != "")
                 Lista = new List<ProdutoDTO>(Lista.Where(p => p.idmarca == Convert.ToInt32(txtMarcaId.Text)));
@@ -75,9 +112,9 @@ namespace LaPizza.Views.Relatorios
             if (txtSubgrupoId.Text != "")
                 Lista = new List<ProdutoDTO>(Lista.Where(p => p.idsubgrupo == Convert.ToInt32(txtSubgrupoId.Text)));
 
-            if (cbPesquisarAtivos.SelectedIndex == 0)
+            if (cbPesquisarAtivos.SelectedIndex == 1)
                 Lista = new List<ProdutoDTO>(Lista.Where(p => p.ativo == true));
-            else if (cbPesquisarAtivos.SelectedIndex == 1)
+            else if (cbPesquisarAtivos.SelectedIndex == 2)
                 Lista = new List<ProdutoDTO>(Lista.Where(p => p.ativo == false));
 
 //            if (cbSaldoEstoque.SelectedIndex == 0)
@@ -211,6 +248,80 @@ namespace LaPizza.Views.Relatorios
                     txtMarcaDescricao.Text = Pesq.PesqMarca.descricao;
                 }
             }
+        }
+
+        private void txtProdutoId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProdutoId.Text != "")
+            {
+                ProdutoController Controle = new ProdutoController();
+                ProdutoDTO Produto = new ProdutoDTO();
+
+                var id = Int32.Parse(txtProdutoId.Text);
+
+                if (Controle.ExisteProduto(id))
+                {
+                    Produto = Controle.GetProduto(id);
+                    txtProdutoId.Text = Produto.idproduto.ToString();
+                    txtProdutoDescricao.Text = Produto.descricao;
+                }
+                else
+                    txtProdutoDescricao.Text = String.Empty;
+            }
+            else
+                txtProdutoDescricao.Text = String.Empty;
+
+            if (txtProdutoId.Text != "")
+            {
+                txtMarcaId.Enabled = false;
+                txtMarcaId.Text = "";
+                txtGrupoId.Enabled = false;
+                txtGrupoId.Text = "";
+                txtSubgrupoId.Enabled = false;
+                txtSubgrupoId.Text = "";
+                cbPesquisarAtivos.Enabled = false;
+                cbTipoOrdenacao.Enabled = false;
+            }
+            else
+            {
+                txtMarcaId.Enabled = true;
+                txtGrupoId.Enabled = true;
+                cbPesquisarAtivos.Enabled = true;
+                cbTipoOrdenacao.Enabled = true;
+            }
+        }
+
+        private void txtProdutoId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormEstProdutoPesquisa Pesq = new FormEstProdutoPesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtProdutoId.Text = Pesq.PProduto.idproduto.ToString();
+                    txtProdutoDescricao.Text = Pesq.PProduto.descricao;
+                }
+            }
+        }
+
+        private void txtGrupoDescricao_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtGrupoDescricao.Text != String.Empty)
+                txtSubgrupoId.Enabled = true;
+            else
+                txtSubgrupoId.Enabled = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
+        }
+
+        private void LeaveGenerico(object sender, EventArgs e)
+        {
+            habilitaBotoes();
         }
     }
 }
