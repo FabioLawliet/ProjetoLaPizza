@@ -24,10 +24,8 @@ namespace LaPizza.Views.Relatorios
             txtNomeCliente.Text = "";
             txtCpf.Text = "";
             txtRg.Text = "";
-            txtBairro.Text = "";
             txtCidade.Text = "";
             txtEstado.Text = "";
-            txtCep.Text = "";
             HabilitaAcao(TipoAcao.Confirmar, true);
         }
 
@@ -37,7 +35,6 @@ namespace LaPizza.Views.Relatorios
             List<ClienteDTO> Lista = (from cliente in db.cliente
                                       join cidade in db.cidade on cliente.idcidade equals cidade.idcidade
                                       join estado in db.estado on cidade.idestado equals estado.idestado
-                                      
                                       select new ClienteDTO
                                       {
                                           idcliente = cliente.idcliente,
@@ -58,31 +55,28 @@ namespace LaPizza.Views.Relatorios
                                           ativo = cliente.ativo,
                                       }).ToList();
             if(txtIdCliente.Text != "")
-            {
                 Lista = new List<ClienteDTO>(Lista.Where(p => p.idcliente == Convert.ToInt32(txtIdCliente.Text)));
-                return Lista;
-            }
 
             if(txtNomeCliente.Text != "")
-                Lista = new List<ClienteDTO>(Lista.Where(p => p.nomerazao == Convert.ToString(txtIdCliente.Text)));
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.nomerazao == Convert.ToString(txtNomeCliente.Text)));
 
             if(txtCpf.Text != "")
-                Lista = new List<ClienteDTO>(Lista.Where(p => p.cpfcnpj == Convert.ToString(txtIdCliente.Text)));
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.cpfcnpj == Convert.ToString(txtCpf.Text)));
 
             if(txtRg.Text != "")
-                Lista = new List<ClienteDTO>(Lista.Where(p => p.rgie == Convert.ToString(txtIdCliente.Text)));
-
-            if(txtBairro.Text != "")
-                Lista = new List<ClienteDTO>(Lista.Where(p => p.bairro == Convert.ToString(txtIdCliente.Text)));
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.rgie == Convert.ToString(txtRg.Text)));
 
             if(txtCidade.Text != "")
-                Lista = new List<ClienteDTO>(Lista.Where(p => p.cidadenome == Convert.ToString(txtIdCliente.Text)));
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.cidadenome == Convert.ToString(txtCidade.Text)));
 
             if(txtEstado.Text != "")
-                Lista = new List<ClienteDTO>(Lista.Where(p => p.estadosigla == Convert.ToString(txtIdCliente.Text)));
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.estadosigla == Convert.ToString(txtEstado.Text)));
 
-            if(txtCep.Text != "")
-                Lista = new List<ClienteDTO>(Lista.Where(p => p.cep == Convert.ToString(txtIdCliente.Text)));
+            if (cbTipoOrdenacao.SelectedIndex == 0)
+                Lista = new List<ClienteDTO>(Lista.OrderBy(p => p.idcliente));
+
+            else if (cbTipoOrdenacao.SelectedIndex == 1)
+                Lista = new List<ClienteDTO>(Lista.OrderBy(p => p.nomerazao));
 
             return Lista;
         }
@@ -124,6 +118,20 @@ namespace LaPizza.Views.Relatorios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpaCampos();
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            Context db = new Context();
+
+            DataTable dt = CollectionHelper.ConvertTo<ClienteDTO>(GetClienteLista());
+
+            using (var frm = new RelClienteRV(dt))
+            {
+                frm.ShowDialog();
+            }
+
+            HabilitaAcao(TipoAcao.Confirmar, true);
         }
     }
 }
