@@ -119,6 +119,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.Location = new System.Drawing.Point(368, 5);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
             // 
@@ -340,6 +341,7 @@
             // 
             this.txtNomeCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNomeCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNomeCliente.Enabled = false;
             this.txtNomeCliente.ForeColor = System.Drawing.Color.Black;
             this.txtNomeCliente.Location = new System.Drawing.Point(54, 34);
             this.txtNomeCliente.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -361,6 +363,8 @@
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(43, 20);
             this.txtIdCliente.TabIndex = 24;
+            this.txtIdCliente.TextChanged += new System.EventHandler(this.txtIdCliente_TextChanged);
+            this.txtIdCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdCliente_KeyUp);
             // 
             // label8
             // 

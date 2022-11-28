@@ -63,9 +63,67 @@ namespace LaPizza.Views.Relatorios
                 return Lista;
             }
 
-            if(txtBairro.)
+            if(txtNomeCliente.Text != "")
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.nomerazao == Convert.ToString(txtIdCliente.Text)));
+
+            if(txtCpf.Text != "")
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.cpfcnpj == Convert.ToString(txtIdCliente.Text)));
+
+            if(txtRg.Text != "")
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.rgie == Convert.ToString(txtIdCliente.Text)));
+
+            if(txtBairro.Text != "")
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.bairro == Convert.ToString(txtIdCliente.Text)));
+
+            if(txtCidade.Text != "")
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.cidadenome == Convert.ToString(txtIdCliente.Text)));
+
+            if(txtEstado.Text != "")
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.estadosigla == Convert.ToString(txtIdCliente.Text)));
+
+            if(txtCep.Text != "")
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.cep == Convert.ToString(txtIdCliente.Text)));
 
             return Lista;
+        }
+
+        private void txtIdCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F2)
+            {
+                FormRecClientePesquisa Pesq = new FormRecClientePesquisa();
+                var Result = Pesq.ShowDialog();
+
+                if (Result == DialogResult.OK)
+                {
+                    txtIdCliente.Text = Pesq.PesqCliente.idcliente.ToString();
+                    txtNomeCliente.Text = Pesq.PesqCliente.nomerazao;
+                }
+            }
+        }
+
+        private void txtIdCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIdCliente.Text != "")
+            {
+                ClienteController Controle = new ClienteController();
+                ClienteDTO Cliente = new ClienteDTO();
+
+                var id = Int32.Parse(txtIdCliente.Text);
+
+                if (Controle.ExisteCliente(id))
+                {
+                    Cliente = Controle.GetCliente(id);
+                    txtNomeCliente.Text = Cliente.nomerazao;
+                }
+                else
+                    txtNomeCliente.Text = String.Empty;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
         }
     }
 }
