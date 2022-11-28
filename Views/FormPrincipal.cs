@@ -33,6 +33,7 @@ namespace LaPizza
         PesqAnaliticaClientes FPesqAnaCliente;
         PesqAnaliticaFornecedores FPesqAnaFornecedores;
         RelProdutos FRelProdutos;
+        RelClientes RelClientes;
 
         public FormPrincipal()
         {
@@ -348,6 +349,19 @@ namespace LaPizza
         private void btnRelMarcas_Click(object sender, EventArgs e)
         {
             //nada
+        }
+
+        private void btnRelClientes_Click(object sender, EventArgs e)
+        {
+            if (RelClientes == null || RelClientes.IsDisposed)
+            {
+                RelClientes = new RelClientes();
+                CentralizaTela(FRelProdutos, btnRelProdutos.Text);
+            }
+            else
+            {
+                FRelProdutos.BringToFront();
+            }
         }
     }
 }
