@@ -426,6 +426,18 @@
     <Compile Include="Views\Relatorios\RelClientes.Designer.cs">
       <DependentUpon>RelClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Relatorios\RelMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Relatorios\RelMarcas.Designer.cs">
+      <DependentUpon>RelMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Relatorios\RelMarcasRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Relatorios\RelMarcasRV.Designer.cs">
+      <DependentUpon>RelMarcasRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Relatorios\RelProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -561,6 +573,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Relatorios\RelClientes.resx">
       <DependentUpon>RelClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Relatorios\RelMarcas.resx">
+      <DependentUpon>RelMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Relatorios\RelMarcasRV.resx">
+      <DependentUpon>RelMarcasRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Relatorios\RelProdutos.resx">
       <DependentUpon>RelProdutos.cs</DependentUpon>

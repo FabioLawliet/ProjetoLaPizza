@@ -32,6 +32,7 @@ namespace LaPizza
         PesqAnaliticaPedidos FPesqAnaPedidos;
         PesqAnaliticaClientes FPesqAnaCliente;
         PesqAnaliticaFornecedores FPesqAnaFornecedores;
+        RelMarcas FRelMarcas;
         RelProdutos FRelProdutos;
         RelClientes RelClientes;
 
@@ -348,7 +349,15 @@ namespace LaPizza
 
         private void btnRelMarcas_Click(object sender, EventArgs e)
         {
-            //nada
+            if (FRelMarcas == null || FRelMarcas.IsDisposed)
+            {
+                FRelMarcas = new RelMarcas();
+                CentralizaTela(FRelMarcas, btnRelMarcas.Text);
+            }
+            else
+            {
+                FRelMarcas.BringToFront();
+            }
         }
 
         private void btnRelClientes_Click(object sender, EventArgs e)

@@ -415,7 +415,7 @@
             this.btnRelMarcas.Size = new System.Drawing.Size(233, 25);
             this.btnRelMarcas.TabIndex = 20;
             this.btnRelMarcas.Tag = "btnSubMenu";
-            this.btnRelMarcas.Text = "Relatorio de Marcas";
+            this.btnRelMarcas.Text = "Relatório de Marcas";
             this.btnRelMarcas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRelMarcas.UseVisualStyleBackColor = false;
             this.btnRelMarcas.Click += new System.EventHandler(this.btnRelMarcas_Click);
@@ -436,7 +436,7 @@
             this.btnRelProdutos.Size = new System.Drawing.Size(233, 25);
             this.btnRelProdutos.TabIndex = 19;
             this.btnRelProdutos.Tag = "btnSubMenu";
-            this.btnRelProdutos.Text = "Relatorio de Produtos";
+            this.btnRelProdutos.Text = "Relatório de Produtos";
             this.btnRelProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRelProdutos.UseVisualStyleBackColor = false;
             this.btnRelProdutos.Click += new System.EventHandler(this.btnRelProdutos_Click);
