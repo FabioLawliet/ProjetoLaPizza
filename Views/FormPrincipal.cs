@@ -356,7 +356,7 @@ namespace LaPizza
             if (RelClientes == null || RelClientes.IsDisposed)
             {
                 RelClientes = new RelClientes();
-                CentralizaTela(FRelProdutos, btnRelProdutos.Text);
+                CentralizaTela(RelClientes, RelClientes.Text);
             }
             else
             {
