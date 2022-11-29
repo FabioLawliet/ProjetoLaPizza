@@ -147,6 +147,7 @@ namespace LaPizza.Views.Relatorios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpaCampos();
+            DesabilitaCampos(true);
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
@@ -163,17 +164,29 @@ namespace LaPizza.Views.Relatorios
             HabilitaAcao(TipoAcao.Confirmar, true);
         }
 
-        public void DesabilitaCampos()
+        public void DesabilitaCampos(bool Ativo)
         {
-            //txtIdCliente.Enabled = false;
-            txtNomeCliente.Enabled = false;
-            txtCpf.Enabled = false;
-            txtRg.Enabled = false;
-            txtCidade.Enabled = false;
-            txtEstado.Enabled = false;
+            if (Ativo)
+            {
+                txtIdCliente.Enabled = true;
+                txtNomeCliente.Enabled = true;
+                txtCpf.Enabled = true;
+                txtRg.Enabled = true;
+                txtCidade.Enabled = true;
+                txtEstado.Enabled = true;
+            }
+            else
+            {
+                txtIdCliente.Enabled = false;
+                txtNomeCliente.Enabled = false;
+                txtCpf.Enabled = false;
+                txtRg.Enabled = false;
+                txtCidade.Enabled = false;
+                txtEstado.Enabled = false;
+            }
         }
 
-        private void HabilitaDesabilitaCampos_Leave(object sender, EventArgs e)
+        /*private void HabilitaDesabilitaCampos_Leave(object sender, EventArgs e)
         {
             if (((LpText)sender).Text != "")
             {
@@ -216,6 +229,6 @@ namespace LaPizza.Views.Relatorios
                     txtEstado.Enabled = ((LpText)sender).Enabled;
             }
 
-        }
+        }*/
     }
 }
