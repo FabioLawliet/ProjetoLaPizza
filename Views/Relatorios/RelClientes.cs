@@ -21,6 +21,7 @@ namespace LaPizza.Views.Relatorios
 
         public void LimpaCampos()
         {
+            txtIdCliente.Text = "";
             txtNomeCliente.Text = "";
             txtCpf.Text = "";
             txtRg.Text = "";
@@ -78,6 +79,30 @@ namespace LaPizza.Views.Relatorios
             else if (cbTipoOrdenacao.SelectedIndex == 1)
                 Lista = new List<ClienteDTO>(Lista.OrderBy(p => p.nomerazao));
 
+            MascaraTelefone(Lista);
+
+            return Lista;
+        }
+
+        private string AplicarMascaraTelefone(string strNumero)
+        {
+            // por omissão tem 10 ou menos dígitos
+            string strMascara = "{0:(00)0000-0000}";
+            // converter o texto em número
+            long lngNumero = Convert.ToInt64(strNumero);
+
+            if (strNumero.Length == 11)
+                strMascara = "{0:(00)00000-0000}";
+
+            return string.Format(strMascara, lngNumero);
+        }
+
+        private List<ClienteDTO> MascaraTelefone(List<ClienteDTO> Lista)
+        {
+            foreach(ClienteDTO Item in Lista)
+            {
+                Item.celular = AplicarMascaraTelefone(Item.celular);
+            }
             return Lista;
         }
 
@@ -85,6 +110,7 @@ namespace LaPizza.Views.Relatorios
         {
             if (e.KeyValue == (char)Keys.F2)
             {
+                HabilitaAcao(TipoAcao.Cancelar, true);
                 FormRecClientePesquisa Pesq = new FormRecClientePesquisa();
                 var Result = Pesq.ShowDialog();
 
@@ -100,6 +126,8 @@ namespace LaPizza.Views.Relatorios
         {
             if (txtIdCliente.Text != "")
             {
+                HabilitaAcao(TipoAcao.Cancelar, true);
+                //DesabilitaCampos();
                 ClienteController Controle = new ClienteController();
                 ClienteDTO Cliente = new ClienteDTO();
 
@@ -112,6 +140,7 @@ namespace LaPizza.Views.Relatorios
                 }
                 else
                     txtNomeCliente.Text = String.Empty;
+                    
             }
         }
 
@@ -132,6 +161,61 @@ namespace LaPizza.Views.Relatorios
             }
 
             HabilitaAcao(TipoAcao.Confirmar, true);
+        }
+
+        public void DesabilitaCampos()
+        {
+            //txtIdCliente.Enabled = false;
+            txtNomeCliente.Enabled = false;
+            txtCpf.Enabled = false;
+            txtRg.Enabled = false;
+            txtCidade.Enabled = false;
+            txtEstado.Enabled = false;
+        }
+
+        private void HabilitaDesabilitaCampos_Leave(object sender, EventArgs e)
+        {
+            if (((LpText)sender).Text != "")
+            {
+                if (txtIdCliente.Name != ((LpText)sender).Name)
+                    txtIdCliente.Enabled = !((LpText)sender).Enabled;
+
+                if (txtNomeCliente.Name != ((LpText)sender).Name)
+                    txtNomeCliente.Enabled = !((LpText)sender).Enabled;
+
+                if (txtCpf.Name != ((LpText)sender).Name)
+                    txtCpf.Enabled = !((LpText)sender).Enabled;
+
+                if (txtRg.Name != ((LpText)sender).Name)
+                    txtRg.Enabled = !((LpText)sender).Enabled;
+
+                if (txtCidade.Name != ((LpText)sender).Name)
+                    txtCidade.Enabled = !((LpText)sender).Enabled;
+
+                if (txtEstado.Name != ((LpText)sender).Name)
+                    txtEstado.Enabled = !((LpText)sender).Enabled;
+            }
+            else
+            {
+                if (txtIdCliente.Name != ((LpText)sender).Name)
+                    txtIdCliente.Enabled = ((LpText)sender).Enabled;
+
+                if (txtNomeCliente.Name != ((LpText)sender).Name)
+                    txtNomeCliente.Enabled = ((LpText)sender).Enabled;
+
+                if (txtCpf.Name != ((LpText)sender).Name)
+                    txtCpf.Enabled = ((LpText)sender).Enabled;
+
+                if (txtRg.Name != ((LpText)sender).Name)
+                    txtRg.Enabled = ((LpText)sender).Enabled;
+
+                if (txtCidade.Name != ((LpText)sender).Name)
+                    txtCidade.Enabled = ((LpText)sender).Enabled;
+
+                if (txtEstado.Name != ((LpText)sender).Name)
+                    txtEstado.Enabled = ((LpText)sender).Enabled;
+            }
+
         }
     }
 }

@@ -167,6 +167,7 @@
             this.txtIdCliente.TabIndex = 40;
             this.txtIdCliente.TextChanged += new System.EventHandler(this.txtIdCliente_TextChanged);
             this.txtIdCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIdCliente_KeyUp);
+            this.txtIdCliente.Leave += new System.EventHandler(this.HabilitaDesabilitaCampos_Leave);
             // 
             // label10
             // 
@@ -230,6 +231,7 @@
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(43, 20);
             this.txtEstado.TabIndex = 34;
+            this.txtEstado.Leave += new System.EventHandler(this.HabilitaDesabilitaCampos_Leave);
             // 
             // txtCidade
             // 
@@ -243,6 +245,7 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(208, 20);
             this.txtCidade.TabIndex = 33;
+            this.txtCidade.Leave += new System.EventHandler(this.HabilitaDesabilitaCampos_Leave);
             // 
             // label5
             // 
@@ -275,6 +278,7 @@
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(125, 20);
             this.txtRg.TabIndex = 30;
+            this.txtRg.Leave += new System.EventHandler(this.HabilitaDesabilitaCampos_Leave);
             // 
             // label2
             // 
@@ -297,6 +301,7 @@
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(125, 20);
             this.txtCpf.TabIndex = 28;
+            this.txtCpf.Leave += new System.EventHandler(this.HabilitaDesabilitaCampos_Leave);
             // 
             // label1
             // 
