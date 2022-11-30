@@ -68,49 +68,49 @@
             this.pnlPrincipal.Controls.Add(this.txtCnpj);
             this.pnlPrincipal.Controls.Add(this.label1);
             this.pnlPrincipal.Controls.Add(this.txtNomeFornecedor);
-            this.pnlPrincipal.Size = new System.Drawing.Size(284, 218);
+            this.pnlPrincipal.Size = new System.Drawing.Size(341, 218);
             // 
             // pnlNomeRotina
             // 
-            this.pnlNomeRotina.Size = new System.Drawing.Size(284, 40);
+            this.pnlNomeRotina.Size = new System.Drawing.Size(341, 40);
             // 
             // btnAcaoAdicionar
             // 
             this.btnAcaoAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAcaoAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoAdicionar.Location = new System.Drawing.Point(144, 5);
+            this.btnAcaoAdicionar.Location = new System.Drawing.Point(201, 5);
             // 
             // btnAcaoEditar
             // 
             this.btnAcaoEditar.FlatAppearance.BorderSize = 0;
             this.btnAcaoEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoEditar.Location = new System.Drawing.Point(179, 5);
+            this.btnAcaoEditar.Location = new System.Drawing.Point(236, 5);
             // 
             // btnAcaoConsultar
             // 
             this.btnAcaoConsultar.FlatAppearance.BorderSize = 0;
             this.btnAcaoConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoConsultar.Location = new System.Drawing.Point(214, 5);
+            this.btnAcaoConsultar.Location = new System.Drawing.Point(271, 5);
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Size = new System.Drawing.Size(284, 40);
+            this.lbNomeRotina.Size = new System.Drawing.Size(341, 40);
             this.lbNomeRotina.Text = "";
             // 
             // pnlAcoesRodape
             // 
             this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 297);
-            this.pnlAcoesRodape.Size = new System.Drawing.Size(284, 40);
+            this.pnlAcoesRodape.Size = new System.Drawing.Size(341, 40);
             // 
             // btnCancelar
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnCancelar.Location = new System.Drawing.Point(134, 5);
+            this.btnCancelar.Location = new System.Drawing.Point(191, 5);
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSair
@@ -118,30 +118,31 @@
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.btnSair.Location = new System.Drawing.Point(209, 5);
+            this.btnSair.Location = new System.Drawing.Point(266, 5);
             // 
             // btnAcaoExcluir
             // 
             this.btnAcaoExcluir.FlatAppearance.BorderSize = 0;
             this.btnAcaoExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAcaoExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAcaoExcluir.Location = new System.Drawing.Point(249, 5);
+            this.btnAcaoExcluir.Location = new System.Drawing.Point(306, 5);
             // 
             // btnConfirmar
             // 
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SpringGreen;
-            this.btnConfirmar.Location = new System.Drawing.Point(59, 5);
+            this.btnConfirmar.Location = new System.Drawing.Point(116, 5);
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // splitter3
             // 
-            this.splitter3.Location = new System.Drawing.Point(174, 5);
+            this.splitter3.Location = new System.Drawing.Point(231, 5);
             // 
             // pnlAcoesMenu
             // 
-            this.pnlAcoesMenu.Size = new System.Drawing.Size(284, 39);
+            this.pnlAcoesMenu.Size = new System.Drawing.Size(341, 39);
+            this.pnlAcoesMenu.Visible = false;
             // 
             // label8
             // 
@@ -184,7 +185,7 @@
             "Nome Fornecedor"});
             this.cbTipoOrdenacao.Location = new System.Drawing.Point(15, 185);
             this.cbTipoOrdenacao.Name = "cbTipoOrdenacao";
-            this.cbTipoOrdenacao.Size = new System.Drawing.Size(256, 21);
+            this.cbTipoOrdenacao.Size = new System.Drawing.Size(316, 21);
             this.cbTipoOrdenacao.TabIndex = 53;
             // 
             // label9
@@ -205,13 +206,13 @@
             "Inativos"});
             this.cbPesquisarAtivos.Location = new System.Drawing.Point(15, 146);
             this.cbPesquisarAtivos.Name = "cbPesquisarAtivos";
-            this.cbPesquisarAtivos.Size = new System.Drawing.Size(256, 21);
+            this.cbPesquisarAtivos.Size = new System.Drawing.Size(316, 21);
             this.cbPesquisarAtivos.TabIndex = 52;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(226, 94);
+            this.label6.Location = new System.Drawing.Point(286, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 51;
@@ -222,7 +223,7 @@
             this.txtEstado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEstado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEstado.ForeColor = System.Drawing.Color.Black;
-            this.txtEstado.Location = new System.Drawing.Point(228, 107);
+            this.txtEstado.Location = new System.Drawing.Point(288, 107);
             this.txtEstado.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtEstado.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtEstado.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
@@ -241,7 +242,7 @@
             this.txtCidade.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(215, 20);
+            this.txtCidade.Size = new System.Drawing.Size(268, 20);
             this.txtCidade.TabIndex = 49;
             this.txtCidade.TextChanged += new System.EventHandler(this.txtCidade_TextChanged);
             // 
@@ -258,7 +259,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(147, 52);
+            this.label3.Location = new System.Drawing.Point(184, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 47;
@@ -269,12 +270,12 @@
             this.txtIe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIe.ForeColor = System.Drawing.Color.Black;
-            this.txtIe.Location = new System.Drawing.Point(146, 68);
+            this.txtIe.Location = new System.Drawing.Point(183, 68);
             this.txtIe.LpCorFoco = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.txtIe.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtIe.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtIe.Name = "txtIe";
-            this.txtIe.Size = new System.Drawing.Size(125, 20);
+            this.txtIe.Size = new System.Drawing.Size(148, 20);
             this.txtIe.TabIndex = 46;
             this.txtIe.TextChanged += new System.EventHandler(this.txtIe_TextChanged);
             // 
@@ -297,7 +298,7 @@
             this.txtCnpj.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtCnpj.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtCnpj.Name = "txtCnpj";
-            this.txtCnpj.Size = new System.Drawing.Size(125, 20);
+            this.txtCnpj.Size = new System.Drawing.Size(162, 20);
             this.txtCnpj.TabIndex = 44;
             this.txtCnpj.TextChanged += new System.EventHandler(this.txtCnpj_TextChanged);
             // 
@@ -321,13 +322,13 @@
             this.txtNomeFornecedor.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtNomeFornecedor.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtNomeFornecedor.Name = "txtNomeFornecedor";
-            this.txtNomeFornecedor.Size = new System.Drawing.Size(214, 20);
+            this.txtNomeFornecedor.Size = new System.Drawing.Size(274, 20);
             this.txtNomeFornecedor.TabIndex = 42;
             // 
             // RelFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(284, 337);
+            this.ClientSize = new System.Drawing.Size(341, 337);
             this.Name = "RelFornecedor";
             this.Text = "";
             this.pnlPrincipal.ResumeLayout(false);

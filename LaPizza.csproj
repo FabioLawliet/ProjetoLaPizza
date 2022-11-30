@@ -628,6 +628,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Views\Relatorios\RelFornecedores.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
