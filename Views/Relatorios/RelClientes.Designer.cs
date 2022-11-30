@@ -230,6 +230,7 @@
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(43, 20);
             this.txtEstado.TabIndex = 34;
+            this.txtEstado.TextChanged += new System.EventHandler(this.txtEstado_TextChanged);
             // 
             // txtCidade
             // 
@@ -243,6 +244,7 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(208, 20);
             this.txtCidade.TabIndex = 33;
+            this.txtCidade.TextChanged += new System.EventHandler(this.txtCidade_TextChanged);
             // 
             // label5
             // 
@@ -275,6 +277,7 @@
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(125, 20);
             this.txtRg.TabIndex = 30;
+            this.txtRg.TextChanged += new System.EventHandler(this.txtRg_TextChanged);
             // 
             // label2
             // 
@@ -297,6 +300,7 @@
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(125, 20);
             this.txtCpf.TabIndex = 28;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             // 
             // label1
             // 

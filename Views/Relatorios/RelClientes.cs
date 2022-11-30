@@ -169,7 +169,7 @@ namespace LaPizza.Views.Relatorios
             if (Ativo)
             {
                 txtIdCliente.Enabled = true;
-                txtNomeCliente.Enabled = true;
+                txtNomeCliente.Enabled = false;
                 txtCpf.Enabled = true;
                 txtRg.Enabled = true;
                 txtCidade.Enabled = true;
@@ -184,6 +184,46 @@ namespace LaPizza.Views.Relatorios
                 txtCidade.Enabled = false;
                 txtEstado.Enabled = false;
             }
+        }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            HabilitaAcao(TipoAcao.Cancelar, true);
+            txtIdCliente.Enabled = false;
+            txtNomeCliente.Enabled = false;
+            txtRg.Enabled = false;
+            txtCidade.Enabled = false;
+            txtEstado.Enabled = false;
+        }
+
+        private void txtRg_TextChanged(object sender, EventArgs e)
+        {
+            HabilitaAcao(TipoAcao.Cancelar, true);
+            txtIdCliente.Enabled = false;
+            txtNomeCliente.Enabled = false;
+            txtCpf.Enabled = false;
+            txtCidade.Enabled = false;
+            txtEstado.Enabled = false;
+        }
+
+        private void txtCidade_TextChanged(object sender, EventArgs e)
+        {
+            HabilitaAcao(TipoAcao.Cancelar, true);
+            txtIdCliente.Enabled = false;
+            txtNomeCliente.Enabled = false;
+            txtRg.Enabled = false;
+            txtCpf.Enabled = false;
+            txtEstado.Enabled = false;
+        }
+
+        private void txtEstado_TextChanged(object sender, EventArgs e)
+        {
+            HabilitaAcao(TipoAcao.Cancelar, true);
+            txtIdCliente.Enabled = false;
+            txtNomeCliente.Enabled = false;
+            txtRg.Enabled = false;
+            txtCidade.Enabled = false;
+            txtCpf.Enabled = false;
         }
 
         /*private void HabilitaDesabilitaCampos_Leave(object sender, EventArgs e)
