@@ -63,12 +63,12 @@
             this.btnVenFormaPagamento = new System.Windows.Forms.Button();
             this.btnMenuVenda = new System.Windows.Forms.Button();
             this.pnlSubMenuCliente = new System.Windows.Forms.Panel();
+            this.btnRelClientes = new System.Windows.Forms.Button();
             this.btnPesqCliente = new System.Windows.Forms.Button();
             this.btnCliCadastro = new System.Windows.Forms.Button();
             this.btnMenuCliente = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.btnRelClientes = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.pnlMenuLateral.SuspendLayout();
             this.pnlSubMenuGeral.SuspendLayout();
@@ -762,6 +762,27 @@
             this.pnlSubMenuCliente.TabIndex = 0;
             this.pnlSubMenuCliente.Tag = "pnlSubMenu";
             // 
+            // btnRelClientes
+            // 
+            this.btnRelClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnRelClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRelClientes.FlatAppearance.BorderSize = 0;
+            this.btnRelClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRelClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnRelClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelClientes.ForeColor = System.Drawing.Color.White;
+            this.btnRelClientes.Location = new System.Drawing.Point(0, 50);
+            this.btnRelClientes.Name = "btnRelClientes";
+            this.btnRelClientes.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnRelClientes.Size = new System.Drawing.Size(233, 25);
+            this.btnRelClientes.TabIndex = 6;
+            this.btnRelClientes.Tag = "btnSubMenu";
+            this.btnRelClientes.Text = "Relatório de Clientes";
+            this.btnRelClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelClientes.UseVisualStyleBackColor = false;
+            this.btnRelClientes.Click += new System.EventHandler(this.btnRelClientes_Click);
+            // 
             // btnPesqCliente
             // 
             this.btnPesqCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -846,27 +867,6 @@
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(1114, 749);
             this.pnlPrincipal.TabIndex = 0;
-            // 
-            // btnRelClientes
-            // 
-            this.btnRelClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btnRelClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRelClientes.FlatAppearance.BorderSize = 0;
-            this.btnRelClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnRelClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnRelClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelClientes.ForeColor = System.Drawing.Color.White;
-            this.btnRelClientes.Location = new System.Drawing.Point(0, 50);
-            this.btnRelClientes.Name = "btnRelClientes";
-            this.btnRelClientes.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnRelClientes.Size = new System.Drawing.Size(233, 25);
-            this.btnRelClientes.TabIndex = 6;
-            this.btnRelClientes.Tag = "btnSubMenu";
-            this.btnRelClientes.Text = "Relatório Clientes";
-            this.btnRelClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelClientes.UseVisualStyleBackColor = false;
-            this.btnRelClientes.Click += new System.EventHandler(this.btnRelClientes_Click);
             // 
             // FormPrincipal
             // 

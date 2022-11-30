@@ -68,7 +68,7 @@
             this.pnlPrincipal.Controls.Add(this.txtCpf);
             this.pnlPrincipal.Controls.Add(this.label1);
             this.pnlPrincipal.Controls.Add(this.txtNomeCliente);
-            this.pnlPrincipal.Size = new System.Drawing.Size(284, 214);
+            this.pnlPrincipal.Size = new System.Drawing.Size(284, 218);
             // 
             // pnlNomeRotina
             // 
@@ -98,11 +98,11 @@
             // lbNomeRotina
             // 
             this.lbNomeRotina.Size = new System.Drawing.Size(284, 40);
-            this.lbNomeRotina.Text = "";
+            this.lbNomeRotina.Text = "Relatório de Clientes";
             // 
             // pnlAcoesRodape
             // 
-            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 293);
+            this.pnlAcoesRodape.Location = new System.Drawing.Point(0, 297);
             this.pnlAcoesRodape.Size = new System.Drawing.Size(284, 40);
             // 
             // btnCancelar
@@ -242,7 +242,7 @@
             this.txtCidade.LpCorPadrao = System.Drawing.SystemColors.Window;
             this.txtCidade.LpTipo = LaPizza.Controllers.LpText.tipoCampo.String;
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(208, 20);
+            this.txtCidade.Size = new System.Drawing.Size(215, 20);
             this.txtCidade.TabIndex = 33;
             this.txtCidade.TextChanged += new System.EventHandler(this.txtCidade_TextChanged);
             // 
@@ -328,7 +328,7 @@
             // RelClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(284, 333);
+            this.ClientSize = new System.Drawing.Size(284, 337);
             this.Name = "RelClientes";
             this.Text = "";
             this.pnlPrincipal.ResumeLayout(false);

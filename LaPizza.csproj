@@ -584,6 +584,7 @@
     <EmbeddedResource Include="Views\Relatorios\RelClientes.resx">
       <DependentUpon>RelClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Relatorios\RelMarcas.rdlc" />
     <EmbeddedResource Include="Views\Relatorios\RelMarcas.resx">
       <DependentUpon>RelMarcas.cs</DependentUpon>
     </EmbeddedResource>

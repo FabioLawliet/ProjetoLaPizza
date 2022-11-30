@@ -15,6 +15,7 @@ namespace LaPizza.Views.Relatorios
         public RelClientes()
         {
             InitializeComponent();
+            this.Height = this.Height - 39;
             LimpaCampos();
             HabilitaAcao(TipoAcao.Confirmar, true);
         }

@@ -49,7 +49,9 @@
             this.ClientSize = new System.Drawing.Size(724, 461);
             this.Controls.Add(this.reportViewer);
             this.Name = "RelMarcasRV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

@@ -48,7 +48,9 @@
             this.ClientSize = new System.Drawing.Size(994, 450);
             this.Controls.Add(this.reportViewer);
             this.Name = "RelClienteRV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RelClienteRV";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RelClienteRV_Load);
             this.ResumeLayout(false);
 

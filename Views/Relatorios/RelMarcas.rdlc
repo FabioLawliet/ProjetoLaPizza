@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.99614cm</Width>
+              <Width>2.04141cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>15.10183cm</Width>
+              <Width>15.56691cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.18135cm</Width>
+              <Width>2.22662cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -28,8 +28,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cód. Marca</Value>
-                              <Style />
+                              <Value>Código</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -59,7 +62,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Descrição</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -88,11 +94,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Ativa/Inativa</Value>
-                              <Style />
+                              <Value>Ativa?</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox24</rd:DefaultName>
@@ -124,7 +135,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!idmarca.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -154,7 +167,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!descricao.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -183,11 +198,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ativa.Value</Value>
-                              <Style />
+                              <Value>=IIf(Fields!ativa.Value = True, "Sim", "Não")</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>ativa</rd:DefaultName>
@@ -228,7 +247,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.06703cm</Top>
         <Height>1.2cm</Height>
-        <Width>19.27931cm</Width>
+        <Width>19.83494cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -239,7 +258,7 @@
     <Height>1.39583in</Height>
     <Style />
   </Body>
-  <Width>7.59028in</Width>
+  <Width>7.80903in</Width>
   <Page>
     <PageHeader>
       <Height>2.84979cm</Height>
@@ -266,7 +285,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Height>0.81167cm</Height>
-          <Width>19.24403cm</Width>
+          <Width>19.83495cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -295,7 +314,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.84694cm</Top>
-          <Left>16.49766cm</Left>
+          <Left>17.05329cm</Left>
           <Height>0.6cm</Height>
           <Width>2.77812cm</Width>
           <ZIndex>1</ZIndex>
@@ -327,7 +346,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>1.48928cm</Top>
-          <Left>16.50119cm</Left>
+          <Left>17.05683cm</Left>
           <Height>0.6cm</Height>
           <Width>2.77812cm</Width>
           <ZIndex>2</ZIndex>
@@ -359,7 +378,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>2.1175cm</Top>
-          <Left>16.49766cm</Left>
+          <Left>17.05329cm</Left>
           <Height>0.6cm</Height>
           <Width>2.77812cm</Width>
           <ZIndex>3</ZIndex>
@@ -389,7 +408,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>2.11397cm</Top>
-          <Left>15.10361cm</Left>
+          <Left>15.65925cm</Left>
           <Height>0.6cm</Height>
           <Width>1.3623cm</Width>
           <ZIndex>4</ZIndex>
@@ -419,7 +438,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>1.48222cm</Top>
-          <Left>15.10361cm</Left>
+          <Left>15.65925cm</Left>
           <Height>0.6cm</Height>
           <Width>1.3623cm</Width>
           <ZIndex>5</ZIndex>
@@ -449,7 +468,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.85047cm</Top>
-          <Left>15.10361cm</Left>
+          <Left>15.65925cm</Left>
           <Height>0.6cm</Height>
           <Width>1.3623cm</Width>
           <ZIndex>6</ZIndex>
@@ -494,9 +513,8 @@
         </Textbox>
         <Line Name="Line1">
           <Top>0.85047cm</Top>
-          <Left>0.07056cm</Left>
           <Height>0cm</Height>
-          <Width>19.20875cm</Width>
+          <Width>19.83494cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>
@@ -507,7 +525,7 @@
         <Line Name="Line2">
           <Top>2.80922cm</Top>
           <Height>0cm</Height>
-          <Width>19.20875cm</Width>
+          <Width>19.83494cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
@@ -526,6 +544,19 @@
       <Height>1.05833cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="Line3">
+          <Top>0.07056cm</Top>
+          <Left>0cm</Left>
+          <Height>0cm</Height>
+          <Width>19.83494cm</Width>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
@@ -534,10 +565,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0.5cm</LeftMargin>
+    <RightMargin>0.5cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>0.5cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
