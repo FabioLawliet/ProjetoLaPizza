@@ -380,9 +380,7 @@
             this.cbTipoOrdenacao.FormattingEnabled = true;
             this.cbTipoOrdenacao.Items.AddRange(new object[] {
             "Cod. Produto",
-            "Desc. Produto",
-            "Grupo",
-            "Marca"});
+            "Desc. Produto"});
             this.cbTipoOrdenacao.Location = new System.Drawing.Point(169, 187);
             this.cbTipoOrdenacao.Name = "cbTipoOrdenacao";
             this.cbTipoOrdenacao.Size = new System.Drawing.Size(205, 21);

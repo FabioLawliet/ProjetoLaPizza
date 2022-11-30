@@ -72,9 +72,13 @@ namespace LaPizza.Views.Relatorios
             if (txtEstado.Text != "")
                 Lista = new List<FornecedorDTO>(Lista.Where(p => p.estadosigla == Convert.ToString(txtEstado.Text)));
 
+            if (cbPesquisarAtivos.SelectedIndex == 1)
+                Lista = new List<FornecedorDTO>(Lista.Where(p => p.ativo == true));
+            else if (cbPesquisarAtivos.SelectedIndex == 2)
+                Lista = new List<FornecedorDTO>(Lista.Where(p => p.ativo == false));
+
             if (cbTipoOrdenacao.SelectedIndex == 0)
                 Lista = new List<FornecedorDTO>(Lista.OrderBy(p => p.idfornecedor));
-
             else if (cbTipoOrdenacao.SelectedIndex == 1)
                 Lista = new List<FornecedorDTO>(Lista.OrderBy(p => p.nomerazao));
 
@@ -124,7 +128,7 @@ namespace LaPizza.Views.Relatorios
             if (txtIdFornecedor.Text != "")
             {
                 HabilitaAcao(TipoAcao.Cancelar, true);
-                //DesabilitaCampos();
+                DesabilitaCampos(false);
                 FornecedorController Controle = new FornecedorController();
                 FornecedorDTO Fornecedor = new FornecedorDTO();
 
@@ -137,6 +141,11 @@ namespace LaPizza.Views.Relatorios
                 }
                 else
                     txtNomeFornecedor.Text = String.Empty;
+            }
+            else
+            {
+                DesabilitaCampos(true);
+                txtNomeFornecedor.Text = String.Empty;
             }
         }
 
@@ -163,7 +172,6 @@ namespace LaPizza.Views.Relatorios
         {
             if (Ativo)
             {
-                txtIdFornecedor.Enabled = true;
                 txtNomeFornecedor.Enabled = false;
                 txtCnpj.Enabled = true;
                 txtIe.Enabled = true;
@@ -172,7 +180,6 @@ namespace LaPizza.Views.Relatorios
             }
             else
             {
-                txtIdFornecedor.Enabled = false;
                 txtNomeFornecedor.Enabled = false;
                 txtCnpj.Enabled = false;
                 txtIe.Enabled = false;

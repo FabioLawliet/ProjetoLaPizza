@@ -74,9 +74,13 @@ namespace LaPizza.Views.Relatorios
             if(txtEstado.Text != "")
                 Lista = new List<ClienteDTO>(Lista.Where(p => p.estadosigla == Convert.ToString(txtEstado.Text)));
 
+            if (cbPesquisarAtivos.SelectedIndex == 1)
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.ativo == true));
+            else if (cbPesquisarAtivos.SelectedIndex == 2)
+                Lista = new List<ClienteDTO>(Lista.Where(p => p.ativo == false));
+
             if (cbTipoOrdenacao.SelectedIndex == 0)
                 Lista = new List<ClienteDTO>(Lista.OrderBy(p => p.idcliente));
-
             else if (cbTipoOrdenacao.SelectedIndex == 1)
                 Lista = new List<ClienteDTO>(Lista.OrderBy(p => p.nomerazao));
 
@@ -128,7 +132,7 @@ namespace LaPizza.Views.Relatorios
             if (txtIdCliente.Text != "")
             {
                 HabilitaAcao(TipoAcao.Cancelar, true);
-                //DesabilitaCampos();
+                DesabilitaCampos(false);
                 ClienteController Controle = new ClienteController();
                 ClienteDTO Cliente = new ClienteDTO();
 
@@ -141,7 +145,11 @@ namespace LaPizza.Views.Relatorios
                 }
                 else
                     txtNomeCliente.Text = String.Empty;
-                    
+            }
+            else
+            {
+                DesabilitaCampos(true);
+                txtNomeCliente.Text = String.Empty;
             }
         }
 
@@ -169,7 +177,6 @@ namespace LaPizza.Views.Relatorios
         {
             if (Ativo)
             {
-                txtIdCliente.Enabled = true;
                 txtNomeCliente.Enabled = false;
                 txtCpf.Enabled = true;
                 txtRg.Enabled = true;
@@ -178,7 +185,6 @@ namespace LaPizza.Views.Relatorios
             }
             else
             {
-                txtIdCliente.Enabled = false;
                 txtNomeCliente.Enabled = false;
                 txtCpf.Enabled = false;
                 txtRg.Enabled = false;
