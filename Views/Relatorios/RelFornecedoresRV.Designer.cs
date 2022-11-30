@@ -34,6 +34,7 @@
             // reportViewer
             // 
             this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "LaPizza.Views.Relatorios.RelFornecedores.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(0, 0);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
@@ -47,7 +48,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer);
             this.Name = "RelFornecedoresRV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RelFornecedoresRV";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RelFornecedoresRV_Load);
             this.ResumeLayout(false);
 

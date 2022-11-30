@@ -85,7 +85,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nome Cliente</Value>
+                              <Value>Nome Fornecedor</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -422,7 +422,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!idcliente.Value</Value>
+                              <Value>=Fields!idfornecedor.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -837,7 +837,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Relatório de Clientes</Value>
+                  <Value>Relatório de Fornecedor</Value>
                   <Style>
                     <FontSize>15pt</FontSize>
                   </Style>
@@ -1197,8 +1197,8 @@
           <DataField>idcidade</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="idcliente">
-          <DataField>idcliente</DataField>
+        <Field Name="idfornecedor">
+          <DataField>idfornecedor</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="nomerazao">
@@ -1220,8 +1220,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>LaPizza.Models</rd:DataSetName>
-        <rd:TableName>ClienteDTO</rd:TableName>
-        <rd:ObjectDataSourceType>LaPizza.Models.ClienteDTO, LaPizza, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>FornecedorDTO</rd:TableName>
+        <rd:ObjectDataSourceType>LaPizza.Models.FornecedorDTO, LaPizza, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

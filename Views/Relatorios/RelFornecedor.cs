@@ -152,7 +152,7 @@ namespace LaPizza.Views.Relatorios
 
             DataTable dt = CollectionHelper.ConvertTo<FornecedorDTO>(GetFornecedorLista());
 
-            using (var frm = new RelClienteRV(dt))
+            using (var frm = new RelFornecedoresRV(dt))
             {
                 frm.ShowDialog();
             }
