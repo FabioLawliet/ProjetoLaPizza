@@ -35,6 +35,7 @@ namespace LaPizza
         RelMarcas FRelMarcas;
         RelProdutos FRelProdutos;
         RelClientes FRelClientes;
+        RelFornecedor FRelFornecedores;
 
         public FormPrincipal()
         {
@@ -370,6 +371,19 @@ namespace LaPizza
             else
             {
                 FRelClientes.BringToFront();
+            }
+        }
+
+        private void btnRelFornecedores_Click(object sender, EventArgs e)
+        {
+            if (FRelFornecedores == null || FRelFornecedores.IsDisposed)
+            {
+                FRelFornecedores = new RelFornecedor();
+                CentralizaTela(FRelFornecedores, btnRelFornecedores.Text);
+            }
+            else
+            {
+                FRelFornecedores.BringToFront();
             }
         }
     }

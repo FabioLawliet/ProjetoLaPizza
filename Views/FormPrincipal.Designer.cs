@@ -69,6 +69,7 @@
             this.btnMenuCliente = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.btnRelFornecedores = new System.Windows.Forms.Button();
             this.pnlLateral.SuspendLayout();
             this.pnlMenuLateral.SuspendLayout();
             this.pnlSubMenuGeral.SuspendLayout();
@@ -120,7 +121,7 @@
             this.pnlSubMenuGeral.Controls.Add(this.btnGerCidade);
             this.pnlSubMenuGeral.Controls.Add(this.button3);
             this.pnlSubMenuGeral.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 760);
+            this.pnlSubMenuGeral.Location = new System.Drawing.Point(0, 785);
             this.pnlSubMenuGeral.Name = "pnlSubMenuGeral";
             this.pnlSubMenuGeral.Size = new System.Drawing.Size(233, 75);
             this.pnlSubMenuGeral.TabIndex = 11;
@@ -198,7 +199,7 @@
             this.btnMenuGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuGeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuGeral.ForeColor = System.Drawing.Color.White;
-            this.btnMenuGeral.Location = new System.Drawing.Point(0, 725);
+            this.btnMenuGeral.Location = new System.Drawing.Point(0, 750);
             this.btnMenuGeral.Name = "btnMenuGeral";
             this.btnMenuGeral.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuGeral.Size = new System.Drawing.Size(233, 35);
@@ -216,7 +217,7 @@
             this.pnlSubMenuUsuario.Controls.Add(this.btnUsuControleAcesso);
             this.pnlSubMenuUsuario.Controls.Add(this.btnUsuCadastro);
             this.pnlSubMenuUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 650);
+            this.pnlSubMenuUsuario.Location = new System.Drawing.Point(0, 675);
             this.pnlSubMenuUsuario.Name = "pnlSubMenuUsuario";
             this.pnlSubMenuUsuario.Size = new System.Drawing.Size(233, 75);
             this.pnlSubMenuUsuario.TabIndex = 9;
@@ -293,7 +294,7 @@
             this.btnMenuUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 615);
+            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 640);
             this.btnMenuUsuario.Name = "btnMenuUsuario";
             this.btnMenuUsuario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuUsuario.Size = new System.Drawing.Size(233, 35);
@@ -307,12 +308,13 @@
             // pnlSubMenuFornecedor
             // 
             this.pnlSubMenuFornecedor.AutoSize = true;
+            this.pnlSubMenuFornecedor.Controls.Add(this.btnRelFornecedores);
             this.pnlSubMenuFornecedor.Controls.Add(this.btnPesqFornecedor);
             this.pnlSubMenuFornecedor.Controls.Add(this.btnFornCadastro);
             this.pnlSubMenuFornecedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuFornecedor.Location = new System.Drawing.Point(0, 565);
             this.pnlSubMenuFornecedor.Name = "pnlSubMenuFornecedor";
-            this.pnlSubMenuFornecedor.Size = new System.Drawing.Size(233, 50);
+            this.pnlSubMenuFornecedor.Size = new System.Drawing.Size(233, 75);
             this.pnlSubMenuFornecedor.TabIndex = 7;
             this.pnlSubMenuFornecedor.Tag = "pnlSubMenu";
             // 
@@ -868,6 +870,27 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(1114, 749);
             this.pnlPrincipal.TabIndex = 0;
             // 
+            // btnRelFornecedores
+            // 
+            this.btnRelFornecedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnRelFornecedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRelFornecedores.FlatAppearance.BorderSize = 0;
+            this.btnRelFornecedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRelFornecedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnRelFornecedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelFornecedores.ForeColor = System.Drawing.Color.White;
+            this.btnRelFornecedores.Location = new System.Drawing.Point(0, 50);
+            this.btnRelFornecedores.Name = "btnRelFornecedores";
+            this.btnRelFornecedores.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnRelFornecedores.Size = new System.Drawing.Size(233, 25);
+            this.btnRelFornecedores.TabIndex = 6;
+            this.btnRelFornecedores.Tag = "btnSubMenu";
+            this.btnRelFornecedores.Text = "Relatório de Fornecedores";
+            this.btnRelFornecedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelFornecedores.UseVisualStyleBackColor = false;
+            this.btnRelFornecedores.Click += new System.EventHandler(this.btnRelFornecedores_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -936,6 +959,7 @@
         private System.Windows.Forms.Button btnRelMarcas;
         private System.Windows.Forms.Button btnRelProdutos;
         private System.Windows.Forms.Button btnRelClientes;
+        private System.Windows.Forms.Button btnRelFornecedores;
     }
 }
 
